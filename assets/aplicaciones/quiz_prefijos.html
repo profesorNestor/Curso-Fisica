@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Juego de Prefijos SI ⚛️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #F3F4F6; /* text-gray-200 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        .game-container {
+            background-color: #1F2937; /* bg-gray-800 */
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            padding: 2rem; /* p-8 */
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .option-button {
+            background-color: #374151; /* bg-gray-700 */
+            border: 1px solid #4B5563; /* border-gray-600 */
+            color: #D1D5DB; /* text-gray-300 */
+            transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+        }
+        .option-button:hover {
+            background-color: #4B5563; /* bg-gray-600 */
+            border-color: #6B7280; /* border-gray-500 */
+        }
+        .option-button:active {
+            transform: scale(0.98);
+        }
+        .option-button.correct {
+            background-color: #10B981; /* bg-emerald-500 */
+            color: white;
+            border-color: #059669; /* border-emerald-600 */
+        }
+        .option-button.incorrect {
+            background-color: #EF4444; /* bg-red-500 */
+            color: white;
+            border-color: #DC2626; /* border-red-600 */
+        }
+        .heart {
+            color: #F43F5E; /* text-rose-500 */
+            font-size: 1.75rem; /* text-3xl */
+            transition: transform 0.2s ease-in-out;
+        }
+        .heart.lost {
+            transform: scale(0.8);
+            opacity: 0.5;
+            color: #4B5563; /* text-gray-600 */
+        }
+
+        .primary-button {
+            background-color: #6366F1; /* bg-indigo-500 */
+            color: white;
+            transition: background-color 0.2s;
+        }
+        .primary-button:hover {
+            background-color: #4F46E5; /* bg-indigo-600 */
+        }
+
+        .progress-bar-container {
+            background-color: #374151; /* bg-gray-700 */
+            border-radius: 0.5rem; /* rounded-lg */
+            overflow: hidden;
+            height: 1.25rem; /* h-5 */
+        }
+        .progress-bar {
+            background-color: #8B5CF6; /* bg-violet-500 */
+            height: 100%;
+            transition: width 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 600; /* font-semibold */
+        }
+        .stats-container span {
+            min-width: 70px; /* Ajusta según sea necesario */
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <header class="mb-8">
+            <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+                🚀 Quiz de Prefijos SI ⚛️
+            </h1>
+            <p class="text-lg text-gray-400 mt-2">¡Pon a prueba tus conocimientos!</p>
+        </header>
+
+        <div id="game-area">
+            <!-- Game content will be injected here by JavaScript -->
+        </div>
+
+        <div id="results-area" class="hidden mt-8">
+            <!-- Results will be shown here -->
+        </div>
+    </div>
+
+    <footer class="mt-8 text-center text-gray-500 text-sm">
+        Inspirado en el aprendizaje interactivo.
+    </footer>
+
+    <script>
+        // --- Game Data ---
+        const questions = [
+            {
+                text: "¿Cuál es el prefijo del Sistema Internacional para el factor $10^3$?",
+                options: ["mega", "mili", "kilo", "centi"],
+                correctAnswer: "kilo",
+                hint: "Se usa para mil unidades, como en 'kilogramo'."
+            },
+            {
+                text: "El prefijo 'micro' ($\\mu$) corresponde a un factor de:",
+                options: ["$10^{-3}$", "$10^{-6}$", "$10^{-9}$", "$10^6$"],
+                correctAnswer: "$10^{-6}$",
+                hint: "Representa la millonésima parte de una unidad."
+            },
+            {
+                text: "¿Qué prefijo del SI representa $10^9$?",
+                options: ["tera", "giga", "mega", "peta"],
+                correctAnswer: "giga",
+                hint: "Común en almacenamiento de datos (GB) y frecuencias (GHz)."
+            },
+            {
+                text: "El símbolo 'c' corresponde al prefijo:",
+                options: ["deci", "centi", "mili", "kilo"],
+                correctAnswer: "centi",
+                hint: "Representa la centésima parte, como en 'centímetro'."
+            },
+            {
+                text: "¿Cuál es el factor para el prefijo 'nano' (n)?",
+                options: ["$10^{-6}$", "$10^{-12}$", "$10^{-9}$", "$10^{-3}$"],
+                correctAnswer: "$10^{-9}$",
+                hint: "Asociado con la nanotecnología y escalas muy pequeñas."
+            }
+        ];
+
+        // --- Game State ---
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let lives = 3;
+        const MAX_LIVES = 3;
+        const POINTS_PER_QUESTION = 10;
+
+        // --- DOM Elements ---
+        const gameArea = document.getElementById('game-area');
+        const resultsArea = document.getElementById('results-area');
+
+        // --- Functions ---
+
+        function startGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            lives = MAX_LIVES;
+            resultsArea.classList.add('hidden');
+            gameArea.classList.remove('hidden');
+            displayQuestion();
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise();
+            }
+        }
+
+        function displayQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                endGame();
+                return;
+            }
+
+            const question = questions[currentQuestionIndex];
+            const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+
+            // Shuffle options to make it more dynamic
+            const shuffledOptions = [...question.options].sort(() => Math.random() - 0.5);
+
+            gameArea.innerHTML = `
+                <div class="stats-container flex justify-between items-center mb-6 text-lg">
+                    <div id="lives-display" class="flex items-center">
+                        <span>Vidas:</span> ${renderHearts()}
+                    </div>
+                    <div class="flex items-center">
+                        <span>Puntos:</span> <span class="ml-2 font-bold text-yellow-400">${score}</span>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: ${progressPercentage}%;">
+                           ${currentQuestionIndex + 1}/${questions.length}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-card p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+                    <h2 class="text-2xl font-semibold mb-2">Pregunta ${currentQuestionIndex + 1}:</h2>
+                    <p class="text-xl text-gray-300 mb-3 min-h-[60px] flex items-center justify-center">${question.text}</p>
+                    <p class="text-sm text-purple-300 italic">💡 Pista: ${question.hint}</p>
+                </div>
+
+                <div class="options-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+                    ${shuffledOptions.map(option => `
+                        <button 
+                            class="option-button w-full py-4 px-6 rounded-lg text-lg font-medium focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            onclick="handleAnswer('${option.replace(/'/g, "\\'")}', this)"
+                        >
+                            ${option}
+                        </button>
+                    `).join('')}
+                </div>
+                <div id="feedback-message" class="mt-4 text-lg font-semibold min-h-[28px]"></div>
+            `;
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                 window.MathJax.typesetPromise().then(() => console.log("MathJax typeset complete for question"));
+            }
+        }
+
+        function renderHearts() {
+            let heartsHTML = "";
+            for (let i = 0; i < MAX_LIVES; i++) {
+                heartsHTML += `<i class="fas fa-heart heart ${i < lives ? '' : 'lost'}"></i>`;
+            }
+            return heartsHTML;
+        }
+
+        function handleAnswer(selectedAnswer, buttonElement) {
+            const question = questions[currentQuestionIndex];
+            const feedbackMessage = document.getElementById('feedback-message');
+            const optionButtons = document.querySelectorAll('.option-button');
+            
+            // Disable buttons after an answer is selected
+            optionButtons.forEach(btn => btn.disabled = true);
+
+            if (selectedAnswer === question.correctAnswer) {
+                score += POINTS_PER_QUESTION;
+                buttonElement.classList.add('correct');
+                feedbackMessage.innerHTML = '<span class="text-green-400">✅ ¡Correcto! <i class="fas fa-check-circle"></i></span>';
+            } else {
+                lives--;
+                buttonElement.classList.add('incorrect');
+                feedbackMessage.innerHTML = `<span class="text-red-400">❌ Incorrecto. La respuesta era ${question.correctAnswer}. <i class="fas fa-times-circle"></i></span>`;
+                // Highlight the correct answer
+                optionButtons.forEach(btn => {
+                    if (btn.innerText.trim() === question.correctAnswer) { // Use innerText to compare HTML-rendered content
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Update hearts display immediately
+            const livesDisplay = document.getElementById('lives-display');
+            if(livesDisplay) livesDisplay.innerHTML = `<span>Vidas:</span> ${renderHearts()}`;
+
+
+            if (lives <= 0) {
+                setTimeout(endGame, 2000); // Wait 2s before ending
+                return;
+            }
+
+            currentQuestionIndex++;
+            setTimeout(displayQuestion, 2000); // Wait 2s before next question or results
+        }
+
+        function endGame() {
+            gameArea.classList.add('hidden');
+            resultsArea.classList.remove('hidden');
+
+            const totalPossibleScore = questions.length * POINTS_PER_QUESTION;
+            const percentage = totalPossibleScore > 0 ? (score / totalPossibleScore) * 100 : 0;
+            const grade = (percentage / 100) * 5;
+
+            let resultMessage = "";
+            let resultEmoji = "";
+            let messageColor = "text-yellow-400";
+
+            if (grade >= 4.5) {
+                resultMessage = "¡Excelente! ¡Eres un maestro de los prefijos!";
+                resultEmoji = "🏆🎉";
+                messageColor = "text-green-400";
+            } else if (grade >= 3.5) {
+                resultMessage = "¡Muy bien! Tienes un buen conocimiento.";
+                resultEmoji = "🌟👍";
+                messageColor = "text-lime-400";
+            } else if (grade >= 2.5) {
+                resultMessage = "¡Bien hecho! Sigue practicando.";
+                resultEmoji = "😊📚";
+                messageColor = "text-yellow-400";
+            } else {
+                resultMessage = "Necesitas repasar un poco más. ¡No te rindas!";
+                resultEmoji = "🤔💪";
+                messageColor = "text-orange-400";
+            }
+            if (lives <=0 && grade < 2.5){
+                 resultMessage = "¡Oh no! Te quedaste sin vidas. ¡Inténtalo de nuevo!";
+                 resultEmoji = "💔🔁";
+                 messageColor = "text-red-400";
+            }
+
+
+            resultsArea.innerHTML = `
+                <h2 class="text-3xl font-bold mb-4 ${messageColor}">${resultMessage} ${resultEmoji}</h2>
+                <div class="text-xl mb-2">
+                    Puntuación Final: <span class="font-bold text-yellow-300">${score}</span> de ${totalPossibleScore}
+                </div>
+                <div class="text-xl mb-2">
+                    Respuestas Correctas: <span class="font-bold text-green-300">${score / POINTS_PER_QUESTION}</span> de ${questions.length}
+                </div>
+                <div class="text-xl mb-6">
+                    Calificación: <span class="font-bold ${messageColor}">${grade.toFixed(1)} / 5.0</span>
+                </div>
+                <button 
+                    class="primary-button py-3 px-8 rounded-lg text-lg font-semibold"
+                    onclick="startGame()"
+                >
+                    <i class="fas fa-redo-alt mr-2"></i>Jugar de Nuevo
+                </button>
+            `;
+             if (window.MathJax && window.MathJax.typesetPromise) {
+                 window.MathJax.typesetPromise();
+            }
+        }
+
+        // --- Initial Load ---
+        // Wait for MathJax to be ready before starting the game, if it's included
+        if (typeof MathJax !== 'undefined' && MathJax.startup && MathJax.startup.promise) {
+            MathJax.startup.promise.then(() => {
+                console.log("MathJax is ready.");
+                startGame();
+            }).catch(err => console.error("MathJax startup error:", err));
+        } else {
+            // Fallback if MathJax script fails or is slow
+             console.warn("MathJax not fully loaded or startup promise not available. Starting game directly.");
+            startGame();
+        }
+
+    </script>
+</body>
+</html>

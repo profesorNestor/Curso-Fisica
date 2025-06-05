@@ -1,0 +1,376 @@
+<!-- ================================
+     MAGNITUDES FÍSICAS - CURSO INTERACTIVO DE FÍSICA
+     Versión mejorada, visual, interactiva, con cards y efectos.
+     Listo para ser cargado como contenido principal del curso.
+     Autor: MSc. Néstor Fabio Montoya Palacios
+================================== -->
+
+<!-- Puedes incrustar este contenido en tu sistema SPA.
+     Solo incluye las librerías externas en tu index.html, aquí solo va el cuerpo de la lección. -->
+
+<div class="lesson-header" style="animation: fadeInUp 1s;">
+  <h2 style="display:flex;align-items:center;gap:0.7em;">
+    <i class="fas fa-quote-left" style="color:var(--primary);"></i>
+    Medición: La base de la Física
+    <span style="font-size:2em;">📏✨</span>
+  </h2>
+  <div class="lesson-meta">
+    <span><i class="fas fa-clock"></i> 50 min</span>
+    <span><i class="fas fa-signal"></i> Nivel Básico</span>
+    <span><i class="fas fa-bolt"></i> Interactivo</span>
+    <span class="badge-sim"><i class="fas fa-calculator"></i> Con Simulador</span>
+  </div>
+  <p class="lesson-desc">
+    Descubre el fascinante mundo de las magnitudes físicas, cómo medimos la realidad y cómo el Sistema Internacional de Unidades nos conecta con la ciencia y la tecnología global. <span style="font-size:1.3em;">🌍🔬</span>
+  </p>
+</div>
+
+<!-- ====== FRASE Y OBJETIVO ====== -->
+<div class="card highlight-card" style="margin:2em 0; display:grid; grid-template-columns:1fr 320px; gap:2em;">
+  <div>
+    <h2 style="font-size:2em;color:var(--primary);margin-bottom:0.5em;"><i class="fas fa-bullseye"></i> Objetivo</h2>
+    <p style="font-size:1.2em;">Comprender el concepto de magnitud, su clasificación y la importancia de los sistemas de medida y conversión en la física y la vida cotidiana.</p>
+    <blockquote style="font-style:italic;color:var(--text-secondary);margin:1.5em 0;line-height:1.7;">
+      “Lo que no se define no se puede medir. Lo que no se mide, no se puede mejorar. Lo que no se mejora, se degrada siempre.”<br>
+      <span style="color:var(--primary);font-weight:600;">— Lord Kelvin</span>
+    </blockquote>
+  </div>
+  <div style="text-align:center;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lord_Kelvin_photograph.jpg/256px-Lord_Kelvin_photograph.jpg" alt="Lord Kelvin" style="width:240px;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:3px solid white;">
+    <p style="font-size:0.9em;margin-top:0.5em;color:var(--text-secondary);">William Thomson, Lord Kelvin</p>
+  </div>
+</div>
+
+<!-- ====== HISTORIA DEL SISTEMA DE MEDIDAS ====== -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-history"></i> Breve historia del Sistema Internacional de Unidades (SI) <span style="font-size:1.3em;">🌐</span></h3>
+  <ul style="margin:1.2em 0 0 1.3em;line-height:1.8;">
+    <li>📏 <b>Antigüedad:</b> Las primeras civilizaciones usaban partes del cuerpo, granos de cereal o piedras como patrones (ej. el “codo”, el “pie” o la “pulgada”).</li>
+    <li>🇫🇷 <b>1791 - Francia:</b> Se propone el sistema métrico decimal, con el metro definido como una fracción del meridiano terrestre.</li>
+    <li>💡 <b>1875:</b> Se firma la Convención del Metro, fundando la Oficina Internacional de Pesos y Medidas (BIPM).</li>
+    <li>🧑‍🔬 <b>1960:</b> Se establece el Sistema Internacional de Unidades (SI) en París, con seis unidades básicas.</li>
+    <li>🧪 <b>1971:</b> Se añade el <b>mol</b> como séptima unidad básica.</li>
+    <li>🔬 <b>2019:</b> El SI se redefine en términos de constantes físicas universales (la velocidad de la luz, la constante de Planck, etc.), logrando una precisión sin precedentes.</li>
+  </ul>
+
+
+<!-- ====== MAGNITUD: DEFINICIÓN Y EJEMPLOS ====== -->
+<div class="card" style="margin-bottom:2em;background:var(--bg-gradient);">
+  <h3 style="color:var(--secondary);"><i class="fas fa-ruler"></i> ¿Qué es una magnitud física? <span style="font-size:1.2em;">🔢</span></h3>
+  <p>
+    Una <b>magnitud física</b> es toda propiedad de la materia o la energía que puede ser medida y expresada numéricamente. Ejemplos: <b>longitud, masa, tiempo, temperatura, velocidad, fuerza</b>.
+  </p>
+  <div class="physics-highlights">
+    <div class="highlight-card" style="background:var(--bg-primary);">
+      <span class="card-icon"><i class="fas fa-ruler-horizontal"></i></span>
+      <div class="card-content">
+        <h4>Ejemplo:</h4>
+        <p>La distancia de tu casa a la escuela (longitud) se puede medir en metros.</p>
+      </div>
+    </div>
+    <div class="highlight-card" style="background:var(--bg-primary);">
+      <span class="card-icon"><i class="fas fa-thermometer-half"></i></span>
+      <div class="card-content">
+        <h4>Ejemplo:</h4>
+        <p>La temperatura del cuerpo humano se mide en grados Celsius o Kelvin.</p>
+      </div>
+    </div>
+    <div class="highlight-card" style="background:var(--bg-primary);">
+      <span class="card-icon"><i class="fas fa-weight-hanging"></i></span>
+      <div class="card-content">
+        <h4>Ejemplo:</h4>
+        <p>La masa de una manzana puede ser 120 gramos o 0.12 kilogramos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CLASIFICACIÓN DE MAGNITUDES: ESCALAR, VECTORIAL, TENSORIAL ====== -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-sitemap"></i> Clasificación de Magnitudes <span style="font-size:1.2em;">🧩</span></h3>
+  <div class="physics-highlights" style="margin-bottom:2em;">
+    <div class="highlight-card" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);color:white;">
+      <span class="card-icon"><i class="fas fa-dot-circle"></i></span>
+      <div class="card-content">
+        <h4>Escalares</h4>
+        <p>Solo tienen valor numérico (módulo).<br>Ej: masa, tiempo, temperatura, densidad. <span>📦</span></p>
+      </div>
+    </div>
+    <div class="highlight-card" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);color:white;">
+      <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+      <div class="card-content">
+        <h4>Vectoriales</h4>
+        <p>Tienen módulo, dirección y sentido.<br>Ej: velocidad, fuerza, aceleración. <span>➡️</span></p>
+      </div>
+    </div>
+    <div class="highlight-card" style="background: linear-gradient(135deg, #10b981 0%, #16a34a 100%);color:white;">
+      <span class="card-icon"><i class="fas fa-cubes"></i></span>
+      <div class="card-content">
+        <h4>Tensoriales</h4>
+        <p>Se describen con matrices (varios valores), necesarias para propiedades complejas.<br>Ej: esfuerzo, tensión, inercia. <span>🧊</span></p>
+      </div>
+    </div>
+  </div>
+  <table style="width:100%;margin-top:1em;border-collapse:collapse;background:var(--bg-primary);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:0.98em;">
+    <thead>
+      <tr style="background:var(--gradient-secondary);color:white;">
+        <th style="padding:0.7em;">Tipo</th>
+        <th style="padding:0.7em;">¿Qué tiene?</th>
+        <th style="padding:0.7em;">Ejemplos</th>
+        <th style="padding:0.7em;">Representación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Escalar</td>
+        <td>Solo valor numérico</td>
+        <td>Masa, energía, temperatura, tiempo, volumen</td>
+        <td><i class="fas fa-dot-circle"></i> n = 1</td>
+      </tr>
+      <tr>
+        <td>Vectorial</td>
+        <td>Valor, dirección y sentido</td>
+        <td>Desplazamiento, velocidad, fuerza, campo eléctrico</td>
+        <td><i class="fas fa-arrow-right"></i> n = 2 o 3</td>
+      </tr>
+      <tr>
+        <td>Tensorial</td>
+        <td>Varios valores (matriz)</td>
+        <td>Esfuerzo, tensión, inercia, permeabilidad</td>
+        <td><i class="fas fa-cubes"></i> n ≥ 4</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== UNIDADES BÁSICAS DEL SI ====== -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-balance-scale"></i> Unidades Básicas del SI <span>🔗</span></h3>
+  <div style="overflow-x:auto;margin-top:1.5em;">
+    <table style="width:100%;border-collapse:collapse;background:var(--bg-primary);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+      <thead>
+        <tr style="background:var(--gradient-primary);color:white;">
+          <th style="padding:1em;">Magnitud</th>
+          <th style="padding:1em;">Unidad</th>
+          <th style="padding:1em;">Símbolo</th>
+          <th style="padding:1em;">Definición Moderna</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Longitud</td><td>metro</td><td>m</td>
+          <td>Distancia que recorre la luz en el vacío durante 1/299 792 458 segundos.</td>
+        </tr>
+        <tr>
+          <td>Masa</td><td>kilogramo</td><td>kg</td>
+          <td>Se define a partir de la constante de Planck (h).</td>
+        </tr>
+        <tr>
+          <td>Tiempo</td><td>segundo</td><td>s</td>
+          <td>Duración de 9,192,631,770 periodos de la radiación del cesio-133.</td>
+        </tr>
+        <tr>
+          <td>Intensidad de corriente</td><td>amperio</td><td>A</td>
+          <td>Definida por la carga elemental (e).</td>
+        </tr>
+        <tr>
+          <td>Temperatura</td><td>kelvin</td><td>K</td>
+          <td>Basada en la constante de Boltzmann (k).</td>
+        </tr>
+        <tr>
+          <td>Cantidad de sustancia</td><td>mol</td><td>mol</td>
+          <td>Contiene exactamente 6.02214076 × 10²³ entidades elementales.</td>
+        </tr>
+        <tr>
+          <td>Intensidad luminosa</td><td>candela</td><td>cd</td>
+          <td>Definida por la eficacia luminosa de la radiación a 540 × 10¹² Hz.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;justify-content:center;margin-top:2em;">
+    <img src="assets/images/SI_Logo_with_defining_constants.png" alt="SI Logo" style="width:300px;max-width:90%;border-radius:50%;background:white;box-shadow:var(--shadow);">
+  </div>
+</div>
+
+<!-- ====== PREFIJOS DEL SISTEMA INTERNACIONAL DE MEDIDAS (COMPLETO) ====== -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-superscript"></i> Prefijos del Sistema Internacional de Medidas (SI) <span>🧮</span></h3>
+  <p>
+    Los <b>prefijos del SI</b> permiten expresar múltiplos y submúltiplos decimales de las unidades, facilitando la notación y la lectura de valores muy grandes o muy pequeños. Aquí tienes la tabla completa, desde <b>yotta</b> (\(10^{24}\)) hasta <b>yocto</b> (\(10^{-24}\)):
+  </p>
+  <div style="overflow-x:auto;margin-top:1.2em;">
+    <table style="width:100%;border-collapse:collapse;background:var(--bg-primary);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:1.02em;">
+      <thead>
+        <tr style="background:linear-gradient(90deg,#2563eb 0%,#7c3aed 100%);color:white;">
+          <th>Potencia de 10</th>
+          <th>Nombre</th>
+          <th>Símbolo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="text-align:center;">\(10^{24}\)</td><td>yotta</td><td>Y</td></tr>
+        <tr><td style="text-align:center;">\(10^{21}\)</td><td>zetta</td><td>Z</td></tr>
+        <tr><td style="text-align:center;">\(10^{18}\)</td><td>exa</td><td>E</td></tr>
+        <tr><td style="text-align:center;">\(10^{15}\)</td><td>peta</td><td>P</td></tr>
+        <tr><td style="text-align:center;">\(10^{12}\)</td><td>tera</td><td>T</td></tr>
+        <tr><td style="text-align:center;">\(10^{9}\)</td><td>giga</td><td>G</td></tr>
+        <tr><td style="text-align:center;">\(10^{6}\)</td><td>mega</td><td>M</td></tr>
+        <tr><td style="text-align:center;">\(10^{3}\)</td><td>kilo</td><td>k</td></tr>
+        <tr><td style="text-align:center;">\(10^{2}\)</td><td>hecto</td><td>h</td></tr>
+        <tr><td style="text-align:center;">\(10^{1}\)</td><td>deca</td><td>da</td></tr>
+        <tr><td style="text-align:center;">\(10^{0}\)</td><td>—</td><td>—</td></tr>
+        <tr><td style="text-align:center;">\(10^{-1}\)</td><td>deci</td><td>d</td></tr>
+        <tr><td style="text-align:center;">\(10^{-2}\)</td><td>centi</td><td>c</td></tr>
+        <tr><td style="text-align:center;">\(10^{-3}\)</td><td>mili</td><td>m</td></tr>
+        <tr><td style="text-align:center;">\(10^{-6}\)</td><td>micro</td><td>μ</td></tr>
+        <tr><td style="text-align:center;">\(10^{-9}\)</td><td>nano</td><td>n</td></tr>
+        <tr><td style="text-align:center;">\(10^{-12}\)</td><td>pico</td><td>p</td></tr>
+        <tr><td style="text-align:center;">\(10^{-15}\)</td><td>femto</td><td>f</td></tr>
+        <tr><td style="text-align:center;">\(10^{-18}\)</td><td>atto</td><td>a</td></tr>
+        <tr><td style="text-align:center;">\(10^{-21}\)</td><td>zepto</td><td>z</td></tr>
+        <tr><td style="text-align:center;">\(10^{-24}\)</td><td>yocto</td><td>y</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:1.2em;color:var(--primary);font-size:1em;">
+    <i class="fas fa-info-circle"></i> <b>¿Sabías que?</b> Los prefijos como <b>micro</b> (μ) y <b>nano</b> (n) son esenciales en electrónica y biología, mientras que <b>giga</b> (G) y <b>tera</b> (T) se usan mucho en informática.
+  </div>
+</div>
+
+
+<!-- ====== MAGNITUDES FUNDAMENTALES Y SU HISTORIA ====== -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-atom"></i> Magnitudes Fundamentales del SI y su Evolución <span>🌟</span></h3>
+  <p>
+    El <b>Sistema Internacional</b> define siete magnitudes físicas fundamentales. Aquí tienes su historia, sus unidades y sus definiciones modernas.  
+    <span style="font-size:1.5em;">📏⚖️⏰🌡️🔌💡🧪</span>
+  </p>
+  <div class="physics-highlights" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2em;margin-top:2em;">
+    
+    <!-- LONGITUD -->
+    <div class="highlight-card" style="background:linear-gradient(135deg,#38bdf8 0%,#2563eb 100%);color:white;">
+      <span class="card-icon"><i class="fas fa-ruler"></i></span>
+      <div class="card-content">
+        <h4>Longitud (metro, m)</h4>
+        <ul style="margin-left:1em;">
+          <li><b>Antigüedad:</b> Se usaban el pie, la pulgada, la vara…</li>
+          <li><b>1791:</b> El metro se define como la diezmillonésima parte de la distancia del polo al ecuador.</li>
+          <li><b>1889:</b> Metro patrón: barra de platino-iridio.</li>
+          <li><b>1960:</b> Longitud de onda de la luz de kriptón-86.</li>
+          <li><b>1983-Actual:</b> <span style="color:#f59e0b;">Distancia que recorre la luz en el vacío en 1/299,792,458 segundos.</span></li>
+        </ul>
+        <p style="margin-top:0.7em;font-size:1.08em;"><b>Unidad actual:</b> metro (<b>m</b>)</p>
+      </div>
+    </div>
+    
+    <!-- MASA -->
+    <div class="highlight-card" style="background:linear-gradient(135deg,#fb7185 0%,#f43f5e 100%);color:white;">
+      <span class="card-icon"><i class="fas fa-weight-hanging"></i></span>
+      <div class="card-content">
+        <h4>Masa (kilogramo, kg)</h4>
+        <ul style="margin-left:1em;">
+          <li><b>Original:</b> Equivale a 1 litro (1 dm³) de agua destilada a 4°C.</li>
+          <li><b>1889:</b> Patrón internacional: cilindro de platino-iridio guardado en Sèvres, Francia.</li>
+          <li><b>2019-Actual:</b> <span style="color:#f59e0b;">Definida a partir de la constante de Planck (h): \( h = 6.62607015 \times 10^{-34} \) J·s.</span></li>
+        </ul>
+        <p style="margin-top:0.7em;font-size:1.08em;"><b>Unidad actual:</b> kilogramo (<b>kg</b>)</p>
+      </div>
+    </div>
+    
+    <!-- TIEMPO -->
+    <div class="highlight-card" style="background:linear-gradient(135deg,#facc15 0%,#fde68a 100%);color:#374151;">
+      <span class="card-icon"><i class="fas fa-clock"></i></span>
+      <div class="card-content">
+        <h4>Tiempo (segundo, s)</h4>
+        <ul style="margin-left:1em;">
+          <li><b>Original:</b> 1/86,400 de un día solar medio (basado en la rotación terrestre).</li>
+          <li><b>1949:</b> Se define con relojes de cuarzo.</li>
+          <li><b>1967-Actual:</b> <span style="color:#f59e0b;">Duración de 9,192,631,770 oscilaciones de la radiación del átomo de cesio-133.</span></li>
+        </ul>
+        <p style="margin-top:0.7em;font-size:1.08em;"><b>Unidad actual:</b> segundo (<b>s</b>)</p>
+      </div>
+    </div>
+    
+    <!-- TEMPERATURA -->
+    <div class="highlight-card" style="background:linear-gradient(135deg,#f59e0b 0%,#fde68a 100%);color:#374151;">
+      <span class="card-icon"><i class="fas fa-thermometer-half"></i></span>
+      <div class="card-content">
+        <h4>Temperatura (kelvin, K)</h4>
+        <ul style="margin-left:1em;">
+          <li><b>Antiguo:</b> Basada en el punto triple del agua (0.01°C).</li>
+          <li><b>2019-Actual:</b> <span style="color:#2563eb;">Definida por la constante de Boltzmann: \( k = 1.380649 \times 10^{-23} \) J/K.</span></li>
+        </ul>
+        <p style="margin-top:0.7em;font-size:1.08em;"><b>Unidad actual:</b> kelvin (<b>K</b>)</p>
+      </div>
+    </div>
+    
+    <!-- INTENSIDAD DE CORRIENTE -->
+    <div class="highlight-card" style="background:linear-gradient(135deg,#10b981 0%,#34d399 100%);color:white;">
+      <span class="card-icon"><i class="fas fa-bolt"></i></span>
+      <div class="card-content">
+        <h4>Intensidad de corriente (amperio, A)</h4>
+        <ul style="margin-left:1em;">
+          <li><b>Antiguo:</b> Definida por la fuerza entre dos hilos conductores paralelos.</li>
+          <li><b>2019-Actual:</b> <span style="color:#fde68a;">Definida a partir de la carga elemental: \( e = 1.602176634 \times 10^{-19} \) C.</span></li>
+        </ul>
+        <p style="margin-top:0.7em;font-size:1.08em;"><b>Unidad actual:</b> amperio (<b>A</b>)</p>
+      </div>
+    </div>
+    
+    <!-- INTENSIDAD LUMINOSA -->
+    <div class="highlight-card" style="background:linear-gradient(135deg,#7c3aed 0%,#f472b6 100%);color:white;">
+      <span class="card-icon"><i class="fas fa-lightbulb"></i></span>
+      <div class="card-content">
+        <h4>Intensidad luminosa (candela, cd)</h4>
+        <ul style="margin-left:1em;">
+          <li><b>Antiguo:</b> Equivale a la luz emitida por una vela estándar.</li>
+          <li><b>1979-Actual:</b> <span style="color:#f59e0b;">Definida por la eficacia luminosa de la radiación de frecuencia 540 × 10<sup>12</sup> Hz.</span></li>
+        </ul>
+        <p style="margin-top:0.7em;font-size:1.08em;"><b>Unidad actual:</b> candela (<b>cd</b>)</p>
+      </div>
+    </div>
+    
+    <!-- CANTIDAD DE SUSTANCIA -->
+    <div class="highlight-card" style="background:linear-gradient(135deg,#fde68a 0%,#fbbf24 100%);color:#374151;">
+      <span class="card-icon"><i class="fas fa-vial"></i></span>
+      <div class="card-content">
+        <h4>Cantidad de sustancia (mol, mol)</h4>
+        <ul style="margin-left:1em;">
+          <li><b>1971:</b> El <b>mol</b> es incorporado oficialmente al SI.</li>
+          <li><b>Actual:</b> <span style="color:#10b981;">Un mol contiene exactamente 6.02214076 × 10<sup>23</sup> entidades elementales (número de Avogadro).</span></li>
+        </ul>
+        <p style="margin-top:0.7em;font-size:1.08em;"><b>Unidad actual:</b> mol (<b>mol</b>)</p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+<!-- ====== APLICACIÓN INTERACTIVA: CONVERSOR DE UNIDADES ====== -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-calculator"></i> Conversor Interactivo de Unidades <span>🔄</span></h3>
+  <p>
+    Ahora que conoces la teoría y los prefijos del Sistema Internacional, ¡practica las conversiones de unidades con esta herramienta interactiva! Convierte <b>longitud</b>, <b>masa</b>, <b>tiempo</b>, <b>temperatura</b>, <b>fuerza</b>, <b>energía</b> y muchas más, de manera sencilla y visual.
+  </p>
+  <div style="display:flex;justify-content:center;align-items:center;margin:2em 0;">
+    <iframe 
+      src="assets/aplicaciones/conversor_unidades.html" 
+      width="520" height="600"
+      style="border:2px solid var(--primary);border-radius:18px;box-shadow:0 10px 48px #2563eb22,0 1.5px 0 #3b82f6;background:white;"
+      title="Conversor Interactivo de Unidades"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div style="text-align:center;margin-top:1em;color:var(--primary);font-size:1.08em;">
+    <i class="fas fa-lightbulb"></i> <b>Tip:</b> Realiza varios ejemplos para dominar la conversión. ¡Es clave en física, química, tecnología y tu vida cotidiana!
+  </div>
+</div>
+
+
+
+

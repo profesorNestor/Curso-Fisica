@@ -1,0 +1,227 @@
+<!-- =========================================
+     CONVERSIÓN DE MEDIDAS - CURSO INTERACTIVO DE FÍSICA
+     Página: conversion-medidas.html
+     Diseño visual, interactivo y pedagógico
+     Autor: MSc. Néstor Fabio Montoya Palacios
+========================================== -->
+
+<!-- ENCABEZADO -->
+<div class="lesson-header" style="animation: fadeInUp 1s;">
+  <h2 style="display:flex;align-items:center;gap:0.7em;">
+    <i class="fas fa-exchange-alt"></i>
+    Conversión de Medidas
+    <span style="font-size:2em;">🔄📏</span>
+  </h2>
+  <div class="lesson-meta">
+    <span><i class="fas fa-clock"></i> 40 min</span>
+    <span><i class="fas fa-signal"></i> Nivel Básico</span>
+    <span class="badge-sim"><i class="fas fa-laptop-code"></i> Python & Canvas</span>
+  </div>
+  <p class="lesson-desc">
+    Aprende a convertir unidades como un profesional usando factores de conversión, Python y simuladores visuales.<br>
+    ¡Convierte, programa, juega y domina las unidades! 🚀
+  </p>
+</div>
+
+<!-- METODO MANUAL Y MATHJAX -->
+<div class="card" style="margin-bottom:2em;animation:fadeInUp 1.3s;">
+  <h3 style="color:var(--primary);"><i class="fas fa-pencil-alt"></i> Conversión Manual: Paso a Paso <span>🧮</span></h3>
+  <div style="font-size:1.09em;line-height:1.7;">
+    <b>¿Cómo convertir unidades?</b>  
+    Usa <span style="color:var(--accent);font-weight:600;">factores de conversión</span> para cambiar de una unidad a otra.  
+    <ul style="margin-top:1em;margin-left:1.4em;">
+      <li>Multiplica por una fracción igual a 1, escrita para cancelar la unidad original.</li>
+      <li>¡No olvides los <b>paréntesis</b> y cancelar correctamente las unidades!</li>
+    </ul>
+    <div class="highlight-card" style="background:var(--bg-tertiary);margin-top:1em;">
+      <b>Ejemplo 1:</b> Convertir <span style="color:#2563eb;font-weight:600;">3.5 km</span> a metros.
+      <div style="margin:0.6em 0;color:#7c3aed;">
+        <span id="mathjax1">$$3.5\,\text{km} \times \left( \frac{1000\,\text{m}}{1\,\text{km}} \right) = 3500\,\text{m}$$</span>
+      </div>
+    </div>
+    <div class="highlight-card" style="background:var(--bg-tertiary);margin-top:1em;">
+      <b>Ejemplo 2:</b> Convertir <span style="color:#10b981;font-weight:600;">4500 g</span> a kilogramos.
+      <div style="margin:0.6em 0;color:#f59e0b;">
+        <span id="mathjax2">$$4500\,\text{g} \times \left( \frac{1\,\text{kg}}{1000\,\text{g}} \right) = 4.5\,\text{kg}$$</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARDS DE RETOS Y TIPS -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.3em;margin-bottom:2em;">
+  <div class="card" style="background:linear-gradient(135deg,#e0e7ff 40%,#a7f3d0 100%);">
+    <span style="font-size:1.3em;">🎯</span> <b>Reto:</b> Convierte 2.3 h a segundos usando el método manual.<br>
+    <span style="font-size:1em;color:#6366f1;">¿Tu resultado es 8280 s?</span>
+  </div>
+  <div class="card" style="background:linear-gradient(135deg,#fef9c3 20%,#fde68a 100%);">
+    <span style="font-size:1.3em;">💡</span> <b>Tip:</b> Siempre verifica el <b>sentido físico</b> de tu resultado. ¿Es lógico?
+  </div>
+  <div class="card" style="background:linear-gradient(135deg,#fbc2eb 10%,#a5b4fc 100%);">
+    <span style="font-size:1.3em;">❌</span> <b>Error común:</b> ¡No olvides cancelar las unidades en cada paso!
+  </div>
+</div>
+
+<!-- TABLA DE CONVERSIONES COMUNES -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--secondary);"><i class="fas fa-table"></i> Tabla de Conversiones Comunes <span>📚</span></h3>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;background:var(--bg-primary);border-radius:0.9em;box-shadow:var(--shadow);font-size:1.08em;">
+      <thead>
+        <tr style="background:linear-gradient(90deg,#2563eb 0%,#f59e0b 100%);color:white;">
+          <th>De</th><th>A</th><th>Factor</th><th>Ejemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1 km</td><td>1000 m</td><td>×1000</td><td>2.2 km × 1000 = 2200 m</td></tr>
+        <tr><td>1 m</td><td>100 cm</td><td>×100</td><td>3 m × 100 = 300 cm</td></tr>
+        <tr><td>1 h</td><td>60 min</td><td>×60</td><td>4 h × 60 = 240 min</td></tr>
+        <tr><td>1 min</td><td>60 s</td><td>×60</td><td>7 min × 60 = 420 s</td></tr>
+        <tr><td>1 kg</td><td>1000 g</td><td>×1000</td><td>0.8 kg × 1000 = 800 g</td></tr>
+        <tr><td>1 L</td><td>1000 mL</td><td>×1000</td><td>2.5 L × 1000 = 2500 mL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- COLAB BLOCKS INTERACTIVOS -->
+<div class="card" style="margin-bottom:2em;background:var(--bg-tertiary);">
+  <h3 style="color:var(--primary);"><i class="fab fa-python"></i> Conversión Automática en Python (Estilo Colab) <span>💻🐍</span></h3>
+  <p>
+    ¡Así se convierte en Google Colab! Puedes <b>copiar y pegar</b> estos bloques en tu notebook y experimentar.
+  </p>
+  <div style="background:#181818;border-radius:1em;padding:1.2em 1.5em;margin:1.3em 0;box-shadow:0 4px 14px #0004;font-family:'Fira Mono',monospace,'Consolas';color:#f1f5f9;max-width:95vw;overflow-x:auto;">
+<pre style="font-size:1.11em;margin:0;">
+<span style="color:#f59e0b;"># Ejemplo: Convertir 8.4 millas a kilómetros (1 milla = 1.609 km)</span>
+millas = 8.4
+km = millas * 1.609
+print(f"{millas} millas son {km:.2f} kilómetros")
+</pre>
+  </div>
+  <div style="background:#181818;border-radius:1em;padding:1.2em 1.5em;margin:1.3em 0 0 0;box-shadow:0 4px 14px #0004;font-family:'Fira Mono',monospace,'Consolas';color:#f1f5f9;max-width:95vw;overflow-x:auto;">
+<pre style="font-size:1.11em;margin:0;">
+<span style="color:#38bdf8;"># Ejemplo: Convertir 5250 segundos a horas</span>
+segundos = 5250
+horas = segundos / 3600
+print(f"{segundos} segundos son {horas:.3f} horas")
+</pre>
+  </div>
+  <div style="text-align:right;margin-top:0.8em;">
+    <button onclick="navigator.clipboard.writeText(`# Copia y pega esto en Google Colab\nmillas = 8.4\nkm = millas * 1.609\nprint(f\"{millas} millas son {km:.2f} kilómetros\")\n')" class="btn btn-accent" style="margin-right:1em;">
+      <i class="fas fa-copy"></i> Copiar código 1
+    </button>
+    <button onclick="navigator.clipboard.writeText(`# Copia y pega esto en Google Colab\nsegundos = 5250\nhoras = segundos / 3600\nprint(f\"{segundos} segundos son {horas:.3f} horas\")\n')" class="btn btn-accent">
+      <i class="fas fa-copy"></i> Copiar código 2
+    </button>
+  </div>
+  <p style="font-size:1em;color:#93c5fd;margin-top:1.2em;">💡 <b>Explora:</b> Cambia los valores y prueba otras unidades o factores de conversión.</p>
+</div>
+
+<!-- CANVAS SUPER VISUAL Y GAMIFICADO -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--secondary);"><i class="fas fa-magic"></i> Práctica Interactiva Visual <span>🎨🌈</span></h3>
+  <p>
+    Elige unidades, escribe una cantidad y observa cómo se transforma visualmente.<br>
+    ¡Recibe estrellas por cada conversión correcta y desafía tus propios récords!
+  </p>
+  <canvas id="conversionCanvas" width="670" height="170" style="width:100%;max-width:670px;border-radius:16px;border:1.7px solid #7c3aed;background:#f1f5f9;box-shadow:0 2px 18px #0001;"></canvas>
+  <div style="margin:1.1em 0;">
+    <label for="cantidad" style="font-weight:bold;">Cantidad:</label>
+    <input type="number" id="cantidad" value="1" style="width:90px;font-size:1.13em;">
+    <select id="unidadOrigen" style="font-size:1.13em;">
+      <option value="km">km</option><option value="m">m</option><option value="cm">cm</option>
+      <option value="mm">mm</option><option value="kg">kg</option><option value="g">g</option>
+      <option value="mg">mg</option><option value="l">L</option><option value="ml">mL</option>
+      <option value="h">h</option><option value="min">min</option><option value="s">s</option>
+    </select>
+    <span style="font-size:1.3em;font-weight:bold;">→</span>
+    <select id="unidadDestino" style="font-size:1.13em;">
+      <option value="m">m</option><option value="km">km</option><option value="cm">cm</option>
+      <option value="mm">mm</option><option value="kg">kg</option><option value="g">g</option>
+      <option value="mg">mg</option><option value="l">L</option><option value="ml">mL</option>
+      <option value="h">h</option><option value="min">min</option><option value="s">s</option>
+    </select>
+    <button onclick="convertirEnCanvas()" class="btn btn-accent" style="margin-left:1.3em;"><i class="fas fa-sync"></i> Convertir</button>
+  </div>
+  <div id="canvasResult" style="font-size:1.25em;color:#10b981;margin-top:0.8em;"></div>
+</div>
+<script>
+// Factores de conversión en base a unidad SI
+const factores = {
+  km: 1000, m: 1, cm: 0.01, mm: 0.001,
+  kg: 1000, g: 1, mg: 0.001,
+  l: 1, ml: 0.001,
+  h: 3600, min: 60, s: 1,
+};
+let estrellas = 0;
+function convertirEnCanvas() {
+  const cant = parseFloat(document.getElementById('cantidad').value);
+  const orig = document.getElementById('unidadOrigen').value;
+  const dest = document.getElementById('unidadDestino').value;
+  let val = cant * (factores[orig] / factores[dest]);
+  document.getElementById('canvasResult').innerHTML =
+    `${cant} ${orig} = <b>${val.toLocaleString(undefined, {maximumFractionDigits: 6})} ${dest}</b>`;
+  // Visualización animada
+  const ctx = document.getElementById('conversionCanvas').getContext('2d');
+  ctx.clearRect(0, 0, 670, 170);
+  ctx.fillStyle = "#7c3aed";
+  ctx.font = "bold 1.6em Montserrat, Arial";
+  ctx.fillText(`${cant} ${orig}`, 32, 70);
+  ctx.font = "1.2em Montserrat, Arial";
+  ctx.fillStyle = "#2563eb";
+  ctx.fillText("equivale a", 260, 70);
+  ctx.font = "bold 1.6em Montserrat, Arial";
+  ctx.fillStyle = "#10b981";
+  ctx.fillText(`${val.toLocaleString(undefined, {maximumFractionDigits: 6})} ${dest}`, 420, 70);
+  // Estrellas animadas
+  ctx.font = "2.1em Arial";
+  for (let i = 0; i < estrellas; i++) {
+    ctx.fillStyle = "#fbbf24";
+    ctx.fillText("★", 75 + i * 32, 140);
+  }
+  ctx.font = "0.99em Montserrat, Arial";
+  ctx.fillStyle = "#6366f1";
+  ctx.fillText("¡Sigue practicando y suma más estrellas! ⭐", 30, 155);
+  // Gana estrellas por usar la herramienta
+  if (!isNaN(val)) estrellas = Math.min(estrellas + 1, 7);
+}
+window.onload = convertirEnCanvas;
+</script>
+
+<!-- CONVERSOR AVANZADO (IFRAME) -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-tools"></i> Conversor de Unidades Avanzado <span>🧑‍💻</span></h3>
+  <iframe 
+    src="assets/aplicaciones/conversor_unidades.html"
+    style="width:100%;max-width:750px;height:480px;min-height:380px;border:none;border-radius:24px;box-shadow:0 2px 18px #0002;margin:auto;display:block;background:white;"
+    loading="lazy"
+    title="Conversor Interactivo de Unidades"
+    sandbox="allow-scripts allow-same-origin allow-forms"
+  ></iframe>
+</div>
+
+<!-- TIPS, ERRORES Y EXTRAS -->
+<div class="card" style="background:linear-gradient(90deg,#fbc2eb33 0%,#a5b4fc33 100%);margin-bottom:2em;">
+  <h3 style="color:var(--secondary);"><i class="fas fa-info-circle"></i> Consejos para Convertir Unidades <span>📖</span></h3>
+  <ul style="margin-left:1.6em;font-size:1.13em;line-height:1.8;">
+    <li>Usa siempre paréntesis y <b>cancela unidades</b> como si fueran fracciones.</li>
+    <li>Verifica la lógica de tu resultado: ¿Es posible ese valor en la realidad?</li>
+    <li>En conversiones largas, anota cada paso y revisa el sentido físico.</li>
+    <li>Practica en Python o con simuladores para evitar errores comunes.</li>
+    <li>Si usas prefijos (kilo, mili, micro…), revisa la <b>tabla oficial de prefijos</b> del SI.</li>
+    <li>¡Diviértete y aprende! Las conversiones son la base de toda la ciencia experimental.</li>
+  </ul>
+  <p style="color:#7c3aed;font-weight:600;margin-top:0.8em;">
+    ¿Quieres más retos? Intenta convertir áreas y volúmenes complejos usando Python o el canvas.
+  </p>
+</div>
+
+<!-- RECURSOS EXTRA -->
+<div class="card" style="background:linear-gradient(135deg,#e0e7ff 20%,#a7f3d0 100%);margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-link"></i> Recursos adicionales <span>🔗</span></h3>
+  <ul style="margin-left:1.4em;font-size:1.09em;">
+    <li><a href="https://colab.research.google.com/" target="_blank" style="color:#2563eb;"><b>Google Colab</b>: Practica conversiones en Python online</a></li>
+    <li><a href="https://www.bipm.org/en/measurement-units" target="_blank" style="color:#7c3aed;">Oficina Internacional de Pesos y Medidas (BIPM)</a></li>
+    <li><a href="https://es.khanacademy.org/science/physics/one-dimensional-motion/kinematic-formulas/a/what-are-units" target="_blank" style="color:#10b981;">¿Por qué son importantes las unidades?</a></li>
+  </ul>
+</div>

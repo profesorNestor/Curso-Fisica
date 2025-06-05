@@ -1,0 +1,1456 @@
+<!-- ============================================
+     🌟 MAGNITUDES FÍSICAS - CURSO INTERACTIVO 🌟
+     ============================================
+     Autor: MSc. Néstor Fabio Montoya Palacios
+     Versión: 2.0 Mejorada y Ampliada
+     Página: magnitudes.html
+     ============================================
+     PARTE 1: CABECERA Y ESTRUCTURA INICIAL
+     ============================================ -->
+
+<!-- 🎯 CABECERA PRINCIPAL DEL TEMA -->
+<div class="lesson-header" style="animation: fadeInUp 1s; border-left: 8px solid #3b82f6;">
+  <h2 style="display:flex;align-items:center;gap:0.7em;font-size:2.5em;color:#1e293b;">
+    <i class="fas fa-ruler" style="color:#3b82f6;"></i>
+    Magnitudes Físicas
+    <span style="font-size:1.2em;">📏✨</span>
+  </h2>
+  
+  <!-- 📊 METADATOS DE LA LECCIÓN -->
+  <div class="lesson-meta" style="display:flex;gap:1.5em;margin:1em 0;flex-wrap:wrap;">
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;">
+      <i class="fas fa-clock" style="color:#f59e0b;"></i> 
+      <strong>40 min</strong>
+    </span>
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;">
+      <i class="fas fa-signal" style="color:#10b981;"></i> 
+      <strong>Nivel Básico</strong>
+    </span>
+    <span class="badge-sim" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:white;padding:0.5em 1em;border-radius:20px;font-weight:600;">
+      <i class="fas fa-bolt"></i> Fundamentales
+    </span>
+  </div>
+  
+  <!-- 📝 DESCRIPCIÓN AMPLIADA -->
+  <div class="lesson-desc" style="font-size:1.15em;line-height:1.8;color:#475569;margin-top:1.5em;">
+    <p style="margin-bottom:1em;">
+      <strong>Descubre el fascinante mundo de las magnitudes físicas</strong> 🌍 - la base fundamental de toda la ciencia. 
+      En esta lección aprenderás no solo <em>qué</em> son las magnitudes, sino <em>por qué</em> son esenciales para 
+      comprender el universo que nos rodea.
+    </p>
+    <p style="margin-bottom:1em;">
+      Exploraremos desde los conceptos más básicos hasta aplicaciones sorprendentes en la vida cotidiana, 
+      la tecnología moderna y los últimos avances científicos. Comprenderás cómo los científicos miden 
+      desde partículas subatómicas hasta galaxias distantes.
+    </p>
+    <p style="font-size:1.2em;color:#3b82f6;font-weight:600;text-align:center;margin-top:1.5em;">
+      🎯 ¡El primer paso para dominar la Física y entender el lenguaje del universo! 🚀
+    </p>
+  </div>
+</div>
+
+<!-- 🌟 OBJETIVOS DE APRENDIZAJE -->
+<div class="card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-left:5px solid #3b82f6;margin:2em 0;padding:1.5em;">
+  <h3 style="color:#1e293b;font-size:1.5em;margin-bottom:0.8em;">
+    <i class="fas fa-bullseye"></i> Objetivos de Aprendizaje 🎯
+  </h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1em;">
+    <div style="display:flex;align-items:start;gap:0.5em;">
+      <span style="color:#3b82f6;font-size:1.5em;">✓</span>
+      <p>Comprender qué es una magnitud física y por qué es fundamental en la ciencia</p>
+    </div>
+    <div style="display:flex;align-items:start;gap:0.5em;">
+      <span style="color:#3b82f6;font-size:1.5em;">✓</span>
+      <p>Diferenciar entre magnitudes escalares, vectoriales y tensoriales</p>
+    </div>
+    <div style="display:flex;align-items:start;gap:0.5em;">
+      <span style="color:#3b82f6;font-size:1.5em;">✓</span>
+      <p>Identificar las magnitudes fundamentales y derivadas del SI</p>
+    </div>
+    <div style="display:flex;align-items:start;gap:0.5em;">
+      <span style="color:#3b82f6;font-size:1.5em;">✓</span>
+      <p>Aplicar conceptos de medición en situaciones cotidianas</p>
+    </div>
+    <div style="display:flex;align-items:start;gap:0.5em;">
+      <span style="color:#3b82f6;font-size:1.5em;">✓</span>
+      <p>Conocer las últimas innovaciones en sistemas de medición</p>
+    </div>
+    <div style="display:flex;align-items:start;gap:0.5em;">
+      <span style="color:#3b82f6;font-size:1.5em;">✓</span>
+      <p>Entender la importancia de la precisión en las mediciones científicas</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================
+
+
+<!-- ============================================
+     PARTE 2: INTRODUCCIÓN Y CONTEXTO HISTÓRICO
+     ============================================ -->
+
+<!-- 💡 INTRODUCCIÓN MOTIVADORA -->
+<div class="card highlight-card" style="margin:2em 0;background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:20px;overflow:hidden;">
+  <div style="display:grid;grid-template-columns:1fr 300px;gap:2em;align-items:center;">
+    <div style="padding:2em;">
+      <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:0.5em;">
+        <i class="fas fa-quote-left" style="color:#3b82f6;"></i> 
+        Una Reflexión Profunda
+      </h3>
+      <blockquote style="font-style:italic;color:#475569;margin-bottom:1.5em;line-height:1.8;font-size:1.1em;">
+        "La medida es el primer paso que conduce del reino de la imaginación 
+        al reino de la ciencia. Lo que no se define no se puede medir. 
+        Lo que no se mide, no se puede mejorar. Lo que no se mejora, se degrada siempre."
+        <br><br>
+        <span style="color:#3b82f6;font-weight:700;">— William Thomson, Lord Kelvin (1824-1907)</span>
+      </blockquote>
+      <p style="font-size:1.1em;line-height:1.7;color:#334155;">
+        Esta profunda reflexión de Lord Kelvin, uno de los físicos más influyentes del siglo XIX, 
+        encapsula la esencia de por qué las magnitudes físicas son tan fundamentales. Sin la capacidad 
+        de medir, la ciencia sería apenas filosofía especulativa. 🔬
+      </p>
+    </div>
+    <div style="text-align:center;padding:2em;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lord_Kelvin_photograph.jpg/220px-Lord_Kelvin_photograph.jpg" 
+           alt="Lord Kelvin" 
+           style="width:200px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.2);border:4px solid white;">
+      <p style="font-size:0.9em;color:#64748b;margin-top:1em;font-weight:500;">
+        William Thomson, Lord Kelvin<br>
+        <em>Pionero de la termodinámica</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 📚 CONTEXTO HISTÓRICO AMPLIADO -->
+<div class="card" style="margin:2em 0;background:#ffffff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);">
+  <h3 style="color:#1e293b;font-size:1.6em;margin-bottom:1em;">
+    <i class="fas fa-history" style="color:#8b5cf6;"></i> 
+    Breve Historia de las Mediciones 📜
+  </h3>
+  
+  <div class="timeline" style="position:relative;padding-left:3em;">
+    <!-- Línea temporal -->
+    <div style="position:absolute;left:1.5em;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#3b82f6,#8b5cf6);"></div>
+    
+    <!-- Evento 1 -->
+    <div class="timeline-item" style="position:relative;margin-bottom:2em;">
+      <div style="position:absolute;left:-1.65em;width:20px;height:20px;background:#3b82f6;border-radius:50%;border:3px solid white;"></div>
+      <div style="background:#f1f5f9;padding:1.5em;border-radius:10px;margin-left:1em;">
+        <h4 style="color:#3b82f6;margin-bottom:0.5em;">🏛️ Antigüedad (3000 a.C.)</h4>
+        <p style="color:#475569;line-height:1.6;">
+          Las primeras civilizaciones desarrollaron sistemas de medición basados en el cuerpo humano: 
+          el <strong>codo real egipcio</strong> (52.5 cm), el <strong>pie romano</strong> (29.6 cm), 
+          y la <strong>braza</strong> (distancia entre los brazos extendidos). Estas medidas permitieron 
+          construir las pirámides y los acueductos.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Evento 2 -->
+    <div class="timeline-item" style="position:relative;margin-bottom:2em;">
+      <div style="position:absolute;left:-1.65em;width:20px;height:20px;background:#10b981;border-radius:50%;border:3px solid white;"></div>
+      <div style="background:#f0fdf4;padding:1.5em;border-radius:10px;margin-left:1em;">
+        <h4 style="color:#10b981;margin-bottom:0.5em;">🔬 Revolución Científica (1600-1700)</h4>
+        <p style="color:#475569;line-height:1.6;">
+          Galileo Galilei introduce el <strong>método experimental</strong> y la necesidad de mediciones precisas. 
+          Se desarrollan los primeros instrumentos de medición modernos: el <strong>termómetro</strong> (1592), 
+          el <strong>barómetro</strong> (1643) y el <strong>péndulo</strong> como medidor de tiempo.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Evento 3 -->
+    <div class="timeline-item" style="position:relative;margin-bottom:2em;">
+      <div style="position:absolute;left:-1.65em;width:20px;height:20px;background:#f59e0b;border-radius:50%;border:3px solid white;"></div>
+      <div style="background:#fffbeb;padding:1.5em;border-radius:10px;margin-left:1em;">
+        <h4 style="color:#f59e0b;margin-bottom:0.5em;">📏 Sistema Métrico (1791)</h4>
+        <p style="color:#475569;line-height:1.6;">
+          La Revolución Francesa impulsa la creación del <strong>sistema métrico decimal</strong>. 
+          Se define el metro como la diezmillonésima parte del cuadrante del meridiano terrestre. 
+          Por primera vez, la humanidad tiene un sistema universal y coherente.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Evento 4 -->
+    <div class="timeline-item" style="position:relative;">
+      <div style="position:absolute;left:-1.65em;width:20px;height:20px;background:#8b5cf6;border-radius:50%;border:3px solid white;"></div>
+      <div style="background:#faf5ff;padding:1.5em;border-radius:10px;margin-left:1em;">
+        <h4 style="color:#8b5cf6;margin-bottom:0.5em;">🌐 Era Moderna (1960-presente)</h4>
+        <p style="color:#475569;line-height:1.6;">
+          Nace el <strong>Sistema Internacional (SI)</strong> con 7 magnitudes fundamentales. 
+          En 2019, se redefinen todas las unidades basándose en <strong>constantes fundamentales</strong> 
+          de la naturaleza. El kilogramo ya no depende de un objeto físico, sino de la constante de Planck.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================
+
+<!-- ============================================
+     PARTE 3: DEFINICIONES FUNDAMENTALES
+     ============================================ -->
+
+<!-- 🎯 DEFINICIÓN PRINCIPAL DE MAGNITUD -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:15px;padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:0.8em;">
+    <i class="fas fa-ruler-combined"></i> ¿Qué es una Magnitud Física? 🧮
+  </h3>
+  
+  <div style="background:white;padding:1.5em;border-radius:10px;border-left:5px solid #3b82f6;margin-bottom:1.5em;">
+    <p style="font-size:1.2em;line-height:1.8;color:#1e293b;font-weight:500;">
+      Una <strong style="color:#3b82f6;">magnitud física</strong> es cualquier propiedad de la materia, 
+      la energía o el espacio-tiempo que puede ser <strong>medida objetivamente</strong> y expresada 
+      mediante un <strong>número</strong> (valor numérico) y una <strong>unidad</strong> de medida.
+    </p>
+  </div>
+  
+  <!-- Características esenciales -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1em;margin-top:1.5em;">
+    <div style="background:#f0f9ff;padding:1.2em;border-radius:10px;border:2px solid #3b82f6;">
+      <h4 style="color:#1e40af;margin-bottom:0.5em;">
+        <i class="fas fa-check-circle"></i> Medible
+      </h4>
+      <p style="color:#475569;font-size:0.95em;">
+        Debe poder determinarse mediante instrumentos o procedimientos reproducibles
+      </p>
+    </div>
+    <div style="background:#f0fdf4;padding:1.2em;border-radius:10px;border:2px solid #10b981;">
+      <h4 style="color:#059669;margin-bottom:0.5em;">
+        <i class="fas fa-check-circle"></i> Objetiva
+      </h4>
+      <p style="color:#475569;font-size:0.95em;">
+        Su valor no depende del observador ni de opiniones subjetivas
+      </p>
+    </div>
+    <div style="background:#fefce8;padding:1.2em;border-radius:10px;border:2px solid #f59e0b;">
+      <h4 style="color:#d97706;margin-bottom:0.5em;">
+        <i class="fas fa-check-circle"></i> Cuantificable
+      </h4>
+      <p style="color:#475569;font-size:0.95em;">
+        Se expresa con números y unidades estándar reconocidas
+      </p>
+    </div>
+  </div>
+  
+  <!-- Ejemplos y contraejemplos -->
+  <div style="margin-top:2em;display:grid;grid-template-columns:1fr 1fr;gap:1.5em;">
+    <div style="background:#dcfce7;padding:1.5em;border-radius:10px;">
+      <h4 style="color:#166534;margin-bottom:0.8em;">
+        <i class="fas fa-check"></i> SÍ son magnitudes físicas:
+      </h4>
+      <ul style="color:#15803d;line-height:1.8;">
+        <li><strong>Longitud:</strong> 2.5 metros</li>
+        <li><strong>Masa:</strong> 75 kilogramos</li>
+        <li><strong>Temperatura:</strong> 25°C</li>
+        <li><strong>Velocidad:</strong> 60 km/h</li>
+        <li><strong>Presión:</strong> 101.3 kPa</li>
+        <li><strong>Energía:</strong> 1500 joules</li>
+      </ul>
+    </div>
+    <div style="background:#fee2e2;padding:1.5em;border-radius:10px;">
+      <h4 style="color:#991b1b;margin-bottom:0.8em;">
+        <i class="fas fa-times"></i> NO son magnitudes físicas:
+      </h4>
+      <ul style="color:#dc2626;line-height:1.8;">
+        <li><strong>Belleza:</strong> subjetiva</li>
+        <li><strong>Felicidad:</strong> no medible</li>
+        <li><strong>Sabor:</strong> cualitativo</li>
+        <li><strong>Amor:</strong> emocional</li>
+        <li><strong>Justicia:</strong> concepto abstracto</li>
+        <li><strong>Suerte:</strong> no cuantificable</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 🎯 CONCEPTO DE PATRÓN DE MEDIDA -->
+<div class="card" style="margin:2em 0;background:#ffffff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.6em;margin-bottom:1em;">
+    <i class="fas fa-balance-scale"></i> ¿Qué es un Patrón de Medida? 🎯
+  </h3>
+  
+  <p style="font-size:1.1em;line-height:1.8;color:#475569;margin-bottom:1.5em;">
+    Un <strong style="color:#3b82f6;">patrón de medida</strong> es un objeto, fenómeno o constante física 
+    que sirve como <strong>referencia universal</strong> para definir y reproducir una unidad de medida. 
+    Es el "modelo" contra el cual comparamos todas las demás mediciones.
+  </p>
+  
+  <!-- Evolución de los patrones -->
+  <div style="background:#f8fafc;padding:1.5em;border-radius:10px;margin-bottom:1.5em;">
+    <h4 style="color:#1e293b;margin-bottom:1em;">
+      <i class="fas fa-history"></i> Evolución de los Patrones
+    </h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1em;">
+      <div style="text-align:center;">
+        <div style="font-size:3em;margin-bottom:0.3em;">👑</div>
+        <h5 style="color:#3b82f6;">Antiguos</h5>
+        <p style="font-size:0.9em;color:#64748b;">Basados en el cuerpo del rey</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:3em;margin-bottom:0.3em;">📏</div>
+        <h5 style="color:#10b981;">Clásicos</h5>
+        <p style="font-size:0.9em;color:#64748b;">Objetos físicos guardados</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:3em;margin-bottom:0.3em;">🌍</div>
+        <h5 style="color:#f59e0b;">Naturales</h5>
+        <p style="font-size:0.9em;color:#64748b;">Fenómenos de la Tierra</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:3em;margin-bottom:0.3em;">⚛️</div>
+        <h5 style="color:#8b5cf6;">Modernos</h5>
+        <p style="font-size:0.9em;color:#64748b;">Constantes universales</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Características de un buen patrón -->
+  <div style="background:linear-gradient(135deg,#faf5ff,#f3e8ff);padding:1.5em;border-radius:10px;">
+    <h4 style="color:#7c3aed;margin-bottom:1em;">
+      <i class="fas fa-star"></i> Características de un Patrón Ideal
+    </h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.8em;">
+      <div style="background:white;padding:0.8em;border-radius:8px;text-align:center;">
+        <i class="fas fa-shield-alt" style="color:#8b5cf6;font-size:1.5em;"></i>
+        <p style="margin:0.3em 0 0;font-weight:600;color:#6d28d9;">Inalterable</p>
+      </div>
+      <div style="background:white;padding:0.8em;border-radius:8px;text-align:center;">
+        <i class="fas fa-globe" style="color:#8b5cf6;font-size:1.5em;"></i>
+        <p style="margin:0.3em 0 0;font-weight:600;color:#6d28d9;">Universal</p>
+      </div>
+      <div style="background:white;padding:0.8em;border-radius:8px;text-align:center;">
+        <i class="fas fa-copy" style="color:#8b5cf6;font-size:1.5em;"></i>
+        <p style="margin:0.3em 0 0;font-weight:600;color:#6d28d9;">Reproducible</p>
+      </div>
+      <div style="background:white;padding:0.8em;border-radius:8px;text-align:center;">
+        <i class="fas fa-microscope" style="color:#8b5cf6;font-size:1.5em;"></i>
+        <p style="margin:0.3em 0 0;font-weight:600;color:#6d28d9;">Preciso</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================
+
+
+<!-- ============================================
+     PARTE 4: EL PROCESO DE MEDIR
+     ============================================ -->
+
+<!-- 📏 CONCEPTO AMPLIADO DE MEDICIÓN -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:15px;padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;">
+    <i class="fas fa-ruler-horizontal"></i> ¿Qué Significa Medir? 📏
+  </h3>
+  
+  <div style="background:white;padding:1.5em;border-radius:10px;border-left:5px solid #f59e0b;margin-bottom:1.5em;">
+    <p style="font-size:1.15em;line-height:1.8;color:#1e293b;">
+      <strong style="color:#f59e0b;">Medir</strong> es el proceso de comparar una magnitud desconocida 
+      con un patrón conocido (unidad de medida) para determinar cuántas veces está contenida 
+      esa unidad en la magnitud que queremos conocer.
+    </p>
+  </div>
+  
+  <!-- Proceso de medición paso a paso -->
+  <div style="background:#fffbeb;padding:1.5em;border-radius:10px;margin-bottom:1.5em;">
+    <h4 style="color:#d97706;margin-bottom:1em;">
+      <i class="fas fa-list-ol"></i> El Proceso de Medición
+    </h4>
+    <div style="display:grid;gap:1em;">
+      <div style="display:flex;align-items:start;gap:1em;">
+        <div style="background:#f59e0b;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">1</div>
+        <div>
+          <h5 style="color:#92400e;margin-bottom:0.3em;">Identificar la Magnitud</h5>
+          <p style="color:#78350f;font-size:0.95em;">Determinar qué propiedad física queremos medir (longitud, masa, tiempo, etc.)</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:start;gap:1em;">
+        <div style="background:#f59e0b;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">2</div>
+        <div>
+          <h5 style="color:#92400e;margin-bottom:0.3em;">Seleccionar el Instrumento</h5>
+          <p style="color:#78350f;font-size:0.95em;">Elegir el dispositivo adecuado según la precisión requerida</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:start;gap:1em;">
+        <div style="background:#f59e0b;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">3</div>
+        <div>
+          <h5 style="color:#92400e;margin-bottom:0.3em;">Realizar la Comparación</h5>
+          <p style="color:#78350f;font-size:0.95em;">Comparar la magnitud con la unidad patrón usando el instrumento</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:start;gap:1em;">
+        <div style="background:#f59e0b;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">4</div>
+        <div>
+          <h5 style="color:#92400e;margin-bottom:0.3em;">Expresar el Resultado</h5>
+          <p style="color:#78350f;font-size:0.95em;">Escribir el valor numérico seguido de la unidad correspondiente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Fórmula fundamental -->
+  <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);padding:1.5em;border-radius:10px;text-align:center;margin-bottom:1.5em;">
+    <h4 style="color:#92400e;margin-bottom:0.8em;">📐 Fórmula Fundamental de la Medición</h4>
+    <div style="font-size:1.5em;color:#d97706;font-weight:bold;margin:0.5em 0;">
+      Magnitud = Valor Numérico × Unidad
+    </div>
+    <div style="color:#78350f;margin-top:1em;">
+      <p style="margin:0.5em 0;"><strong>Ejemplo 1:</strong> Longitud = 5 × metro = 5 m</p>
+      <p style="margin:0.5em 0;"><strong>Ejemplo 2:</strong> Masa = 2.5 × kilogramo = 2.5 kg</p>
+      <p style="margin:0.5em 0;"><strong>Ejemplo 3:</strong> Tiempo = 45 × segundo = 45 s</p>
+    </div>
+  </div>
+  
+  <!-- Ejemplos prácticos de medición -->
+  <div style="background:#fff;padding:1.5em;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+    <h4 style="color:#d97706;margin-bottom:1em;">
+      <i class="fas fa-flask"></i> Ejemplos Prácticos de Medición
+    </h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1em;">
+      <div style="background:#fef3c7;padding:1em;border-radius:8px;">
+        <h5 style="color:#92400e;margin-bottom:0.5em;">🏃 En el Deporte</h5>
+        <p style="color:#78350f;font-size:0.95em;">
+          Un velocista corre 100 metros en 9.58 segundos. Medimos <strong>distancia</strong> y <strong>tiempo</strong> 
+          para calcular su velocidad promedio: 10.44 m/s
+        </p>
+      </div>
+      <div style="background:#dcfce7;padding:1em;border-radius:8px;">
+        <h5 style="color:#166534;margin-bottom:0.5em;">🍎 En la Cocina</h5>
+        <p style="color:#15803d;font-size:0.95em;">
+          Una receta requiere 250 gramos de harina. Usamos una <strong>balanza</strong> para medir 
+          la <strong>masa</strong> exacta del ingrediente
+        </p>
+      </div>
+      <div style="background:#dbeafe;padding:1em;border-radius:8px;">
+        <h5 style="color:#1e40af;margin-bottom:0.5em;">🌡️ En Medicina</h5>
+        <p style="color:#1e3a8a;font-size:0.95em;">
+          El médico mide la <strong>temperatura corporal</strong> con un termómetro: 37.5°C 
+          indica una ligera fiebre
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🔍 IMPORTANCIA DE LA PRECISIÓN -->
+<div class="card" style="margin:2em 0;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.6em;margin-bottom:1em;">
+    <i class="fas fa-microscope"></i> La Importancia de la Precisión 🎯
+  </h3>
+  
+  <p style="font-size:1.1em;line-height:1.8;color:#475569;margin-bottom:1.5em;">
+    En ciencia, la <strong>precisión</strong> en las mediciones puede marcar la diferencia entre 
+    un descubrimiento revolucionario y un error catastrófico. Veamos algunos ejemplos fascinantes:
+  </p>
+  
+  <div style="display:grid;gap:1.5em;">
+    <!-- Ejemplo 1: GPS -->
+    <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:1.5em;border-radius:10px;">
+      <h4 style="color:#1e40af;margin-bottom:0.5em;">
+        <i class="fas fa-satellite"></i> Sistema GPS
+      </h4>
+      <p style="color:#1e3a8a;line-height:1.6;">
+        Los satélites GPS miden el tiempo con una precisión de <strong>nanosegundos</strong> 
+        (0.000000001 segundos). Un error de solo 1 microsegundo se traduciría en un error 
+        de posición de 300 metros. ¡Por eso tu móvil puede ubicarte con precisión de metros!
+      </p>
+    </div>
+    
+    <!-- Ejemplo 2: Medicina -->
+    <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:1.5em;border-radius:10px;">
+      <h4 style="color:#166534;margin-bottom:0.5em;">
+        <i class="fas fa-pills"></i> Dosificación Médica
+      </h4>
+      <p style="color:#15803d;line-height:1.6;">
+        En medicina, la diferencia entre 0.5 mg y 5 mg de un medicamento puede ser la diferencia 
+        entre curar y causar daño. Los farmacéuticos usan balanzas de precisión que pueden 
+        detectar diferencias de <strong>0.0001 gramos</strong>.
+      </p>
+    </div>
+    
+    <!-- Ejemplo 3: Construcción -->
+    <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);padding:1.5em;border-radius:10px;">
+      <h4 style="color:#92400e;margin-bottom:0.5em;">
+        <i class="fas fa-building"></i> Ingeniería Civil
+      </h4>
+      <p style="color:#78350f;line-height:1.6;">
+        El Burj Khalifa (828 m) requirió mediciones con precisión milimétrica. Un error de 
+        solo 1 cm por piso habría resultado en una desviación de más de <strong>1.6 metros</strong> 
+        en la cima, comprometiendo la estabilidad de toda la estructura.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+
+<!-- ============================================
+     PARTE 5: CLASIFICACIÓN DE MAGNITUDES
+     ============================================ -->
+
+<!-- 📊 CLASIFICACIÓN COMPLETA DE MAGNITUDES -->
+<div class="card" style="margin:2em 0;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;">
+    <i class="fas fa-sitemap"></i> Clasificación de las Magnitudes Físicas 🔢
+  </h3>
+  
+  <p style="font-size:1.1em;line-height:1.8;color:#475569;margin-bottom:1.5em;">
+    Las magnitudes físicas se clasifican según diferentes criterios. Comprender estas clasificaciones 
+    es fundamental para trabajar correctamente con ellas en física y otras ciencias.
+  </p>
+  
+  <!-- CLASIFICACIÓN POR NATURALEZA MATEMÁTICA -->
+  <div style="margin-bottom:2em;">
+    <h4 style="color:#3b82f6;font-size:1.4em;margin-bottom:1em;">
+      <i class="fas fa-calculator"></i> Según su Naturaleza Matemática
+    </h4>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5em;">
+      <!-- Magnitudes Escalares -->
+      <div style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-radius:15px;padding:1.5em;box-shadow:0 5px 15px rgba(59,130,246,0.2);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <i class="fas fa-dot-circle" style="font-size:3em;color:#2563eb;"></i>
+        </div>
+        <h5 style="color:#1e40af;font-size:1.3em;text-align:center;margin-bottom:0.8em;">
+          Magnitudes Escalares
+        </h5>
+        <p style="color:#1e3a8a;margin-bottom:1em;line-height:1.6;">
+          Quedan completamente definidas con un <strong>valor numérico</strong> y su <strong>unidad</strong>. 
+          No tienen dirección ni sentido en el espacio.
+        </p>
+        <div style="background:white;padding:1em;border-radius:10px;">
+          <h6 style="color:#1e40af;margin-bottom:0.5em;">Ejemplos:</h6>
+          <ul style="color:#3730a3;font-size:0.95em;line-height:1.8;">
+            <li><strong>Masa:</strong> 5 kg</li>
+            <li><strong>Temperatura:</strong> 25°C</li>
+            <li><strong>Tiempo:</strong> 3.5 horas</li>
+            <li><strong>Energía:</strong> 1000 J</li>
+            <li><strong>Densidad:</strong> 2.7 g/cm³</li>
+            <li><strong>Presión:</strong> 101.3 kPa</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Magnitudes Vectoriales -->
+      <div style="background:linear-gradient(135deg,#e9d5ff,#d8b4fe);border-radius:15px;padding:1.5em;box-shadow:0 5px 15px rgba(139,92,246,0.2);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <i class="fas fa-arrow-right" style="font-size:3em;color:#7c3aed;transform:rotate(-45deg);"></i>
+        </div>
+        <h5 style="color:#6d28d9;font-size:1.3em;text-align:center;margin-bottom:0.8em;">
+          Magnitudes Vectoriales
+        </h5>
+        <p style="color:#581c87;margin-bottom:1em;line-height:1.6;">
+          Necesitan <strong>módulo</strong> (valor numérico), <strong>dirección</strong> y 
+          <strong>sentido</strong> para quedar completamente definidas.
+        </p>
+        <div style="background:white;padding:1em;border-radius:10px;">
+          <h6 style="color:#6d28d9;margin-bottom:0.5em;">Ejemplos:</h6>
+          <ul style="color:#581c87;font-size:0.95em;line-height:1.8;">
+            <li><strong>Velocidad:</strong> 60 km/h hacia el norte</li>
+            <li><strong>Fuerza:</strong> 10 N a 30° del eje x</li>
+            <li><strong>Aceleración:</strong> 9.8 m/s² hacia abajo</li>
+            <li><strong>Desplazamiento:</strong> 5 m al este</li>
+            <li><strong>Campo eléctrico:</strong> 100 N/C radial</li>
+            <li><strong>Momento lineal:</strong> 50 kg·m/s</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Magnitudes Tensoriales -->
+      <div style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-radius:15px;padding:1.5em;box-shadow:0 5px 15px rgba(16,185,129,0.2);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <i class="fas fa-cubes" style="font-size:3em;color:#10b981;"></i>
+        </div>
+        <h5 style="color:#059669;font-size:1.3em;text-align:center;margin-bottom:0.8em;">
+          Magnitudes Tensoriales
+        </h5>
+        <p style="color:#047857;margin-bottom:1em;line-height:1.6;">
+          Requieren <strong>múltiples componentes</strong> organizadas en matrices. 
+          Describen propiedades complejas que varían según la dirección.
+        </p>
+        <div style="background:white;padding:1em;border-radius:10px;">
+          <h6 style="color:#059669;margin-bottom:0.5em;">Ejemplos:</h6>
+          <ul style="color:#047857;font-size:0.95em;line-height:1.8;">
+            <li><strong>Tensor de esfuerzos:</strong> en materiales</li>
+            <li><strong>Momento de inercia:</strong> matriz 3×3</li>
+            <li><strong>Tensor métrico:</strong> en relatividad</li>
+            <li><strong>Permitividad:</strong> en anisótropos</li>
+            <li><strong>Tensor de deformación:</strong> elasticidad</li>
+            <li><strong>Tensor electromagnético:</strong> campo EM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CLASIFICACIÓN POR DEPENDENCIA -->
+  <div style="margin-top:2em;">
+    <h4 style="color:#f59e0b;font-size:1.4em;margin-bottom:1em;">
+      <i class="fas fa-link"></i> Según su Dependencia
+    </h4>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5em;">
+      <!-- Fundamentales -->
+      <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);padding:1.5em;border-radius:15px;">
+        <h5 style="color:#d97706;font-size:1.2em;margin-bottom:0.8em;">
+          <i class="fas fa-star"></i> Magnitudes Fundamentales
+        </h5>
+        <p style="color:#92400e;margin-bottom:1em;">
+          Son las 7 magnitudes básicas del Sistema Internacional (SI) que no se definen 
+          en términos de otras magnitudes:
+        </p>
+        <ol style="color:#78350f;line-height:1.8;">
+          <li><strong>Longitud</strong> (metro, m)</li>
+          <li><strong>Masa</strong> (kilogramo, kg)</li>
+          <li><strong>Tiempo</strong> (segundo, s)</li>
+          <li><strong>Corriente eléctrica</strong> (amperio, A)</li>
+          <li><strong>Temperatura</strong> (kelvin, K)</li>
+          <li><strong>Cantidad de sustancia</strong> (mol)</li>
+          <li><strong>Intensidad luminosa</strong> (candela, cd)</li>
+        </ol>
+      </div>
+      
+      <!-- Derivadas -->
+      <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);padding:1.5em;border-radius:15px;">
+        <h5 style="color:#dc2626;font-size:1.2em;margin-bottom:0.8em;">
+          <i class="fas fa-code-branch"></i> Magnitudes Derivadas
+        </h5>
+        <p style="color:#991b1b;margin-bottom:1em;">
+          Se obtienen a partir de las fundamentales mediante relaciones matemáticas:
+        </p>
+        <ul style="color:#7f1d1d;line-height:1.8;">
+          <li><strong>Velocidad</strong> = longitud/tiempo (m/s)</li>
+          <li><strong>Aceleración</strong> = velocidad/tiempo (m/s²)</li>
+          <li><strong>Fuerza</strong> = masa × aceleración (N)</li>
+          <li><strong>Energía</strong> = fuerza × distancia (J)</li>
+          <li><strong>Presión</strong> = fuerza/área (Pa)</li>
+          <li><strong>Potencia</strong> = energía/tiempo (W)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ============================================
+     PARTE 6: MAGNITUDES COMUNES EXPLICADAS
+     ============================================ -->
+
+<!-- 🌟 MAGNITUDES FÍSICAS MÁS IMPORTANTES -->
+<div class="card" style="margin:2em 0;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;">
+    <i class="fas fa-star"></i> Magnitudes Físicas Esenciales: Conceptos Profundos 🌟
+  </h3>
+  
+  <p style="font-size:1.1em;line-height:1.8;color:#475569;margin-bottom:2em;">
+    Exploremos en profundidad las magnitudes más importantes en física, sus conceptos, 
+    aplicaciones y curiosidades fascinantes que te ayudarán a comprenderlas mejor.
+  </p>
+  
+  <!-- MASA -->
+  <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:15px;padding:2em;margin-bottom:1.5em;box-shadow:0 5px 15px rgba(239,68,68,0.2);">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5em;align-items:start;">
+      <div style="font-size:4em;text-align:center;">⚖️</div>
+      <div>
+        <h4 style="color:#dc2626;font-size:1.5em;margin-bottom:0.5em;">
+          Masa (kg) - La Cantidad de Materia
+        </h4>
+        <p style="color:#991b1b;line-height:1.8;margin-bottom:1em;">
+          La <strong>masa</strong> es la medida de la cantidad de materia que contiene un objeto. 
+          Es una propiedad <em>intrínseca</em> que no cambia con la ubicación, a diferencia del peso.
+        </p>
+        <div style="background:white;padding:1em;border-radius:10px;margin-bottom:1em;">
+          <h5 style="color:#dc2626;margin-bottom:0.5em;">💡 Datos Fascinantes:</h5>
+          <ul style="color:#7f1d1d;line-height:1.8;">
+            <li>Un electrón tiene una masa de 9.1 × 10⁻³¹ kg</li>
+            <li>La Tierra tiene una masa de 5.97 × 10²⁴ kg</li>
+            <li>Tu masa es la misma en la Tierra y en la Luna</li>
+            <li>El kilogramo ahora se define por la constante de Planck</li>
+          </ul>
+        </div>
+        <div style="background:#fee2e2;padding:0.8em;border-radius:8px;">
+          <strong>Aplicaciones:</strong> Balanzas, cálculo de inercia, dosificación de medicamentos, 
+          comercio internacional, investigación de partículas subatómicas.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- LONGITUD -->
+  <div style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-radius:15px;padding:2em;margin-bottom:1.5em;box-shadow:0 5px 15px rgba(59,130,246,0.2);">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5em;align-items:start;">
+      <div style="font-size:4em;text-align:center;">📏</div>
+      <div>
+        <h4 style="color:#2563eb;font-size:1.5em;margin-bottom:0.5em;">
+          Longitud (m) - La Distancia Entre Puntos
+        </h4>
+        <p style="color:#1e40af;line-height:1.8;margin-bottom:1em;">
+          La <strong>longitud</strong> mide la distancia entre dos puntos en el espacio. 
+          Es la magnitud fundamental más intuitiva y la base de la geometría y la física espacial.
+        </p>
+        <div style="background:white;padding:1em;border-radius:10px;margin-bottom:1em;">
+          <h5 style="color:#2563eb;margin-bottom:0.5em;">🔬 Escalas Asombrosas:</h5>
+          <ul style="color:#1e3a8a;line-height:1.8;">
+            <li><strong>Planck:</strong> 1.6 × 10⁻³⁵ m (la distancia más pequeña con sentido físico)</li>
+            <li><strong>Átomo:</strong> ~10⁻¹⁰ m de diámetro</li>
+            <li><strong>Humano:</strong> ~1.7 m de altura promedio</li>
+            <li><strong>Tierra:</strong> 12,742 km de diámetro</li>
+            <li><strong>Año luz:</strong> 9.46 × 10¹⁵ m</li>
+            <li><strong>Universo observable:</strong> ~8.8 × 10²⁶ m de diámetro</li>
+          </ul>
+        </div>
+        <div style="background:#dbeafe;padding:0.8em;border-radius:8px;">
+          <strong>Aplicaciones:</strong> GPS, arquitectura, nanotecnología, astronomía, 
+          microscopía, cartografía, diseño industrial.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- TIEMPO -->
+  <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:15px;padding:2em;margin-bottom:1.5em;box-shadow:0 5px 15px rgba(245,158,11,0.2);">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5em;align-items:start;">
+      <div style="font-size:4em;text-align:center;">⏰</div>
+      <div>
+        <h4 style="color:#d97706;font-size:1.5em;margin-bottom:0.5em;">
+          Tiempo (s) - La Cuarta Dimensión
+        </h4>
+        <p style="color:#92400e;line-height:1.8;margin-bottom:1em;">
+          El <strong>tiempo</strong> mide la duración de los eventos y el intervalo entre ellos. 
+          Es fundamental para describir el cambio y el movimiento en el universo.
+        </p>
+        <div style="background:white;padding:1em;border-radius:10px;margin-bottom:1em;">
+          <h5 style="color:#d97706;margin-bottom:0.5em;">⏱️ Precisión Temporal:</h5>
+          <ul style="color:#78350f;line-height:1.8;">
+            <li><strong>Reloj atómico:</strong> Precisión de 1 segundo en 300 millones de años</li>
+            <li><strong>Femtosegundo:</strong> 10⁻¹⁵ s (tiempo de reacciones químicas)</li>
+            <li><strong>Nanosegundo:</strong> 10⁻⁹ s (procesadores de computadora)</li>
+            <li><strong>Día sideral:</strong> 23h 56m 4.0905s (rotación real de la Tierra)</li>
+            <li><strong>Edad del universo:</strong> ~13.8 × 10⁹ años</li>
+          </ul>
+        </div>
+        <div style="background:#fef3c7;padding:0.8em;border-radius:8px;">
+          <strong>Aplicaciones:</strong> Sincronización GPS, trading de alta frecuencia, 
+          física de partículas, astronomía, telecomunicaciones.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- TEMPERATURA -->
+  <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:15px;padding:2em;margin-bottom:1.5em;box-shadow:0 5px 15px rgba(239,68,68,0.2);">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5em;align-items:start;">
+      <div style="font-size:4em;text-align:center;">🌡️</div>
+      <div>
+        <h4 style="color:#dc2626;font-size:1.5em;margin-bottom:0.5em;">
+          Temperatura (K, °C) - La Agitación Molecular
+        </h4>
+        <p style="color:#991b1b;line-height:1.8;margin-bottom:1em;">
+          La <strong>temperatura</strong> mide la energía cinética promedio de las partículas 
+          en un sistema. Es fundamental para entender el calor y la termodinámica.
+        </p>
+        <div style="background:white;padding:1em;border-radius:10px;margin-bottom:1em;">
+          <h5 style="color:#dc2626;margin-bottom:0.5em;">🔥❄️ Extremos de Temperatura:</h5>
+          <ul style="color:#7f1d1d;line-height:1.8;">
+            <li><strong>Cero absoluto:</strong> 0 K = -273.15°C (mínima temperatura posible)</li>
+            <li><strong>Helio líquido:</strong> 4.2 K (-268.95°C)</li>
+            <li><strong>Cuerpo humano:</strong> 310 K (37°C)</li>
+            <li><strong>Superficie del Sol:</strong> 5,778 K</li>
+            <li><strong>Centro del Sol:</strong> 15 millones K</li>
+            <li><strong>Temperatura de Planck:</strong> 1.4 × 10³² K (límite teórico)</li>
+          </ul>
+        </div>
+        <div style="background:#fee2e2;padding:0.8em;border-radius:8px;">
+          <strong>Aplicaciones:</strong> Meteorología, medicina, criogenia, metalurgia, 
+          cocina molecular, superconductividad.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================
+
+<!-- ============================================
+     PARTE 7: MAGNITUDES DERIVADAS Y APLICACIONES
+     ============================================ -->
+
+<!-- 🔄 MAGNITUDES DERIVADAS IMPORTANTES -->
+<div class="card" style="margin:2em 0;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;">
+    <i class="fas fa-cogs"></i> Magnitudes Derivadas: La Física en Acción 🔄
+  </h3>
+  
+  <p style="font-size:1.1em;line-height:1.8;color:#475569;margin-bottom:2em;">
+    Las magnitudes derivadas surgen de combinar las fundamentales. Son esenciales para 
+    describir fenómenos complejos y aplicaciones prácticas en la vida diaria.
+  </p>
+  
+  <!-- VELOCIDAD -->
+  <div style="background:linear-gradient(135deg,#e9d5ff,#d8b4fe);border-radius:15px;padding:1.5em;margin-bottom:1.5em;">
+    <h4 style="color:#7c3aed;font-size:1.3em;margin-bottom:0.8em;">
+      <i class="fas fa-tachometer-alt"></i> Velocidad (m/s) = Longitud/Tiempo
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em;">
+      <div>
+        <p style="color:#6d28d9;line-height:1.6;">
+          Mide qué tan rápido cambia la posición de un objeto. Es una magnitud <strong>vectorial</strong> 
+          porque tiene dirección y sentido.
+        </p>
+        <div style="background:white;padding:0.8em;border-radius:8px;margin-top:0.8em;">
+          <strong style="color:#7c3aed;">Ejemplos cotidianos:</strong>
+          <ul style="color:#581c87;font-size:0.9em;margin-top:0.5em;">
+            <li>Caminar: 5 km/h</li>
+            <li>Bicicleta: 20 km/h</li>
+            <li>Auto en ciudad: 50 km/h</li>
+            <li>Avión comercial: 900 km/h</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div style="background:#faf5ff;padding:0.8em;border-radius:8px;">
+          <strong style="color:#7c3aed;">Récords de velocidad:</strong>
+          <ul style="color:#581c87;font-size:0.9em;margin-top:0.5em;">
+            <li>Sonido en aire: 343 m/s</li>
+            <li>Rotación terrestre: 465 m/s (ecuador)</li>
+            <li>Sonda Parker: 192 km/s</li>
+            <li>Luz en vacío: 299,792,458 m/s</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- FUERZA -->
+  <div style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-radius:15px;padding:1.5em;margin-bottom:1.5em;">
+    <h4 style="color:#10b981;font-size:1.3em;margin-bottom:0.8em;">
+      <i class="fas fa-hand-rock"></i> Fuerza (N) = Masa × Aceleración
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em;">
+      <div>
+        <p style="color:#059669;line-height:1.6;">
+          La capacidad de cambiar el estado de movimiento de un objeto. Un Newton (N) es la fuerza 
+          necesaria para acelerar 1 kg a 1 m/s².
+        </p>
+        <div style="background:white;padding:0.8em;border-radius:8px;margin-top:0.8em;">
+          <strong style="color:#10b981;">Fuerzas comunes:</strong>
+          <ul style="color:#047857;font-size:0.9em;margin-top:0.5em;">
+            <li>Peso de una manzana: ~1 N</li>
+            <li>Patada de fútbol: ~1000 N</li>
+            <li>Mordida humana: ~700 N</li>
+            <li>Motor de auto: ~3000 N</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div style="background:#ecfdf5;padding:0.8em;border-radius:8px;">
+          <strong style="color:#10b981;">Fuerzas extremas:</strong>
+          <ul style="color:#047857;font-size:0.9em;margin-top:0.5em;">
+            <li>Cohete Falcon 9: 7.6 × 10⁶ N</li>
+            <li>Terremoto mag. 9: 10¹⁶ N</li>
+            <li>Gravedad solar: 10²² N</li>
+            <li>Colisión galáctica: 10⁴⁰ N</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ENERGÍA -->
+  <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:15px;padding:1.5em;margin-bottom:1.5em;">
+    <h4 style="color:#f59e0b;font-size:1.3em;margin-bottom:0.8em;">
+      <i class="fas fa-bolt"></i> Energía (J) = Fuerza × Distancia
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em;">
+      <div>
+        <p style="color:#d97706;line-height:1.6;">
+          La capacidad de realizar trabajo. Un Joule (J) es la energía necesaria para mover 
+          un objeto con una fuerza de 1 N a través de 1 metro.
+        </p>
+        <div style="background:white;padding:0.8em;border-radius:8px;margin-top:0.8em;">
+          <strong style="color:#f59e0b;">Energías cotidianas:</strong>
+          <ul style="color:#92400e;font-size:0.9em;margin-top:0.5em;">
+            <li>Parpadeo: 10⁻⁵ J</li>
+            <li>Latido cardíaco: 1 J</li>
+            <li>Smartphone (día): 10⁴ J</li>
+            <li>Auto (100 km): 10⁸ J</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div style="background:#fffbeb;padding:0.8em;border-radius:8px;">
+          <strong style="color:#f59e0b;">Energías masivas:</strong>
+          <ul style="color:#92400e;font-size:0.9em;margin-top:0.5em;">
+            <li>Bomba atómica: 10¹³ J</li>
+            <li>Huracán: 10¹⁹ J</li>
+            <li>Terremoto mag. 9: 10¹⁸ J</li>
+            <li>Sol (1 segundo): 10²⁶ J</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- PRESIÓN -->
+  <div style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-radius:15px;padding:1.5em;margin-bottom:1.5em;">
+    <h4 style="color:#3b82f6;font-size:1.3em;margin-bottom:0.8em;">
+      <i class="fas fa-compress"></i> Presión (Pa) = Fuerza/Área
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em;">
+      <div>
+        <p style="color:#2563eb;line-height:1.6;">
+          Fuerza aplicada por unidad de área. Un Pascal (Pa) es 1 N/m². 
+          La presión atmosférica al nivel del mar es 101,325 Pa.
+        </p>
+        <div style="background:white;padding:0.8em;border-radius:8px;margin-top:0.8em;">
+          <strong style="color:#3b82f6;">Presiones típicas:</strong>
+          <ul style="color:#1e40af;font-size:0.9em;margin-top:0.5em;">
+            <li>Respiración: 1 kPa</li>
+            <li>Neumático auto: 200 kPa</li>
+            <li>Buceo 10m: 200 kPa</li>
+            <li>Olla presión: 180 kPa</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div style="background:#eff6ff;padding:0.8em;border-radius:8px;">
+          <strong style="color:#3b82f6;">Presiones extremas:</strong>
+          <ul style="color:#1e40af;font-size:0.9em;margin-top:0.5em;">
+            <li>Fosa Marianas: 110 MPa</li>
+            <li>Centro Tierra: 360 GPa</li>
+            <li>Diamante artificial: 5 GPa</li>
+            <li>Centro del Sol: 10¹⁶ Pa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- DENSIDAD -->
+  <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:15px;padding:1.5em;">
+    <h4 style="color:#ef4444;font-size:1.3em;margin-bottom:0.8em;">
+      <i class="fas fa-cube"></i> Densidad (kg/m³) = Masa/Volumen
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em;">
+      <div>
+        <p style="color:#dc2626;line-height:1.6;">
+          Cantidad de masa por unidad de volumen. Determina si un objeto flota o se hunde 
+          en un fluido.
+        </p>
+        <div style="background:white;padding:0.8em;border-radius:8px;margin-top:0.8em;">
+          <strong style="color:#ef4444;">Densidades comunes:</strong>
+          <ul style="color:#b91c1c;font-size:0.9em;margin-top:0.5em;">
+            <li>Aire: 1.2 kg/m³</li>
+            <li>Agua: 1000 kg/m³</li>
+            <li>Hielo: 917 kg/m³</li>
+            <li>Aluminio: 2700 kg/m³</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div style="background:#fef2f2;padding:0.8em;border-radius:8px;">
+          <strong style="color:#ef4444;">Densidades extremas:</strong>
+          <ul style="color:#b91c1c;font-size:0.9em;margin-top:0.5em;">
+            <li>Aerogel: 3 kg/m³</li>
+            <li>Osmio: 22,590 kg/m³</li>
+            <li>Núcleo atómico: 10¹⁷ kg/m³</li>
+            <li>Estrella neutrones: 10¹⁸ kg/m³</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+
+<!-- ============================================
+     PARTE 8: ACTUALIDAD Y TECNOLOGÍA
+     ============================================ -->
+
+<!-- 🚀 MAGNITUDES EN LA ACTUALIDAD -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-radius:15px;padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;">
+    <i class="fas fa-rocket"></i> Magnitudes en el Siglo XXI: Innovación y Futuro 🚀
+  </h3>
+  
+  <p style="font-size:1.1em;line-height:1.8;color:#475569;margin-bottom:2em;">
+    Las magnitudes físicas están en el corazón de las tecnologías más revolucionarias 
+    de nuestro tiempo. Descubre cómo la precisión en las mediciones está transformando 
+    el mundo.
+  </p>
+  
+  <!-- COMPUTACIÓN CUÁNTICA -->
+  <div style="background:linear-gradient(135deg,#e9d5ff,#d8b4fe);border-radius:15px;padding:1.5em;margin-bottom:1.5em;">
+    <h4 style="color:#7c3aed;font-size:1.4em;margin-bottom:0.8em;">
+      <i class="fas fa-microchip"></i> Computación Cuántica
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5em;">
+      <div>
+        <p style="color:#6d28d9;line-height:1.6;margin-bottom:1em;">
+          Los ordenadores cuánticos manipulan qubits a temperaturas cercanas al 
+          <strong>cero absoluto</strong> (0.015 K), más frío que el espacio exterior.
+        </p>
+        <div style="background:white;padding:1em;border-radius:8px;">
+          <h5 style="color:#7c3aed;margin-bottom:0.5em;">⚛️ Magnitudes Críticas:</h5>
+          <ul style="color:#581c87;font-size:0.95em;line-height:1.8;">
+            <li><strong>Temperatura:</strong> 15 milikelvin</li>
+            <li><strong>Tiempo de coherencia:</strong> microsegundos</li>
+            <li><strong>Precisión de control:</strong> 0.01%</li>
+            <li><strong>Campo magnético:</strong> nanoteslas</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:#faf5ff;padding:1em;border-radius:8px;">
+        <h5 style="color:#7c3aed;margin-bottom:0.5em;">🌟 Impacto:</h5>
+        <p style="color:#581c87;font-size:0.95em;line-height:1.8;">
+          Google alcanzó la "supremacía cuántica" en 2019: su procesador Sycamore 
+          realizó en <strong>200 segundos</strong> un cálculo que tomaría 
+          <strong>10,000 años</strong> a la supercomputadora más potente.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ONDAS GRAVITACIONALES -->
+  <div style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-radius:15px;padding:1.5em;margin-bottom:1.5em;">
+    <h4 style="color:#10b981;font-size:1.4em;margin-bottom:0.8em;">
+      <i class="fas fa-wave-square"></i> Detección de Ondas Gravitacionales
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5em;">
+      <div>
+        <p style="color:#059669;line-height:1.6;margin-bottom:1em;">
+          LIGO detecta ondas gravitacionales midiendo cambios en la longitud 
+          <strong>10,000 veces más pequeños</strong> que un protón.
+        </p>
+        <div style="background:white;padding:1em;border-radius:8px;">
+          <h5 style="color:#10b981;margin-bottom:0.5em;">🌌 Precisión Extrema:</h5>
+          <ul style="color:#047857;font-size:0.95em;line-height:1.8;">
+            <li><strong>Sensibilidad:</strong> 10⁻²¹ metros</li>
+            <li><strong>Láser:</strong> 4 km de longitud</li>
+            <li><strong>Vacío:</strong> 10⁻⁹ Pa</li>
+            <li><strong>Frecuencia:</strong> 10-10,000 Hz</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:#ecfdf5;padding:1em;border-radius:8px;">
+        <h5 style="color:#10b981;margin-bottom:0.5em;">🏆 Logros:</h5>
+        <p style="color:#047857;font-size:0.95em;line-height:1.8;">
+          En 2015, LIGO detectó ondas de la fusión de dos agujeros negros a 
+          <strong>1,300 millones de años luz</strong>. Esta medición confirmó 
+          la predicción de Einstein de 1915 y ganó el Nobel de Física 2017.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- NANOTECNOLOGÍA -->
+  <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:15px;padding:1.5em;margin-bottom:1.5em;">
+    <h4 style="color:#f59e0b;font-size:1.4em;margin-bottom:0.8em;">
+      <i class="fas fa-atom"></i> Nanotecnología
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5em;">
+      <div>
+        <p style="color:#d97706;line-height:1.6;margin-bottom:1em;">
+          Manipulación de la materia a escala nanométrica (10⁻⁹ m), donde las 
+          propiedades físicas cambian dramáticamente.
+        </p>
+        <div style="background:white;padding:1em;border-radius:8px;">
+          <h5 style="color:#f59e0b;margin-bottom:0.5em;">🔬 Aplicaciones Actuales:</h5>
+          <ul style="color:#92400e;font-size:0.95em;line-height:1.8;">
+            <li><strong>Chips:</strong> transistores de 5 nm</li>
+            <li><strong>Medicina:</strong> nanorobots de 100 nm</li>
+            <li><strong>Grafeno:</strong> 1 átomo de espesor</li>
+            <li><strong>Pantallas:</strong> puntos cuánticos 2-10 nm</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:#fffbeb;padding:1em;border-radius:8px;">
+        <h5 style="color:#f59e0b;margin-bottom:0.5em;">💡 Innovación:</h5>
+        <p style="color:#92400e;font-size:0.95em;line-height:1.8;">
+          IBM creó una película animada moviendo átomos individuales: 
+          "A Boy and His Atom" tiene <strong>242 fotogramas</strong> y cada 
+          píxel es un átomo de carbono.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MEDICINA DE PRECISIÓN -->
+  <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:15px;padding:1.5em;">
+    <h4 style="color:#ef4444;font-size:1.4em;margin-bottom:0.8em;">
+      <i class="fas fa-dna"></i> Medicina de Precisión
+    </h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5em;">
+      <div>
+        <p style="color:#dc2626;line-height:1.6;margin-bottom:1em;">
+          La medicina moderna requiere mediciones ultrapreci­sas para diagnósticos 
+          y tratamientos personalizados.
+        </p>
+        <div style="background:white;padding:1em;border-radius:8px;">
+          <h5 style="color:#ef4444;margin-bottom:0.5em;">🏥 Mediciones Vitales:</h5>
+          <ul style="color:#b91c1c;font-size:0.95em;line-height:1.8;">
+            <li><strong>PCR:</strong> detecta 10 copias de virus/ml</li>
+            <li><strong>MRI:</strong> resolución de 0.1 mm</li>
+            <li><strong>Glucosa:</strong> precisión ±5 mg/dl</li>
+            <li><strong>Secuenciación:</strong> 3×10⁹ bases de ADN</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:#fef2f2;padding:1em;border-radius:8px;">
+        <h5 style="color:#ef4444;margin-bottom:0.5em;">🚀 Futuro:</h5>
+        <p style="color:#b91c1c;font-size:0.95em;line-height:1.8;">
+          Los biosensores implantables medirán continuamente glucosa, presión, 
+          temperatura y biomarcadores con precisión de laboratorio, transmitiendo 
+          datos en tiempo real al médico.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+<!-- ============================================
+     PARTE 9: CURIOSIDADES Y CIERRE
+     ============================================ -->
+
+<!-- 🌟 CURIOSIDADES FASCINANTES -->
+<div class="card" style="margin:2em 0;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;">
+    <i class="fas fa-lightbulb"></i> Curiosidades Fascinantes sobre las Magnitudes 🌟
+  </h3>
+  
+  <!-- Grid de curiosidades -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5em;">
+    <!-- Curiosidad 1 -->
+    <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#3b82f6;margin-bottom:0.8em;">
+        <i class="fas fa-clock"></i> El Segundo Más Largo
+      </h4>
+      <p style="color:#1e40af;line-height:1.6;">
+        El 30 de junio de 2015 duró <strong>86,401 segundos</strong> en lugar de 86,400. 
+        Se añadió un "segundo intercalar" para sincronizar los relojes atómicos con la 
+        rotación de la Tierra, que se está ralentizando.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 2 -->
+    <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#f59e0b;margin-bottom:0.8em;">
+        <i class="fas fa-ruler"></i> El Metro que se Encoge
+      </h4>
+      <p style="color:#d97706;line-height:1.6;">
+        El metro patrón original de platino-iridio se ha contraído <strong>50 micrómetros</strong> 
+        desde 1889. Por eso ahora definimos el metro usando la velocidad de la luz.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 3 -->
+    <div style="background:linear-gradient(135deg,#e9d5ff,#d8b4fe);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#8b5cf6;margin-bottom:0.8em;">
+        <i class="fas fa-weight-hanging"></i> El Kilogramo que Adelgazaba
+      </h4>
+      <p style="color:#7c3aed;line-height:1.6;">
+        El kilogramo patrón perdió <strong>50 microgramos</strong> en 100 años. 
+        Desde 2019, se define por la constante de Planck: exactamente 6.62607015 × 10⁻³⁴ J·s.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 4 -->
+    <div style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#10b981;margin-bottom:0.8em;">
+        <i class="fas fa-thermometer-half"></i> Temperatura Negativa
+      </h4>
+      <p style="color:#059669;line-height:1.6;">
+        En física cuántica, existen temperaturas <strong>negativas en Kelvin</strong>. 
+        Paradójicamente, son más calientes que cualquier temperatura positiva y ocurren 
+        en sistemas con inversión de población.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 5 -->
+    <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#ef4444;margin-bottom:0.8em;">
+        <i class="fas fa-mountain"></i> Tu Peso en el Everest
+      </h4>
+      <p style="color:#dc2626;line-height:1.6;">
+        Pesas <strong>0.3% menos</strong> en la cima del Everest que al nivel del mar 
+        debido a la menor gravedad (estás más lejos del centro de la Tierra) y la 
+        fuerza centrífuga.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 6 -->
+    <div style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#0284c7;margin-bottom:0.8em;">
+        <i class="fas fa-satellite"></i> GPS y Relatividad
+      </h4>
+      <p style="color:#0369a1;line-height:1.6;">
+        Los satélites GPS deben corregir <strong>38 microsegundos/día</strong> debido 
+        a la relatividad: el tiempo pasa más rápido en órbita (menos gravedad) pero 
+        más lento por la velocidad.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 🎯 ACTIVIDAD PRÁCTICA -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:15px;padding:2em;">
+  <h3 style="color:#166534;font-size:1.6em;margin-bottom:1em;">
+    <i class="fas fa-flask"></i> Experimento: Mide Tu Mundo 🔬
+  </h3>
+  
+  <p style="color:#15803d;font-size:1.1em;line-height:1.8;margin-bottom:1.5em;">
+    Realiza estas mediciones simples para apreciar la importancia de las magnitudes 
+    en tu vida diaria:
+  </p>
+  
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1em;">
+    <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #10b981;">
+      <h5 style="color:#059669;margin-bottom:0.5em;">📏 Longitud</h5>
+      <p style="color:#047857;font-size:0.95em;">
+        Mide tu altura en centímetros y conviértela a metros, pies y pulgadas.
+      </p>
+    </div>
+    <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #10b981;">
+      <h5 style="color:#059669;margin-bottom:0.5em;">⏱️ Tiempo</h5>
+      <p style="color:#047857;font-size:0.95em;">
+        Cuenta tu pulso durante 15 segundos y calcula las pulsaciones por minuto.
+      </p>
+    </div>
+    <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #10b981;">
+      <h5 style="color:#059669;margin-bottom:0.5em;">🌡️ Temperatura</h5>
+      <p style="color:#047857;font-size:0.95em;">
+        Registra la temperatura ambiente y conviértela entre °C, °F y K.
+      </p>
+    </div>
+    <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #10b981;">
+      <h5 style="color:#059669;margin-bottom:0.5em;">⚖️ Masa</h5>
+      <p style="color:#047857;font-size:0.95em;">
+        Estima tu masa corporal y calcula tu peso en diferentes planetas del sistema solar.
+      </p>
+    </div>
+    <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #10b981;">
+      <h5 style="color:#059669;margin-bottom:0.5em;">🏃 Velocidad</h5>
+      <p style="color:#047857;font-size:0.95em;">
+        Cronometra cuánto tardas en caminar 20 pasos y calcula tu velocidad promedio.
+      </p>
+    </div>
+    <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #10b981;">
+      <h5 style="color:#059669;margin-bottom:0.5em;">💪 Fuerza</h5>
+      <p style="color:#047857;font-size:0.95em;">
+        Calcula la fuerza que ejerces al levantar diferentes objetos de tu hogar.
+      </p>
+    </div>
+  </div>
+
+ 
+<!-- 📚 RESUMEN Y CONCLUSIONES -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#1e293b,#334155);color:white;border-radius:15px;padding:2em;">
+  <h3 style="color:#ffffff;font-size:1.8em;margin-bottom:1em;text-align:center;">
+    <i class="fas fa-graduation-cap"></i> ¡Felicitaciones! Has Dominado las Magnitudes Físicas 🎓
+  </h3>
+  
+  <div style="background:rgba(255,255,255,0.1);padding:1.5em;border-radius:12px;margin-bottom:1.5em;">
+    <h4 style="color:#93c5fd;margin-bottom:1em;">
+      <i class="fas fa-check-circle"></i> Lo que Has Aprendido:
+    </h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1em;">
+      <div style="background:rgba(59,130,246,0.2);padding:1em;border-radius:8px;">
+        <h5 style="color:#dbeafe;margin-bottom:0.5em;">🧮 Conceptos Fundamentales</h5>
+        <p style="color:#e2e8f0;font-size:0.95em;">
+          Qué son las magnitudes, por qué son importantes y cómo se clasifican.
+        </p>
+      </div>
+      <div style="background:rgba(16,185,129,0.2);padding:1em;border-radius:8px;">
+        <h5 style="color:#a7f3d0;margin-bottom:0.5em;">📏 Sistema Internacional</h5>
+        <p style="color:#e2e8f0;font-size:0.95em;">
+          Las 7 magnitudes fundamentales y sus unidades del SI.
+        </p>
+      </div>
+      <div style="background:rgba(245,158,11,0.2);padding:1em;border-radius:8px;">
+        <h5 style="color:#fed7aa;margin-bottom:0.5em;">🔄 Magnitudes Derivadas</h5>
+        <p style="color:#e2e8f0;font-size:0.95em;">
+          Cómo se combinan las fundamentales para crear nuevas magnitudes.
+        </p>
+      </div>
+      <div style="background:rgba(139,92,246,0.2);padding:1em;border-radius:8px;">
+        <h5 style="color:#d8b4fe;margin-bottom:0.5em;">🚀 Aplicaciones Modernas</h5>
+        <p style="color:#e2e8f0;font-size:0.95em;">
+          El papel de las magnitudes en tecnologías de vanguardia.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Reflexión Final -->
+  <div style="text-align:center;margin-top:1.5em;">
+    <p style="font-size:1.2em;line-height:1.8;color:#e2e8f0;margin-bottom:1em;">
+      Las magnitudes físicas no son solo números y unidades: son el <strong>lenguaje universal</strong> 
+      que nos permite entender desde lo más pequeño hasta lo más grande del universo.
+    </p>
+    <div style="font-size:1.1em;color:#93c5fd;font-style:italic;">
+      "El universo no puede leerse hasta que aprendemos el lenguaje y nos familiarizamos 
+      con los caracteres en que está escrito... está escrito en lenguaje matemático."
+      <br><br>
+      <strong>— Galileo Galilei</strong>
+    </div>
+  </div>
+</div>
+
+<!-- 📖 RECURSOS ADICIONALES -->
+<div class="card" style="margin:2em 0;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);padding:2em;">
+  <h3 style="color:#1e293b;font-size:1.6em;margin-bottom:1em;">
+    <i class="fas fa-book-open"></i> Sigue Aprendiendo: Recursos Recomendados 📚
+  </h3>
+  
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5em;">
+    <!-- Libros -->
+    <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#2563eb;margin-bottom:0.8em;">
+        <i class="fas fa-book"></i> Libros Recomendados
+      </h4>
+      <ul style="color:#1e40af;line-height:1.8;">
+        <li><strong>"Física Conceptual"</strong> - Paul Hewitt</li>
+        <li><strong>"El Universo Elegante"</strong> - Brian Greene</li>
+        <li><strong>"Una Breve Historia del Tiempo"</strong> - Stephen Hawking</li>
+        <li><strong>"Surely You're Joking, Mr. Feynman!"</strong> - Richard Feynman</li>
+      </ul>
+    </div>
+    
+    <!-- Videos y Canales -->
+    <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#dc2626;margin-bottom:0.8em;">
+        <i class="fab fa-youtube"></i> Canales de YouTube
+      </h4>
+      <ul style="color:#991b1b;line-height:1.8;">
+        <li><strong>Veritasium</strong> - Física fascinante</li>
+        <li><strong>3Blue1Brown</strong> - Matemáticas visuales</li>
+        <li><strong>MinutePhysics</strong> - Conceptos en minutos</li>
+        <li><strong>CrashCourse Physics</strong> - Curso completo</li>
+      </ul>
+    </div>
+    
+    <!-- Simulaciones -->
+    <div style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);padding:1.5em;border-radius:12px;">
+      <h4 style="color:#059669;margin-bottom:0.8em;">
+        <i class="fas fa-gamepad"></i> Simulaciones Interactivas
+      </h4>
+      <ul style="color:#047857;line-height:1.8;">
+        <li><strong>PhET Interactive Simulations</strong></li>
+        <li><strong>Khan Academy Physics</strong></li>
+        <li><strong>Wolfram Demonstrations</strong></li>
+        <li><strong>Physics Classroom</strong></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 💬 SECCIÓN DE COMENTARIOS -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:15px;padding:2em;">
+  <h3 style="color:#92400e;font-size:1.6em;margin-bottom:1em;">
+    <i class="fas fa-comments"></i> Comparte tu Experiencia 💭
+  </h3>
+  
+  <p style="color:#78350f;font-size:1.1em;line-height:1.8;margin-bottom:1.5em;">
+    ¿Te gustó aprender sobre magnitudes físicas? ¿Tienes alguna pregunta o quieres compartir 
+    una curiosidad que hayas descubierto? ¡Nos encantaría conocer tu opinión!
+  </p>
+  
+  <div style="background:white;padding:1.5em;border-radius:12px;margin-bottom:1em;">
+    <div style="margin-bottom:1em;">
+      <label style="color:#92400e;font-weight:600;display:block;margin-bottom:0.5em;">
+        ¿Cuál fue tu descubrimiento más sorprendente?
+      </label>
+      <textarea placeholder="Por ejemplo: No sabía que el tiempo pasa más lento en órbita..." 
+                style="width:100%;height:80px;padding:0.8em;border:2px solid #f59e0b;border-radius:8px;resize:vertical;"></textarea>
+    </div>
+    
+    <div style="margin-bottom:1em;">
+      <label style="color:#92400e;font-weight:600;display:block;margin-bottom:0.5em;">
+        ¿Qué magnitud te parece más fascinante?
+      </label>
+      <select style="width:100%;padding:0.8em;border:2px solid #f59e0b;border-radius:8px;">
+        <option>Selecciona una magnitud...</option>
+        <option>Tiempo - La cuarta dimensión</option>
+        <option>Longitud - Desde lo nano hasta lo cósmico</option>
+        <option>Masa - La esencia de la materia</option>
+        <option>Temperatura - La agitación molecular</option>
+        <option>Velocidad - El cambio en movimiento</option>
+        <option>Energía - La capacidad de transformar</option>
+      </select>
+    </div>
+    
+    <button style="background:#f59e0b;color:white;padding:0.8em 1.5em;border:none;border-radius:8px;font-weight:600;cursor:pointer;">
+      <i class="fas fa-paper-plane"></i> Compartir Experiencia
+    </button>
+  </div>
+</div>
+
+<!-- 🚀 PRÓXIMOS TEMAS -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#e9d5ff,#d8b4fe);border-radius:15px;padding:2em;">
+  <h3 style="color:#7c3aed;font-size:1.6em;margin-bottom:1em;">
+    <i class="fas fa-rocket"></i> ¿Qué Viene Después? 🚀
+  </h3>
+  
+  <p style="color:#6d28d9;font-size:1.1em;line-height:1.8;margin-bottom:1.5em;">
+    Ahora que dominas las magnitudes físicas, estás listo para explorar temas más avanzados 
+    y emocionantes de la física:
+  </p>
+  
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1em;">
+    <div style="background:white;padding:1.2em;border-radius:10px;text-align:center;">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">⚡</div>
+      <h5 style="color:#7c3aed;margin-bottom:0.5em;">Vectores y Fuerzas</h5>
+      <p style="color:#6d28d9;font-size:0.95em;">Dirección, sentido y magnitud juntos</p>
+    </div>
+    <div style="background:white;padding:1.2em;border-radius:10px;text-align:center;">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">🌊</div>
+      <h5 style="color:#7c3aed;margin-bottom:0.5em;">Ondas y Movimiento</h5>
+      <p style="color:#6d28d9;font-size:0.95em;">Cómo se propaga la energía</p>
+    </div>
+    <div style="background:white;padding:1.2em;border-radius:10px;text-align:center;">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">🔥</div>
+      <h5 style="color:#7c3aed;margin-bottom:0.5em;">Termodinámica</h5>
+      <p style="color:#6d28d9;font-size:0.95em;">Calor, trabajo y entropía</p>
+    </div>
+    <div style="background:white;padding:1.2em;border-radius:10px;text-align:center;">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">⚛️</div>
+      <h5 style="color:#7c3aed;margin-bottom:0.5em;">Física Cuántica</h5>
+      <p style="color:#6d28d9;font-size:0.95em;">El mundo subatómico</p>
+    </div>
+  </div>
+</div>
+
+<!-- 🎬 FOOTER FINAL -->
+<footer style="background:linear-gradient(135deg,#1e293b,#334155);color:white;padding:2em;border-radius:15px;text-align:center;margin-top:3em;">
+  <div style="margin-bottom:1.5em;">
+    <h4 style="color:#93c5fd;font-size:1.3em;margin-bottom:0.5em;">
+      <i class="fas fa-heart"></i> Gracias por Aprender con Nosotros
+    </h4>
+    <p style="color:#e2e8f0;line-height:1.8;">
+      Esperamos que este viaje por el mundo de las magnitudes físicas haya despertado 
+      tu curiosidad científica. ¡El universo está lleno de maravillas esperando ser descubiertas!
+    </p>
+  </div>
+  
+  <div style="border-top:1px solid #475569;padding-top:1.5em;">
+    <p style="color:#94a3b8;font-size:0.95em;">
+      Creado con 💙 por <strong>MSc. Néstor Fabio Montoya Palacios</strong><br>
+      <em>Versión 2.0 - Curso Interactivo de Magnitudes Físicas</em>
+    </p>
+    <div style="margin-top:1em;">
+      <span style="font-size:1.5em;">🌟 ⚛️ 🔬 📏 🌡️ ⚖️ ⏰ 🚀</span>
+    </div>
+  </div>
+</footer>
+

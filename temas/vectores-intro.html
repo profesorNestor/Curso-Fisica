@@ -1,0 +1,161 @@
+<!-- =========================================
+     INTRODUCCIÓN A VECTORES - CURSO INTERACTIVO DE FÍSICA
+     Página: vectores-intro.html
+     Autor: MSc. Néstor Fabio Montoya Palacios
+========================================== -->
+
+<!-- ENCABEZADO VISUAL -->
+<div class="lesson-header" style="animation: fadeInUp 1s;">
+  <h2 style="display:flex;align-items:center;gap:0.7em;">
+    <i class="fas fa-arrows-alt" style="color:#6366f1;"></i>
+    Introducción a Vectores
+    <span style="font-size:2em;">🧭📐</span>
+  </h2>
+  <div class="lesson-meta">
+    <span><i class="fas fa-clock"></i> 30 min</span>
+    <span><i class="fas fa-signal"></i> Nivel Básico</span>
+    <span class="badge-sim"><i class="fas fa-bolt"></i> Interactivo</span>
+  </div>
+  <p class="lesson-desc">
+    Descubre los conceptos fundamentales sobre los <b>vectores</b> y aprende a representarlos y usarlos en problemas reales de física y matemáticas.
+  </p>
+</div>
+
+<!-- DEFINICIÓN Y EJEMPLOS BÁSICOS -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-shapes"></i> ¿Qué es un vector?</h3>
+  <p style="font-size:1.1em;">
+    Un <b>vector</b> es una cantidad que se representa mediante un segmento de recta orientado y que tiene <b>módulo</b> (o magnitud), <b>dirección</b> y <b>sentido</b>. 
+    <br>
+    <span style="color:var(--accent);font-weight:bold;">Ejemplos:</span> 
+    <span style="color:#4f46e5;">Desplazamiento</span>, <span style="color:#0ea5e9;">velocidad</span>, <span style="color:#10b981;">aceleración</span>, <span style="color:#f59e0b;">fuerza</span>.
+  </p>
+  <div class="highlight-card" style="background:var(--bg-tertiary);margin-top:1em;">
+    <span class="card-icon"><i class="fas fa-lightbulb"></i></span>
+    <div class="card-content">
+      <b>¿Sabías que?</b> La temperatura y la masa NO son vectores, pero la velocidad del viento o la fuerza sí lo son.
+    </div>
+  </div>
+</div>
+
+<!-- REPRESENTACIÓN DE UN VECTOR (SVG) -->
+<div class="card" style="margin-bottom:2em; background:linear-gradient(90deg,#fbc2eb20 0%,#a5b4fc20 100%);">
+  <h3 style="color:var(--secondary);"><i class="fas fa-ruler-horizontal"></i> Partes de un vector <span>🔍</span></h3>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2em;">
+    <svg width="290" height="100" viewBox="0 0 290 100">
+      <!-- Línea principal (vector) -->
+      <line x1="40" y1="60" x2="230" y2="60" stroke="#6366f1" stroke-width="8" marker-end="url(#arrow)"/>
+      <!-- Cabeza (punto final) -->
+      <circle cx="230" cy="60" r="7" fill="#f59e0b"/>
+      <!-- Cola (punto inicial) -->
+      <circle cx="40" cy="60" r="7" fill="#10b981"/>
+      <!-- Ángulo de dirección -->
+      <path d="M 40 60 A 35 35 0 0 1 85 35" fill="none" stroke="#f472b6" stroke-width="3"/>
+      <text x="75" y="33" fill="#f472b6" font-size="1em">θ</text>
+      <!-- Etiquetas -->
+      <text x="20" y="82" fill="#10b981" font-size="1em">Cola</text>
+      <text x="218" y="90" fill="#f59e0b" font-size="1em">Cabeza</text>
+      <text x="120" y="55" fill="#6366f1" font-size="1.13em" font-weight="bold">Magnitud</text>
+      <defs>
+        <marker id="arrow" markerWidth="15" markerHeight="15" refX="12" refY="7" orient="auto" markerUnits="strokeWidth">
+          <path d="M2,2 L12,7 L2,12" style="fill:#6366f1;" />
+        </marker>
+      </defs>
+    </svg>
+    <div style="min-width:180px;flex:1;">
+      <ul style="font-size:1.09em;line-height:1.8;margin-left:1.5em;">
+        <li><b>Cola:</b> Punto de origen.</li>
+        <li><b>Cabeza:</b> Punta del vector (indica sentido).</li>
+        <li><b>Magnitud:</b> Longitud del vector (su “tamaño”).</li>
+        <li><b>Dirección:</b> El ángulo respecto a una línea horizontal.</li>
+        <li><b>Sentido:</b> Hacia dónde apunta (izq/derecha, arriba/abajo).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- NOTACIÓN Y TIPOS DE VECTORES -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--primary);"><i class="fas fa-pen-nib"></i> Notación de Vectores y Tipos <span>✏️</span></h3>
+  <p>
+    Los vectores se suelen representar con una flecha sobre la letra: <span style="font-family:monospace;font-size:1.17em;">\(\vec{v}\)</span> o en negrita: <b style="font-family:monospace;">**v**</b>.<br>
+    <b>Vectores libres:</b> Se pueden mover paralelamente sin cambiar sus propiedades.<br>
+    <b>Vectores fijos:</b> Tienen un punto de aplicación específico (importante en momentos y torques).
+  </p>
+</div>
+
+<!-- CARD INFORMATIVA: VECTORES LIBRES -->
+<div class="card info-card" style="
+  display: flex; align-items: center; gap: 1.3em; 
+  background: linear-gradient(90deg,#e0e7ff 0%,#ede9fe 100%);
+  border: 2px solid #6366f1;
+  border-radius: 1.2em;
+  box-shadow: 0 2px 14px #0001;
+  padding: 1.5em 2em;
+  margin: 1.2em 0 2.2em 0;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+">
+  <div style="
+    min-width: 62px; min-height: 62px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #6366f1 60%, #a5b4fc 100%);
+    border-radius: 50%;
+    box-shadow: 0 1px 8px #6366f1aa;">
+    <i class="fas fa-info" style="color:white;font-size:2em;"></i>
+  </div>
+  <div style="font-size: 1.15em; color: #272848; font-weight: 500; line-height: 1.7;">
+    <span style="font-size: 1.08em; color:#4f46e5; font-weight:bold;">
+      ¿Sabías esto sobre los vectores en física? 
+    </span>
+    <br>
+    En la <b>física</b>, la gran mayoría de los vectores que sumamos (como <b>velocidades</b>, <b>fuerzas</b> o <b>desplazamientos</b>) se consideran <b>libres</b>.<br>
+    <span style="color:#10b981;font-weight:bold;">Esto significa que su punto de aplicación puede cambiarse sin alterar el resultado</span>,
+    <span style="color:#6366f1;">a menos que el problema exija especificar el lugar exacto donde actúa</span> (por ejemplo, en palancas, momentos de fuerza o torsión).
+  </div>
+</div>
+
+<!-- VECTORES EN 2D Y COMPONENTES CARTESIANAS -->
+<div class="card" style="margin-bottom:2em;">
+  <h3 style="color:var(--secondary);"><i class="fas fa-map"></i> Vectores en dos dimensiones (2D) <span>🗺️</span></h3>
+  <p>
+    Un vector en el plano se puede expresar mediante dos componentes: <b>x</b> (horizontal) y <b>y</b> (vertical):<br>
+    <span style="font-family:monospace;font-size:1.12em;">\(\vec{v} = (v_x, v_y)\)</span>
+    <br>También se pueden describir usando su magnitud y el ángulo respecto al eje X:<br>
+    <span style="font-family:monospace;font-size:1.12em;">\(\vec{v} = |\vec{v}| \cdot (\cos\theta, \sin\theta)\)</span>
+  </p>
+  <ul style="margin-left:1.6em;font-size:1.05em;">
+    <li><b>Magnitud:</b> \( |\vec{v}| = \sqrt{v_x^2 + v_y^2} \)</li>
+    <li><b>Dirección:</b> \( \theta = \arctan \left(\frac{v_y}{v_x}\right) \)</li>
+  </ul>
+</div>
+
+<!-- EJEMPLOS REALES DE VECTORES -->
+<div class="card" style="margin-bottom:2em; background:linear-gradient(90deg,#f0fdcb55,#bae6fd55);">
+  <h3 style="color:var(--primary);"><i class="fas fa-rocket"></i> Ejemplos de Vectores en Física <span>🚀</span></h3>
+  <ul style="font-size:1.09em;line-height:1.8;margin-left:1.7em;">
+    <li>El <b>desplazamiento</b> de un auto desde su casa al colegio.</li>
+    <li>La <b>fuerza</b> que ejerce una cuerda al tirar de un objeto (tensión).</li>
+    <li>El <b>campo eléctrico</b> generado por una carga puntual.</li>
+    <li>La <b>velocidad</b> del viento (tanto su rapidez como a dónde va).</li>
+    <li>El <b>peso</b> (fuerza que la gravedad ejerce sobre los cuerpos, siempre hacia abajo).</li>
+  </ul>
+</div>
+
+<!-- ¿SABÍAS QUÉ...? -->
+<div class="card highlight-card" style="background:linear-gradient(90deg,#dbeafe 60%,#f3e8ff 100%);margin-bottom:2em;">
+  <div style="display:flex;align-items:center;gap:1em;">
+    <i class="fas fa-question-circle" style="color:#6366f1;font-size:2em;"></i>
+    <div>
+      <b>¿Sabías que...?</b>  
+      <br>
+      El uso de vectores revolucionó la física al permitir sumar y descomponer fuerzas y movimientos complejos de manera sencilla y visual.
+    </div>
+  </div>
+</div>
+
+<!-- FIN DE LA PÁGINA -->
+
+<!-- Si usas MathJax ya está todo listo para fórmulas. 
+     Si quieres una simulación interactiva en Processing, p5.js o canvas, solo dímelo :) -->

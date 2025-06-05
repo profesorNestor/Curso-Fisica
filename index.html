@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Interactivo de Física - Fundamentos para Secundaria</title>
+  <meta name="description" content="Curso completo e interactivo de Física para secundaria. Aprende con simulaciones, juegos y experimentos virtuales los fundamentos de la física.">
+  <meta name="author" content="Néstor Fabio Montoya Palacios">
+  <meta name="keywords" content="física, secundaria, curso, interactivo, simulaciones, cinemática, dinámica, ondas, óptica, electricidad">
+
+  <!-- Redes sociales (Open Graph) -->
+  <meta property="og:title" content="Curso Interactivo de Física">
+  <meta property="og:description" content="Aprende física de manera interactiva con simulaciones, experimentos virtuales y contenido multimedia para secundaria.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/fisica-preview.jpg">
+
+  <!-- Google Fonts y tipografías limpias y modernas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome para iconografía física y educativa -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Highlight.js para bloques de código -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- MathJax para ecuaciones -->
+  <script src="mathjax-config.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+  <!-- p5.js para simulaciones interactivas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+
+  <!-- Loader randomizador -->
+  <script>
+    const randomLoaderConfig = {
+      icons: ['fas fa-atom', 'fas fa-flask', 'fas fa-magnet', 'fas fa-bolt', 'fas fa-balance-scale', 'fas fa-satellite', 'fas fa-tachometer-alt', 'fas fa-wave-square', 'fas fa-thermometer-half'],
+      texts: ['⚗️ Preparando experimentos...', '🧲 Generando campos...', '🛰️ Lanzando satélites...', '⚖️ Balanceando fuerzas...', '⚡ Cargando simulaciones...', '🔬 Ajustando microscopios...', '🌍 Sincronizando universo...'],
+      subtexts: ['🔬 Cargando simulaciones de física', '🎮 Inicializando juegos científicos', '🌈 Calculando trayectorias de la luz', '🎲 Eligiendo problemas aleatorios', '🪐 Listo para explorar el cosmos', '📈 Calculando trayectorias', '🌡️ Ajustando temperaturas']
+    };
+    function getRandomElement(array) { return array[Math.floor(Math.random() * array.length)]; }
+    document.addEventListener('DOMContentLoaded', function() {
+      const loaderIcon = document.getElementById('loader-icon');
+      const loaderText = document.getElementById('loader-text');
+      const loaderSubtext = document.getElementById('loader-subtext');
+      if (loaderIcon && loaderText && loaderSubtext) {
+        loaderIcon.className = getRandomElement(randomLoaderConfig.icons);
+        loaderIcon.classList.add('loader-animation-spin');
+        loaderText.textContent = getRandomElement(randomLoaderConfig.texts);
+        loaderSubtext.textContent = getRandomElement(randomLoaderConfig.subtexts);
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- ========== LOADER ANIMADO ========== -->
+  <div id="loader" class="loader" role="status" aria-live="polite">
+    <div class="loader-content">
+      <i id="loader-icon" class="fas fa-atom"></i>
+      <div id="loader-text" class="loader-text">⚗️ Preparando experimentos...</div>
+      <div id="loader-subtext" class="loader-subtext">🔬 Cargando simulaciones de física</div>
+    </div>
+  </div>
+
+  <!-- ========== MENÚ LATERAL DINÁMICO ========== -->
+  <nav id="sidebar" class="sidebar" aria-label="Navegación principal del curso de física">
+    <div class="sidebar-header">
+      <div class="logo">
+        <i class="fas fa-atom"></i>
+        <span>Física Interactiva</span>
+      </div>
+      <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Mostrar/ocultar menú lateral">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-menu" id="sidebar-menu" role="menu">
+        <!-- AQUÍ SE INYECTA EL MENÚ DESDE JS Y secciones.js -->
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar modo de color">
+        <i class="fas fa-moon"></i>
+        <span>Modo Oscuro</span>
+      </button>
+    </div>
+  </nav>
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- ========== CONTENIDO PRINCIPAL ========== -->
+  <main id="main-content" class="main-content" role="main">
+    <header class="header" id="header">
+      <div class="header-content">
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Mostrar menú móvil">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="header-text">
+          <h1 class="header-title">
+            <i class="fas fa-atom"></i> Curso Interactivo de Física
+          </h1>
+          <p class="header-subtitle">
+            🔬 Aprende física de manera interactiva • 🎮 Simulaciones • 🧮 Experimentos virtuales • 📊 Para secundaria
+          </p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary" id="start-course-btn">
+            <i class="fas fa-play"></i> Comenzar Curso
+          </button>
+          <button class="btn btn-secondary" id="simulations-btn">
+            <i class="fas fa-flask"></i> Simulaciones
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== ÁREA DINÁMICA / BIENVENIDA ========== -->
+    <section id="content-area" class="content-area" tabindex="0">
+      <div class="welcome-message">
+        <div class="welcome-hero">
+          <h2 class="welcome-title">
+            <i class="fas fa-rocket"></i> ¡Bienvenido al Mundo de la Física! <i class="fas fa-star"></i>
+          </h2>
+          <p class="welcome-description">
+            Descubre los secretos del universo a través de la física interactiva.<br>
+            Experimenta con simulaciones, resuelve problemas y comprende las leyes que gobiernan todo lo que nos rodea.<br><br>
+            <strong>Selecciona cualquier tema del menú o haz clic en “Comenzar Curso” para iniciar.</strong>
+          </p>
+          <div class="welcome-actions">
+            <button class="btn btn-primary btn-large" id="welcome-start-btn">
+              <i class="fas fa-play"></i> Comenzar el Curso
+            </button>
+            <button class="btn btn-secondary btn-large" id="welcome-random-sim-btn">
+              <i class="fas fa-dice"></i> Simulación Aleatoria
+            </button>
+          </div>
+        </div>
+        <!-- Destacados visuales de temas (puedes generar esto desde JS si lo deseas) -->
+        <div class="physics-highlights" id="physics-highlights">
+          <!-- Ejemplo de tarjeta destacada: -->
+          <!--
+          <div class="highlight-card" onclick="...">
+            <div class="card-icon"><i class="fas fa-arrows-alt highlight-icon"></i></div>
+            <div class="card-content"><h4>🧭 Vectores</h4><p>Conceptos y operaciones básicas</p></div>
+            <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+          </div>
+          -->
+        </div>
+        <!-- Estadísticas del curso, pueden llenarse desde JS -->
+        <div class="course-stats" id="course-stats">
+          <!--
+          <h3 class="stats-title"><i class="fas fa-chart-bar"></i> Contenido del Curso</h3>
+          <div class="stats-grid">
+            <div class="stats-card"><span>21</span><small>Secciones</small></div>
+            <div class="stats-card"><span>132</span><small>Lecciones</small></div>
+            <div class="stats-card"><span>25</span><small>Simulaciones</small></div>
+          </div>
+          -->
+        </div>
+        <div class="quick-access">
+          <a href="https://phet.colorado.edu/" target="_blank" class="btn btn-accent btn-large">
+            <i class="fas fa-gamepad"></i> Ver Simulaciones PhET
+          </a>
+          <a href="https://www.geogebra.org/" target="_blank" class="btn btn-outline btn-large">
+            <i class="fas fa-chart-line"></i> Graficador GeoGebra
+          </a>
+          <a href="#" class="btn btn-outline btn-large" id="formulary-btn">
+            <i class="fas fa-calculator"></i> Formulario de Física
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- ========== PIE DE PÁGINA ========== -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">👨‍🏫 Profesor</h3>
+          <p class="instructor-name">M.Sc. Néstor Fabio Montoya Palacios</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright-info">
+          <p>© <span id="current-year"></span> Curso Interactivo de Física - <strong>M.Sc. Néstor Fabio Montoya Palacios</strong>. Todos los derechos reservados.</p>
+          <p class="footer-subtitle"><small>Diseñado con ❤️ para la educación científica • Cartago, Colombia 🇨🇴</small></p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ========== ARCHIVOS JS PRINCIPALES ========== -->
+  <script src="secciones.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // 📅 Actualizar año en el footer
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentYearElement = document.getElementById('current-year');
+      if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+      }
+    });
+    // Mensaje de bienvenida en consola
+    console.log(`
+    🎯====================================🎯
+          CURSO INTERACTIVO DE FÍSICA
+           Por: M.Sc. Néstor Fabio Montoya Palacios
+    🎯====================================🎯
+    🚀 index.html cargado. Esperando script.js para funcionalidad completa...
+    `);
+  </script>
+</body>
+</html>
