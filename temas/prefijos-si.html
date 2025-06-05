@@ -302,6 +302,216 @@
     </p>
   </div>
 
+
+
+
+
+<!-- ================================
+     🎯 QUIZ INTERACTIVO DE PREFIJOS SI
+     Insertar DESPUÉS de la sección de ejercicios en Python
+     ================================ -->
+
+<style>
+/* Estilos específicos para el iframe del quiz */
+.quiz-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 2.5em;
+    margin: 3em 0;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.quiz-header {
+    position: relative;
+    z-index: 2;
+    color: white;
+    margin-bottom: 2em;
+}
+
+.quiz-header h3 {
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.quiz-header p {
+    font-size: 1.2em;
+    opacity: 0.95;
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+}
+
+.quiz-iframe {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 650px;
+    border: none;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-iframe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.quiz-note {
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 1.2em;
+    margin-top: 1.5em;
+    color: white;
+    font-size: 0.95em;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.quiz-controls {
+    position: relative;
+    z-index: 2;
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.quiz-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 0.8em 1.5em;
+    border-radius: 25px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-btn:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-2px);
+}
+
+.quiz-btn.primary {
+    background: #10b981;
+    border-color: #10b981;
+}
+
+.quiz-btn.primary:hover {
+    background: #059669;
+    border-color: #059669;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 1.5em;
+        margin: 2em 0;
+    }
+    
+    .quiz-header h3 {
+        font-size: 1.8em;
+    }
+    
+    .quiz-iframe {
+        height: 550px;
+    }
+    
+    .quiz-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-iframe {
+        height: 500px;
+    }
+}
+</style>
+
+<!-- ================================
+     SECCIÓN DEL QUIZ INTERACTIVO
+     ================================ -->
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h3>
+            <i class="fas fa-gamepad"></i>
+            Quiz Interactivo: Prefijos del SI
+            <span>🎯🧮</span>
+        </h3>
+        <p>
+            ¡Pon a prueba tus conocimientos! Resuelve ejercicios interactivos sobre conversiones 
+            y aplicaciones de los prefijos del Sistema Internacional. 
+            <strong>¿Estás listo para el desafío?</strong>
+        </p>
+    </div>
+    
+    <!-- IFRAME DEL QUIZ -->
+    <iframe 
+        src="assets/aplicaciones/quiz_prefijos.html" 
+        class="quiz-iframe"
+        title="Quiz Interactivo de Prefijos del Sistema Internacional"
+        allowfullscreen>
+        <p>Tu navegador no soporta iframes. 
+           <a href="assets/aplicaciones/quiz_prefijos.html" target="_blank">
+               Haz clic aquí para abrir el quiz en una nueva ventana
+           </a>
+        </p>
+    </iframe>
+    
+    <div class="quiz-note">
+        <i class="fas fa-info-circle"></i>
+        <strong>Nota:</strong> Este quiz incluye ejercicios de conversión entre prefijos, 
+        identificación de símbolos y aplicaciones prácticas. Los resultados se guardan 
+        automáticamente y puedes repetir las preguntas cuantas veces desees.
+    </div>
+    
+    <div class="quiz-controls">
+        <button class="quiz-btn" onclick="document.querySelector('.quiz-iframe').src += ''">
+            <i class="fas fa-redo"></i> Reiniciar Quiz
+        </button>
+        <button class="quiz-btn primary" onclick="window.open('assets/aplicaciones/quiz_prefijos.html', '_blank')">
+            <i class="fas fa-external-link-alt"></i> Abrir en Nueva Ventana
+        </button>
+    </div>
+</div>
+
+
+
+
+
   <!-- ENLACE A JUPYTER O COLAB -->
   <div class="highlight-card" style="background:var(--bg-tertiary);margin-top:2em;">
     <span class="card-icon"><i class="fab fa-python"></i></span>
