@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,34 +35,72 @@
   <!-- p5.js para simulaciones interactivas -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 
-  <!-- Loader randomizador -->
+  <!-- Loader randomizador - VERSIÓN UNIFICADA -->
   <script>
     const randomLoaderConfig = {
-      icons: ['fas fa-atom', 'fas fa-flask', 'fas fa-magnet', 'fas fa-bolt', 'fas fa-balance-scale', 'fas fa-satellite', 'fas fa-tachometer-alt', 'fas fa-wave-square', 'fas fa-thermometer-half'],
-      texts: ['⚗️ Preparando experimentos...', '🧲 Generando campos...', '🛰️ Lanzando satélites...', '⚖️ Balanceando fuerzas...', '⚡ Cargando simulaciones...', '🔬 Ajustando microscopios...', '🌍 Sincronizando universo...'],
-      subtexts: ['🔬 Cargando simulaciones de física', '🎮 Inicializando juegos científicos', '🌈 Calculando trayectorias de la luz', '🎲 Eligiendo problemas aleatorios', '🪐 Listo para explorar el cosmos', '📈 Calculando trayectorias', '🌡️ Ajustando temperaturas']
+      emojis: ['🔬', '🧲', '🛰️', '⚛️', '⚗️', '🔭', '🪐', '🌡️', '📡'],
+      texts: [
+        '⚗️ Preparando experimentos...',
+        '🧲 Generando campos magnéticos...',
+        '🛰️ Lanzando satélites...',
+        '⚖️ Balanceando fuerzas físicas...',
+        '⚡ Cargando simulaciones eléctricas...',
+        '🔬 Ajustando microscopios cuánticos...',
+        '🌍 Sincronizando el universo observable...'
+      ],
+      subtexts: [
+        '🎮 Inicializando simulaciones científicas...',
+        '🌈 Calculando trayectorias de la luz...',
+        '🎲 Seleccionando problemas aleatorios...',
+        '📈 Graficando funciones físicas...',
+        '🌡️ Midiendo temperaturas extremas...',
+        '🧪 Preparando laboratorios virtuales...'
+      ],
+      quotes: [
+        '"La física es la poesía de la naturaleza."',
+        '"Todo lo que sube tiene que bajar." — Newton',
+        '"Lo más incomprensible del universo es que sea comprensible." — Einstein',
+        '"La ciencia no es solo conocimiento, es imaginación." — Feynman',
+        '"Estudia la física: lo demás es solo detalles."'
+      ]
     };
-    function getRandomElement(array) { return array[Math.floor(Math.random() * array.length)]; }
-    document.addEventListener('DOMContentLoaded', function() {
-      const loaderIcon = document.getElementById('loader-icon');
+
+    function getRandomElement(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const loaderEmoji = document.getElementById('loader-emoji');
       const loaderText = document.getElementById('loader-text');
       const loaderSubtext = document.getElementById('loader-subtext');
-      if (loaderIcon && loaderText && loaderSubtext) {
-        loaderIcon.className = getRandomElement(randomLoaderConfig.icons);
-        loaderIcon.classList.add('loader-animation-spin');
-        loaderText.textContent = getRandomElement(randomLoaderConfig.texts);
-        loaderSubtext.textContent = getRandomElement(randomLoaderConfig.subtexts);
-      }
+      const loaderQuote = document.getElementById('loader-quote');
+
+      if (loaderEmoji) loaderEmoji.textContent = getRandomElement(randomLoaderConfig.emojis);
+      if (loaderText) loaderText.textContent = getRandomElement(randomLoaderConfig.texts);
+      if (loaderSubtext) loaderSubtext.textContent = getRandomElement(randomLoaderConfig.subtexts);
+      if (loaderQuote) loaderQuote.textContent = getRandomElement(randomLoaderConfig.quotes);
     });
   </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <!-- ========== LOADER ANIMADO ========== -->
+
+  <!-- ========== LOADER ANIMADO MEJORADO ========== -->
   <div id="loader" class="loader" role="status" aria-live="polite">
     <div class="loader-content">
-      <i id="loader-icon" class="fas fa-atom"></i>
+      <!-- Emoji grande e ícono dinámico -->
+      <div class="loader-emoji" id="loader-emoji">🔬</div>
+
+      <!-- Texto principal (frase aleatoria) -->
       <div id="loader-text" class="loader-text">⚗️ Preparando experimentos...</div>
-      <div id="loader-subtext" class="loader-subtext">🔬 Cargando simulaciones de física</div>
+
+      <!-- Subtexto (frase secundaria) -->
+      <div id="loader-subtext" class="loader-subtext">🔭 Explorando el universo físico...</div>
+
+      <!-- Cita o reflexión -->
+      <div id="loader-quote" class="loader-quote">"La física es el arte de comprender el mundo invisible a través de lo visible."</div>
     </div>
   </div>
 
@@ -81,13 +120,9 @@
         <!-- AQUÍ SE INYECTA EL MENÚ DESDE JS Y secciones.js -->
       </div>
     </div>
-    <div class="sidebar-footer">
-      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar modo de color">
-        <i class="fas fa-moon"></i>
-        <span>Modo Oscuro</span>
-      </button>
-    </div>
+    <!-- Botón de modo oscuro eliminado completamente -->
   </nav>
+
   <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
   <!-- ========== CONTENIDO PRINCIPAL ========== -->
@@ -118,75 +153,83 @@
 
     <!-- ========== ÁREA DINÁMICA / BIENVENIDA ========== -->
     <section id="content-area" class="content-area" tabindex="0">
-      <div class="welcome-message">
-        <div class="welcome-hero">
-          <h2 class="welcome-title">
-            <i class="fas fa-rocket"></i> ¡Bienvenido al Mundo de la Física! <i class="fas fa-star"></i>
+      <div class="lesson-body" style="padding: 2em; max-width: 900px; margin: auto;">
+
+        <!-- TÍTULO CENTRAL -->
+        <div style="text-align:center; margin-bottom: 2em;">
+          <h2 style="font-size: 2.2em; color: #1d4ed8;">
+            🌌 Introducción al Curso Interactivo de Física
           </h2>
-          <p class="welcome-description">
-            Descubre los secretos del universo a través de la física interactiva.<br>
-            Experimenta con simulaciones, resuelve problemas y comprende las leyes que gobiernan todo lo que nos rodea.<br><br>
-            <strong>Selecciona cualquier tema del menú o haz clic en “Comenzar Curso” para iniciar.</strong>
+          <p style="font-size: 1.1em; max-width: 800px; margin: auto;">
+            ¡Bienvenido! Prepárate para vivir una experiencia educativa única donde la física no se memoriza, 
+            sino que se comprende, se visualiza y se disfruta.
           </p>
-          <div class="welcome-actions">
-            <button class="btn btn-primary btn-large" id="welcome-start-btn">
-              <i class="fas fa-play"></i> Comenzar el Curso
-            </button>
-            <button class="btn btn-secondary btn-large" id="welcome-random-sim-btn">
-              <i class="fas fa-dice"></i> Simulación Aleatoria
-            </button>
-          </div>
         </div>
-        <!-- Destacados visuales de temas (puedes generar esto desde JS si lo deseas) -->
-        <div class="physics-highlights" id="physics-highlights">
-          <!-- Ejemplo de tarjeta destacada: -->
-          <!--
-          <div class="highlight-card" onclick="...">
-            <div class="card-icon"><i class="fas fa-arrows-alt highlight-icon"></i></div>
-            <div class="card-content"><h4>🧭 Vectores</h4><p>Conceptos y operaciones básicas</p></div>
-            <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
-          </div>
-          -->
+
+        <!-- ¿QUÉ ES LA FÍSICA? -->
+        <div class="tcard" style="margin-bottom: 2em;">
+          <h3><i class="fas fa-atom"></i> ¿Qué es la física?</h3>
+          <p>
+            La física es la ciencia que estudia los fenómenos naturales, la materia, la energía y su interacción. 
+            Nos permite entender cómo funciona el mundo, desde el movimiento de una pelota ⚽ hasta el brillo de una estrella 🌟.
+          </p>
+          <p>
+            A través de este curso, aprenderás a formular preguntas, investigar con curiosidad, usar herramientas digitales 
+            y construir modelos que expliquen el universo con rigor y creatividad.
+          </p>
         </div>
-        <!-- Estadísticas del curso, pueden llenarse desde JS -->
-        <div class="course-stats" id="course-stats">
-          <!--
-          <h3 class="stats-title"><i class="fas fa-chart-bar"></i> Contenido del Curso</h3>
-          <div class="stats-grid">
-            <div class="stats-card"><span>21</span><small>Secciones</small></div>
-            <div class="stats-card"><span>132</span><small>Lecciones</small></div>
-            <div class="stats-card"><span>25</span><small>Simulaciones</small></div>
-          </div>
-          -->
+
+        <!-- CONTENIDO DEL CURSO -->
+        <div class="tcard" style="margin-bottom: 2em;">
+          <h3><i class="fas fa-book-open"></i> ¿Qué vas a aprender?</h3>
+          <ul style="line-height: 1.8em;">
+            <li>📏 <strong>Magnitudes y unidades</strong>: fundamentos de la medición.</li>
+            <li>🏃 <strong>Movimiento y cinemática</strong>: cómo se mueven los objetos.</li>
+            <li>⚖️ <strong>Leyes de Newton</strong>: causas del movimiento.</li>
+            <li>⚡ <strong>Energía y trabajo</strong>: cómo se transforma la energía.</li>
+            <li>🔊 <strong>Ondas y sonido</strong>: propagación de vibraciones.</li>
+            <li>💡 <strong>Luz y óptica</strong>: cómo vemos y cómo se comporta la luz.</li>
+            <li>🔌 <strong>Electricidad y magnetismo</strong>: campos, cargas y circuitos.</li>
+            <li>🔥 <strong>Termodinámica</strong>: calor, temperatura y cambios físicos.</li>
+          </ul>
         </div>
-        <div class="quick-access">
-          <a href="https://phet.colorado.edu/" target="_blank" class="btn btn-accent btn-large">
-            <i class="fas fa-gamepad"></i> Ver Simulaciones PhET
-          </a>
-          <a href="https://www.geogebra.org/" target="_blank" class="btn btn-outline btn-large">
-            <i class="fas fa-chart-line"></i> Graficador GeoGebra
-          </a>
-          <a href="#" class="btn btn-outline btn-large" id="formulary-btn">
-            <i class="fas fa-calculator"></i> Formulario de Física
-          </a>
+
+        <!-- OBJETIVOS -->
+        <div class="tcard" style="margin-bottom: 2em;">
+          <h3><i class="fas fa-bullseye"></i> Objetivos del curso</h3>
+          <ul style="line-height: 1.8em;">
+            <li>🧠 Comprender leyes y principios fundamentales de la física.</li>
+            <li>🔬 Aplicar el método científico para resolver problemas reales.</li>
+            <li>🧰 Utilizar herramientas como GeoGebra, Python y simuladores interactivos.</li>
+            <li>🔗 Relacionar la física con la ingeniería, el medio ambiente y la vida diaria.</li>
+            <li>🎮 Aprender mediante experiencias interactivas, juegos y visualizaciones.</li>
+          </ul>
         </div>
+
+        <!-- METODOLOGÍA -->
+        <div class="tcard" style="margin-bottom: 2em;">
+          <h3><i class="fas fa-chalkboard-teacher"></i> Metodología interactiva</h3>
+          <p>
+            Este curso está diseñado para que aprendas <strong>haciendo</strong>. No solo verás teoría, sino que:
+          </p>
+          <ul style="line-height: 1.8em;">
+            <li>🔍 Realizarás simulaciones virtuales de fenómenos reales.</li>
+            <li>💡 Resolverás ejercicios contextualizados y desafiantes.</li>
+            <li>🧪 Explorarás conceptos mediante experimentos digitales.</li>
+            <li>📊 Visualizarás datos, gráficas y ecuaciones con herramientas modernas.</li>
+          </ul>
+        </div>
+
+        <!-- FRASE FINAL -->
+        <div style="margin-top: 2em; padding: 1em; background: #eef6ff; border-left: 6px solid #3b82f6; border-radius: 12px;">
+          <p style="font-size: 1.1em; font-weight: 500; color: #1e40af; text-align: center;">
+            "El universo está escrito en el lenguaje de las matemáticas. La física es el arte de traducirlo." 🌌✨
+          </p>
+        </div>
+
       </div>
     </section>
-    <!-- ========== PIE DE PÁGINA ========== -->
-    <footer class="footer" role="contentinfo">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-title">👨‍🏫 Profesor</h3>
-          <p class="instructor-name">M.Sc. Néstor Fabio Montoya Palacios</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="copyright-info">
-          <p>© <span id="current-year"></span> Curso Interactivo de Física - <strong>M.Sc. Néstor Fabio Montoya Palacios</strong>. Todos los derechos reservados.</p>
-          <p class="footer-subtitle"><small>Diseñado con ❤️ para la educación científica • Cartago, Colombia 🇨🇴</small></p>
-        </div>
-      </div>
-    </footer>
+
   </main>
 
   <!-- ========== ARCHIVOS JS PRINCIPALES ========== -->
