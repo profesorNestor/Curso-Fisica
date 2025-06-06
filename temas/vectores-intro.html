@@ -1,161 +1,1728 @@
-<!-- =========================================
-     INTRODUCCIÓN A VECTORES - CURSO INTERACTIVO DE FÍSICA
-     Página: vectores-intro.html
+<!-- ============================================
+     🧬 VECTORES - CURSO INTERACTIVO DE FÍSICA 🧬
+     ============================================
      Autor: MSc. Néstor Fabio Montoya Palacios
-========================================== -->
+     Versión: 1.0 - Revolucionaria y Completa
+     Página: vectores-completo.html
+     ============================================
+     PARTE 1: CABECERA Y ESTRUCTURA INICIAL 🎯
+     ============================================ -->
 
-<!-- ENCABEZADO VISUAL -->
-<div class="lesson-header" style="animation: fadeInUp 1s;">
-  <h2 style="display:flex;align-items:center;gap:0.7em;">
-    <i class="fas fa-arrows-alt" style="color:#6366f1;"></i>
-    Introducción a Vectores
-    <span style="font-size:2em;">🧭📐</span>
+<!-- 🚀 CABECERA PRINCIPAL DEL TEMA - ESTILO ESPECTACULAR -->
+<div class="lesson-header" style="animation: fadeInUp 1s; border-left: 8px solid #8b5cf6;">
+  <h2 style="display:flex;align-items:center;gap:0.7em;font-size:2.8em;color:#1e293b;">
+    <i class="fas fa-arrows-alt" style="color:#8b5cf6;animation: logoSpin 6s ease-in-out infinite;"></i>
+    Vectores: El Lenguaje de la Dirección
+    <span style="font-size:1.2em;">🧬✨🎯</span>
   </h2>
-  <div class="lesson-meta">
-    <span><i class="fas fa-clock"></i> 30 min</span>
-    <span><i class="fas fa-signal"></i> Nivel Básico</span>
-    <span class="badge-sim"><i class="fas fa-bolt"></i> Interactivo</span>
-  </div>
-  <p class="lesson-desc">
-    Descubre los conceptos fundamentales sobre los <b>vectores</b> y aprende a representarlos y usarlos en problemas reales de física y matemáticas.
-  </p>
-</div>
-
-<!-- DEFINICIÓN Y EJEMPLOS BÁSICOS -->
-<div class="card" style="margin-bottom:2em;">
-  <h3 style="color:var(--primary);"><i class="fas fa-shapes"></i> ¿Qué es un vector?</h3>
-  <p style="font-size:1.1em;">
-    Un <b>vector</b> es una cantidad que se representa mediante un segmento de recta orientado y que tiene <b>módulo</b> (o magnitud), <b>dirección</b> y <b>sentido</b>. 
-    <br>
-    <span style="color:var(--accent);font-weight:bold;">Ejemplos:</span> 
-    <span style="color:#4f46e5;">Desplazamiento</span>, <span style="color:#0ea5e9;">velocidad</span>, <span style="color:#10b981;">aceleración</span>, <span style="color:#f59e0b;">fuerza</span>.
-  </p>
-  <div class="highlight-card" style="background:var(--bg-tertiary);margin-top:1em;">
-    <span class="card-icon"><i class="fas fa-lightbulb"></i></span>
-    <div class="card-content">
-      <b>¿Sabías que?</b> La temperatura y la masa NO son vectores, pero la velocidad del viento o la fuerza sí lo son.
-    </div>
-  </div>
-</div>
-
-<!-- REPRESENTACIÓN DE UN VECTOR (SVG) -->
-<div class="card" style="margin-bottom:2em; background:linear-gradient(90deg,#fbc2eb20 0%,#a5b4fc20 100%);">
-  <h3 style="color:var(--secondary);"><i class="fas fa-ruler-horizontal"></i> Partes de un vector <span>🔍</span></h3>
-  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2em;">
-    <svg width="290" height="100" viewBox="0 0 290 100">
-      <!-- Línea principal (vector) -->
-      <line x1="40" y1="60" x2="230" y2="60" stroke="#6366f1" stroke-width="8" marker-end="url(#arrow)"/>
-      <!-- Cabeza (punto final) -->
-      <circle cx="230" cy="60" r="7" fill="#f59e0b"/>
-      <!-- Cola (punto inicial) -->
-      <circle cx="40" cy="60" r="7" fill="#10b981"/>
-      <!-- Ángulo de dirección -->
-      <path d="M 40 60 A 35 35 0 0 1 85 35" fill="none" stroke="#f472b6" stroke-width="3"/>
-      <text x="75" y="33" fill="#f472b6" font-size="1em">θ</text>
-      <!-- Etiquetas -->
-      <text x="20" y="82" fill="#10b981" font-size="1em">Cola</text>
-      <text x="218" y="90" fill="#f59e0b" font-size="1em">Cabeza</text>
-      <text x="120" y="55" fill="#6366f1" font-size="1.13em" font-weight="bold">Magnitud</text>
-      <defs>
-        <marker id="arrow" markerWidth="15" markerHeight="15" refX="12" refY="7" orient="auto" markerUnits="strokeWidth">
-          <path d="M2,2 L12,7 L2,12" style="fill:#6366f1;" />
-        </marker>
-      </defs>
-    </svg>
-    <div style="min-width:180px;flex:1;">
-      <ul style="font-size:1.09em;line-height:1.8;margin-left:1.5em;">
-        <li><b>Cola:</b> Punto de origen.</li>
-        <li><b>Cabeza:</b> Punta del vector (indica sentido).</li>
-        <li><b>Magnitud:</b> Longitud del vector (su “tamaño”).</li>
-        <li><b>Dirección:</b> El ángulo respecto a una línea horizontal.</li>
-        <li><b>Sentido:</b> Hacia dónde apunta (izq/derecha, arriba/abajo).</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- NOTACIÓN Y TIPOS DE VECTORES -->
-<div class="card" style="margin-bottom:2em;">
-  <h3 style="color:var(--primary);"><i class="fas fa-pen-nib"></i> Notación de Vectores y Tipos <span>✏️</span></h3>
-  <p>
-    Los vectores se suelen representar con una flecha sobre la letra: <span style="font-family:monospace;font-size:1.17em;">\(\vec{v}\)</span> o en negrita: <b style="font-family:monospace;">**v**</b>.<br>
-    <b>Vectores libres:</b> Se pueden mover paralelamente sin cambiar sus propiedades.<br>
-    <b>Vectores fijos:</b> Tienen un punto de aplicación específico (importante en momentos y torques).
-  </p>
-</div>
-
-<!-- CARD INFORMATIVA: VECTORES LIBRES -->
-<div class="card info-card" style="
-  display: flex; align-items: center; gap: 1.3em; 
-  background: linear-gradient(90deg,#e0e7ff 0%,#ede9fe 100%);
-  border: 2px solid #6366f1;
-  border-radius: 1.2em;
-  box-shadow: 0 2px 14px #0001;
-  padding: 1.5em 2em;
-  margin: 1.2em 0 2.2em 0;
-  max-width: 950px;
-  margin-left: auto;
-  margin-right: auto;
-">
-  <div style="
-    min-width: 62px; min-height: 62px;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #6366f1 60%, #a5b4fc 100%);
-    border-radius: 50%;
-    box-shadow: 0 1px 8px #6366f1aa;">
-    <i class="fas fa-info" style="color:white;font-size:2em;"></i>
-  </div>
-  <div style="font-size: 1.15em; color: #272848; font-weight: 500; line-height: 1.7;">
-    <span style="font-size: 1.08em; color:#4f46e5; font-weight:bold;">
-      ¿Sabías esto sobre los vectores en física? 
+  
+  <!-- 📊 METADATOS DE LA LECCIÓN CON ESTILO MEJORADO -->
+  <div class="lesson-meta" style="display:flex;gap:1.5em;margin:1em 0;flex-wrap:wrap;">
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;background:rgba(139,92,246,0.1);padding:0.5em 1em;border-radius:15px;">
+      <i class="fas fa-clock" style="color:#f59e0b;"></i> 
+      <strong>50 min</strong>
     </span>
-    <br>
-    En la <b>física</b>, la gran mayoría de los vectores que sumamos (como <b>velocidades</b>, <b>fuerzas</b> o <b>desplazamientos</b>) se consideran <b>libres</b>.<br>
-    <span style="color:#10b981;font-weight:bold;">Esto significa que su punto de aplicación puede cambiarse sin alterar el resultado</span>,
-    <span style="color:#6366f1;">a menos que el problema exija especificar el lugar exacto donde actúa</span> (por ejemplo, en palancas, momentos de fuerza o torsión).
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;background:rgba(16,185,129,0.1);padding:0.5em 1em;border-radius:15px;">
+      <i class="fas fa-signal" style="color:#10b981;"></i> 
+      <strong>Nivel Intermedio</strong>
+    </span>
+    <span class="badge-sim" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:white;padding:0.7em 1.5em;border-radius:25px;font-weight:700;box-shadow:0 4px 15px rgba(139,92,246,0.3);">
+      <i class="fas fa-vector-square"></i> Simulaciones Incluidas
+    </span>
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;background:rgba(245,158,11,0.1);padding:0.5em 1em;border-radius:15px;">
+      <i class="fas fa-brain" style="color:#f59e0b;"></i> 
+      <strong>Pensamiento Espacial</strong>
+    </span>
+  </div>
+  
+  <!-- 📝 DESCRIPCIÓN ÉPICA Y MOTIVADORA -->
+  <div class="lesson-desc" style="font-size:1.15em;line-height:1.8;color:#475569;margin-top:1.5em;">
+    <p style="margin-bottom:1em;font-size:1.2em;color:#8b5cf6;font-weight:600;">
+      🌟 <strong>¡Prepárate para una revolución mental!</strong> Los vectores no son solo flechas en el papel...
+    </p>
+    <p style="margin-bottom:1em;">
+      Son la <strong>herramienta matemática más poderosa</strong> para describir todo lo que tiene dirección en el universo: 
+      desde el vuelo de un avión ✈️ hasta el campo magnético de la Tierra 🌍, desde la fuerza que ejerce un atleta 💪 
+      hasta las ondas electromagnéticas que permiten tu WiFi 📶.
+    </p>
+    <p style="margin-bottom:1em;">
+      En esta aventura científica descubrirás <em>por qué</em> los ingenieros de la NASA necesitan vectores para llegar a Marte 🚀, 
+      cómo los videojuegos crean mundos 3D realistas 🎮, y por qué tu GPS puede ubicarte con precisión milimétrica 📍.
+    </p>
+    <p style="font-size:1.3em;color:#7c3aed;font-weight:700;text-align:center;margin-top:1.5em;background:linear-gradient(135deg,#faf5ff,#f3e8ff);padding:1em;border-radius:15px;border:2px solid #8b5cf6;">
+      🎯 ¡Domina los vectores y dominarás el espacio-tiempo! 🌌⚡
+    </p>
   </div>
 </div>
 
-<!-- VECTORES EN 2D Y COMPONENTES CARTESIANAS -->
-<div class="card" style="margin-bottom:2em;">
-  <h3 style="color:var(--secondary);"><i class="fas fa-map"></i> Vectores en dos dimensiones (2D) <span>🗺️</span></h3>
-  <p>
-    Un vector en el plano se puede expresar mediante dos componentes: <b>x</b> (horizontal) y <b>y</b> (vertical):<br>
-    <span style="font-family:monospace;font-size:1.12em;">\(\vec{v} = (v_x, v_y)\)</span>
-    <br>También se pueden describir usando su magnitud y el ángulo respecto al eje X:<br>
-    <span style="font-family:monospace;font-size:1.12em;">\(\vec{v} = |\vec{v}| \cdot (\cos\theta, \sin\theta)\)</span>
-  </p>
-  <ul style="margin-left:1.6em;font-size:1.05em;">
-    <li><b>Magnitud:</b> \( |\vec{v}| = \sqrt{v_x^2 + v_y^2} \)</li>
-    <li><b>Dirección:</b> \( \theta = \arctan \left(\frac{v_y}{v_x}\right) \)</li>
-  </ul>
+<!-- ============================================
+     🎯 OBJETIVOS DE APRENDIZAJE ESPECTACULARES
+     ============================================ -->
+<div class="card" style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff);border-left:6px solid #8b5cf6;margin:2em 0;padding:2em;border-radius:20px;box-shadow:0 10px 30px rgba(139,92,246,0.2);">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;text-align:center;">
+    <i class="fas fa-bullseye" style="color:#8b5cf6;"></i> Objetivos de Aprendizaje: Tu Misión Vectorial 🎯🚀
+  </h3>
+  
+  <!-- Grid de objetivos con diseño moderno -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5em;margin-top:1.5em;">
+    
+    <!-- Objetivo 1 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;">
+      <div style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        📚
+      </div>
+      <div>
+        <h4 style="color:#7c3aed;margin-bottom:0.5em;">Marco Histórico</h4>
+        <p style="color:#4c1d95;font-size:0.95em;">Descubrir la fascinante evolución desde los primeros estudios de fuerzas hasta la formulación moderna de vectores</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 2 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        🧬
+      </div>
+      <div>
+        <h4 style="color:#2563eb;margin-bottom:0.5em;">Concepto de Vector</h4>
+        <p style="color:#1e40af;font-size:0.95em;">Comprender profundamente qué es un vector y por qué es fundamental en física y matemáticas</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 3 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#10b981,#059669);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        📝
+      </div>
+      <div>
+        <h4 style="color:#059669;margin-bottom:0.5em;">Notación Vectorial</h4>
+        <p style="color:#047857;font-size:0.95em;">Dominar la escritura matemática de vectores con diferentes notaciones y símbolos</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 4 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#f59e0b,#d97706);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        📐
+      </div>
+      <div>
+        <h4 style="color:#d97706;margin-bottom:0.5em;">Módulo y Dirección</h4>
+        <p style="color:#92400e;font-size:0.95em;">Calcular la magnitud, dirección y sentido de vectores en diferentes sistemas de coordenadas</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 5 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#ef4444,#dc2626);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        🎨
+      </div>
+      <div>
+        <h4 style="color:#dc2626;margin-bottom:0.5em;">Representación Gráfica</h4>
+        <p style="color:#991b1b;font-size:0.95em;">Visualizar y dibujar vectores correctamente identificando cola, cabeza y componentes</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 6 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        🔬
+      </div>
+      <div>
+        <h4 style="color:#7c3aed;margin-bottom:0.5em;">Aplicaciones Científicas</h4>
+        <p style="color:#6d28d9;font-size:0.95em;">Identificar magnitudes vectoriales en física, ingeniería y ciencias de la vida</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 7 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#06b6d4,#0891b2);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        ⚡
+      </div>
+      <div>
+        <h4 style="color:#0891b2;margin-bottom:0.5em;">Vector Unitario</h4>
+        <p style="color:#0e7490;font-size:0.95em;">Calcular y aplicar vectores unitarios usando la fórmula fundamental con MathJax</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 8 -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#84cc16,#65a30d);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">
+        🌍
+      </div>
+      <div>
+        <h4 style="color:#65a30d;margin-bottom:0.5em;">Vectores Libres</h4>
+        <p style="color:#4d7c0f;font-size:0.95em;">Entender la independencia de la posición y aplicar vectores en diferentes contextos espaciales</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mensaje motivacional especial -->
+  <div style="margin-top:2em;background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:1.5em;border-radius:15px;text-align:center;">
+    <h4 style="margin-bottom:0.5em;font-size:1.3em;">🌟 ¡La Aventura Vectorial Comienza Aquí! 🌟</h4>
+    <p style="font-size:1.1em;opacity:0.95;">
+      Al completar esta lección, tendrás las herramientas matemáticas que usan los ingenieros de SpaceX, 
+      los desarrolladores de videojuegos AAA, y los científicos del CERN. ¡Prepárate para ver el mundo en vectores! 🚀⚡🎮
+    </p>
+  </div>
 </div>
 
-<!-- EJEMPLOS REALES DE VECTORES -->
-<div class="card" style="margin-bottom:2em; background:linear-gradient(90deg,#f0fdcb55,#bae6fd55);">
-  <h3 style="color:var(--primary);"><i class="fas fa-rocket"></i> Ejemplos de Vectores en Física <span>🚀</span></h3>
-  <ul style="font-size:1.09em;line-height:1.8;margin-left:1.7em;">
-    <li>El <b>desplazamiento</b> de un auto desde su casa al colegio.</li>
-    <li>La <b>fuerza</b> que ejerce una cuerda al tirar de un objeto (tensión).</li>
-    <li>El <b>campo eléctrico</b> generado por una carga puntual.</li>
-    <li>La <b>velocidad</b> del viento (tanto su rapidez como a dónde va).</li>
-    <li>El <b>peso</b> (fuerza que la gravedad ejerce sobre los cuerpos, siempre hacia abajo).</li>
-  </ul>
-</div>
-
-<!-- ¿SABÍAS QUÉ...? -->
-<div class="card highlight-card" style="background:linear-gradient(90deg,#dbeafe 60%,#f3e8ff 100%);margin-bottom:2em;">
-  <div style="display:flex;align-items:center;gap:1em;">
-    <i class="fas fa-question-circle" style="color:#6366f1;font-size:2em;"></i>
-    <div>
-      <b>¿Sabías que...?</b>  
-      <br>
-      El uso de vectores revolucionó la física al permitir sumar y descomponer fuerzas y movimientos complejos de manera sencilla y visual.
+<!-- ============================================
+     🌟 INTRODUCCIÓN MOTIVADORA ÉPICA
+     ============================================ -->
+<div class="card highlight-card" style="margin:2em 0;background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:25px;overflow:hidden;position:relative;">
+  
+  <!-- Efecto de partículas de fondo -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E') repeat;opacity:0.3;"></div>
+  
+  <div style="display:grid;grid-template-columns:1fr 350px;gap:3em;align-items:center;position:relative;z-index:1;padding:2.5em;">
+    
+    <!-- Contenido principal -->
+    <div style="color:white;">
+      <h3 style="color:#e2e8f0;font-size:2.2em;margin-bottom:0.8em;line-height:1.2;">
+        <i class="fas fa-quote-left" style="color:#8b5cf6;"></i> 
+        Una Reflexión Que Cambiará Tu Perspectiva
+      </h3>
+      
+    <blockquote style="font-style:italic;color:#000000;margin-bottom:2em;line-height:1.8;font-size:1.2em;border-left:4px solid #8b5cf6;padding-left:1.5em;">
+  "Los vectores no son simplemente flechas en el papel. Son la manifestación matemática 
+  de uno de los conceptos más profundos del universo: <strong style="color:#3b82f6;">la direccionalidad</strong>. 
+  Todo en el cosmos que tiene dirección —desde el spin de un electrón hasta la expansión 
+  del universo— puede describirse con vectores."
+  <br><br>
+  <span style="color:#2563eb;font-weight:700;font-size:1.1em;">
+    — Sir William Rowan Hamilton (1805-1865), Creador de los Cuaterniones
+  </span>
+</blockquote>
+      
+      <div style="background:rgba(139,92,246,0.2);padding:1.5em;border-radius:15px;border:1px solid rgba(139,92,246,0.3);">
+        <p style="font-size:1.1em;line-height:1.7;color:#e2e8f0;margin-bottom:1em;">
+          <strong style="color:#c4b5fd;">Hamilton</strong> revolucionó las matemáticas al extender los números complejos 
+          a los cuaterniones, sentando las bases para el álgebra vectorial moderna. Su trabajo permite 
+          que hoy puedas rotar objetos en videojuegos 🎮, que los satélites mantengan su orientación 🛰️, 
+          y que los robots naveguen en el espacio 🤖.
+        </p>
+        <p style="font-size:1em;color:#cbd5e1;font-style:italic;">
+          💡 <strong>Dato curioso:</strong> Hamilton grabó la fórmula de los cuaterniones en el puente Brougham 
+          de Dublín en 1843. ¡Literalmente escribió la historia de los vectores en piedra! 🌉
+        </p>
+      </div>
+    </div>
+    
+    <!-- Imagen y datos visuales -->
+    <div style="text-align:center;color:white;">
+      <div style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5em;box-shadow:0 20px 40px rgba(139,92,246,0.4);border:4px solid rgba(255,255,255,0.2);">
+        <i class="fas fa-arrows-alt" style="font-size:4em;color:white;animation: logoSpin 8s ease-in-out infinite;"></i>
+      </div>
+      
+      <h4 style="color:#c4b5fd;margin-bottom:1em;font-size:1.3em;">Sir William Rowan Hamilton</h4>
+      <div style="background:rgba(255,255,255,0.1);padding:1em;border-radius:10px;">
+        <p style="font-size:0.95em;color:#e2e8f0;margin-bottom:0.5em;"><strong>🎓 Matemático irlandés</strong></p>
+        <p style="font-size:0.95em;color:#e2e8f0;margin-bottom:0.5em;"><strong>⚡ Inventor de los cuaterniones</strong></p>
+        <p style="font-size:0.95em;color:#e2e8f0;margin-bottom:0.5em;"><strong>🌟 Precursor del álgebra vectorial</strong></p>
+        <p style="font-size:0.95em;color:#e2e8f0;"><strong>🚀 Base de la robótica moderna</strong></p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- FIN DE LA PÁGINA -->
+<!-- ============================================
+     💭 PREGUNTA REFLEXIVA INTERACTIVA
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:20px;padding:2em;box-shadow:0 10px 25px rgba(245,158,11,0.3);">
+  <h3 style="color:#92400e;font-size:1.6em;margin-bottom:1em;text-align:center;">
+    <i class="fas fa-lightbulb" style="animation: pulse 2s infinite;"></i> 
+    Pregunta para Reflexionar 💭✨
+  </h3>
+  
+  <div style="background:white;padding:2em;border-radius:15px;border:3px solid #f59e0b;">
+    <p style="font-size:1.3em;line-height:1.8;color:#92400e;text-align:center;margin-bottom:1.5em;font-weight:600;">
+      🤔 <strong>"¿Por qué crees que necesitamos vectores cuando ya tenemos números normales para medir las cosas?"</strong>
+    </p>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1em;margin-top:1.5em;">
+      <div style="background:#fef3c7;padding:1em;border-radius:10px;text-align:center;cursor:pointer;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size:2em;margin-bottom:0.5em;">🏃‍♂️</div>
+        <p style="color:#78350f;font-weight:600;">Piensa en un velocista corriendo</p>
+      </div>
+      <div style="background:#fef3c7;padding:1em;border-radius:10px;text-align:center;cursor:pointer;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size:2em;margin-bottom:0.5em;">🧲</div>
+        <p style="color:#78350f;font-weight:600;">Considera un imán atrayendo hierro</p>
+      </div>
+      <div style="background:#fef3c7;padding:1em;border-radius:10px;text-align:center;cursor:pointer;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size:2em;margin-bottom:0.5em;">✈️</div>
+        <p style="color:#78350f;font-weight:600;">Imagina un avión navegando</p>
+      </div>
+      <div style="background:#fef3c7;padding:1em;border-radius:10px;text-align:center;cursor:pointer;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size:2em;margin-bottom:0.5em;">🌊</div>
+        <p style="color:#78350f;font-weight:600;">Observa las olas del mar</p>
+      </div>
+    </div>
+    
+    <p style="color:#92400e;font-style:italic;text-align:center;margin-top:1.5em;font-size:1.1em;">
+      💡 <strong>Pista:</strong> ¿Qué tienen en común todas estas situaciones que los números solos no pueden describir completamente?
+    </p>
+  </div>
+</div>
 
-<!-- Si usas MathJax ya está todo listo para fórmulas. 
-     Si quieres una simulación interactiva en Processing, p5.js o canvas, solo dímelo :) -->
+<!-- ============================================
+     📚 PARTE 2: MARCO HISTÓRICO DE LOS VECTORES
+     Una épica travesía de 2300 años de evolución matemática
+     ============================================ -->
+
+<!-- 🏛️ TÍTULO DE SECCIÓN HISTÓRICA -->
+<div class="card" style="margin:2.5em 0;background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:20px;overflow:hidden;border:1px solid #cbd5e1;">
+  <div style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:2em;text-align:center;">
+    <h3 style="font-size:2.5em;margin-bottom:0.5em;text-shadow:2px 2px 4px rgba(0,0,0,0.3);">
+      <i class="fas fa-history" style="margin-right:0.5em;"></i>
+      Marco Histórico de los Vectores
+      <span style="font-size:0.8em;">🏛️📜⚔️</span>
+    </h3>
+    <p style="font-size:1.3em;opacity:0.95;line-height:1.6;">
+      Un viaje fascinante de <strong>2,300 años</strong> desde las fuerzas de Arquímedes 
+      hasta los cuaterniones de Hamilton 🌟
+    </p>
+  </div>
+</div>
+
+<!-- ============================================
+     ⏳ LÍNEA DE TIEMPO INTERACTIVA ÉPICA
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.1);padding:2.5em;position:relative;overflow:hidden;">
+  
+  <!-- Efecto de fondo sutil -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.03\"%3E%3Ccircle cx=\"20\" cy=\"20\" r=\"2\"/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+  
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1.5em;text-align:center;position:relative;z-index:1;">
+    <i class="fas fa-clock" style="color:#8b5cf6;"></i> 
+    Evolución Histórica: De las Fuerzas a los Vectores 🕰️✨
+  </h3>
+  
+  <div class="timeline" style="position:relative;padding:0 2em;position:relative;z-index:1;">
+    <!-- Línea temporal principal -->
+    <div style="position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#8b5cf6,#3b82f6,#10b981,#f59e0b,#ef4444);transform:translateX(-50%);border-radius:2px;"></div>
+    
+    <!-- ==========================================
+         EVENTO 1: ANTIGUA GRECIA (300 a.C.)
+         ========================================== -->
+    <div class="timeline-item" style="position:relative;margin-bottom:3em;">
+      <!-- Punto de la línea temporal -->
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:linear-gradient(135deg,#8b5cf6,#7c3aed);border-radius:50%;border:4px solid white;box-shadow:0 5px 15px rgba(139,92,246,0.4);z-index:10;"></div>
+      
+      <!-- Contenido del evento (lado izquierdo) -->
+      <div style="width:45%;margin-right:auto;padding-right:2em;">
+        <div style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff);padding:2em;border-radius:15px;border:2px solid #8b5cf6;position:relative;">
+          <!-- Flecha apuntando al centro -->
+          <div style="position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:12px solid #8b5cf6;border-top:12px solid transparent;border-bottom:12px solid transparent;"></div>
+          
+          <div style="display:flex;align-items:center;gap:1em;margin-bottom:1em;">
+            <div style="font-size:3em;">🏛️</div>
+            <div>
+              <h4 style="color:#7c3aed;font-size:1.4em;margin-bottom:0.3em;">300 a.C. - Antigua Grecia</h4>
+              <p style="color:#6d28d9;font-weight:600;">Arquímedes y las Primeras Fuerzas</p>
+            </div>
+          </div>
+          
+          <p style="color:#581c87;line-height:1.7;margin-bottom:1em;">
+            <strong>Arquímedes de Siracusa</strong> estudió las fuerzas en palancas y poleas, 
+            estableciendo los primeros conceptos de <em>"cantidades que tienen dirección"</em>. 
+            Su famosa frase <strong>"¡Dadme un punto de apoyo y moveré el mundo!"</strong> 
+            refleja su comprensión intuitiva de los vectores fuerza.
+          </p>
+          
+          <div style="background:rgba(139,92,246,0.1);padding:1em;border-radius:10px;">
+            <p style="color:#7c3aed;font-weight:600;margin-bottom:0.5em;">🔍 Contribuciones:</p>
+            <ul style="color:#6d28d9;font-size:0.95em;line-height:1.6;">
+              <li>Principio de la palanca: <em>F₁ × d₁ = F₂ × d₂</em></li>
+              <li>Principio de flotación (empuje)</li>
+              <li>Concepto de centro de gravedad</li>
+              <li>Descomposición intuitiva de fuerzas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         EVENTO 2: RENACIMIENTO (1500-1600)
+         ========================================== -->
+    <div class="timeline-item" style="position:relative;margin-bottom:3em;">
+      <!-- Punto de la línea temporal -->
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:linear-gradient(135deg,#3b82f6,#2563eb);border-radius:50%;border:4px solid white;box-shadow:0 5px 15px rgba(59,130,246,0.4);z-index:10;"></div>
+      
+      <!-- Contenido del evento (lado derecho) -->
+      <div style="width:45%;margin-left:auto;padding-left:2em;">
+        <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:2em;border-radius:15px;border:2px solid #3b82f6;position:relative;">
+          <!-- Flecha apuntando al centro -->
+          <div style="position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:0;height:0;border-right:12px solid #3b82f6;border-top:12px solid transparent;border-bottom:12px solid transparent;"></div>
+          
+          <div style="display:flex;align-items:center;gap:1em;margin-bottom:1em;">
+            <div style="font-size:3em;">🎨</div>
+            <div>
+              <h4 style="color:#2563eb;font-size:1.4em;margin-bottom:0.3em;">1500-1600 - Renacimiento</h4>
+              <p style="color:#1e40af;font-weight:600;">Leonardo da Vinci y la Mecánica</p>
+            </div>
+          </div>
+          
+          <p style="color:#1e3a8a;line-height:1.7;margin-bottom:1em;">
+            <strong>Leonardo da Vinci</strong> y otros ingenieros renacentistas desarrollaron 
+            métodos gráficos para <em>componer y descomponer fuerzas</em>. Sus estudios de 
+            máquinas voladoras requerían entender fuerzas en múltiples direcciones.
+          </p>
+          
+          <div style="background:rgba(59,130,246,0.1);padding:1em;border-radius:10px;">
+            <p style="color:#2563eb;font-weight:600;margin-bottom:0.5em;">🔍 Innovaciones:</p>
+            <ul style="color:#1e40af;font-size:0.95em;line-height:1.6;">
+              <li>Diagramas de fuerzas en estructuras</li>
+              <li>Análisis de poleas compuestas</li>
+              <li>Estudios de equilibrio en máquinas</li>
+              <li>Primeros vectores gráficos rudimentarios</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         EVENTO 3: REVOLUCIÓN CIENTÍFICA (1687)
+         ========================================== -->
+    <div class="timeline-item" style="position:relative;margin-bottom:3em;">
+      <!-- Punto de la línea temporal -->
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:linear-gradient(135deg,#10b981,#059669);border-radius:50%;border:4px solid white;box-shadow:0 5px 15px rgba(16,185,129,0.4);z-index:10;"></div>
+      
+      <!-- Contenido del evento (lado izquierdo) -->
+      <div style="width:45%;margin-right:auto;padding-right:2em;">
+        <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:2em;border-radius:15px;border:2px solid #10b981;position:relative;">
+          <!-- Flecha apuntando al centro -->
+          <div style="position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:12px solid #10b981;border-top:12px solid transparent;border-bottom:12px solid transparent;"></div>
+          
+          <div style="display:flex;align-items:center;gap:1em;margin-bottom:1em;">
+            <div style="font-size:3em;">🍎</div>
+            <div>
+              <h4 style="color:#059669;font-size:1.4em;margin-bottom:0.3em;">1687 - Revolución Científica</h4>
+              <p style="color:#047857;font-weight:600;">Newton y los "Principia"</p>
+            </div>
+          </div>
+          
+          <p style="color:#065f46;line-height:1.7;margin-bottom:1em;">
+            <strong>Isaac Newton</strong> publica <em>"Philosophiæ Naturalis Principia Mathematica"</em> 
+            donde formaliza las <strong>tres leyes del movimiento</strong>. Aunque no usa la palabra 
+            "vector", trabaja intensivamente con <em>cantidades dirigidas</em> como fuerza, 
+            velocidad y aceleración.
+          </p>
+          
+          <div style="background:rgba(16,185,129,0.1);padding:1em;border-radius:10px;">
+            <p style="color:#10b981;font-weight:600;margin-bottom:0.5em;">🔍 Fundamentos:</p>
+            <ul style="color:#047857;font-size:0.95em;line-height:1.6;">
+              <li><strong>1ª Ley:</strong> Inercia (estado de movimiento)</li>
+              <li><strong>2ª Ley:</strong> F = ma (fuerza como vector)</li>
+              <li><strong>3ª Ley:</strong> Acción-reacción (vectores opuestos)</li>
+              <li>Gravitación universal (fuerza radial)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         EVENTO 4: SIGLO XVIII (1750-1800)
+         ========================================== -->
+    <div class="timeline-item" style="position:relative;margin-bottom:3em;">
+      <!-- Punto de la línea temporal -->
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:50%;border:4px solid white;box-shadow:0 5px 15px rgba(245,158,11,0.4);z-index:10;"></div>
+      
+      <!-- Contenido del evento (lado derecho) -->
+      <div style="width:45%;margin-left:auto;padding-left:2em;">
+        <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);padding:2em;border-radius:15px;border:2px solid #f59e0b;position:relative;">
+          <!-- Flecha apuntando al centro -->
+          <div style="position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:0;height:0;border-right:12px solid #f59e0b;border-top:12px solid transparent;border-bottom:12px solid transparent;"></div>
+          
+          <div style="display:flex;align-items:center;gap:1em;margin-bottom:1em;">
+            <div style="font-size:3em;">⚡</div>
+            <div>
+              <h4 style="color:#d97706;font-size:1.4em;margin-bottom:0.3em;">1750-1800 - Siglo XVIII</h4>
+              <p style="color:#92400e;font-weight:600;">Euler y Lagrange</p>
+            </div>
+          </div>
+          
+          <p style="color:#78350f;line-height:1.7;margin-bottom:1em;">
+            <strong>Leonhard Euler</strong> y <strong>Joseph-Louis Lagrange</strong> desarrollan 
+            la mecánica analítica. Euler introduce la <em>notación moderna para funciones</em> 
+            y Lagrange formula la mecánica en términos de energía, sentando bases para 
+            el álgebra vectorial.
+          </p>
+          
+          <div style="background:rgba(245,158,11,0.1);padding:1em;border-radius:10px;">
+            <p style="color:#f59e0b;font-weight:600;margin-bottom:0.5em;">🔍 Avances:</p>
+            <ul style="color:#92400e;font-size:0.95em;line-height:1.6;">
+              <li>Notación f(x) para funciones</li>
+              <li>Mecánica lagrangiana</li>
+              <li>Coordenadas generalizadas</li>
+              <li>Conceptos de gradiente y divergencia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         EVENTO 5: EL MOMENTO CRUCIAL (1843)
+         ========================================== -->
+    <div class="timeline-item" style="position:relative;margin-bottom:3em;">
+      <!-- Punto de la línea temporal (MÁS GRANDE para momento crucial) -->
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:40px;height:40px;background:linear-gradient(135deg,#ef4444,#dc2626);border-radius:50%;border:6px solid white;box-shadow:0 10px 25px rgba(239,68,68,0.5);z-index:10;animation:pulse 2s infinite;"></div>
+      
+      <!-- Contenido del evento (lado izquierdo, más prominente) -->
+      <div style="width:45%;margin-right:auto;padding-right:2em;">
+        <div style="background:linear-gradient(135deg,#fef2f2,#fee2e2);padding:2.5em;border-radius:15px;border:3px solid #ef4444;position:relative;box-shadow:0 10px 25px rgba(239,68,68,0.2);">
+          <!-- Flecha apuntando al centro -->
+          <div style="position:absolute;right:-15px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:15px solid #ef4444;border-top:15px solid transparent;border-bottom:15px solid transparent;"></div>
+          
+          <!-- Etiqueta de momento crucial -->
+          <div style="background:linear-gradient(135deg,#ef4444,#dc2626);color:white;padding:0.5em 1em;border-radius:20px;display:inline-block;margin-bottom:1em;font-weight:700;">
+            ⭐ MOMENTO CRUCIAL ⭐
+          </div>
+          
+          <div style="display:flex;align-items:center;gap:1em;margin-bottom:1em;">
+            <div style="font-size:3em;">🌉</div>
+            <div>
+              <h4 style="color:#dc2626;font-size:1.5em;margin-bottom:0.3em;">16 de Octubre de 1843</h4>
+              <p style="color:#991b1b;font-weight:700;">¡El Nacimiento de los Cuaterniones!</p>
+            </div>
+          </div>
+          
+          <p style="color:#7f1d1d;line-height:1.7;margin-bottom:1em;font-size:1.05em;">
+            <strong>William Rowan Hamilton</strong> tiene una epifanía mientras camina con su esposa 
+            por el <em>Puente Brougham en Dublín</em>. Súbitamente comprende cómo extender los 
+            números complejos al espacio 3D y <strong>graba la fórmula fundamental</strong> 
+            de los cuaterniones en la piedra del puente:
+          </p>
+          
+          <div style="background:#ffffff;padding:1.5em;border-radius:10px;border:2px solid #ef4444;text-align:center;margin:1em 0;font-family:serif;">
+            <p style="font-size:1.3em;color:#dc2626;font-weight:bold;">
+              <strong>i² = j² = k² = ijk = -1</strong>
+            </p>
+          </div>
+          
+          <div style="background:rgba(239,68,68,0.1);padding:1em;border-radius:10px;">
+            <p style="color:#ef4444;font-weight:600;margin-bottom:0.5em;">🎯 Impacto Revolucionario:</p>
+            <ul style="color:#991b1b;font-size:0.95em;line-height:1.6;">
+              <li>Primer sistema matemático para rotar objetos en 3D</li>
+              <li>Base del álgebra vectorial moderna</li>
+              <li>Fundamento de la robótica y videojuegos</li>
+              <li>Esencial en física cuántica y relatividad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         EVENTO 6: CONSOLIDACIÓN MODERNA (1881-1884)
+         ========================================== -->
+    <div class="timeline-item" style="position:relative;margin-bottom:3em;">
+      <!-- Punto de la línea temporal -->
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:linear-gradient(135deg,#8b5cf6,#7c3aed);border-radius:50%;border:4px solid white;box-shadow:0 5px 15px rgba(139,92,246,0.4);z-index:10;"></div>
+      
+      <!-- Contenido del evento (lado derecho) -->
+      <div style="width:45%;margin-left:auto;padding-left:2em;">
+        <div style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff);padding:2em;border-radius:15px;border:2px solid #8b5cf6;position:relative;">
+          <!-- Flecha apuntando al centro -->
+          <div style="position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:0;height:0;border-right:12px solid #8b5cf6;border-top:12px solid transparent;border-bottom:12px solid transparent;"></div>
+          
+          <div style="display:flex;align-items:center;gap:1em;margin-bottom:1em;">
+            <div style="font-size:3em;">🎓</div>
+            <div>
+              <h4 style="color:#7c3aed;font-size:1.4em;margin-bottom:0.3em;">1881-1884 - Era Moderna</h4>
+              <p style="color:#6d28d9;font-weight:600;">Gibbs y Heaviside</p>
+            </div>
+          </div>
+          
+          <p style="color:#581c87;line-height:1.7;margin-bottom:1em;">
+            <strong>Josiah Willard Gibbs</strong> (Yale) y <strong>Oliver Heaviside</strong> (Inglaterra) 
+            desarrollan independientemente el <em>álgebra vectorial moderna</em>. Simplifican 
+            los cuaterniones de Hamilton para crear la notación que usamos hoy.
+          </p>
+          
+          <div style="background:rgba(139,92,246,0.1);padding:1em;border-radius:10px;">
+            <p style="color:#8b5cf6;font-weight:600;margin-bottom:0.5em;">🔍 Unificación:</p>
+            <ul style="color:#6d28d9;font-size:0.95em;line-height:1.6;">
+              <li>Notación moderna: <strong>a⃗</strong>, <strong>|a⃗|</strong></li>
+              <li>Producto punto: <strong>a⃗ · b⃗</strong></li>
+              <li>Producto cruz: <strong>a⃗ × b⃗</strong></li>
+              <li>Operadores ∇, div, rot, grad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         EVENTO 7: SIGLO XX Y APLICACIONES (1900-presente)
+         ========================================== -->
+    <div class="timeline-item" style="position:relative;">
+      <!-- Punto de la línea temporal -->
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:30px;height:30px;background:linear-gradient(135deg,#06b6d4,#0891b2);border-radius:50%;border:4px solid white;box-shadow:0 5px 15px rgba(6,182,212,0.4);z-index:10;"></div>
+      
+      <!-- Contenido del evento (lado izquierdo) -->
+      <div style="width:45%;margin-right:auto;padding-right:2em;">
+        <div style="background:linear-gradient(135deg,#ecfeff,#cffafe);padding:2em;border-radius:15px;border:2px solid #06b6d4;position:relative;">
+          <!-- Flecha apuntando al centro -->
+          <div style="position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:12px solid #06b6d4;border-top:12px solid transparent;border-bottom:12px solid transparent;"></div>
+          
+          <div style="display:flex;align-items:center;gap:1em;margin-bottom:1em;">
+            <div style="font-size:3em;">🚀</div>
+            <div>
+              <h4 style="color:#0891b2;font-size:1.4em;margin-bottom:0.3em;">1900-Presente - Era Digital</h4>
+              <p style="color:#0e7490;font-weight:600;">Aplicaciones Revolucionarias</p>
+            </div>
+          </div>
+          
+          <p style="color:#155e75;line-height:1.7;margin-bottom:1em;">
+            Los vectores se vuelven <strong>indispensables</strong> en: relatividad de Einstein, 
+            mecánica cuántica, computación gráfica, robótica, GPS, videojuegos, realidad virtual, 
+            inteligencia artificial, y exploración espacial.
+          </p>
+          
+          <div style="background:rgba(6,182,212,0.1);padding:1em;border-radius:10px;">
+            <p style="color:#06b6d4;font-weight:600;margin-bottom:0.5em;">🌟 Aplicaciones Actuales:</p>
+            <ul style="color:#0e7490;font-size:0.95em;line-height:1.6;">
+              <li>🎮 Gráficos 3D y videojuegos</li>
+              <li>🛰️ GPS y navegación satelital</li>
+              <li>🤖 Robótica y automatización</li>
+              <li>🌌 Relatividad y cosmología</li>
+              <li>🧬 Simulaciones biomoleculares</li>
+              <li>🎬 Efectos especiales (CGI)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     🏆 PERSONAJES CLAVE EN LA HISTORIA VECTORIAL
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#1e293b,#334155);color:white;border-radius:20px;padding:2.5em;position:relative;overflow:hidden;">
+  
+  <!-- Efecto estrellado de fondo -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M40 20l3.09 9.51L53.51 32l-10.42 2.49L40 44l-3.09-9.51L26.49 32l10.42-2.49z\"/%3E%3C/g%3E%3C/svg%3E') repeat;opacity:0.3;"></div>
+  
+  <div style="position:relative;z-index:1;">
+    <h3 style="color:#ffffff;font-size:2em;margin-bottom:1.5em;text-align:center;">
+      <i class="fas fa-crown" style="color:#fbbf24;"></i> 
+      Héroes de la Historia Vectorial 👑🌟
+    </h3>
+    
+    <!-- Grid de personajes históricos -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5em;">
+      
+      <!-- Arquímedes -->
+      <div style="background:rgba(139,92,246,0.2);padding:1.5em;border-radius:15px;border:2px solid rgba(139,92,246,0.4);backdrop-filter:blur(10px);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <div style="font-size:3em;margin-bottom:0.5em;">🏛️</div>
+          <h4 style="color:#c4b5fd;font-size:1.2em;">Arquímedes de Siracusa</h4>
+          <p style="color:#a78bfa;font-size:0.9em;">(287-212 a.C.)</p>
+        </div>
+        <p style="color:#e9d5ff;font-size:0.95em;line-height:1.6;text-align:center;">
+          <strong>"El Precursor"</strong><br>
+          Estableció los fundamentos del análisis de fuerzas y el concepto de dirección en la física.
+        </p>
+      </div>
+      
+      <!-- Newton -->
+      <div style="background:rgba(16,185,129,0.2);padding:1.5em;border-radius:15px;border:2px solid rgba(16,185,129,0.4);backdrop-filter:blur(10px);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <div style="font-size:3em;margin-bottom:0.5em;">🍎</div>
+          <h4 style="color:#a7f3d0;font-size:1.2em;">Sir Isaac Newton</h4>
+          <p style="color:#6ee7b7;font-size:0.9em;">(1643-1727)</p>
+        </div>
+        <p style="color:#d1fae5;font-size:0.95em;line-height:1.6;text-align:center;">
+          <strong>"El Fundador"</strong><br>
+          Formalizó las leyes del movimiento y trabajó intensivamente con cantidades dirigidas.
+        </p>
+      </div>
+      
+      <!-- Hamilton -->
+      <div style="background:rgba(239,68,68,0.2);padding:1.5em;border-radius:15px;border:2px solid rgba(239,68,68,0.4);backdrop-filter:blur(10px);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <div style="font-size:3em;margin-bottom:0.5em;">🌉</div>
+          <h4 style="color:#fca5a5;font-size:1.2em;">William Rowan Hamilton</h4>
+          <p style="color:#f87171;font-size:0.9em;">(1805-1865)</p>
+        </div>
+        <p style="color:#fee2e2;font-size:0.95em;line-height:1.6;text-align:center;">
+          <strong>"El Revolucionario"</strong><br>
+          Inventó los cuaterniones y sentó las bases matemáticas del álgebra vectorial moderna.
+        </p>
+      </div>
+      
+      <!-- Gibbs -->
+      <div style="background:rgba(59,130,246,0.2);padding:1.5em;border-radius:15px;border:2px solid rgba(59,130,246,0.4);backdrop-filter:blur(10px);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <div style="font-size:3em;margin-bottom:0.5em;">🎓</div>
+          <h4 style="color:#93c5fd;font-size:1.2em;">Josiah Willard Gibbs</h4>
+          <p style="color:#60a5fa;font-size:0.9em;">(1839-1903)</p>
+        </div>
+        <p style="color:#dbeafe;font-size:0.95em;line-height:1.6;text-align:center;">
+          <strong>"El Sistematizador"</strong><br>
+          Desarrolló la notación vectorial moderna que usamos hoy en día.
+        </p>
+      </div>
+      
+      <!-- Heaviside -->
+      <div style="background:rgba(245,158,11,0.2);padding:1.5em;border-radius:15px;border:2px solid rgba(245,158,11,0.4);backdrop-filter:blur(10px);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <div style="font-size:3em;margin-bottom:0.5em;">⚡</div>
+          <h4 style="color:#fcd34d;font-size:1.2em;">Oliver Heaviside</h4>
+          <p style="color:#fbbf24;font-size:0.9em;">(1850-1925)</p>
+        </div>
+        <p style="color:#fef3c7;font-size:0.95em;line-height:1.6;text-align:center;">
+          <strong>"El Aplicador"</strong><br>
+          Popularizó los vectores en electromagnetismo y teoría de campos.
+        </p>
+      </div>
+      
+      <!-- Einstein -->
+      <div style="background:rgba(6,182,212,0.2);padding:1.5em;border-radius:15px;border:2px solid rgba(6,182,212,0.4);backdrop-filter:blur(10px);">
+        <div style="text-align:center;margin-bottom:1em;">
+          <div style="font-size:3em;margin-bottom:0.5em;">🌌</div>
+          <h4 style="color:#67e8f9;font-size:1.2em;">Albert Einstein</h4>
+          <p style="color:#22d3ee;font-size:0.9em;">(1879-1955)</p>
+        </div>
+        <p style="color:#cffafe;font-size:0.95em;line-height:1.6;text-align:center;">
+          <strong>"El Expandidor"</strong><br>
+          Extendió los vectores al espacio-tiempo de 4 dimensiones en la relatividad.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     💡 CURIOSIDADES HISTÓRICAS FASCINANTES
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.1);padding:2.5em;">
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1.5em;text-align:center;">
+    <i class="fas fa-magic" style="color:#8b5cf6;"></i> 
+    Curiosidades Históricas que te Sorprenderán 🔮✨
+  </h3>
+  
+  <!-- Grid de curiosidades -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5em;">
+    
+    <!-- Curiosidad 1: El puente de Hamilton -->
+    <div style="background:linear-gradient(135deg,#fef2f2,#fee2e2);padding:1.5em;border-radius:15px;border:2px solid #ef4444;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-10px;right:-10px;background:#ef4444;color:white;padding:0.5em;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:1.2em;">1</span>
+      </div>
+      <h4 style="color:#dc2626;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">🌉</span>
+        El Puente que Cambió las Matemáticas
+      </h4>
+      <p style="color:#991b1b;line-height:1.7;">
+        Hamilton estaba tan emocionado por su descubrimiento de los cuaterniones que 
+        <strong>grabó la fórmula con un cuchillo</strong> en el puente Brougham de Dublín. 
+        ¡Literalmente vandalizó un puente en nombre de la ciencia! Hoy hay una placa 
+        conmemorativa en ese lugar.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 2: La resistencia inicial -->
+    <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:1.5em;border-radius:15px;border:2px solid #10b981;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-10px;right:-10px;background:#10b981;color:white;padding:0.5em;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:1.2em;">2</span>
+      </div>
+      <h4 style="color:#059669;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">😤</span>
+        La Gran Resistencia Matemática
+      </h4>
+      <p style="color:#047857;line-height:1.7;">
+        Los matemáticos del siglo XIX <strong>rechazaron los cuaterniones</strong> 
+        durante décadas. Los consideraban "demasiado complicados" y "poco naturales". 
+        ¡Ironía del destino! Hoy son fundamentales en robótica, videojuegos y física cuántica.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 3: La rivalidad Gibbs vs Hamilton -->
+    <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:1.5em;border-radius:15px;border:2px solid #3b82f6;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-10px;right:-10px;background:#3b82f6;color:white;padding:0.5em;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:1.2em;">3</span>
+      </div>
+      <h4 style="color:#2563eb;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">⚔️</span>
+        La Guerra de las Notaciones
+      </h4>
+      <p style="color:#1e40af;line-height:1.7;">
+        Hubo una <strong>"guerra académica"</strong> entre los seguidores de Hamilton 
+        (cuaterniones) y los de Gibbs (vectores). La batalla duró 40 años. 
+        Los vectores ganaron por ser más simples, pero los cuaterniones se vengaron 
+        en el siglo XXI con los videojuegos 3D.
+      </p>
+    </div>
+    
+    <!-- Curiosidad 4: Einstein y los vectores -->
+    <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);padding:1.5em;border-radius:15px;border:2px solid #f59e0b;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-10px;right:-10px;background:#f59e0b;color:white;padding:0.5em;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:1.2em;">4</span>
+      </div>
+      <h4 style="color:#d97706;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">🌌</span>
+        Einstein: "No Puedo Vivir Sin Vectores"
+      </h4>
+      <p style="color:#92400e;line-height:1.7;">
+        Einstein dijo que <strong>"sin los vectores, la relatividad sería imposible"</strong>. 
+        Usó tensores (vectores generalizados) para describir la curvatura del espacio-tiempo. 
+        ¡Los vectores literalmente nos ayudaron a entender el universo!
+      </p>
+    </div>
+    
+    <!-- Curiosidad 5: Los videojuegos -->
+    <div style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff);padding:1.5em;border-radius:15px;border:2px solid #8b5cf6;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-10px;right:-10px;background:#8b5cf6;color:white;padding:0.5em;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:1.2em;">5</span>
+      </div>
+      <h4 style="color:#7c3aed;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">🎮</span>
+        Hamilton Predijo los Videojuegos
+      </h4>
+      <p style="color:#6d28d9;line-height:1.7;">
+        Sin saberlo, Hamilton inventó la matemática que hace posibles los videojuegos 3D. 
+        Cada vez que <strong>mueves la cámara en un videojuego</strong>, estás usando 
+        cuaterniones para evitar el "gimbal lock". ¡Un matemático del siglo XIX 
+        haciendo posible Fortnite! 🤯
+      </p>
+    </div>
+    
+    <!-- Curiosidad 6: La NASA y los vectores -->
+    <div style="background:linear-gradient(135deg,#ecfeff,#cffafe);padding:1.5em;border-radius:15px;border:2px solid #06b6d4;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-10px;right:-10px;background:#06b6d4;color:white;padding:0.5em;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:1.2em;">6</span>
+      </div>
+      <h4 style="color:#0891b2;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">🚀</span>
+        Vectores en el Espacio
+      </h4>
+      <p style="color:#0e7490;line-height:1.7;">
+        La NASA usa <strong>millones de cálculos vectoriales</strong> cada segundo para 
+        navegar naves espaciales. El rover Perseverance en Marte procesa vectores 
+        constantemente para saber dónde está y hacia dónde debe moverse. 
+        ¡Los vectores nos llevaron a Marte! 🔴
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     🌟 IMPACTO MODERNO - DE LA HISTORIA AL PRESENTE
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:20px;padding:2.5em;position:relative;overflow:hidden;">
+  
+  <!-- Efecto de ondas de fondo -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"%3E%3Cpath d=\"M0 50c25 0 25-25 50-25s25 25 50 25v50H0V50z\" fill=\"%23ffffff\" fill-opacity=\"0.05\"/%3E%3C/svg%3E') repeat-x;opacity:0.3;"></div>
+  
+  <div style="position:relative;z-index:1;">
+    <h3 style="color:#ffffff;font-size:2.2em;margin-bottom:1em;text-align:center;">
+      <i class="fas fa-rocket" style="animation: bounce 2s infinite;"></i> 
+      Del Puente de Hamilton a tu Smartphone 📱✨
+    </h3>
+    
+    <p style="font-size:1.2em;line-height:1.8;color:#e2e8f0;text-align:center;margin-bottom:2em;opacity:0.95;">
+      Lo que comenzó como una idea grabada en piedra hace 180 años, hoy está en tu bolsillo, 
+      en tu consola de videojuegos, en los satélites GPS, y en las misiones a Marte. 
+      <strong>¡Los vectores conectan el pasado con el futuro de la humanidad!</strong> 🌌🚀
+    </p>
+    
+    <!-- Timeline moderno -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5em;margin-top:2em;">
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:15px;backdrop-filter:blur(10px);text-align:center;">
+        <div style="font-size:2.5em;margin-bottom:0.8em;">🎮</div>
+        <h4 style="color:#ffffff;margin-bottom:0.5em;">Videojuegos</h4>
+        <p style="color:#e2e8f0;font-size:0.95em;">Rotaciones suaves sin gimbal lock</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:15px;backdrop-filter:blur(10px);text-align:center;">
+        <div style="font-size:2.5em;margin-bottom:0.8em;">📱</div>
+        <h4 style="color:#ffffff;margin-bottom:0.5em;">Smartphones</h4>
+        <p style="color:#e2e8f0;font-size:0.95em;">Acelerómetros y brújulas digitales</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:15px;backdrop-filter:blur(10px);text-align:center;">
+        <div style="font-size:2.5em;margin-bottom:0.8em;">🛰️</div>
+        <h4 style="color:#ffffff;margin-bottom:0.5em;">GPS</h4>
+        <p style="color:#e2e8f0;font-size:0.95em;">Navegación con precisión milimétrica</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:15px;backdrop-filter:blur(10px);text-align:center;">
+        <div style="font-size:2.5em;margin-bottom:0.8em;">🤖</div>
+        <h4 style="color:#ffffff;margin-bottom:0.5em;">Robótica</h4>
+        <p style="color:#e2e8f0;font-size:0.95em;">Movimientos precisos y autónomos</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:15px;backdrop-filter:blur(10px);text-align:center;">
+        <div style="font-size:2.5em;margin-bottom:0.8em;">🎬</div>
+        <h4 style="color:#ffffff;margin-bottom:0.5em;">Cine CGI</h4>
+        <p style="color:#e2e8f0;font-size:0.95em;">Efectos especiales hiperrealistas</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:15px;backdrop-filter:blur(10px);text-align:center;">
+        <div style="font-size:2.5em;margin-bottom:0.8em;">🧬</div>
+        <h4 style="color:#ffffff;margin-bottom:0.5em;">Biología</h4>
+        <p style="color:#e2e8f0;font-size:0.95em;">Simulaciones moleculares complejas</p>
+      </div>
+    </div>
+    
+    <!-- Mensaje final inspirador -->
+    <div style="background:rgba(255,255,255,0.2);padding:2em;border-radius:15px;margin-top:2em;text-align:center;backdrop-filter:blur(10px);">
+      <p style="font-size:1.3em;color:#ffffff;line-height:1.8;margin-bottom:1em;">
+        <strong>"Desde un puente en Dublín hasta las estrellas más lejanas"</strong> 🌉➡️🌌
+      </p>
+      <p style="font-size:1.1em;color:#e2e8f0;line-height:1.6;">
+        Cada vector que estudies hoy lleva consigo la herencia de genios que 
+        transformaron números en direcciones, direcciones en movimientos, 
+        y movimientos en el lenguaje universal del cosmos. 
+        <strong>¡Tú eres parte de esta historia extraordinaria!</strong> ⭐
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     🧬 PARTE 3: CONCEPTO DE VECTOR Y DEFINICIONES FUNDAMENTALES
+     El corazón matemático de los vectores explicado de forma visual y comprensible
+     ============================================ -->
+
+<!-- 🎯 TÍTULO DE SECCIÓN PRINCIPAL -->
+<div class="card" style="margin:2.5em 0;background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:25px;overflow:hidden;position:relative;">
+  
+  <!-- Efecto de partículas matemáticas de fondo -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"50\" height=\"50\" viewBox=\"0 0 50 50\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.08\"%3E%3Cpath d=\"M25 15l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z\"/%3E%3C/g%3E%3C/svg%3E') repeat;opacity:0.4;"></div>
+  
+<div style="color:white;padding:3em;text-align:center;position:relative;z-index:1;">
+  <h3 style="font-size:2.8em;margin-bottom:0.8em;text-shadow:2px 2px 4px rgba(0,0,0,0.5);color:#ffffff;">
+    <i class="fas fa-vector-square" style="margin-right:0.5em;color:#8b5cf6;animation: logoSpin 8s ease-in-out infinite;"></i>
+    <span style="color:#ffffff;">¿Qué es Realmente un Vector?</span>
+    <span style="font-size:0.7em;">🧬📐⚡</span>
+  </h3>
+  <p style="font-size:1.4em;opacity:1;line-height:1.6;max-width:800px;margin:0 auto;color:#ffffff;">
+    Más que una simple flecha... es la <strong style="color:#ffffff;">representación matemática de todo lo que tiene dirección</strong> 
+    en nuestro universo 🌌✨
+  </p>
+</div>
+
+<!-- ============================================
+     📚 DEFINICIÓN FUNDAMENTAL DE VECTOR
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#f3e8ff,#e9d5ff);border-radius:20px;padding:2.5em;border:3px solid #8b5cf6;box-shadow:0 15px 35px rgba(139,92,246,0.3);">
+  
+  <h3 style="color:#1e293b;font-size:2em;margin-bottom:1.5em;text-align:center;">
+    <i class="fas fa-graduation-cap" style="color:#8b5cf6;"></i> 
+    Definición Matemática Fundamental 📖⚡
+  </h3>
+  
+  <!-- Definición principal en caja destacada -->
+  <div style="background:white;padding:2.5em;border-radius:15px;border:2px solid #8b5cf6;margin-bottom:2em;position:relative;box-shadow:0 10px 25px rgba(139,92,246,0.2);">
+    
+    <!-- Icono decorativo -->
+    <div style="position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 15px rgba(139,92,246,0.4);">
+      <i class="fas fa-arrow-right" style="font-size:1.2em;"></i>
+    </div>
+    
+    <div style="text-align:center;margin-top:1em;">
+      <p style="font-size:1.4em;line-height:1.8;color:#1e293b;font-weight:600;margin-bottom:1.5em;">
+        Un <strong style="color:#8b5cf6;font-size:1.1em;">vector</strong> es una cantidad física o matemática que queda 
+        completamente determinada por <strong style="color:#7c3aed;">tres características esenciales:</strong>
+      </p>
+      
+      <!-- Las tres características en cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5em;margin-top:2em;">
+        
+        <!-- Magnitud -->
+        <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:1.5em;border-radius:12px;border:2px solid #3b82f6;">
+          <div style="font-size:2.5em;margin-bottom:0.5em;color:#3b82f6;">📏</div>
+          <h4 style="color:#1e40af;margin-bottom:0.5em;">MAGNITUD</h4>
+          <p style="color:#1e3a8a;font-size:0.95em;line-height:1.6;">
+            <strong>¿Qué tan grande es?</strong><br>
+            El tamaño o intensidad del vector
+          </p>
+        </div>
+        
+        <!-- Dirección -->
+        <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:1.5em;border-radius:12px;border:2px solid #10b981;">
+          <div style="font-size:2.5em;margin-bottom:0.5em;color:#10b981;">🧭</div>
+          <h4 style="color:#059669;margin-bottom:0.5em;">DIRECCIÓN</h4>
+          <p style="color:#047857;font-size:0.95em;line-height:1.6;">
+            <strong>¿Hacia dónde apunta?</strong><br>
+            La línea sobre la cual actúa
+          </p>
+        </div>
+        
+        <!-- Sentido -->
+        <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);padding:1.5em;border-radius:12px;border:2px solid #f59e0b;">
+          <div style="font-size:2.5em;margin-bottom:0.5em;color:#f59e0b;">🎯</div>
+          <h4 style="color:#d97706;margin-bottom:0.5em;">SENTIDO</h4>
+          <p style="color:#92400e;font-size:0.95em;line-height:1.6;">
+            <strong>¿En qué extremo de la dirección?</strong><br>
+            Hacia cuál lado de la línea va
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ejemplo visual interactivo -->
+  <div style="background:linear-gradient(135deg,#1e293b,#334155);color:white;padding:2em;border-radius:15px;position:relative;overflow:hidden;">
+    
+    <!-- Efecto de fondo -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"15\" cy=\"15\" r=\"1\"/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+    
+    <div style="position:relative;z-index:1;">
+      <h4 style="color:#c4b5fd;font-size:1.4em;margin-bottom:1em;text-align:center;">
+        <i class="fas fa-eye"></i> Ejemplo Visual: Vector Velocidad de un Avión ✈️
+      </h4>
+      
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:2em;align-items:center;">
+        
+        <!-- Descripción del ejemplo -->
+        <div>
+          <p style="color:#e2e8f0;font-size:1.1em;line-height:1.8;margin-bottom:1em;">
+            Imagina un avión volando de Bogotá a Madrid:
+          </p>
+          
+         <ul style="color:#ffffff;line-height:2;font-size:1.05em;list-style:none;padding:0;">
+       <li style="margin-bottom:0.8em;">
+        <span style="color:#60a5fa;font-weight:700;">📏 MAGNITUD:</span> 
+        <strong style="color:#ffffff;">850 km/h</strong> <span style="color:#e2e8f0;">(qué tan rápido va)</span>
+        </li>
+        <li style="margin-bottom:0.8em;">
+        <span style="color:#34d399;font-weight:700;">🧭 DIRECCIÓN:</span> 
+        <strong style="color:#ffffff;">Noreste</strong> <span style="color:#e2e8f0;">(la línea desde Colombia hacia España)</span>
+        </li>
+        <li style="margin-bottom:0.8em;">
+        <span style="color:#fbbf24;font-weight:700;">🎯 SENTIDO:</span> 
+       <strong style="color:#ffffff;">Hacia España</strong> <span style="color:#e2e8f0;">(no hacia Colombia)</span>
+        </li>
+</ul>
+          
+          <div style="background:rgba(139,92,246,0.2);padding:1em;border-radius:10px;margin-top:1.5em;">
+            <p style="color:#c4b5fd;font-weight:600;font-size:1.1em;">
+              💡 <strong>¡Clave!</strong> Si falta cualquiera de estos tres datos, 
+              no puedes describir completamente el movimiento del avión.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Representación visual simplificada -->
+        <div style="background:rgba(255,255,255,0.1);padding:1.5em;border-radius:12px;text-align:center;">
+          <div style="position:relative;width:200px;height:150px;margin:0 auto;background:linear-gradient(135deg,#1e40af,#3730a3);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            
+            <!-- Representación del vector como flecha -->
+            <div style="position:relative;">
+              <!-- Cola del vector -->
+              <div style="position:absolute;width:80px;height:3px;background:#fbbf24;left:-40px;top:50%;transform:translateY(-50%) rotate(-30deg);"></div>
+              
+              <!-- Cabeza del vector -->
+              <div style="position:absolute;right:-45px;top:50%;transform:translateY(-50%) rotate(-30deg);width:0;height:0;border-left:12px solid #fbbf24;border-top:8px solid transparent;border-bottom:8px solid transparent;"></div>
+              
+              <!-- Punto de origen -->
+              <div style="width:8px;height:8px;background:#34d399;border-radius:50%;position:absolute;left:-4px;top:50%;transform:translateY(-50%);"></div>
+              
+              <!-- Avión emoji -->
+              <div style="position:absolute;right:-35px;top:50%;transform:translateY(-50%) rotate(-30deg);font-size:1.2em;">✈️</div>
+            </div>
+            
+            <!-- Etiquetas -->
+            <div style="position:absolute;bottom:10px;left:10px;font-size:0.8em;color:#cbd5e1;">
+              🏙️ Bogotá
+            </div>
+            <div style="position:absolute;top:10px;right:10px;font-size:0.8em;color:#cbd5e1;">
+              🏰 Madrid
+            </div>
+          </div>
+          
+          <p style="color:#a78bfa;margin-top:1em;font-size:0.95em;">
+            Vector velocidad: 850 km/h hacia el noreste
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     ⚖️ VECTORES vs ESCALARES: LA GRAN DIFERENCIA
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.1);padding:2.5em;">
+  
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1.5em;text-align:center;">
+    <i class="fas fa-balance-scale" style="color:#ef4444;"></i> 
+    Vectores vs Escalares: ¡La Batalla Matemática Definitiva! ⚔️⚡
+  </h3>
+  
+  <p style="font-size:1.2em;line-height:1.8;color:#475569;text-align:center;margin-bottom:2em;">
+    No todas las cantidades físicas son iguales. Algunas solo necesitan un número, 
+    otras necesitan dirección. <strong>¡Aquí está la diferencia crucial!</strong> 🔍
+  </p>
+  
+  <!-- Comparación lado a lado -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2em;margin-bottom:2em;">
+    
+    <!-- ESCALARES -->
+    <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:15px;padding:2em;border:3px solid #ef4444;position:relative;overflow:hidden;">
+      
+      <!-- Icono decorativo -->
+      <div style="position:absolute;top:-15px;right:-15px;background:#ef4444;color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;">
+        📊
+      </div>
+      
+      <h4 style="color:#dc2626;font-size:1.5em;margin-bottom:1em;text-align:center;">
+        <i class="fas fa-circle"></i> ESCALARES
+      </h4>
+      
+      <div style="background:white;padding:1.5em;border-radius:10px;margin-bottom:1.5em;">
+        <p style="color:#991b1b;font-weight:600;margin-bottom:1em;">
+          <strong>Solo necesitan MAGNITUD</strong><br>
+          Un número + una unidad = ¡Listo! 🎯
+        </p>
+        
+        <div style="background:#fef2f2;padding:1em;border-radius:8px;">
+          <h5 style="color:#dc2626;margin-bottom:0.8em;">Ejemplos cotidianos:</h5>
+          <ul style="color:#7f1d1d;line-height:1.8;font-size:0.95em;">
+            <li><strong>Temperatura:</strong> 25°C ❄️</li>
+            <li><strong>Masa:</strong> 70 kg ⚖️</li>
+            <li><strong>Tiempo:</strong> 5 horas ⏰</li>
+            <li><strong>Energía:</strong> 1000 J ⚡</li>
+            <li><strong>Presión:</strong> 101.3 kPa 🌪️</li>
+            <li><strong>Densidad:</strong> 2.7 g/cm³ 🪨</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="background:rgba(239,68,68,0.2);padding:1em;border-radius:10px;text-align:center;">
+        <p style="color:#991b1b;font-weight:600;">
+          💡 <strong>Característica clave:</strong><br>
+          No importa la dirección
+        </p>
+      </div>
+    </div>
+    
+    <!-- VECTORES -->
+    <div style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff);border-radius:15px;padding:2em;border:3px solid #8b5cf6;position:relative;overflow:hidden;">
+      
+      <!-- Icono decorativo -->
+      <div style="position:absolute;top:-15px;right:-15px;background:#8b5cf6;color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;">
+        🧬
+      </div>
+      
+      <h4 style="color:#7c3aed;font-size:1.5em;margin-bottom:1em;text-align:center;">
+        <i class="fas fa-arrow-right"></i> VECTORES
+      </h4>
+      
+      <div style="background:white;padding:1.5em;border-radius:10px;margin-bottom:1.5em;">
+        <p style="color:#6d28d9;font-weight:600;margin-bottom:1em;">
+          <strong>Necesitan MAGNITUD + DIRECCIÓN + SENTIDO</strong><br>
+          Tres datos obligatorios para describir completamente 🎯
+        </p>
+        
+        <div style="background:#faf5ff;padding:1em;border-radius:8px;">
+          <h5 style="color:#7c3aed;margin-bottom:0.8em;">Ejemplos cotidianos:</h5>
+          <ul style="color:#581c87;line-height:1.8;font-size:0.95em;">
+            <li><strong>Velocidad:</strong> 60 km/h hacia el norte 🚗</li>
+            <li><strong>Fuerza:</strong> 10 N hacia abajo ⬇️</li>
+            <li><strong>Desplazamiento:</strong> 5 m al este ➡️</li>
+            <li><strong>Aceleración:</strong> 9.8 m/s² vertical ⬇️</li>
+            <li><strong>Campo eléctrico:</strong> 100 N/C radial ⚡</li>
+            <li><strong>Momento lineal:</strong> 50 kg⋅m/s horizontal ➡️</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="background:rgba(139,92,246,0.2);padding:1em;border-radius:10px;text-align:center;">
+        <p style="color:#6d28d9;font-weight:600;">
+          💡 <strong>Característica clave:</strong><br>
+          La dirección es fundamental
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tabla comparativa detallada -->
+  <div style="background:linear-gradient(135deg,#f8fafc,#e2e8f0);padding:2em;border-radius:15px;border:2px solid #64748b;">
+    <h4 style="color:#1e293b;font-size:1.4em;margin-bottom:1.5em;text-align:center;">
+      📋 Tabla Comparativa Definitiva
+    </h4>
+    
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:separate;border-spacing:0;background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <thead>
+          <tr style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;">
+            <th style="padding:1em;text-align:left;font-weight:700;">Aspecto</th>
+            <th style="padding:1em;text-align:center;font-weight:700;">📊 Escalares</th>
+            <th style="padding:1em;text-align:center;font-weight:700;">🧬 Vectores</th>
+          </tr>
+        </thead>
+        <tbody style="font-size:0.95em;">
+          <tr style="background:#f9fafb;">
+            <td style="padding:1em;font-weight:600;color:#374151;">Información necesaria</td>
+            <td style="padding:1em;text-align:center;color:#ef4444;">Solo magnitud</td>
+            <td style="padding:1em;text-align:center;color:#8b5cf6;">Magnitud + Dirección + Sentido</td>
+          </tr>
+          <tr style="background:white;">
+            <td style="padding:1em;font-weight:600;color:#374151;">Representación matemática</td>
+            <td style="padding:1em;text-align:center;color:#ef4444;">m = 5 kg</td>
+            <td style="padding:1em;text-align:center;color:#8b5cf6;">v⃗ = 60 km/h ↗</td>
+          </tr>
+          <tr style="background:#f9fafb;">
+            <td style="padding:1em;font-weight:600;color:#374151;">Operaciones matemáticas</td>
+            <td style="padding:1em;text-align:center;color:#ef4444;">Suma algebraica simple</td>
+            <td style="padding:1em;text-align:center;color:#8b5cf6;">Suma vectorial (geométrica)</td>
+          </tr>
+          <tr style="background:white;">
+            <td style="padding:1em;font-weight:600;color:#374151;">Dependencia de orientación</td>
+            <td style="padding:1em;text-align:center;color:#ef4444;">❌ Independiente</td>
+            <td style="padding:1em;text-align:center;color:#8b5cf6;">✅ Totalmente dependiente</td>
+          </tr>
+          <tr style="background:#f9fafb;">
+            <td style="padding:1em;font-weight:600;color:#374151;">Ejemplo físico</td>
+            <td style="padding:1em;text-align:center;color:#ef4444;">Temperatura: 37°C</td>
+            <td style="padding:1em;text-align:center;color:#8b5cf6;">Velocidad: 50 m/s al norte</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     🎮 ACTIVIDAD INTERACTIVA: ¿ESCALAR O VECTOR?
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:20px;padding:2.5em;border:3px solid #f59e0b;box-shadow:0 15px 35px rgba(245,158,11,0.3);">
+  
+  <h3 style="color:#92400e;font-size:1.8em;margin-bottom:1em;text-align:center;">
+    <i class="fas fa-gamepad" style="animation: pulse 2s infinite;"></i> 
+    ¡Desafío Interactivo! ¿Escalar o Vector? 🎮🧠
+  </h3>
+  
+  <p style="color:#78350f;font-size:1.2em;line-height:1.8;text-align:center;margin-bottom:2em;">
+    Pon a prueba tu comprensión. <strong>¿Puedes clasificar correctamente estas magnitudes físicas?</strong> 
+    ¡Haz clic en tu respuesta! 🤔✨
+  </p>
+  
+  <!-- Grid de tarjetas interactivas -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5em;">
+    
+    <!-- Tarjeta 1: Peso -->
+    <div style="background:white;padding:1.5em;border-radius:12px;border:2px solid #f59e0b;cursor:pointer;transition:all 0.3s ease;text-align:center;" 
+         onclick="this.style.background='#dcfce7'; this.style.borderColor='#10b981'; this.innerHTML='<div style=&quot;font-size:2em;margin-bottom:0.5em;&quot;>✅</div><h4 style=&quot;color:#059669;&quot;>¡CORRECTO!</h4><p style=&quot;color:#047857;&quot;><strong>Peso = Vector</strong><br>Tiene magnitud (70 kg⋅9.8 m/s²) y dirección (hacia el centro de la Tierra)</p>'"
+         onmouseover="this.style.transform='scale(1.05)'" 
+         onmouseout="this.style.transform='scale(1)'">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">⚖️</div>
+      <h4 style="color:#d97706;margin-bottom:0.5em;">Peso de una persona</h4>
+      <p style="color:#92400e;font-size:0.95em;margin-bottom:1em;">70 kg hacia abajo</p>
+      <div style="display:flex;gap:0.5em;justify-content:center;">
+        <button style="background:#ef4444;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">📊 Escalar</button>
+        <button style="background:#8b5cf6;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">🧬 Vector</button>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 2: Temperatura -->
+    <div style="background:white;padding:1.5em;border-radius:12px;border:2px solid #f59e0b;cursor:pointer;transition:all 0.3s ease;text-align:center;" 
+         onclick="this.style.background='#dcfce7'; this.style.borderColor='#10b981'; this.innerHTML='<div style=&quot;font-size:2em;margin-bottom:0.5em;&quot;>✅</div><h4 style=&quot;color:#059669;&quot;>¡CORRECTO!</h4><p style=&quot;color:#047857;&quot;><strong>Temperatura = Escalar</strong><br>Solo necesita magnitud. No tiene dirección.</p>'"
+         onmouseover="this.style.transform='scale(1.05)'" 
+         onmouseout="this.style.transform='scale(1)'">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">🌡️</div>
+      <h4 style="color:#d97706;margin-bottom:0.5em;">Temperatura corporal</h4>
+      <p style="color:#92400e;font-size:0.95em;margin-bottom:1em;">37°C</p>
+      <div style="display:flex;gap:0.5em;justify-content:center;">
+        <button style="background:#ef4444;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">📊 Escalar</button>
+        <button style="background:#8b5cf6;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">🧬 Vector</button>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 3: Aceleración -->
+    <div style="background:white;padding:1.5em;border-radius:12px;border:2px solid #f59e0b;cursor:pointer;transition:all 0.3s ease;text-align:center;" 
+         onclick="this.style.background='#dcfce7'; this.style.borderColor='#10b981'; this.innerHTML='<div style=&quot;font-size:2em;margin-bottom:0.5em;&quot;>✅</div><h4 style=&quot;color:#059669;&quot;>¡CORRECTO!</h4><p style=&quot;color:#047857;&quot;><strong>Aceleración = Vector</strong><br>Tiene magnitud (9.8 m/s²) y dirección (hacia abajo)</p>'"
+         onmouseover="this.style.transform='scale(1.05)'" 
+         onmouseout="this.style.transform='scale(1)'">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">🏃‍♂️</div>
+      <h4 style="color:#d97706;margin-bottom:0.5em;">Aceleración de gravedad</h4>
+      <p style="color:#92400e;font-size:0.95em;margin-bottom:1em;">9.8 m/s² hacia abajo</p>
+      <div style="display:flex;gap:0.5em;justify-content:center;">
+        <button style="background:#ef4444;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">📊 Escalar</button>
+        <button style="background:#8b5cf6;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">🧬 Vector</button>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 4: Energía -->
+    <div style="background:white;padding:1.5em;border-radius:12px;border:2px solid #f59e0b;cursor:pointer;transition:all 0.3s ease;text-align:center;" 
+         onclick="this.style.background='#dcfce7'; this.style.borderColor='#10b981'; this.innerHTML='<div style=&quot;font-size:2em;margin-bottom:0.5em;&quot;>✅</div><h4 style=&quot;color:#059669;&quot;>¡CORRECTO!</h4><p style=&quot;color:#047857;&quot;><strong>Energía = Escalar</strong><br>Solo importa cuánta energía hay, no hacia dónde &quot;apunta&quot;</p>'"
+         onmouseover="this.style.transform='scale(1.05)'" 
+         onmouseout="this.style.transform='scale(1)'">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">⚡</div>
+      <h4 style="color:#d97706;margin-bottom:0.5em;">Energía cinética</h4>
+      <p style="color:#92400e;font-size:0.95em;margin-bottom:1em;">1000 Joules</p>
+      <div style="display:flex;gap:0.5em;justify-content:center;">
+        <button style="background:#ef4444;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">📊 Escalar</button>
+        <button style="background:#8b5cf6;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">🧬 Vector</button>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 5: Desplazamiento -->
+    <div style="background:white;padding:1.5em;border-radius:12px;border:2px solid #f59e0b;cursor:pointer;transition:all 0.3s ease;text-align:center;" 
+         onclick="this.style.background='#dcfce7'; this.style.borderColor='#10b981'; this.innerHTML='<div style=&quot;font-size:2em;margin-bottom:0.5em;&quot;>✅</div><h4 style=&quot;color:#059669;&quot;>¡CORRECTO!</h4><p style=&quot;color:#047857;&quot;><strong>Desplazamiento = Vector</strong><br>Tiene magnitud (5 m) y dirección específica (al este)</p>'"
+         onmouseover="this.style.transform='scale(1.05)'" 
+         onmouseout="this.style.transform='scale(1)'">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">📍</div>
+      <h4 style="color:#d97706;margin-bottom:0.5em;">Desplazamiento</h4>
+      <p style="color:#92400e;font-size:0.95em;margin-bottom:1em;">5 metros al este</p>
+      <div style="display:flex;gap:0.5em;justify-content:center;">
+        <button style="background:#ef4444;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">📊 Escalar</button>
+        <button style="background:#8b5cf6;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">🧬 Vector</button>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 6: Volumen -->
+    <div style="background:white;padding:1.5em;border-radius:12px;border:2px solid #f59e0b;cursor:pointer;transition:all 0.3s ease;text-align:center;" 
+         onclick="this.style.background='#dcfce7'; this.style.borderColor='#10b981'; this.innerHTML='<div style=&quot;font-size:2em;margin-bottom:0.5em;&quot;>✅</div><h4 style=&quot;color:#059669;&quot;>¡CORRECTO!</h4><p style=&quot;color:#047857;&quot;><strong>Volumen = Escalar</strong><br>Solo necesita magnitud. El volumen no tiene dirección.</p>'"
+         onmouseover="this.style.transform='scale(1.05)'" 
+         onmouseout="this.style.transform='scale(1)'">
+      <div style="font-size:2.5em;margin-bottom:0.5em;">📦</div>
+      <h4 style="color:#d97706;margin-bottom:0.5em;">Volumen de agua</h4>
+      <p style="color:#92400e;font-size:0.95em;margin-bottom:1em;">2 litros</p>
+      <div style="display:flex;gap:0.5em;justify-content:center;">
+        <button style="background:#ef4444;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">📊 Escalar</button>
+        <button style="background:#8b5cf6;color:white;border:none;padding:0.5em 1em;border-radius:8px;cursor:pointer;">🧬 Vector</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mensaje de ánimo -->
+  <div style="background:rgba(245,158,11,0.2);padding:1.5em;border-radius:12px;margin-top:2em;text-align:center;">
+    <p style="color:#92400e;font-size:1.1em;font-weight:600;">
+      🎯 <strong>¡Excelente!</strong> Cada clic te acerca más a dominar la diferencia fundamental entre escalares y vectores. 
+      ¡Continúa practicando! 🚀
+    </p>
+  </div>
+</div>
+
+<!-- ============================================
+     🌍 EJEMPLOS REALES EN LA VIDA COTIDIANA
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#ecfeff,#cffafe);border-radius:20px;padding:2.5em;border:3px solid #06b6d4;box-shadow:0 15px 35px rgba(6,182,212,0.3);">
+  
+  <h3 style="color:#0891b2;font-size:1.8em;margin-bottom:1.5em;text-align:center;">
+    <i class="fas fa-globe-americas"></i> 
+    Vectores en la Vida Real: ¡Están en Todas Partes! 🌍✨
+  </h3>
+  
+  <p style="color:#155e75;font-size:1.2em;line-height:1.8;text-align:center;margin-bottom:2em;">
+    Los vectores no son solo conceptos abstractos. <strong>¡Los usas todos los días sin darte cuenta!</strong> 
+    Descubre cómo los vectores gobiernan tu mundo cotidiano 🔍🎯
+  </p>
+  
+  <!-- Grid de ejemplos de la vida real -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5em;">
+    
+    <!-- Ejemplo 1: GPS -->
+    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #06b6d4;box-shadow:0 5px 15px rgba(6,182,212,0.2);">
+      <div style="text-align:center;margin-bottom:1.5em;">
+        <div style="font-size:3em;margin-bottom:0.5em;">📱</div>
+        <h4 style="color:#0891b2;font-size:1.3em;">Tu Smartphone GPS</h4>
+      </div>
+      
+      <p style="color:#155e75;line-height:1.7;margin-bottom:1em;">
+        Cuando usas Google Maps, tu teléfono calcula <strong>vectores de posición</strong> 
+        usando satélites. Cada instrucción "gira a la derecha en 200m" es un vector.
+      </p>
+      
+      <div style="background:#f0fdfa;padding:1em;border-radius:8px;border-left:4px solid #06b6d4;">
+        <p style="color:#0e7490;font-weight:600;font-size:0.95em;">
+          <strong>Vector:</strong> "Avanza 500m hacia el noreste" <br>
+          📏 <strong>Magnitud:</strong> 500 metros<br>
+          🧭 <strong>Dirección:</strong> Noreste<br>
+          🎯 <strong>Sentido:</strong> Hacia adelante
+        </p>
+      </div>
+    </div>
+    
+    <!-- Ejemplo 2: Deportes -->
+    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #10b981;box-shadow:0 5px 15px rgba(16,185,129,0.2);">
+      <div style="text-align:center;margin-bottom:1.5em;">
+        <div style="font-size:3em;margin-bottom:0.5em;">⚽</div>
+        <h4 style="color:#059669;font-size:1.3em;">Fútbol y Deportes</h4>
+      </div>
+      
+      <p style="color:#065f46;line-height:1.7;margin-bottom:1em;">
+        Cada pase, cada tiro al arco, cada movimiento del balón es un <strong>vector velocidad</strong>. 
+        Los entrenadores estudian vectores para optimizar las jugadas.
+      </p>
+      
+      <div style="background:#f0fdf4;padding:1em;border-radius:8px;border-left:4px solid #10b981;">
+        <p style="color:#047857;font-weight:600;font-size:0.95em;">
+          <strong>Vector:</strong> "Pase de 30 km/h hacia la portería" <br>
+          📏 <strong>Magnitud:</strong> 30 km/h<br>
+          🧭 <strong>Dirección:</strong> Hacia la portería<br>
+          🎯 <strong>Sentido:</strong> Del jugador hacia el arco
+        </p>
+      </div>
+    </div>
+    
+    <!-- Ejemplo 3: Videojuegos -->
+    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #8b5cf6;box-shadow:0 5px 15px rgba(139,92,246,0.2);">
+      <div style="text-align:center;margin-bottom:1.5em;">
+        <div style="font-size:3em;margin-bottom:0.5em;">🎮</div>
+        <h4 style="color:#7c3aed;font-size:1.3em;">Videojuegos 3D</h4>
+      </div>
+      
+      <p style="color:#581c87;line-height:1.7;margin-bottom:1em;">
+        Cada movimiento de tu personaje, cada rotación de cámara, cada proyectil 
+        que disparas usa <strong>cálculos vectoriales en tiempo real</strong>.
+      </p>
+      
+      <div style="background:#faf5ff;padding:1em;border-radius:8px;border-left:4px solid #8b5cf6;">
+        <p style="color:#6d28d9;font-weight:600;font-size:0.95em;">
+          <strong>Vector:</strong> "Salto del personaje" <br>
+          📏 <strong>Magnitud:</strong> 15 m/s<br>
+          🧭 <strong>Dirección:</strong> 45° hacia arriba<br>
+          🎯 <strong>Sentido:</strong> Hacia adelante y arriba
+        </p>
+      </div>
+    </div>
+    
+    <!-- Ejemplo 4: Clima -->
+    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #f59e0b;box-shadow:0 5px 15px rgba(245,158,11,0.2);">
+      <div style="text-align:center;margin-bottom:1.5em;">
+        <div style="font-size:3em;margin-bottom:0.5em;">🌪️</div>
+        <h4 style="color:#d97706;font-size:1.3em;">Pronóstico del Tiempo</h4>
+      </div>
+      
+      <p style="color:#92400e;line-height:1.7;margin-bottom:1em;">
+        Los meteorólogos usan <strong>vectores de viento</strong> para predecir tormentas. 
+        "Vientos de 50 km/h del suroeste" es información vectorial pura.
+      </p>
+      
+      <div style="background:#fffbeb;padding:1em;border-radius:8px;border-left:4px solid #f59e0b;">
+        <p style="color:#92400e;font-weight:600;font-size:0.95em;">
+          <strong>Vector:</strong> "Viento de tormenta" <br>
+          📏 <strong>Magnitud:</strong> 80 km/h<br>
+          🧭 <strong>Dirección:</strong> Del suroeste<br>
+          🎯 <strong>Sentido:</strong> Hacia el noreste
+        </p>
+      </div>
+    </div>
+    
+    <!-- Ejemplo 5: Aviación -->
+    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #ef4444;box-shadow:0 5px 15px rgba(239,68,68,0.2);">
+      <div style="text-align:center;margin-bottom:1.5em;">
+        <div style="font-size:3em;margin-bottom:0.5em;">✈️</div>
+        <h4 style="color:#dc2626;font-size:1.3em;">Aviación Comercial</h4>
+      </div>
+      
+      <p style="color:#991b1b;line-height:1.7;margin-bottom:1em;">
+        Los pilotos calculan constantemente <strong>vectores de velocidad</strong> para 
+        compensar el viento y llegar exactamente al aeropuerto de destino.
+      </p>
+      
+      <div style="background:#fef2f2;padding:1em;border-radius:8px;border-left:4px solid #ef4444;">
+        <p style="color:#991b1b;font-weight:600;font-size:0.95em;">
+          <strong>Vector:</strong> "Velocidad del avión" <br>
+          📏 <strong>Magnitud:</strong> 900 km/h<br>
+          🧭 <strong>Dirección:</strong> Rumbo 075°<br>
+          🎯 <strong>Sentido:</strong> Este-noreste
+        </p>
+      </div>
+    </div>
+    
+    <!-- Ejemplo 6: Medicina -->
+    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #84cc16;box-shadow:0 5px 15px rgba(132,204,22,0.2);">
+      <div style="text-align:center;margin-bottom:1.5em;">
+        <div style="font-size:3em;margin-bottom:0.5em;">🏥</div>
+        <h4 style="color:#65a30d;font-size:1.3em;">Medicina Moderna</h4>
+      </div>
+      
+      <p style="color:#4d7c0f;line-height:1.7;margin-bottom:1em;">
+        Los radiólogos usan <strong>vectores direccionales</strong> para enfocar rayos X 
+        y tratamientos de radiación con precisión milimétrica.
+      </p>
+      
+      <div style="background:#f7fee7;padding:1em;border-radius:8px;border-left:4px solid #84cc16;">
+        <p style="color:#4d7c0f;font-weight:600;font-size:0.95em;">
+          <strong>Vector:</strong> "Haz de radiación" <br>
+          📏 <strong>Magnitud:</strong> Intensidad específica<br>
+          🧭 <strong>Dirección:</strong> Hacia el tumor<br>
+          🎯 <strong>Sentido:</strong> Desde el emisor al tejido
+        </p>
+      </div>
+    </div>
+  </div>
+  
+<!-- Mensaje final motivador MEJORADO -->
+<div style="background:linear-gradient(135deg,#667eea,#764ba2,#f093fb,#f5576c);background-size:400% 400%;animation:gradientShift 6s ease infinite;color:white;padding:2.5em;border-radius:20px;margin-top:2em;text-align:center;box-shadow:0 20px 40px rgba(102,126,234,0.4);position:relative;overflow:hidden;">
+  
+  <!-- Efecto de partículas brillantes -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.15\"%3E%3Cpath d=\"M30 15l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z\"/%3E%3C/g%3E%3C/svg%3E') repeat;animation:particleMove 20s linear infinite;"></div>
+  
+  <!-- Resplandor central -->
+  <div style="position:absolute;top:50%;left:50%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,0.2) 0%,transparent 70%);transform:translate(-50%,-50%);animation:glow 4s ease-in-out infinite alternate;"></div>
+  
+  <div style="position:relative;z-index:2;">
+    <h4 style="margin-bottom:1em;font-size:1.6em;color:#ffffff;text-shadow:2px 2px 8px rgba(0,0,0,0.3);font-weight:800;">
+      🌟 ¡Los Vectores Están en Tu ADN Tecnológico! 🧬✨
+    </h4>
+    <p style="font-size:1.2em;line-height:1.8;color:#ffffff;text-shadow:1px 1px 4px rgba(0,0,0,0.2);font-weight:500;">
+      Desde el GPS que te guía hasta el videojuego que juegas, desde el pronóstico del tiempo 
+      hasta el avión que te lleva de vacaciones... <strong style="color:#ffffff;background:rgba(255,255,255,0.2);padding:0.2em 0.5em;border-radius:8px;backdrop-filter:blur(10px);">¡Los vectores hacen posible tu mundo moderno!</strong> 
+      Cada vez que tocas tu smartphone, estás interactuando con millones de cálculos vectoriales. 📱⚡🌍
+    </p>
+    
+    <!-- Elementos decorativos flotantes -->
+    <div style="margin-top:1.5em;display:flex;justify-content:center;gap:1em;flex-wrap:wrap;">
+      <span style="background:rgba(255,255,255,0.25);padding:0.5em 1em;border-radius:25px;backdrop-filter:blur(10px);font-size:0.9em;font-weight:600;border:1px solid rgba(255,255,255,0.3);">🚀 Futuro</span>
+      <span style="background:rgba(255,255,255,0.25);padding:0.5em 1em;border-radius:25px;backdrop-filter:blur(10px);font-size:0.9em;font-weight:600;border:1px solid rgba(255,255,255,0.3);">🧮 Matemáticas</span>
+      <span style="background:rgba(255,255,255,0.25);padding:0.5em 1em;border-radius:25px;backdrop-filter:blur(10px);font-size:0.9em;font-weight:600;border:1px solid rgba(255,255,255,0.3);">🌌 Universo</span>
+    </div>
+  </div>
+</div>
+
+<!-- Animaciones CSS adicionales -->
+<style>
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes particleMove {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-60px) translateY(-60px); }
+}
+
+@keyframes glow {
+  0% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.2); }
+}
+</style>
+
+<!-- ============================================
+     🔬 PROPIEDADES FUNDAMENTALES DE LOS VECTORES
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.1);padding:2.5em;">
+  
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1.5em;text-align:center;">
+    <i class="fas fa-dna" style="color:#8b5cf6;"></i> 
+    Propiedades Fundamentales: El ADN de los Vectores 🧬🔬
+  </h3>
+  
+  <p style="color:#475569;font-size:1.2em;line-height:1.8;text-align:center;margin-bottom:2em;">
+    Todo vector, sin excepción, posee estas <strong>propiedades universales</strong> que los definen 
+    y los diferencian de cualquier otra entidad matemática 🌟
+  </p>
+  
+  <!-- Grid de propiedades -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2em;">
+    
+    <!-- Propiedad 1: Magnitud -->
+    <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:2em;border-radius:15px;border:3px solid #3b82f6;position:relative;">
+      <div style="position:absolute;top:-15px;right:-15px;background:#3b82f6;color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">1</div>
+      
+      <h4 style="color:#1e40af;font-size:1.4em;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">📏</span>
+        Magnitud (Módulo)
+      </h4>
+      
+      <p style="color:#1e3a8a;line-height:1.7;margin-bottom:1em;">
+        Es el <strong>"tamaño" o "intensidad"</strong> del vector. Siempre es un número 
+        <strong>positivo</strong> que representa qué tan grande es la cantidad vectorial.
+      </p>
+      
+      <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #3b82f6;">
+        <p style="color:#2563eb;font-weight:600;margin-bottom:0.5em;">Ejemplos prácticos:</p>
+        <ul style="color:#1e40af;font-size:0.95em;line-height:1.6;">
+          <li>Velocidad: <strong>80 km/h</strong> (qué tan rápido)</li>
+          <li>Fuerza: <strong>500 N</strong> (qué tan intensa)</li>
+          <li>Desplazamiento: <strong>15 m</strong> (qué tan lejos)</li>
+        </ul>
+      </div>
+      
+      <div style="background:#f0f9ff;padding:1em;border-radius:8px;margin-top:1em;">
+        <p style="color:#1e40af;font-weight:600;font-size:0.95em;">
+          💡 <strong>Nota:</strong> La magnitud nunca puede ser negativa. 
+          Si obtienes un valor negativo, revisa el sentido del vector.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Propiedad 2: Dirección -->
+    <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:2em;border-radius:15px;border:3px solid #10b981;position:relative;">
+      <div style="position:absolute;top:-15px;right:-15px;background:#10b981;color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">2</div>
+      
+      <h4 style="color:#059669;font-size:1.4em;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">🧭</span>
+        Dirección
+      </h4>
+      
+      <p style="color:#047857;line-height:1.7;margin-bottom:1em;">
+        Es la <strong>línea imaginaria</strong> sobre la cual actúa el vector. 
+        Se puede expresar mediante ángulos, puntos cardinales, o coordenadas.
+      </p>
+      
+      <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #10b981;">
+        <p style="color:#059669;font-weight:600;margin-bottom:0.5em;">Formas de expresar dirección:</p>
+        <ul style="color:#047857;font-size:0.95em;line-height:1.6;">
+          <li><strong>Ángulos:</strong> 30° respecto al eje x</li>
+          <li><strong>Puntos cardinales:</strong> Norte, Suroeste</li>
+          <li><strong>Coordenadas:</strong> Hacia el punto (3,4)</li>
+          <li><strong>Referencias:</strong> Hacia la Torre Eiffel</li>
+        </ul>
+      </div>
+      
+      <div style="background:#ecfdf5;padding:1em;border-radius:8px;margin-top:1em;">
+        <p style="color:#047857;font-weight:600;font-size:0.95em;">
+          💡 <strong>Clave:</strong> La dirección define la "carretera" 
+          por donde "viaja" el vector, pero no hacia qué extremo va.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Propiedad 3: Sentido -->
+    <div style="background:linear-gradient(135deg,#fef3c7,#fed7aa);padding:2em;border-radius:15px;border:3px solid #f59e0b;position:relative;">
+      <div style="position:absolute;top:-15px;right:-15px;background:#f59e0b;color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">3</div>
+      
+      <h4 style="color:#d97706;font-size:1.4em;margin-bottom:1em;display:flex;align-items:center;gap:0.5em;">
+        <span style="font-size:1.5em;">🎯</span>
+        Sentido
+      </h4>
+      
+      <p style="color:#92400e;line-height:1.7;margin-bottom:1em;">
+        Indica <strong>hacia cuál extremo</strong> de la dirección apunta el vector. 
+        Es lo que diferencia "hacia arriba" de "hacia abajo" en una línea vertical.
+      </p>
+      
+      <div style="background:white;padding:1em;border-radius:10px;border-left:4px solid #f59e0b;">
+        <p style="color:#d97706;font-weight:600;margin-bottom:0.5em;">Ejemplos de sentido:</p>
+        <ul style="color:#92400e;font-size:0.95em;line-height:1.6;">
+          <li><strong>Vertical:</strong> ↑ hacia arriba / ↓ hacia abajo</li>
+          <li><strong>Horizontal:</strong> → hacia la derecha / ← hacia la izquierda</li>
+          <li><strong>Geográfico:</strong> hacia el norte / hacia el sur</li>
+          <li><strong>Relativo:</strong> hacia ti / alejándose de ti</li>
+        </ul>
+      </div>
+      
+      <div style="background:#fffbeb;padding:1em;border-radius:8px;margin-top:1em;">
+        <p style="color:#92400e;font-weight:600;font-size:0.95em;">
+          💡 <strong>Analogía:</strong> Si la dirección es la "carretera", 
+          el sentido es "hacia qué ciudad vas" en esa carretera.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ejemplo integrador -->
+  <div style="background:linear-gradient(135deg,#1e293b,#334155);color:white;padding:2.5em;border-radius:15px;margin-top:2em;position:relative;overflow:hidden;">
+    
+    <!-- Efecto de fondo -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M20 10l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z\"/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+    
+    <div style="position:relative;z-index:1;">
+      <h4 style="color:#ffffff;font-size:1.6em;margin-bottom:1.5em;text-align:center;">
+        🌟 Ejemplo Integrador: Vector Fuerza en Acción 💪⚡
+      </h4>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2em;align-items:center;">
+        <div>
+          <p style="color:#e2e8f0;font-size:1.1em;line-height:1.8;margin-bottom:1.5em;">
+            Un atleta empuja un trineo con una <strong>fuerza de 200 N a 30° hacia arriba</strong> 
+            respecto al suelo horizontal:
+          </p>
+          
+<div style="background:rgba(139,92,246,0.2);padding:1.5em;border-radius:10px;border:1px solid rgba(139,92,246,0.5);">
+  <ul style="color:#ffffff;line-height:2;font-size:1.05em;list-style:none;padding:0;">
+    <li><span style="color:#60a5fa;">📏</span> <strong style="color:#ffffff;">MAGNITUD:</strong> <span style="color:#ffffff;">200 N</span> <span style="color:#e2e8f0;">(newtons)</span></li>
+    <li><span style="color:#34d399;">🧭</span> <strong style="color:#ffffff;">DIRECCIÓN:</strong> <span style="color:#ffffff;">30° respecto al horizontal</span></li>
+    <li><span style="color:#fbbf24;">🎯</span> <strong style="color:#ffffff;">SENTIDO:</strong> <span style="color:#ffffff;">Hacia arriba y adelante</span></li>
+  </ul>
+</div>
+        
+        <div style="text-align:center;">
+          <div style="background:rgba(255,255,255,0.1);padding:1.5em;border-radius:12px;">
+            <div style="font-size:4em;margin-bottom:0.5em;">🏋️‍♂️</div>
+            <p style="color:#cbd5e1;font-weight:600;">Atleta aplicando fuerza vectorial</p>
+            <div style="margin-top:1em;color:#a78bfa;font-size:0.95em;">
+              F⃗ = 200 N @ 30° ↗
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.1);padding:1.5em;border-radius:10px;margin-top:1.5em;">
+        <p style="color:#e2e8f0;font-size:1.1em;text-align:center;font-weight:600;">
+          🔑 <strong>Conclusión Clave:</strong> Sin estos tres elementos trabajando juntos, 
+          ¡no puedes describir completamente ningún fenómeno físico vectorial! 
+          Es como intentar dar direcciones sin decir la distancia, el rumbo Y hacia dónde ir. 🧭✨
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     🎯 REFLEXIÓN FINAL Y TRANSICIÓN
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:20px;padding:2.5em;position:relative;overflow:hidden;">
+  
+  <!-- Efecto de ondas de fondo -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"%3E%3Cpath d=\"M0 30c25 0 25-20 50-20s25 20 50 20v70H0V30z\" fill=\"%23ffffff\" fill-opacity=\"0.08\"/%3E%3C/svg%3E') repeat-x;opacity:0.4;"></div>
+  
+  <div style="position:relative;z-index:1;text-align:center;">
+    <h3 style="font-size:2.2em;margin-bottom:1em;">
+      <i class="fas fa-brain" style="animation: pulse 2s infinite;"></i> 
+      ¡Has Desbloqueado el Concepto de Vector! 🧠🔓
+    </h3>
+    
+    <p style="font-size:1.3em;line-height:1.8;opacity:0.95;margin-bottom:2em;max-width:800px;margin-left:auto;margin-right:auto;">
+      Ahora entiendes la <strong>esencia fundamental</strong> de los vectores: no son solo números, 
+      ¡son la representación matemática de todo lo que tiene dirección en el universo! 🌌⚡
+    </p>
+    
+    <!-- Resumen visual de lo aprendido -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5em;margin:2em 0;">
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:12px;backdrop-filter:blur(10px);">
+        <div style="font-size:2.5em;margin-bottom:0.5em;">🧬</div>
+        <h5 style="margin-bottom:0.5em;">Definición Clara</h5>
+        <p style="font-size:0.9em;opacity:0.9;">Magnitud + Dirección + Sentido</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:12px;backdrop-filter:blur(10px);">
+        <div style="font-size:2.5em;margin-bottom:0.5em;">⚖️</div>
+        <h5 style="margin-bottom:0.5em;">Vs Escalares</h5>
+        <p style="font-size:0.9em;opacity:0.9;">Diferencia fundamental dominada</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:12px;backdrop-filter:blur(10px);">
+        <div style="font-size:2.5em;margin-bottom:0.5em;">🌍</div>
+        <h5 style="margin-bottom:0.5em;">Vida Real</h5>
+        <p style="font-size:0.9em;opacity:0.9;">Aplicaciones cotidianas identificadas</p>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.15);padding:1.5em;border-radius:12px;backdrop-filter:blur(10px);">
+        <div style="font-size:2.5em;margin-bottom:0.5em;">🔬</div>
+        <h5 style="margin-bottom:0.5em;">Propiedades</h5>
+        <p style="font-size:0.9em;opacity:0.9;">Fundamentos matemáticos claros</p>
+      </div>
+    </div>
+    
+    <!-- Mensaje motivacional de transición -->
+    <div style="background:rgba(255,255,255,0.2);padding:2em;border-radius:15px;backdrop-filter:blur(10px);">
+      <h4 style="font-size:1.4em;margin-bottom:1em;">
+        🚀 ¿Listo para el Siguiente Nivel? 
+      </h4>
+      <p style="font-size:1.1em;line-height:1.7;opacity:0.95;">
+        Ahora que dominas <strong>qué es un vector</strong>, es hora de aprender 
+        <strong>cómo escribirlos matemáticamente</strong>. Prepárate para descubrir la 
+        <strong>notación vectorial</strong> que usan los científicos, ingenieros y 
+        matemáticos de todo el mundo. ¡La aventura continúa! ✨📝
+      </p>
+    </div>
+  </div>
+</div>
+
