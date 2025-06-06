@@ -155,6 +155,1672 @@
     </div>
   </div>
   
+
+
+
+
+<!-- ============================================
+     📚 DEFINICIÓN FORMAL DE VECTOR
+     ============================================ -->
+<div class="section" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-radius: 25px; padding: 3em; border: 3px solid #8b5cf6; box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3); position: relative; overflow: hidden;">
+    
+    <!-- Efecto de partículas de fondo -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"50\" height=\"50\" viewBox=\"0 0 50 50\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%238b5cf6\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"25\" cy=\"25\" r=\"2\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.6;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        <!-- Título principal -->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+            <i class="fas fa-compass" style="color: #8b5cf6; margin-right: 0.5em; animation: logoSpin 4s linear infinite;"></i>
+            <span style="color: #1e293b;">Definición Formal de Vector</span>
+            <span style="font-size: 0.6em;">📐📏✨</span>
+        </h2>
+        
+        <!-- Definición principal -->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #8b5cf6; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(139, 92, 246, 0.2);">
+            <div style="text-align: center; margin-bottom: 2em;">
+                <div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4); animation: pulse 3s infinite;">
+                    <i class="fas fa-arrow-right" style="font-size: 2em;"></i>
+                </div>
+                <h3 style="color: #7c3aed; font-size: 1.8em; margin-bottom: 1em;">¿Qué es un Vector?</h3>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 2em; border-radius: 15px; border-left: 6px solid #8b5cf6; margin-bottom: 1.5em;">
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; font-weight: 600; text-align: center;">
+                    Un <strong style="color: #8b5cf6; font-size: 1.1em;">vector</strong> es un <strong style="color: #7c3aed;">segmento de recta orientado</strong> 
+                    en el espacio que tiene un <strong style="color: #6d28d9;">punto de inicio</strong> y un <strong style="color: #5b21b6;">punto final</strong>, 
+                    caracterizado por tres propiedades fundamentales.
+                </p>
+            </div>
+            
+            <!-- Las tres características esenciales -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em; margin-top: 2em;">
+                
+                <!-- Magnitud -->
+                <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 1.5em; border-radius: 15px; border: 2px solid #3b82f6; text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 0.5em; color: #3b82f6;">📏</div>
+                    <h4 style="color: #1e40af; margin-bottom: 0.8em; font-size: 1.2em;">MAGNITUD</h4>
+                    <p style="color: #1e3a8a; font-size: 1em; line-height: 1.6;">
+                        La <strong>longitud</strong> del segmento.<br>
+                        Siempre es <strong>positiva</strong> o cero.
+                    </p>
+                </div>
+                
+                <!-- Dirección -->
+                <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 1.5em; border-radius: 15px; border: 2px solid #10b981; text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 0.5em; color: #10b981;">🧭</div>
+                    <h4 style="color: #059669; margin-bottom: 0.8em; font-size: 1.2em;">DIRECCIÓN</h4>
+                    <p style="color: #047857; font-size: 1em; line-height: 1.6;">
+                        La <strong>recta</strong> sobre la cual actúa.<br>
+                        Se mide con <strong>ángulos</strong>.
+                    </p>
+                </div>
+                
+                <!-- Sentido -->
+                <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 1.5em; border-radius: 15px; border: 2px solid #f59e0b; text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 0.5em; color: #f59e0b;">🎯</div>
+                    <h4 style="color: #d97706; margin-bottom: 0.8em; font-size: 1.2em;">SENTIDO</h4>
+                    <p style="color: #92400e; font-size: 1em; line-height: 1.6;">
+                        Hacia <strong>qué extremo</strong> apunta.<br>
+                        Dado por la <strong>punta de flecha</strong>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Analogía visual -->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2em; border-radius: 15px; margin-top: 2em; text-align: center;">
+                <h4 style="color: #cbd5e1; margin-bottom: 1em; font-size: 1.4em;">
+                    <i class="fas fa-lightbulb" style="color: #fbbf24; animation: pulse 2s infinite;"></i>
+                    Analogía Simple
+                </h4>
+                <p style="color: #e2e8f0; font-size: 1.2em; line-height: 1.7;">
+                    Un vector es como <strong style="color: #60a5fa;">dar direcciones</strong>: necesitas decir 
+                    <strong style="color: #34d399;">qué tan lejos</strong> (magnitud), 
+                    <strong style="color: #fbbf24;">en qué dirección</strong> (ángulo), y 
+                    <strong style="color: #f87171;">hacia dónde</strong> (sentido).
+                </p>
+                <div style="margin-top: 1.5em; font-size: 1.1em; background: rgba(255,255,255,0.1); padding: 1em; border-radius: 10px;">
+                    <strong style="color: #a78bfa;">"Camina 5 metros hacia el norte"</strong> = Vector completo ✅
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     📏 MAGNITUD O NORMA DEL VECTOR
+     ============================================ -->
+<div class="section" style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 25px; padding: 3em; border: 3px solid #3b82f6; box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); position: relative; overflow: hidden;">
+    
+    <!-- Efecto de ondas de fondo -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 20\"%3E%3Cpath d=\"M0 10c10 0 10-10 20-10s10 10 20 10 10-10 20-10s10 10 20 10 10-10 20-10\" stroke=\"%233b82f6\" stroke-width=\"1\" fill=\"none\" opacity=\"0.1\"/%3E%3C/svg%3E') repeat; opacity: 0.5;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        <!-- Título principal -->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-ruler" style="color: #3b82f6; margin-right: 0.5em; animation: bounce 2s infinite;"></i>
+            <span style="color: #1e293b;">Magnitud o Norma del Vector</span>
+            <span style="font-size: 0.6em;">📏📐⚖️</span>
+        </h2>
+        
+        <!-- Definición de magnitud -->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #3b82f6; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);">
+            
+            <!-- Icono central -->
+            <div style="text-align: center; margin-bottom: 2em;">
+                <div style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4); font-size: 2.5em;">
+                    📏
+                </div>
+            </div>
+            
+            <!-- Definición principal -->
+            <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 2em; border-radius: 15px; border-left: 6px solid #3b82f6; margin-bottom: 2em;">
+                <h3 style="color: #1e40af; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #2563eb;"></i> ¿Qué es la Magnitud?
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    La <strong style="color: #3b82f6;">magnitud</strong> (también llamada <strong style="color: #2563eb;">módulo o norma</strong>) 
+                    es la <strong style="color: #1e40af;">longitud del vector</strong>. Representa <strong style="color: #1e3a8a;">"qué tan grande"</strong> 
+                    o <strong style="color: #1e3a8a;">"qué tan intenso"</strong> es el vector.
+                </p>
+            </div>
+            
+            <!-- Características de la magnitud -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+                
+                <!-- Característica 1 -->
+                <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 1.8em; border-radius: 15px; border: 2px solid #10b981;">
+                    <div style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+                        <div style="background: #10b981; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em;">✅</div>
+                        <h4 style="color: #059669; margin: 0; font-size: 1.2em;">Siempre Positiva</h4>
+                    </div>
+                    <p style="color: #047857; line-height: 1.6;">
+                        La magnitud <strong>nunca puede ser negativa</strong>. 
+                        Si obtienes un valor negativo, hay un error en el sentido.
+                    </p>
+                </div>
+                
+                <!-- Característica 2 -->
+                <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 1.8em; border-radius: 15px; border: 2px solid #f59e0b;">
+                    <div style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+                        <div style="background: #f59e0b; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em;">📐</div>
+                        <h4 style="color: #d97706; margin: 0; font-size: 1.2em;">Tiene Unidades</h4>
+                    </div>
+                    <p style="color: #92400e; line-height: 1.6;">
+                        La magnitud <strong>conserva las unidades</strong> de la magnitud física: 
+                        metros, m/s, newtons, etc.
+                    </p>
+                </div>
+                
+                <!-- Característica 3 -->
+                <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 1.8em; border-radius: 15px; border: 2px solid #ef4444;">
+                    <div style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+                        <div style="background: #ef4444; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em;">🔢</div>
+                        <h4 style="color: #dc2626; margin: 0; font-size: 1.2em;">Es un Escalar</h4>
+                    </div>
+                    <p style="color: #991b1b; line-height: 1.6;">
+                        La magnitud es un <strong>número escalar</strong> 
+                        (no tiene dirección, solo tamaño).
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Notación matemática -->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-calculator" style="color: #60a5fa;"></i> Notación Matemática
+                </h3>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px; margin-bottom: 1.5em;">
+                    <p style="color: #e2e8f0; font-size: 1.2em; margin-bottom: 1em;">
+                        Si tenemos un vector <strong style="color: #60a5fa;">$\vec{v}$</strong>, su magnitud se denota como:
+                    </p>
+                    <div style="font-size: 2em; color: #fbbf24; margin: 1em 0; font-weight: bold;">
+                        $|\vec{v}|$ &nbsp;&nbsp; o &nbsp;&nbsp; $\|\vec{v}\|$
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 1.1em;">
+                        Se lee: <strong style="color: #34d399;">"magnitud de v"</strong> o <strong style="color: #34d399;">"módulo de v"</strong>
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em;">
+                    <div style="background: rgba(59,130,246,0.2); padding: 1em; border-radius: 10px;">
+                        <strong style="color: #60a5fa;">Barras verticales</strong><br>
+                        <span style="color: #cbd5e1;">$|\vec{v}|$</span>
+                    </div>
+                    <div style="background: rgba(16,185,129,0.2); padding: 1em; border-radius: 10px;">
+                        <strong style="color: #34d399;">Doble barra</strong><br>
+                        <span style="color: #cbd5e1;">$\|\vec{v}\|$</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ejemplos prácticos -->
+            <div style="margin-top: 2em;">
+                <h3 style="color: #1e40af; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: #fbbf24;"></i> Ejemplos en la Vida Real
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Ejemplo 1 -->
+                    <div style="background: #f8fafc; padding: 1.5em; border-radius: 12px; border: 2px solid #64748b;">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">🚗</div>
+                            <h4 style="color: #475569; margin: 0;">Velocidad de un Auto</h4>
+                        </div>
+                        <p style="color: #334155; line-height: 1.6; text-align: center;">
+                            <strong style="color: #3b82f6;">Vector:</strong> 60 km/h hacia el norte<br>
+                            <strong style="color: #2563eb;">Magnitud:</strong> $|\vec{v}| = 60$ km/h
+                        </p>
+                    </div>
+                    
+                    <!-- Ejemplo 2 -->
+                    <div style="background: #f8fafc; padding: 1.5em; border-radius: 12px; border: 2px solid #64748b;">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">💪</div>
+                            <h4 style="color: #475569; margin: 0;">Fuerza Aplicada</h4>
+                        </div>
+                        <p style="color: #334155; line-height: 1.6; text-align: center;">
+                            <strong style="color: #3b82f6;">Vector:</strong> 150 N hacia abajo<br>
+                            <strong style="color: #2563eb;">Magnitud:</strong> $|\vec{F}| = 150$ N
+                        </p>
+                    </div>
+                    
+                    <!-- Ejemplo 3 -->
+                    <div style="background: #f8fafc; padding: 1.5em; border-radius: 12px; border: 2px solid #64748b;">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">📍</div>
+                            <h4 style="color: #475569; margin: 0;">Desplazamiento</h4>
+                        </div>
+                        <p style="color: #334155; line-height: 1.6; text-align: center;">
+                            <strong style="color: #3b82f6;">Vector:</strong> 8 m al este<br>
+                            <strong style="color: #2563eb;">Magnitud:</strong> $|\vec{d}| = 8$ m
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     🧭 DIRECCIÓN DEL VECTOR (ÁNGULO)
+     ============================================ -->
+<div class="section" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 25px; padding: 3em; border: 3px solid #10b981; box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3); position: relative; overflow: hidden;">
+    
+    <!-- Efecto de brújula de fondo -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" stroke=\"%2310b981\" stroke-width=\"1\" opacity=\"0.1\"%3E%3Ccircle cx=\"40\" cy=\"40\" r=\"30\"/%3E%3Cpath d=\"M40 10v60M10 40h60\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.4;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        <!-- Título principal -->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-compass" style="color: #10b981; margin-right: 0.5em; animation: logoSpin 6s linear infinite;"></i>
+            <span style="color: #1e293b;">Dirección del Vector</span>
+            <span style="font-size: 0.6em;">🧭📐🎯</span>
+        </h2>
+        
+        <!-- Contenido principal -->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #10b981; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);">
+            
+            <!-- Icono central -->
+            <div style="text-align: center; margin-bottom: 2em;">
+                <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4); font-size: 2.5em;">
+                    🧭
+                </div>
+            </div>
+            
+            <!-- Definición de dirección -->
+            <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 2em; border-radius: 15px; border-left: 6px solid #10b981; margin-bottom: 2em;">
+                <h3 style="color: #047857; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #059669;"></i> ¿Qué es la Dirección?
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    La <strong style="color: #10b981;">dirección</strong> es el <strong style="color: #059669;">ángulo que forma el vector</strong> 
+                    con respecto a una <strong style="color: #047857;">línea de referencia</strong> (generalmente el eje horizontal positivo).
+                </p>
+            </div>
+            
+            <!-- Sistema de referencia -->
+            <div style="display: grid; grid-template-columns: 1fr 350px; gap: 2em; align-items: center; margin-bottom: 2em;">
+                <div>
+                    <h4 style="color: #047857; font-size: 1.4em; margin-bottom: 1em;">
+                        <i class="fas fa-crosshairs" style="color: #10b981;"></i> Sistema de Referencia
+                    </h4>
+                    <p style="color: #065f46; line-height: 1.7; margin-bottom: 1em;">
+                        Para medir la dirección necesitamos establecer un <strong>sistema de coordenadas</strong> 
+                        con ejes de referencia. El más común es el <strong>sistema cartesiano</strong>.
+                    </p>
+                    
+                    <div style="background: #f0fdf4; padding: 1.5em; border-radius: 12px; border-left: 4px solid #10b981;">
+                        <h5 style="color: #059669; margin-bottom: 0.8em;">Convenciones estándar:</h5>
+                        <ul style="color: #047857; line-height: 1.8;">
+                            <li><strong>Eje X positivo:</strong> Hacia la derecha (0°)</li>
+                            <li><strong>Eje Y positivo:</strong> Hacia arriba (90°)</li>
+                            <li><strong>Medición:</strong> Sentido antihorario (positivo)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Diagrama del sistema de coordenadas -->
+                <div style="background: #f8fafc; padding: 2em; border-radius: 15px; border: 2px solid #64748b; text-align: center;">
+                    <h5 style="color: #475569; margin-bottom: 1em;">Sistema de Coordenadas</h5>
+                    <div style="position: relative; width: 250px; height: 200px; margin: 0 auto; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                        
+                        <!-- Ejes de coordenadas -->
+                        <div style="position: absolute; width: 200px; height: 2px; background: #64748b; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
+                        <div style="position: absolute; width: 2px; height: 160px; background: #64748b; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
+                        
+                        <!-- Flechas de los ejes -->
+                        <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 8px solid #64748b; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                        <div style="position: absolute; left: 50%; top: 15px; transform: translateX(-50%); width: 0; height: 0; border-bottom: 8px solid #64748b; border-left: 5px solid transparent; border-right: 5px solid transparent;"></div>
+                        
+                        <!-- Vector ejemplo -->
+                        <div style="position: absolute; width: 80px; height: 2px; background: #10b981; left: 50%; top: 50%; transform: translate(0, -50%) rotate(-30deg); transform-origin: left center;"></div>
+                        <div style="position: absolute; left: calc(50% + 75px); top: calc(50% - 40px); width: 0; height: 0; border-left: 8px solid #10b981; border-top: 5px solid transparent; border-bottom: 5px solid transparent; transform: rotate(-30deg);"></div>
+                        
+                        <!-- Arco del ángulo -->
+                        <div style="position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; border: 2px solid #f59e0b; border-radius: 50%; border-right: transparent; border-bottom: transparent; transform: translate(0, -50%) rotate(-30deg);"></div>
+                        
+                        <!-- Etiquetas -->
+                        <div style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); color: #64748b; font-size: 0.9em; font-weight: bold;">X</div>
+                        <div style="position: absolute; left: 50%; top: 5px; transform: translateX(-50%); color: #64748b; font-size: 0.9em; font-weight: bold;">Y</div>
+                        <div style="position: absolute; left: calc(50% + 20px); top: calc(50% - 10px); color: #f59e0b; font-size: 0.8em; font-weight: bold;">θ</div>
+                        <div style="position: absolute; left: calc(50% + 85px); top: calc(50% - 50px); color: #10b981; font-size: 0.8em; font-weight: bold;">$\vec{v}$</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formas de medir la dirección -->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #047857; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-ruler-combined" style="color: #10b981;"></i> Formas de Medir la Dirección
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Método 1: Ángulos -->
+                    <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 2em; border-radius: 15px; border: 2px solid #3b82f6;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #3b82f6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.8em;">📐</div>
+                        </div>
+                        <h4 style="color: #1e40af; text-align: center; margin-bottom: 1em;">Ángulos en Grados</h4>
+                        <p style="color: #1e3a8a; line-height: 1.6; text-align: center; margin-bottom: 1em;">
+                            Se mide desde el eje X positivo, en <strong>sentido antihorario</strong>.
+                        </p>
+                        <div style="background: white; padding: 1em; border-radius: 8px; text-align: center;">
+                            <strong style="color: #2563eb;">Ejemplos:</strong><br>
+                            0° = Este<br>
+                            90° = Norte<br>
+                            180° = Oeste<br>
+                            270° = Sur
+                        </div>
+                    </div>
+                    
+                    <!-- Método 2: Puntos cardinales -->
+                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 2em; border-radius: 15px; border: 2px solid #10b981;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #10b981; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.8em;">🧭</div>
+                        </div>
+                        <h4 style="color: #059669; text-align: center; margin-bottom: 1em;">Puntos Cardinales</h4>
+                        <p style="color: #047857; line-height: 1.6; text-align: center; margin-bottom: 1em;">
+                            Usando referencias <strong>geográficas</strong> familiares.
+                        </p>
+                        <div style="background: white; padding: 1em; border-radius: 8px; text-align: center;">
+                            <strong style="color: #059669;">Ejemplos:</strong><br>
+                            Norte (N)<br>
+                            Noreste (NE)<br>
+                            Este (E)<br>
+                            Sureste (SE)
+                        </div>
+                    </div>
+                    
+                    <!-- Método 3: Radianes -->
+                    <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 2em; border-radius: 15px; border: 2px solid #f59e0b;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #f59e0b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.8em;">π</div>
+                        </div>
+                        <h4 style="color: #d97706; text-align: center; margin-bottom: 1em;">Radianes</h4>
+                        <p style="color: #92400e; line-height: 1.6; text-align: center; margin-bottom: 1em;">
+                            Medida <strong>matemática</strong> más avanzada.
+                        </p>
+                        <div style="background: white; padding: 1em; border-radius: 8px; text-align: center;">
+                            <strong style="color: #d97706;">Conversión:</strong><br>
+                            180° = π rad<br>
+                            90° = π/2 rad<br>
+                            360° = 2π rad
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ejemplos prácticos de dirección -->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; text-align: center; font-size: 1.6em;">
+                    <i class="fas fa-lightbulb" style="color: #fbbf24;"></i> Ejemplos Prácticos de Dirección
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Ejemplo 1 -->
+                    <div style="background: rgba(59,130,246,0.2); padding: 1.5em; border-radius: 12px; border: 1px solid rgba(59,130,246,0.5);">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">🏃‍♂️</div>
+                            <h4 style="color: #93c5fd; margin: 0;">Corredor</h4>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6; text-align: center;">
+                            <strong>Velocidad:</strong> 15 km/h<br>
+                            <strong>Dirección:</strong> 45° (noreste)<br>
+                            <strong>En puntos cardinales:</strong> NE
+                        </p>
+                    </div>
+                    
+                    <!-- Ejemplo 2 -->
+                    <div style="background: rgba(16,185,129,0.2); padding: 1.5em; border-radius: 12px; border: 1px solid rgba(16,185,129,0.5);">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">🌪️</div>
+                            <h4 style="color: #6ee7b7; margin: 0;">Viento</h4>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6; text-align: center;">
+                            <strong>Velocidad:</strong> 25 km/h<br>
+                            <strong>Dirección:</strong> 270° (oeste)<br>
+                            <strong>En puntos cardinales:</strong> O
+                        </p>
+                    </div>
+                    
+                    <!-- Ejemplo 3 -->
+                    <div style="background: rgba(245,158,11,0.2); padding: 1.5em; border-radius: 12px; border: 1px solid rgba(245,158,11,0.5);">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">🚁</div>
+                            <h4 style="color: #fcd34d; margin: 0;">Helicóptero</h4>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6; text-align: center;">
+                            <strong>Velocidad:</strong> 180 km/h<br>
+                            <strong>Dirección:</strong> 135° (sureste)<br>
+                            <strong>En puntos cardinales:</strong> SE
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Nota importante -->
+                <div style="background: rgba(239,68,68,0.2); padding: 1.5em; border-radius: 12px; margin-top: 1.5em; border: 1px solid rgba(239,68,68,0.5);">
+                    <p style="color: #fca5a5; font-size: 1.1em; text-align: center; font-weight: 600;">
+                        <i class="fas fa-exclamation-triangle" style="color: #f87171;"></i>
+                        <strong>¡Importante!</strong> La dirección NO incluye el sentido. 
+                        El ángulo solo nos dice "la línea", pero necesitamos la punta de flecha para saber "hacia dónde".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     📝 NOTACIÓN DE VECTORES
+     ============================================ -->
+<div class="section" style="background: linear-gradient(135deg, #fef3c7, #fed7aa); border-radius: 25px; padding: 3em; border: 3px solid #f59e0b; box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3); position: relative; overflow: hidden;">
+    
+    <!-- Efecto de símbolos matemáticos de fondo -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23f59e0b\" fill-opacity=\"0.08\"%3E%3Ctext x=\"30\" y=\"35\" text-anchor=\"middle\" font-size=\"20\" font-family=\"serif\"%3E→%3C/text%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.5;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        <!-- Título principal -->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-pencil-alt" style="color: #f59e0b; margin-right: 0.5em; animation: bounce 2s infinite;"></i>
+            <span style="color: #1e293b;">Notación de Vectores</span>
+            <span style="font-size: 0.6em;">📝✍️📐</span>
+        </h2>
+        
+        <!-- Contenido principal -->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #f59e0b; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);">
+            
+            <!-- Icono central -->
+            <div style="text-align: center; margin-bottom: 2em;">
+                <div style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4); font-size: 2.5em;">
+                    📝
+                </div>
+            </div>
+            
+            <!-- Introducción -->
+            <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 2em; border-radius: 15px; border-left: 6px solid #f59e0b; margin-bottom: 2em;">
+                <h3 style="color: #92400e; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #d97706;"></i> ¿Cómo Escribimos los Vectores?
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    Los vectores tienen <strong style="color: #f59e0b;">notaciones especiales</strong> que los distinguen de los números comunes. 
+                    Cada notación nos dice <strong style="color: #d97706;">"¡Hey, esto es un vector!"</strong>
+                </p>
+            </div>
+            
+            <!-- Tipos de notación -->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #92400e; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-list" style="color: #f59e0b;"></i> Tipos de Notación Vectorial
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Notación 1: Flecha -->
+                    <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 2em; border-radius: 15px; border: 2px solid #3b82f6;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #3b82f6; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em;">→</div>
+                        </div>
+                        <h4 style="color: #1e40af; text-align: center; margin-bottom: 1em; font-size: 1.3em;">Flecha Encima</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; color: #2563eb; margin-bottom: 0.5em;">$\vec{v}$</div>
+                            <p style="color: #1e40af; font-size: 1.1em;">Se lee: <strong>"v vector"</strong></p>
+                        </div>
+                        <p style="color: #1e3a8a; line-height: 1.6; text-align: center;">
+                            <strong>Más común</strong> en libros de física de secundaria y universidad.
+                        </p>
+                    </div>
+                    
+                    <!-- Notación 2: Negrita -->
+                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 2em; border-radius: 15px; border: 2px solid #10b981;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #10b981; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: bold;">v</div>
+                        </div>
+                        <h4 style="color: #059669; text-align: center; margin-bottom: 1em; font-size: 1.3em;">Letra en Negrita</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; color: #059669; margin-bottom: 0.5em; font-weight: bold;">v</div>
+                            <p style="color: #047857; font-size: 1.1em;">Se lee: <strong>"v vector"</strong></p>
+                        </div>
+                        <p style="color: #047857; line-height: 1.6; text-align: center;">
+                            <strong>Común</strong> en libros impresos y textos profesionales.
+                        </p>
+                    </div>
+                    
+                    <!-- Notación 3: Subrayado -->
+                    <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 2em; border-radius: 15px; border: 2px solid #ef4444;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #ef4444; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; text-decoration: underline;">v</div>
+                        </div>
+                        <h4 style="color: #dc2626; text-align: center; margin-bottom: 1em; font-size: 1.3em;">Letra Subrayada</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; color: #dc2626; margin-bottom: 0.5em; text-decoration: underline;">v</div>
+                            <p style="color: #991b1b; font-size: 1.1em;">Se lee: <strong>"v vector"</strong></p>
+                        </div>
+                        <p style="color: #991b1b; line-height: 1.6; text-align: center;">
+                            <strong>Útil</strong> al escribir a mano cuando no se puede hacer negrita.
+                        </p>
+                    </div>
+                    
+                    <!-- Notación 4: Coordenadas -->
+                    <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); padding: 2em; border-radius: 15px; border: 2px solid #8b5cf6;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #8b5cf6; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.5em;">(x,y)</div>
+                        </div>
+                        <h4 style="color: #7c3aed; text-align: center; margin-bottom: 1em; font-size: 1.3em;">Forma de Coordenadas</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 1.8em; color: #7c3aed; margin-bottom: 0.5em;">$(3, 4)$ o $\langle 3, 4 \rangle$</div>
+                            <p style="color: #6d28d9; font-size: 1.1em;">Componentes del vector</p>
+                        </div>
+                        <p style="color: #6d28d9; line-height: 1.6; text-align: center;">
+                            <strong>Muestra</strong> directamente las componentes en x e y.
+                        </p>
+                    </div>
+                    
+                    <!-- Notación 5: Unitarios -->
+                    <div style="background: linear-gradient(135deg, #ecfeff, #cffafe); padding: 2em; border-radius: 15px; border: 2px solid #06b6d4;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #06b6d4; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.8em;">î</div>
+                        </div>
+                        <h4 style="color: #0891b2; text-align: center; margin-bottom: 1em; font-size: 1.3em;">Vectores Unitarios</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 1.5em; color: #0891b2; margin-bottom: 0.5em;">$3\hat{i} + 4\hat{j}$</div>
+                            <p style="color: #0e7490; font-size: 1.1em;">Combinación de unitarios</p>
+                        </div>
+                        <p style="color: #0e7490; line-height: 1.6; text-align: center;">
+                            <strong>Descompone</strong> el vector en sus direcciones fundamentales.
+                        </p>
+                    </div>
+                    
+                    <!-- Notación 6: Columna -->
+                    <div style="background: linear-gradient(135deg, #fdf4ff, #fae8ff); padding: 2em; border-radius: 15px; border: 2px solid #d946ef;">
+                        <div style="text-align: center; margin-bottom: 1.5em;">
+                            <div style="background: #d946ef; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.8em;">[ ]</div>
+                        </div>
+                        <h4 style="color: #c026d3; text-align: center; margin-bottom: 1em; font-size: 1.3em;">Vector Columna</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 1.5em; color: #c026d3; margin-bottom: 0.5em;">$\begin{bmatrix} 3 \\ 4 \end{bmatrix}$</div>
+                            <p style="color: #a21caf; font-size: 1.1em;">Notación matricial</p>
+                        </div>
+                        <p style="color: #a21caf; line-height: 1.6; text-align: center;">
+                            <strong>Usado</strong> en álgebra lineal y matemáticas avanzadas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabla de comparación -->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; margin-bottom: 2em;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; text-align: center; font-size: 1.6em;">
+                    <i class="fas fa-table" style="color: #60a5fa;"></i> Tabla de Comparación de Notaciones
+                </h3>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: separate; border-spacing: 0; background: rgba(255,255,255,0.1); border-radius: 15px; overflow: hidden;">
+                        <thead>
+                            <tr style="background: rgba(59,130,246,0.3);">
+                                <th style="padding: 1em; text-align: left; color: #e2e8f0; font-weight: 700;">Notación</th>
+                                <th style="padding: 1em; text-align: center; color: #e2e8f0; font-weight: 700;">Símbolo</th>
+                                <th style="padding: 1em; text-align: center; color: #e2e8f0; font-weight: 700;">Uso Principal</th>
+                                <th style="padding: 1em; text-align: center; color: #e2e8f0; font-weight: 700;">Ventaja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: rgba(255,255,255,0.05);">
+                                <td style="padding: 1em; color: #cbd5e1; font-weight: 600;">Flecha encima</td>
+                                <td style="padding: 1em; text-align: center; color: #60a5fa; font-size: 1.3em;">$\vec{v}$</td>
+                                <td style="padding: 1em; text-align: center; color: #a78bfa;">Física, libros</td>
+                                <td style="padding: 1em; text-align: center; color: #34d399;">Muy clara visualmente</td>
+                            </tr>
+                            <tr style="background: rgba(255,255,255,0.02);">
+                                <td style="padding: 1em; color: #cbd5e1; font-weight: 600;">Negrita</td>
+                                <td style="padding: 1em; text-align: center; color: #60a5fa; font-size: 1.3em; font-weight: bold;">v</td>
+                                <td style="padding: 1em; text-align: center; color: #a78bfa;">Textos impresos</td>
+                                <td style="padding: 1em; text-align: center; color: #34d399;">Fácil de escribir</td>
+                            </tr>
+                            <tr style="background: rgba(255,255,255,0.05);">
+                                <td style="padding: 1em; color: #cbd5e1; font-weight: 600;">Subrayado</td>
+                                <td style="padding: 1em; text-align: center; color: #60a5fa; font-size: 1.3em; text-decoration: underline;">v</td>
+                                <td style="padding: 1em; text-align: center; color: #a78bfa;">Escritura a mano</td>
+                                <td style="padding: 1em; text-align: center; color: #34d399;">No necesita herramientas</td>
+                            </tr>
+                            <tr style="background: rgba(255,255,255,0.02);">
+                                <td style="padding: 1em; color: #cbd5e1; font-weight: 600;">Coordenadas</td>
+                                <td style="padding: 1em; text-align: center; color: #60a5fa; font-size: 1.2em;">$(x,y)$</td>
+                                <td style="padding: 1em; text-align: center; color: #a78bfa;">Cálculos numéricos</td>
+                                <td style="padding: 1em; text-align: center; color: #34d399;">Muestra componentes</td>
+                            </tr>
+                            <tr style="background: rgba(255,255,255,0.05);">
+                                <td style="padding: 1em; color: #cbd5e1; font-weight: 600;">Unitarios</td>
+                                <td style="padding: 1em; text-align: center; color: #60a5fa; font-size: 1.2em;">$a\hat{i} + b\hat{j}$</td>
+                                <td style="padding: 1em; text-align: center; color: #a78bfa;">Física avanzada</td>
+                                <td style="padding: 1em; text-align: center; color: #34d399;">Direcciones claras</td>
+                            </tr>
+                            <tr style="background: rgba(255,255,255,0.02);">
+                                <td style="padding: 1em; color: #cbd5e1; font-weight: 600;">Columna</td>
+                                <td style="padding: 1em; text-align: center; color: #60a5fa; font-size: 1.2em;">$\begin{bmatrix} a \\ b \end{bmatrix}$</td>
+                                <td style="padding: 1em; text-align: center; color: #a78bfa;">Álgebra lineal</td>
+                                <td style="padding: 1em; text-align: center; color: #34d399;">Operaciones matriciales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Mensaje final motivador -->
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #ffffff; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-graduation-cap" style="color: #fbbf24;"></i> Recomendaciones para Estudiantes
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Recomendación 1 -->
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">📚</div>
+                            <h4 style="color: #ffffff; margin: 0;">En Clase</h4>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6; text-align: center;">
+                            Usa la <strong style="color: #fbbf24;">notación con flecha</strong> $\vec{v}$ 
+                            que es la más común en física de secundaria.
+                        </p>
+                    </div>
+                    
+                    <!-- Recomendación 2 -->
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">✍️</div>
+                            <h4 style="color: #ffffff; margin: 0;">Al Escribir a Mano</h4>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6; text-align: center;">
+                            Si no puedes hacer la flecha, usa <strong style="color: #34d399;">letra subrayada</strong> 
+                            o <strong style="color: #60a5fa;">negrita</strong> clara.
+                        </p>
+                    </div>
+                    
+                    <!-- Recomendación 3 -->
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="text-align: center; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; margin-bottom: 0.5em;">🧮</div>
+                            <h4 style="color: #ffffff; margin: 0;">Para Cálculos</h4>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6; text-align: center;">
+                            La <strong style="color: #f87171;">notación de coordenadas</strong> $(x,y)$ 
+                            es perfecta para resolver problemas numéricos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Consejo importante -->
+                <div style="background: rgba(255,255,255,0.2); padding: 2em; border-radius: 15px; margin-top: 2em; text-align: center; backdrop-filter: blur(10px);">
+                    <h4 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.3em;">
+                        <i class="fas fa-lightbulb" style="animation: pulse 2s infinite;"></i> Consejo de Oro
+                    </h4>
+                    <p style="color: #ffffff; font-size: 1.2em; line-height: 1.7;">
+                        <strong>¡Sé consistente!</strong> Elige una notación y úsala durante todo tu ejercicio. 
+                        No mezcles $\vec{v}$ con <strong>v</strong> en el mismo problema. 
+                        La claridad es clave en física. ✨
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Animaciones CSS -->
+<style>
+@keyframes logoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+</style>
+
+<!-- ============================================
+     📐 COMPONENTES DE UN VECTOR EN COORDENADAS CARTESIANAS
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:25px;padding:3em;border:3px solid #3b82f6;box-shadow:0 20px 40px rgba(59,130,246,0.3);position:relative;overflow:hidden;">
+    
+    <!-- Efecto de cuadrícula matemática de fondo -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" stroke=\"%233b82f6\" stroke-width=\"0.5\" opacity=\"0.1\"%3E%3Cpath d=\"M0 20h40M20 0v40\"/%3E%3C/g%3E%3C/svg%3E') repeat;opacity:0.6;"></div>
+    
+    <div style="position:relative;z-index:1;">
+        <!-- Título principal -->
+        <h2 style="color:#1e293b;font-size:2.5em;margin-bottom:1em;text-align:center;text-shadow:2px 2px 4px rgba(0,0,0,0.1);">
+            <i class="fas fa-th" style="color:#3b82f6;margin-right:0.5em;animation:pulse 3s infinite;"></i>
+            <span style="color:#1e293b;">Componentes de un Vector</span>
+            <span style="font-size:0.6em;">📐📊⚖️</span>
+        </h2>
+        
+        <!-- Definición principal -->
+        <div style="background:white;padding:2.5em;border-radius:20px;border:2px solid #3b82f6;margin-bottom:2em;box-shadow:0 15px 30px rgba(59,130,246,0.2);">
+            
+            <!-- Icono central -->
+            <div style="text-align:center;margin-bottom:2em;">
+                <div style="background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;box-shadow:0 15px 30px rgba(59,130,246,0.4);font-size:2.5em;">
+                    📐
+                </div>
+            </div>
+            
+            <!-- Definición conceptual -->
+            <div style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);padding:2em;border-radius:15px;border-left:6px solid #3b82f6;margin-bottom:2em;">
+                <h3 style="color:#1e40af;font-size:1.6em;margin-bottom:1em;text-align:center;">
+                    <i class="fas fa-info-circle" style="color:#2563eb;"></i> ¿Qué son las Componentes?
+                </h3>
+                <p style="color:#1e293b;font-size:1.3em;line-height:1.8;text-align:center;font-weight:600;">
+                    Las <strong style="color:#3b82f6;">componentes</strong> son las <strong style="color:#2563eb;">"proyecciones"</strong> 
+                    del vector sobre los <strong style="color:#1e40af;">ejes de coordenadas</strong>. Es como 
+                    <strong style="color:#1e3a8a;">"descomponer"</strong> el vector en sus partes fundamentales.
+                </p>
+            </div>
+            
+            <!-- Sistema de coordenadas explicativo -->
+            <div style="display:grid;grid-template-columns:1fr 400px;gap:2em;align-items:center;margin-bottom:2em;">
+                <div>
+                    <h4 style="color:#1e40af;font-size:1.4em;margin-bottom:1em;">
+                        <i class="fas fa-compass" style="color:#3b82f6;"></i> Sistema Cartesiano
+                    </h4>
+                    <p style="color:#1e3a8a;line-height:1.7;margin-bottom:1em;">
+                        En un <strong>sistema de coordenadas cartesiano</strong>, cualquier vector puede 
+                        expresarse como una <strong>combinación</strong> de vectores unitarios perpendiculares 
+                        entre sí: <strong style="color:#3b82f6;">î</strong>, <strong style="color:#10b981;">ĵ</strong>, 
+                        y <strong style="color:#f59e0b;">k̂</strong>.
+                    </p>
+                    
+                    <div style="background:#eff6ff;padding:1.5em;border-radius:12px;border-left:4px solid #3b82f6;">
+                        <h5 style="color:#2563eb;margin-bottom:0.8em;font-size:1.2em;">🧭 Vectores Unitarios Fundamentales:</h5>
+                        <ul style="color:#1e40af;line-height:1.8;font-size:1.05em;">
+                            <li><strong style="color:#3b82f6;">î (i-hat):</strong> Dirección del eje X positivo →</li>
+                            <li><strong style="color:#10b981;">ĵ (j-hat):</strong> Dirección del eje Y positivo ↑</li>
+                            <li><strong style="color:#f59e0b;">k̂ (k-hat):</strong> Dirección del eje Z positivo ⊙</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Diagrama 3D conceptual -->
+                <div style="background:#f8fafc;padding:2em;border-radius:15px;border:2px solid #64748b;text-align:center;">
+                    <h5 style="color:#475569;margin-bottom:1em;">Sistema de Coordenadas 3D</h5>
+                    <div style="position:relative;width:300px;height:250px;margin:0 auto;background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                        
+                        <!-- Ejes de coordenadas -->
+                        <div style="position:absolute;width:180px;height:2px;background:#3b82f6;left:50%;top:50%;transform:translate(-50%,-50%);"></div>
+                        <div style="position:absolute;width:2px;height:140px;background:#10b981;left:50%;top:50%;transform:translate(-50%,-50%);"></div>
+                        <div style="position:absolute;width:120px;height:2px;background:#f59e0b;left:50%;top:50%;transform:translate(-50%,-50%) rotate(45deg);"></div>
+                        
+                        <!-- Flechas de los ejes -->
+                        <div style="position:absolute;right:50px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:8px solid #3b82f6;border-top:5px solid transparent;border-bottom:5px solid transparent;"></div>
+                        <div style="position:absolute;left:50%;top:50px;transform:translateX(-50%);width:0;height:0;border-bottom:8px solid #10b981;border-left:5px solid transparent;border-right:5px solid transparent;"></div>
+                        <div style="position:absolute;right:70px;top:70px;width:0;height:0;border-left:8px solid #f59e0b;border-top:5px solid transparent;border-bottom:5px solid transparent;transform:rotate(45deg);"></div>
+                        
+                        <!-- Vector ejemplo -->
+                        <div style="position:absolute;width:100px;height:3px;background:#ef4444;left:50%;top:50%;transform:translate(0,-50%) rotate(-20deg);transform-origin:left center;"></div>
+                        <div style="position:absolute;left:calc(50% + 95px);top:calc(50% - 35px);width:0;height:0;border-left:10px solid #ef4444;border-top:6px solid transparent;border-bottom:6px solid transparent;transform:rotate(-20deg);"></div>
+                        
+                        <!-- Etiquetas -->
+                        <div style="position:absolute;right:40px;top:50%;transform:translateY(-50%);color:#3b82f6;font-size:1.1em;font-weight:bold;">X</div>
+                        <div style="position:absolute;left:50%;top:40px;transform:translateX(-50%);color:#10b981;font-size:1.1em;font-weight:bold;">Y</div>
+                        <div style="position:absolute;right:60px;top:60px;color:#f59e0b;font-size:1.1em;font-weight:bold;">Z</div>
+                        <div style="position:absolute;left:calc(50% + 110px);top:calc(50% - 50px);color:#ef4444;font-size:1em;font-weight:bold;">$\vec{v}$</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fórmula matemática principal -->
+            <div style="background:linear-gradient(135deg,#1e293b,#334155);color:white;padding:2.5em;border-radius:20px;text-align:center;margin-bottom:2em;">
+                <h3 style="color:#cbd5e1;margin-bottom:1.5em;font-size:1.6em;">
+                    <i class="fas fa-calculator" style="color:#60a5fa;"></i> Representación Matemática
+                </h3>
+                
+                <div style="background:rgba(255,255,255,0.1);padding:2em;border-radius:15px;margin-bottom:1.5em;">
+                    <p style="color:#e2e8f0;font-size:1.2em;margin-bottom:1em;">
+                        Un vector <strong style="color:#60a5fa;">$\vec{v}$</strong> en el espacio 3D se expresa como:
+                    </p>
+                    <div style="font-size:2.2em;color:#fbbf24;margin:1em 0;font-weight:bold;font-family:serif;">
+                        $\vec{v} = v_x\hat{i} + v_y\hat{j} + v_z\hat{k}$
+                    </div>
+                    <p style="color:#cbd5e1;font-size:1.1em;">
+                        Donde <strong style="color:#34d399;">$v_x$, $v_y$, $v_z$</strong> son las <strong>componentes escalares</strong>
+                    </p>
+                </div>
+                
+                <!-- Formas alternativas de escribir -->
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1em;">
+                    <div style="background:rgba(59,130,246,0.2);padding:1em;border-radius:10px;">
+                        <strong style="color:#60a5fa;">Forma de coordenadas</strong><br>
+                        <span style="color:#cbd5e1;font-size:1.2em;">$\vec{v} = (v_x, v_y, v_z)$</span>
+                    </div>
+                    <div style="background:rgba(16,185,129,0.2);padding:1em;border-radius:10px;">
+                        <strong style="color:#34d399;">Forma matricial</strong><br>
+                        <span style="color:#cbd5e1;font-size:1.2em;">$\vec{v} = \begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}$</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ejemplo práctico detallado -->
+            <div style="margin-bottom:2em;">
+                <h3 style="color:#1e40af;font-size:1.6em;margin-bottom:1.5em;text-align:center;">
+                    <i class="fas fa-lightbulb" style="color:#fbbf24;"></i> Ejemplo Práctico: Velocidad de un Dron
+                </h3>
+                
+                <div style="background:#f8fafc;padding:2em;border-radius:15px;border:2px solid #64748b;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2em;align-items:center;">
+                        <div>
+                            <p style="color:#475569;font-size:1.2em;line-height:1.8;margin-bottom:1.5em;">
+                                Un dron se mueve con velocidad de <strong style="color:#3b82f6;">60 km/h hacia el noreste</strong> 
+                                y <strong style="color:#10b981;">20 km/h hacia arriba</strong>:
+                            </p>
+                            
+                            <div style="background:white;padding:1.5em;border-radius:12px;border-left:4px solid #3b82f6;">
+                                <h4 style="color:#2563eb;margin-bottom:1em;">📊 Análisis de Componentes:</h4>
+                                <ul style="color:#1e40af;line-height:2;font-size:1.1em;">
+                                    <li><strong style="color:#3b82f6;">$v_x$:</strong> 60 cos(45°) = 42.4 km/h →</li>
+                                    <li><strong style="color:#10b981;">$v_y$:</strong> 60 sen(45°) = 42.4 km/h ↑</li>
+                                    <li><strong style="color:#f59e0b;">$v_z$:</strong> 20 km/h ↗</li>
+                                </ul>
+                                
+                                <div style="background:#eff6ff;padding:1em;border-radius:8px;margin-top:1em;">
+                                    <p style="color:#2563eb;font-weight:600;text-align:center;">
+                                        <strong>Vector resultante:</strong><br>
+                                        $\vec{v} = 42.4\hat{i} + 42.4\hat{j} + 20\hat{k}$ km/h
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align:center;">
+                            <div style="background:linear-gradient(135deg,#e0f2fe,#b3e5fc);padding:2em;border-radius:15px;">
+                                <div style="font-size:4em;margin-bottom:0.5em;">🚁</div>
+                                <h4 style="color:#0277bd;margin-bottom:1em;">Dron en Movimiento 3D</h4>
+                                <div style="background:white;padding:1em;border-radius:8px;">
+                                    <p style="color:#01579b;font-size:0.95em;line-height:1.6;">
+                                        <strong>Magnitud total:</strong><br>
+                                        $|\vec{v}| = \sqrt{42.4^2 + 42.4^2 + 20^2}$<br>
+                                        $|\vec{v}| = 63.2$ km/h
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Aplicaciones en ingeniería -->
+            <div style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:2.5em;border-radius:20px;">
+                <h3 style="color:#ffffff;margin-bottom:1.5em;text-align:center;font-size:1.6em;">
+                    <i class="fas fa-cogs" style="color:#fbbf24;"></i> Aplicaciones en Ingeniería y Ciencia
+                </h3>
+                
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5em;">
+                    
+                    <div style="background:rgba(255,255,255,0.15);padding:2em;border-radius:15px;backdrop-filter:blur(10px);">
+                        <div style="text-align:center;margin-bottom:1em;">
+                            <div style="font-size:2.5em;margin-bottom:0.5em;">🏗️</div>
+                            <h4 style="color:#ffffff;margin:0;">Ingeniería Civil</h4>
+                        </div>
+                        <p style="color:#e2e8f0;line-height:1.6;text-align:center;">
+                            Análisis de <strong style="color:#fbbf24;">fuerzas en estructuras</strong>: 
+                            cada viga, cable y columna transmite fuerzas vectoriales.
+                        </p>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.15);padding:2em;border-radius:15px;backdrop-filter:blur(10px);">
+                        <div style="text-align:center;margin-bottom:1em;">
+                            <div style="font-size:2.5em;margin-bottom:0.5em;">🛩️</div>
+                            <h4 style="color:#ffffff;margin:0;">Aeronáutica</h4>
+                        </div>
+                        <p style="color:#e2e8f0;line-height:1.6;text-align:center;">
+                            Control de <strong style="color:#34d399;">trayectorias de vuelo</strong>: 
+                            velocidad, aceleración y fuerzas aerodinámicas.
+                        </p>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.15);padding:2em;border-radius:15px;backdrop-filter:blur(10px);">
+                        <div style="text-align:center;margin-bottom:1em;">
+                            <div style="font-size:2.5em;margin-bottom:0.5em;">🎮</div>
+                            <h4 style="color:#ffffff;margin:0;">Videojuegos</h4>
+                        </div>
+                        <p style="color:#e2e8f0;line-height:1.6;text-align:center;">
+                            Movimiento de <strong style="color:#f87171;">personajes y objetos</strong> 
+                            en mundos 3D virtuales.
+                        </p>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.15);padding:2em;border-radius:15px;backdrop-filter:blur(10px);">
+                        <div style="text-align:center;margin-bottom:1em;">
+                            <div style="font-size:2.5em;margin-bottom:0.5em;">🧬</div>
+                            <h4 style="color:#ffffff;margin:0;">Biofísica</h4>
+                        </div>
+                        <p style="color:#e2e8f0;line-height:1.6;text-align:center;">
+                            Modelado de <strong style="color:#a78bfa;">fuerzas moleculares</strong> 
+                            y dinámicas de proteínas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     🌍 VECTORES LIBRES Y VECTORES FIJOS
+     ============================================ -->
+<div class="card" style="margin:2em 0;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:25px;padding:3em;border:3px solid #10b981;box-shadow:0 20px 40px rgba(16,185,129,0.3);position:relative;overflow:hidden;">
+    
+    <!-- Efecto de movimiento libre de fondo -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" stroke=\"%2310b981\" stroke-width=\"1\" opacity=\"0.1\"%3E%3Cpath d=\"M10 30l10-10 10 10 10-10 10 10\"/%3E%3Cpath d=\"M30 10l-10 10 10 10 -10 10 10 10\"/%3E%3C/g%3E%3C/svg%3E') repeat;opacity:0.5;animation:floatPattern 15s linear infinite;"></div>
+    
+    <div style="position:relative;z-index:1;">
+        <!-- Título principal -->
+        <h2 style="color:#1e293b;font-size:2.5em;margin-bottom:1em;text-align:center;text-shadow:2px 2px 4px rgba(0,0,0,0.1);">
+            <i class="fas fa-expand-arrows-alt" style="color:#10b981;margin-right:0.5em;animation:bounce 3s infinite;"></i>
+            <span style="color:#1e293b;">Vectores Libres vs Vectores Fijos</span>
+            <span style="font-size:0.6em;">🌍📍✨</span>
+        </h2>
+        
+        <!-- Introducción conceptual -->
+        <div style="background:white;padding:2.5em;border-radius:20px;border:2px solid #10b981;margin-bottom:2em;box-shadow:0 15px 30px rgba(16,185,129,0.2);">
+            
+            <!-- Icono central -->
+            <div style="text-align:center;margin-bottom:2em;">
+                <div style="background:linear-gradient(135deg,#10b981,#059669);color:white;width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;box-shadow:0 15px 30px rgba(16,185,129,0.4);font-size:2.5em;">
+                    🌍
+                </div>
+            </div>
+            
+            <!-- Explicación fundamental -->
+            <div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);padding:2em;border-radius:15px;border-left:6px solid #10b981;margin-bottom:2em;">
+                <h3 style="color:#047857;font-size:1.6em;margin-bottom:1em;text-align:center;">
+                    <i class="fas fa-question-circle" style="color:#059669;"></i> ¿Importa dónde esté el vector?
+                </h3>
+                <p style="color:#1e293b;font-size:1.3em;line-height:1.8;text-align:center;font-weight:600;">
+                    Una pregunta fundamental: ¿Un vector <strong style="color:#10b981;">cambia</strong> si lo 
+                    <strong style="color:#059669;">movemos</strong> a otra posición manteniendo su 
+                    <strong style="color:#047857;">magnitud, dirección y sentido?</strong>
+                </p>
+            </div>
+            
+            <!-- Comparación visual lado a lado -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2em;margin-bottom:2em;">
+                
+                <!-- VECTORES FIJOS -->
+                <div style="background:linear-gradient(135deg,#fef2f2,#fee2e2);padding:2em;border-radius:15px;border:3px solid #ef4444;position:relative;">
+                    
+                    <!-- Etiqueta identificativa -->
+                    <div style="position:absolute;top:-15px;left:-15px;background:#ef4444;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2em;font-weight:bold;">
+                        📍
+                    </div>
+                    
+                    <h4 style="color:#dc2626;font-size:1.4em;margin-bottom:1em;text-align:center;margin-top:1em;">
+                        VECTORES FIJOS
+                    </h4>
+                    
+                    <div style="background:white;padding:1.5em;border-radius:12px;margin-bottom:1.5em;">
+                        <h5 style="color:#991b1b;margin-bottom:1em;font-size:1.2em;">🎯 Características:</h5>
+                        <ul style="color:#7f1d1d;line-height:1.8;font-size:1em;">
+                            <li><strong>Punto inicial específico</strong></li>
+                            <li><strong>Punto final determinado</strong></li>
+                            <li><strong>Posición fija en el espacio</strong></li>
+                            <li><strong>No se pueden mover libremente</strong></li>
+                        </ul>
+                        
+                        <div style="background:#fef2f2;padding:1em;border-radius:8px;margin-top:1em;">
+                            <p style="color:#ef4444;font-weight:600;text-align:center;">
+                                📌 <strong>Ejemplo:</strong> Vector posición desde 
+                                el origen hasta un punto específico
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Representación visual -->
+                    <div style="background:#f8fafc;padding:1.5em;border-radius:12px;text-align:center;">
+                        <h6 style="color:#475569;margin-bottom:1em;">Representación Gráfica</h6>
+                        <div style="position:relative;width:200px;height:120px;margin:0 auto;background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                            <!-- Vector fijo desde esquina -->
+                            <div style="position:absolute;width:80px;height:2px;background:#ef4444;left:20px;top:80px;transform:rotate(-30deg);transform-origin:left center;"></div>
+                            <div style="position:absolute;left:95px;top:65px;width:0;height:0;border-left:8px solid #ef4444;border-top:5px solid transparent;border-bottom:5px solid transparent;transform:rotate(-30deg);"></div>
+                            
+                            <!-- Puntos fijos -->
+                            <div style="position:absolute;left:20px;top:80px;width:6px;height:6px;background:#991b1b;border-radius:50%;"></div>
+                            <div style="position:absolute;left:95px;top:65px;width:6px;height:6px;background:#991b1b;border-radius:50%;"></div>
+                            
+                            <!-- Etiquetas -->
+                            <div style="position:absolute;left:10px;top:85px;color:#991b1b;font-size:0.8em;">A</div>
+                            <div style="position:absolute;left:100px;top:60px;color:#991b1b;font-size:0.8em;">B</div>
+                        </div>
+                        <p style="color:#991b1b;margin-top:0.5em;font-size:0.9em;">
+                            Vector AB: desde punto A hasta punto B
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- VECTORES LIBRES -->
+                <div style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff);padding:2em;border-radius:15px;border:3px solid #8b5cf6;position:relative;">
+                    
+                    <!-- Etiqueta identificativa -->
+                    <div style="position:absolute;top:-15px;left:-15px;background:#8b5cf6;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2em;font-weight:bold;">
+                        🌍
+                    </div>
+                    
+                    <h4 style="color:#7c3aed;font-size:1.4em;margin-bottom:1em;text-align:center;margin-top:1em;">
+                        VECTORES LIBRES
+                    </h4>
+                    
+                    <div style="background:white;padding:1.5em;border-radius:12px;margin-bottom:1.5em;">
+                        <h5 style="color:#6d28d9;margin-bottom:1em;font-size:1.2em;">🆓 Características:</h5>
+                        <ul style="color:#581c87;line-height:1.8;font-size:1em;">
+                            <li><strong>Independientes de la posición</strong></li>
+                            <li><strong>Solo importan magnitud, dirección y sentido</strong></li>
+                            <li><strong>Se pueden mover libremente</strong></li>
+                            <li><strong>Representan clases de equivalencia</strong></li>
+                        </ul>
+                        
+                        <div style="background:#faf5ff;padding:1em;border-radius:8px;margin-top:1em;">
+                            <p style="color:#8b5cf6;font-weight:600;text-align:center;">
+                                🌟 <strong>Ejemplo:</strong> Vector velocidad - 
+                                no importa dónde estés, 50 km/h norte es igual
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Representación visual -->
+                    <div style="background:#f8fafc;padding:1.5em;border-radius:12px;text-align:center;">
+                        <h6 style="color:#475569;margin-bottom:1em;">Representación Gráfica</h6>
+                        <div style="position:relative;width:200px;height:120px;margin:0 auto;background:linear-gradient(135deg,#e9d5ff,#ddd6fe);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                            <!-- Múltiples vectores equivalentes -->
+                            <div style="position:absolute;width:60px;height:2px;background:#8b5cf6;left:20px;top:30px;transform:rotate(30deg);transform-origin:left center;"></div>
+                            <div style="position:absolute;left:70px;top:20px;width:0;height:0;border-left:6px solid #8b5cf6;border-top:4px solid transparent;border-bottom:4px solid transparent;transform:rotate(30deg);"></div>
+                            
+                            <div style="position:absolute;width:60px;height:2px;background:#8b5cf6;left:80px;top:60px;transform:rotate(30deg);transform-origin:left center;"></div>
+                            <div style="position:absolute;left:130px;top:50px;width:0;height:0;border-left:6px solid #8b5cf6;border-top:4px solid transparent;border-bottom:4px solid transparent;transform:rotate(30deg);"></div>
+                            
+                            <div style="position:absolute;width:60px;height:2px;background:#8b5cf6;left:50px;top:90px;transform:rotate(30deg);transform-origin:left center;"></div>
+                            <div style="position:absolute;left:100px;top:80px;width:0;height:0;border-left:6px solid #8b5cf6;border-top:4px solid transparent;border-bottom:4px solid transparent;transform:rotate(30deg);"></div>
+                        </div>
+                        <p style="color:#7c3aed;margin-top:0.5em;font-size:0.9em;">
+                            Todos representan el mismo vector libre
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Concepto de equivalencia -->
+            <div style="background:linear-gradient(135deg,#1e293b,#334155);color:white;padding:2.5em;border-radius:20px;margin-bottom:2em;">
+                <h3 style="color:#cbd5e1;margin-bottom:1.5em;text-align:center;font-size:1.6em;">
+                    <i class="fas fa-equals" style="color:#60a5fa;"></i> Concepto de Equivalencia Vectorial
+                </h3>
+                
+                <div style="background:rgba(255,255,255,0.1);padding:2em;border-radius:15px;margin-bottom:1.5em;">
+                    <p style="color:#e2e8f0;font-size:1.2em;line-height:1.8;text-align:center;margin-bottom:1em;">
+                        Dos vectores son <strong style="color:#60a5fa;">equivalentes</strong> (representan el mismo vector libre) 
+                        si tienen la <strong style="color:#34d399;">misma magnitud</strong>, 
+                        <strong style="color:#fbbf24;">misma dirección</strong> y 
+                        <strong style="color:#f87171;">mismo sentido</strong>.
+                    </p>
+                    
+                    <div style="font-size:1.8em;color:#a78bfa;margin:1em 0;font-weight:bold;text-align:center;font-family:serif;">
+                        $\vec{AB} \equiv \vec{CD}$ si $|\vec{AB}| = |\vec{CD}|$ y tienen la misma dirección
+                    </div>
+                </div>
+                
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5em;">
+                    <div style="background:rgba(59,130,246,0.2);padding:1.5em;border-radius:12px;text-align:center;">
+                        <div style="font-size:2em;margin-bottom:0.5em;">📐</div>
+                        <h4 style="color:#93c5fd;margin-bottom:0.5em;">Misma Magnitud</h4>
+                        <p style="color:#dbeafe;font-size:0.95em;">Longitud idéntica</p>
+                    </div>
+                    
+                    <div style="background:rgba(16,185,129,0.2);padding:1.5em;border-radius:12px;text-align:center;">
+                        <div style="font-size:2em;margin-bottom:0.5em;">🧭</div>
+                        <h4 style="color:#6ee7b7;margin-bottom:0.5em;">Misma Dirección</h4>
+                        <p style="color:#d1fae5;font-size:0.95em;">Líneas paralelas</p>
+                    </div>
+                    
+                    <div style="background:rgba(245,158,11,0.2);padding:1.5em;border-radius:12px;text-align:center;">
+                        <div style="font-size:2em;margin-bottom:0.5em;">🎯</div>
+                        <h4 style="color:#fcd34d;margin-bottom:0.5em;">Mismo Sentido</h4>
+                        <p style="color:#fef3c7;font-size:0.95em;">Hacia el mismo lado</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ejemplos prácticos comparativos -->
+            <div>
+                <h3 style="color:#047857;font-size:1.6em;margin-bottom:1.5em;text-align:center;">
+                    <i class="fas fa-lightbulb" style="color:#fbbf24;"></i> Ejemplos Prácticos en la Vida Real
+                </h3>
+                
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5em;">
+                    
+                    <!-- Ejemplo 1: Fuerza gravitacional (Fijo) -->
+                    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #ef4444;box-shadow:0 5px 15px rgba(239,68,68,0.2);">
+                        <div style="text-align:center;margin-bottom:1.5em;">
+                            <div style="background:#ef4444;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:1.5em;">📍</div>
+                            <h4 style="color:#dc2626;margin-top:1em;">Vector FIJO</h4>
+                        </div>
+                        
+                        <div style="background:#fef2f2;padding:1.5em;border-radius:12px;margin-bottom:1em;">
+                            <h5 style="color:#991b1b;margin-bottom:0.8em;font-size:1.1em;">🍎 Fuerza Gravitacional</h5>
+                            <p style="color:#7f1d1d;line-height:1.6;">
+                                La fuerza que ejerce la Tierra sobre una manzana <strong>depende 
+                                de dónde esté la manzana</strong>. A mayor altura, menor fuerza.
+                            </p>
+                        </div>
+                        
+                        <div style="background:#fee2e2;padding:1em;border-radius:8px;">
+                            <p style="color:#dc2626;font-weight:600;text-align:center;font-size:0.95em;">
+                                ⚠️ <strong>Posición importa:</strong> El punto de aplicación 
+                                determina la magnitud y efectos de la fuerza.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ejemplo 2: Velocidad del viento (Libre) -->
+                    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #8b5cf6;box-shadow:0 5px 15px rgba(139,92,246,0.2);">
+                        <div style="text-align:center;margin-bottom:1.5em;">
+                            <div style="background:#8b5cf6;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:1.5em;">🌍</div>
+                            <h4 style="color:#7c3aed;margin-top:1em;">Vector LIBRE</h4>
+                        </div>
+                        
+                        <div style="background:#faf5ff;padding:1.5em;border-radius:12px;margin-bottom:1em;">
+                            <h5 style="color:#6d28d9;margin-bottom:0.8em;font-size:1.1em;">💨 Velocidad del Viento</h5>
+                            <p style="color:#581c87;line-height:1.6;">
+                                Un viento de <strong>30 km/h hacia el oeste</strong> es el mismo 
+                                vector sin importar si estás en Bogotá o en Madrid.
+                            </p>
+                        </div>
+                        
+                        <div style="background:#e9d5ff;padding:1em;border-radius:8px;">
+                            <p style="color:#7c3aed;font-weight:600;text-align:center;font-size:0.95em;">
+                                ✅ <strong>Posición no importa:</strong> Misma magnitud, 
+                                dirección y sentido en cualquier lugar.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ejemplo 3: Campo magnético uniforme (Libre) -->
+                    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #06b6d4;box-shadow:0 5px 15px rgba(6,182,212,0.2);">
+                        <div style="text-align:center;margin-bottom:1.5em;">
+                            <div style="background:#06b6d4;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:1.5em;">🌍</div>
+                            <h4 style="color:#0891b2;margin-top:1em;">Vector LIBRE</h4>
+                        </div>
+                        
+                        <div style="background:#f0fdfa;padding:1.5em;border-radius:12px;margin-bottom:1em;">
+                            <h5 style="color:#0e7490;margin-bottom:0.8em;font-size:1.1em;">🧲 Campo Magnético Uniforme</h5>
+                            <p style="color:#155e75;line-height:1.6;">
+                                En una región con <strong>campo magnético uniforme</strong>, 
+                                el vector campo es idéntico en cualquier punto del espacio.
+                            </p>
+                        </div>
+                        
+                        <div style="background:#cffafe;padding:1em;border-radius:8px;">
+                            <p style="color:#0891b2;font-weight:600;text-align:center;font-size:0.95em;">
+                                ✅ <strong>Uniformidad espacial:</strong> Mismo vector 
+                                en toda la región considerada.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ejemplo 4: Fuerza de tensión (Fijo) -->
+                    <div style="background:white;padding:2em;border-radius:15px;border:2px solid #f59e0b;box-shadow:0 5px 15px rgba(245,158,11,0.2);">
+                        <div style="text-align:center;margin-bottom:1.5em;">
+                            <div style="background:#f59e0b;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:1.5em;">📍</div>
+                            <h4 style="color:#d97706;margin-top:1em;">Vector FIJO</h4>
+                        </div>
+                        
+                        <div style="background:#fffbeb;padding:1.5em;border-radius:12px;margin-bottom:1em;">
+                            <h5 style="color:#92400e;margin-bottom:0.8em;font-size:1.1em;">🪢 Tensión en una Cuerda</h5>
+                            <p style="color:#78350f;line-height:1.6;">
+                                La tensión en diferentes puntos de una cuerda que sostiene 
+                                un peso <strong>varía según la posición</strong> específica.
+                            </p>
+                        </div>
+                        
+                        <div style="background:#fed7aa;padding:1em;border-radius:8px;">
+                            <p style="color:#d97706;font-weight:600;text-align:center;font-size:0.95em;">
+                                ⚠️ <strong>Punto de aplicación crucial:</strong> Cada sección 
+                                de la cuerda tiene tensión diferente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Importancia en la física moderna -->
+        <div style="background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);color:white;padding:2.5em;border-radius:20px;margin-top:2em;text-align:center;box-shadow:0 20px 40px rgba(102,126,234,0.4);position:relative;overflow:hidden;">
+            
+            <!-- Efecto de ondas dinámicas -->
+            <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 20\"%3E%3Cpath d=\"M0 10c10 0 10-10 20-10s10 10 20 10 10-10 20-10 10 10 20 10 10-10 20-10\" stroke=\"%23ffffff\" stroke-width=\"1\" fill=\"none\" opacity=\"0.1\"/%3E%3C/svg%3E') repeat;animation:waveMove 10s linear infinite;"></div>
+            
+            <div style="position:relative;z-index:2;">
+                <h3 style="font-size:2em;margin-bottom:1em;text-shadow:2px 2px 6px rgba(0,0,0,0.3);">
+                    <i class="fas fa-atom" style="animation:pulse 2s infinite;"></i>
+                    Importancia en la Física Moderna 🔬✨
+                </h3>
+                
+                <p style="font-size:1.3em;line-height:1.8;margin-bottom:2em;opacity:0.95;max-width:800px;margin-left:auto;margin-right:auto;">
+                    La distinción entre vectores libres y fijos es <strong>fundamental</strong> para entender 
+                    fenómenos desde la <strong>mecánica clásica</strong> hasta la <strong>física cuántica</strong> 
+                    y la <strong>relatividad</strong>. 🌌⚛️
+                </p>
+                
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5em;margin-top:2em;">
+                    
+                    <div style="background:rgba(255,255,255,0.2);padding:1.5em;border-radius:15px;backdrop-filter:blur(15px);">
+                        <div style="font-size:2.5em;margin-bottom:0.5em;">⚛️</div>
+                        <h4 style="margin-bottom:0.8em;">Mecánica Cuántica</h4>
+                        <p style="opacity:0.9;line-height:1.6;font-size:0.95em;">
+                            Los <strong>espinores</strong> y <strong>estados cuánticos</strong> 
+                            se comportan como vectores en espacios abstractos.
+                        </p>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.2);padding:1.5em;border-radius:15px;backdrop-filter:blur(15px);">
+                        <div style="font-size:2.5em;margin-bottom:0.5em;">🌌</div>
+                        <h4 style="margin-bottom:0.8em;">Relatividad</h4>
+                        <p style="opacity:0.9;line-height:1.6;font-size:0.95em;">
+                            Los <strong>cuadrivectores</strong> del espacio-tiempo 
+                            generalizan el concepto de vector libre.
+                        </p>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.2);padding:1.5em;border-radius:15px;backdrop-filter:blur(15px);">
+                        <div style="font-size:2.5em;margin-bottom:0.5em;">🔧</div>
+                        <h4 style="margin-bottom:0.8em;">Ingeniería</h4>
+                        <p style="opacity:0.9;line-height:1.6;font-size:0.95em;">
+                            El <strong>análisis estructural</strong> requiere distinguir 
+                            entre fuerzas aplicadas y campos uniformes.
+                        </p>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.2);padding:1.5em;border-radius:15px;backdrop-filter:blur(15px);">
+                        <div style="font-size:2.5em;margin-bottom:0.5em;">🎮</div>
+                        <h4 style="margin-bottom:0.8em;">Computación</h4>
+                        <p style="opacity:0.9;line-height:1.6;font-size:0.95em;">
+                            Los <strong>motores gráficos</strong> optimizan el rendimiento 
+                            usando vectores libres para transformaciones.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Mensaje inspirador final -->
+                <div style="background:rgba(255,255,255,0.25);padding:2em;border-radius:20px;margin-top:2em;backdrop-filter:blur(20px);">
+                    <h4 style="font-size:1.5em;margin-bottom:1em;">
+                        🧠 Reflexión Profunda 💭
+                    </h4>
+                    <p style="font-size:1.2em;line-height:1.8;">
+                        La libertad de un vector para <strong>"moverse"</strong> sin cambiar su esencia 
+                        refleja uno de los principios más profundos de la física: 
+                        <strong style="background:rgba(255,255,255,0.3);padding:0.3em 0.8em;border-radius:10px;">
+                            las leyes de la naturaleza son independientes de la posición en el espacio
+                        </strong>. 
+                        Esta <em>simetría translacional</em> es fundamental para la <strong>conservación del momento</strong> 
+                        y toda la física moderna. 🌟⚡
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Animaciones CSS -->
+<style>
+@keyframes floatPattern {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-60px) translateY(-60px); }
+}
+
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100px); }
+}
+
+@keyframes logoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+</style>
+
+
+
+
+
+
+<!-- ✅✅✅ AQUÍ VA TU IFRAME - JUSTO DESPUÉS DE LOS OBJETIVOS ✅✅✅ -->
+<!-- SECCIÓN DEL SIMULADOR - VERSIÓN SIMPLIFICADA QUE FUNCIONA -->
+<div class="simulador-section">
+    <h2 class="simulador-title">
+        <span class="simulador-icon">🎯</span>
+        Simulador Interactivo de Vectores
+        <span class="simulador-badge">NUEVA HERRAMIENTA</span>
+    </h2>
+    
+    <div class="simulador-description">
+        <p>Explora y manipula vectores en tiempo real con nuestro simulador avanzado. 
+           Ajusta magnitudes, ángulos y observa cómo cambian las componentes instantáneamente.</p>
+    </div>
+    
+    <!-- IFRAME SIMPLIFICADO - USANDO LA ESTRUCTURA QUE FUNCIONA -->
+    <div class="conversor-iframe-wrapper">
+        <iframe 
+            src="assets/aplicaciones/vectores_plano.html"
+            class="conversor-iframe"
+            title="Simulador Interactivo de Vectores en Notación Polar"
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-forms">
+            <p>Tu navegador no soporta iframes. 
+               <a href="assets/aplicaciones/vectores_plano.html" target="_blank" style="color: #3b82f6;">
+                   🚀 Haz clic aquí para abrir el simulador en una nueva ventana
+               </a>
+            </p>
+        </iframe>
+    </div>
+    
+    <!-- CONTROLES SIMPLES -->
+    <div class="iframe-controls">
+        <button class="iframe-btn" onclick="refreshSimulator()" title="Recargar simulador">
+            🔄 Reiniciar
+        </button>
+        <button class="iframe-btn" onclick="openSimulatorTab()" title="Abrir en nueva pestaña">
+            🔗 Nueva Pestaña
+        </button>
+    </div>
+</div>
+
+<!-- ESTILOS SIMPLIFICADOS -->
+<style>
+/* SECCIÓN DEL SIMULADOR */
+.simulador-section {
+    margin: 40px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(116, 185, 255, 0.1) 0%, rgba(117, 75, 162, 0.1) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(116, 185, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.simulador-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #74b9ff, #764ba2, #667eea);
+    border-radius: 20px 20px 0 0;
+}
+
+.simulador-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.simulador-icon {
+    font-size: 28px;
+    animation: pulse 2s infinite;
+}
+
+.simulador-badge {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+.simulador-description {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid #3498db;
+    backdrop-filter: blur(10px);
+}
+
+.simulador-description p {
+    margin: 0;
+    color: #34495e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* IFRAME WRAPPER - USANDO LA CLASE QUE FUNCIONA */
+.conversor-iframe-wrapper {
+    position: relative;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.conversor-iframe-wrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* IFRAME - USANDO LA CLASE QUE FUNCIONA */
+.conversor-iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+/* CONTROLES SIMPLES */
+.iframe-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.iframe-btn {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(116, 185, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.iframe-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(116, 185, 255, 0.4);
+    background: linear-gradient(135deg, #0984e3, #74b9ff);
+}
+
+/* ANIMACIONES */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3); }
+    to { box-shadow: 0 4px 16px rgba(231, 76, 60, 0.6); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .simulador-section {
+        margin: 20px 0;
+        padding: 15px;
+    }
+    
+    .simulador-title {
+        font-size: 20px;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .conversor-iframe-wrapper {
+        padding: 15px;
+    }
+    
+    .conversor-iframe {
+        height: 500px;
+    }
+    
+    .iframe-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .iframe-btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .conversor-iframe {
+        height: 400px;
+    }
+}
+</style>
+
+<!-- JAVASCRIPT SIMPLIFICADO -->
+<script>
+function refreshSimulator() {
+    const iframe = document.querySelector('.conversor-iframe');
+    if (iframe) {
+        iframe.src = iframe.src;
+    }
+}
+
+function openSimulatorTab() {
+    window.open('assets/aplicaciones/vectores_plano.html', '_blank');
+}
+</script>
+
+
+<!-- SCRIPT CORREGIDO - FUNCIONES DEFINIDAS ANTES DE SU USO -->
+<script>
+// ✅ DEFINIR TODAS LAS FUNCIONES PRIMERO
+function hideLoadingOverlay() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 500);
+    }
+}
+
+function refreshIframe() {
+    const iframe = document.getElementById('vectoresIframe');
+    const overlay = document.getElementById('loadingOverlay');
+    
+    if (overlay) {
+        overlay.style.display = 'flex';
+        overlay.style.opacity = '1';
+    }
+    
+    if (iframe) {
+        iframe.src = iframe.src;
+    }
+}
+
+function openFullscreen() {
+    const iframe = document.getElementById('vectoresIframe');
+    if (iframe) {
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.webkitRequestFullscreen) {
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) {
+            iframe.msRequestFullscreen();
+        }
+    }
+}
+
+function openNewTab() {
+    window.open('assets/aplicaciones/vectores_plano.html', '_blank');
+}
+
+// ✅ CONFIGURAR EL IFRAME CUANDO ESTÉ LISTO
+document.addEventListener('DOMContentLoaded', function() {
+    const iframe = document.getElementById('vectoresIframe');
+    const overlay = document.getElementById('loadingOverlay');
+    
+    if (iframe) {
+        // Manejar carga exitosa
+        iframe.addEventListener('load', function() {
+            hideLoadingOverlay();
+        });
+        
+        // Fallback de tiempo límite
+        setTimeout(() => {
+            if (overlay && overlay.style.display !== 'none') {
+                hideLoadingOverlay();
+            }
+        }, 10000); // 10 segundos máximo
+    }
+});
+</script>
+<!-- 🌟 INTRODUCCIÓN MOTIVADORA ÉPICA - CONTINÚA TU CONTENIDO NORMAL -->
+<div class="card highlight-card" style="margin:2em 0;background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:25px;overflow:hidden;position:relative;">
+  <!-- ... resto de tu contenido ... -->
+</div>
+
+
   <!-- Mensaje motivacional especial -->
   <div style="margin-top:2em;background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:1.5em;border-radius:15px;text-align:center;">
     <h4 style="margin-bottom:0.5em;font-size:1.3em;">🌟 ¡La Aventura Vectorial Comienza Aquí! 🌟</h4>
@@ -897,6 +2563,8 @@
   <!-- Efecto de partículas matemáticas de fondo -->
   <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"50\" height=\"50\" viewBox=\"0 0 50 50\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.08\"%3E%3Cpath d=\"M25 15l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z\"/%3E%3C/g%3E%3C/svg%3E') repeat;opacity:0.4;"></div>
   
+
+
 <div style="color:white;padding:3em;text-align:center;position:relative;z-index:1;">
   <h3 style="font-size:2.8em;margin-bottom:0.8em;text-shadow:2px 2px 4px rgba(0,0,0,0.5);color:#ffffff;">
     <i class="fas fa-vector-square" style="margin-right:0.5em;color:#8b5cf6;animation: logoSpin 8s ease-in-out infinite;"></i>
@@ -1725,4 +3393,7 @@
     </div>
   </div>
 </div>
+
+
+
 
