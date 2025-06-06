@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notación Polar de Vectores</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .canvas-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        canvas {
+            border: 2px solid #34495e;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.3);
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .value-display {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            background: rgba(255,255,255,0.2);
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .info-panel {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .formula {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-align: center;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .explanation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .explanation-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .explanation-item h3 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .explanation {
+                grid-template-columns: 1fr;
+            }
+            
+            canvas {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Notación Polar de Vectores en el Plano</h1>
+        
+        <div class="formula">
+            vec A = A; α
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="vectorCanvas" width="500" height="400"></canvas>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>📏 Magnitud (A):</label>
+                <input type="range" id="magnitude" min="0" max="150" value="100" step="1">
+                <div class="value-display" id="magnitudeValue">100</div>
+            </div>
+            
+            <div class="control-group">
+                <label>🌀 Ángulo α (grados):</label>
+                <input type="range" id="angle" min="0" max="360" value="45" step="1">
+                <div class="value-display" id="angleValue">45°</div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <div class="formula" id="currentVector">
+                vec A = 100; 45°
+            </div>
+        </div>
+        
+        <div class="explanation">
+            <div class="explanation-item">
+                <h3>🎯 Magnitud (A)</h3>
+                <p>La <strong>magnitud</strong> es la "longitud" del vector. Se calcula como:</p>
+                <div style="text-align: center; font-family: monospace; background: #ecf0f1; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                    A = ||vec A|| = √(x² + y²)
+                </div>
+                <p>Representa qué tan "grande" es la cantidad vectorial (velocidad, fuerza, etc.)</p>
+            </div>
+            
+            <div class="explanation-item">
+                <h3>📐 Dirección (α)</h3>
+                <p>La <strong>dirección</strong> es el ángulo que forma el vector con el eje horizontal positivo.</p>
+                <div style="text-align: center; font-family: monospace; background: #ecf0f1; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                    α = arctan(y/x)
+                </div>
+                <p>Se mide en sentido antihorario desde el eje x positivo.</p>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h3>💡 ¿Por qué es útil la notación polar?</h3>
+            <ul>
+                <li><strong>Intuitividad:</strong> Es más fácil visualizar "100 unidades hacia 45°" que coordenadas cartesianas</li>
+                <li><strong>Problemas físicos:</strong> Muchos fenómenos naturales se describen mejor con magnitud y dirección</li>
+                <li><strong>Navegación:</strong> Los sistemas GPS usan conceptos similares (distancia y rumbo)</li>
+                <li><strong>Ingeniería:</strong> Fuerzas, velocidades y campos se analizan frecuentemente en forma polar</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('vectorCanvas');
+        const ctx = canvas.getContext('2d');
+        const magnitudeSlider = document.getElementById('magnitude');
+        const angleSlider = document.getElementById('angle');
+        const magnitudeValue = document.getElementById('magnitudeValue');
+        const angleValue = document.getElementById('angleValue');
+        const currentVector = document.getElementById('currentVector');
+        
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const gridSize = 20;
+        
+        function drawGrid() {
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            
+            // Líneas verticales
+            for (let x = 0; x <= canvas.width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            
+            // Líneas horizontales
+            for (let y = 0; y <= canvas.height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        }
+        
+        function drawAxes() {
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            
+            // Eje X
+            ctx.beginPath();
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(canvas.width, centerY);
+            ctx.stroke();
+            
+            // Eje Y
+            ctx.beginPath();
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, canvas.height);
+            ctx.stroke();
+            
+            // Flechas de los ejes
+            const arrowSize = 8;
+            
+            // Flecha X
+            ctx.beginPath();
+            ctx.moveTo(canvas.width - arrowSize, centerY - arrowSize/2);
+            ctx.lineTo(canvas.width, centerY);
+            ctx.lineTo(canvas.width - arrowSize, centerY + arrowSize/2);
+            ctx.stroke();
+            
+            // Flecha Y
+            ctx.beginPath();
+            ctx.moveTo(centerX - arrowSize/2, arrowSize);
+            ctx.lineTo(centerX, 0);
+            ctx.lineTo(centerX + arrowSize/2, arrowSize);
+            ctx.stroke();
+            
+            // Etiquetas de ejes
+            ctx.fillStyle = '#333';
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText('X', canvas.width - 20, centerY - 10);
+            ctx.fillText('Y', centerX + 10, 15);
+        }
+        
+        function drawVector(magnitude, angleDeg) {
+            const angleRad = (angleDeg * Math.PI) / 180;
+            const endX = centerX + magnitude * Math.cos(angleRad);
+            const endY = centerY - magnitude * Math.sin(angleRad); // Negativo porque Y aumenta hacia abajo
+            
+            // Vector principal
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+            
+            // Punta de flecha
+            const arrowLength = 15;
+            const arrowAngle = 0.3;
+            
+            ctx.beginPath();
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(
+                endX - arrowLength * Math.cos(angleRad - arrowAngle),
+                endY + arrowLength * Math.sin(angleRad - arrowAngle)
+            );
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(
+                endX - arrowLength * Math.cos(angleRad + arrowAngle),
+                endY + arrowLength * Math.sin(angleRad + arrowAngle)
+            );
+            ctx.stroke();
+            
+            // Arco de ángulo
+            if (magnitude > 0) {
+                ctx.strokeStyle = '#3498db';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]);
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, 40, 0, -angleRad, true);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // Etiqueta del ángulo
+                const labelAngle = -angleRad / 2;
+                const labelRadius = 50;
+                const labelX = centerX + labelRadius * Math.cos(labelAngle);
+                const labelY = centerY - labelRadius * Math.sin(labelAngle);
+                
+                ctx.fillStyle = '#3498db';
+                ctx.font = 'bold 12px Arial';
+                ctx.fillText('α', labelX - 5, labelY + 5);
+            }
+            
+            // Componentes (líneas punteadas)
+            ctx.strokeStyle = '#95a5a6';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 3]);
+            
+            // Componente X
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(endX, centerY);
+            ctx.stroke();
+            
+            // Componente Y
+            ctx.beginPath();
+            ctx.moveTo(endX, centerY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+            
+            ctx.setLineDash([]);
+            
+            // Etiquetas de componentes
+            ctx.fillStyle = '#7f8c8d';
+            ctx.font = '11px Arial';
+            const compX = magnitude * Math.cos(angleRad);
+            const compY = magnitude * Math.sin(angleRad);
+            
+            if (Math.abs(compX) > 5) {
+                ctx.fillText(`x = ${compX.toFixed(1)}`, centerX + (endX - centerX)/2 - 20, centerY - 8);
+            }
+            if (Math.abs(compY) > 5) {
+                ctx.fillText(`y = ${compY.toFixed(1)}`, endX + 5, centerY + (endY - centerY)/2);
+            }
+            
+            // Etiqueta del vector
+            ctx.fillStyle = '#e74c3c';
+            ctx.font = 'bold 14px Arial';
+            const labelVecX = centerX + (endX - centerX) * 0.6;
+            const labelVecY = centerY + (endY - centerY) * 0.6 - 10;
+            ctx.fillText('A⃗', labelVecX, labelVecY);
+        }
+        
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            drawGrid();
+            drawAxes();
+            
+            const magnitude = parseFloat(magnitudeSlider.value);
+            const angle = parseFloat(angleSlider.value);
+            
+            if (magnitude > 0) {
+                drawVector(magnitude, angle);
+            }
+            
+            // Actualizar displays
+            magnitudeValue.textContent = magnitude;
+            angleValue.textContent = angle + '°';
+            currentVector.textContent = `A⃗ = ${magnitude}; ${angle}°`;
+        }
+        
+        magnitudeSlider.addEventListener('input', draw);
+        angleSlider.addEventListener('input', draw);
+        
+        // Dibujo inicial
+        draw();
+    </script>
+</body>
+</html>
