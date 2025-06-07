@@ -1,0 +1,2469 @@
+<!--******************************************************************
+    * 🧮 OPERACIONES CON VECTORES - CURSO INTERACTIVO DE FÍSICA 🧮    *
+    * ============================================================== *
+    * Autor:   MSc. Néstor Fabio Montoya Palacios                   *
+    * Versión: 3.0 - Operaciones Vectoriales Avanzadas             *
+    * Página:  vectores-operaciones.html                            *
+    * Temas:   Vectores unitarios, componentes rectangulares,       *
+    *          suma, resta y operaciones vectoriales fundamentales  *
+    ******************************************************************-->
+
+<!--******************************************************************
+    * 🎯 PARTE 1: CABECERA PRINCIPAL Y OBJETIVOS DE APRENDIZAJE 🎯   *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 🌟 SECCIÓN 1.1: CABECERA PRINCIPAL DEL TEMA                      |
+     ================================================================== -->
+<div class="lesson-header" style="animation: fadeInUp 1s; border-left: 8px solid #10b981;">
+
+  <!--* Título Principal con Icono Animado *-->
+  <h2 style="display:flex;align-items:center;gap:0.7em;font-size:2.8em;color:#1e293b;">
+    <i class="fas fa-calculator" style="color:#10b981;animation: logoSpin 6s ease-in-out infinite;"></i>
+    Operaciones con Vectores: La Aritmética del Espacio
+    <span style="font-size:1.2em;">🧮⚖️📐</span>
+  </h2>
+  
+  <!--* 📊 METADATOS DE LA LECCIÓN *-->
+  <div class="lesson-meta" style="display:flex;gap:1.5em;margin:1em 0;flex-wrap:wrap;">
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;background:rgba(16,185,129,0.1);padding:0.5em 1em;border-radius:15px;">
+      <i class="fas fa-clock" style="color:#f59e0b;"></i> 
+      <strong>75 min</strong>
+    </span>
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;background:rgba(59,130,246,0.1);padding:0.5em 1em;border-radius:15px;">
+      <i class="fas fa-signal" style="color:#3b82f6;"></i> 
+      <strong>Nivel Avanzado</strong>
+    </span>
+    <span class="badge-sim" style="background:linear-gradient(135deg,#10b981,#059669);color:white;padding:0.7em 1.5em;border-radius:25px;font-weight:700;box-shadow:0 4px 15px rgba(16,185,129,0.3);">
+      <i class="fas fa-plus"></i> Operaciones Incluidas
+    </span>
+    <span style="display:flex;align-items:center;gap:0.5em;font-size:1.1em;background:rgba(139,92,246,0.1);padding:0.5em 1em;border-radius:15px;">
+      <i class="fas fa-code" style="color:#8b5cf6;"></i> 
+      <strong>Álgebra Vectorial</strong>
+    </span>
+  </div>
+  
+  <!--* 📝 DESCRIPCIÓN ÉPICA DE LA LECCIÓN *-->
+  <div class="lesson-desc" style="font-size:1.15em;line-height:1.8;color:#475569;margin-top:1.5em;">
+    <p style="margin-bottom:1em;font-size:1.2em;color:#10b981;font-weight:600;">
+      🌟 <strong>¡Prepárate para dominar el álgebra del espacio!</strong> Las operaciones vectoriales no son solo matemáticas...
+    </p>
+    <p style="margin-bottom:1em;">
+      Son el <strong>lenguaje fundamental</strong> que permite a los ingenieros diseñar rascacielos 🏗️, 
+      a los pilotos navegar en 3D ✈️, a los desarrolladores crear mundos virtuales 🎮, 
+      y a los físicos describir las fuerzas del universo 🌌.
+    </p>
+    <p style="margin-bottom:1em;">
+      Descubrirás cómo <em>sumar fuerzas que actúan en diferentes direcciones</em>, cómo <em>descomponer movimientos complejos</em> 
+      en componentes simples, y por qué los vectores unitarios <strong>î</strong>, <strong>ĵ</strong> son los héroes secretos 
+      de la física moderna 🦸‍♂️🦸‍♀️.
+    </p>
+    <!--* Llamada a la Acción Final *-->
+    <p style="font-size:1.3em;color:#059669;font-weight:700;text-align:center;margin-top:1.5em;background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:1em;border-radius:15px;border:2px solid #10b981;">
+      🎯 ¡Domina las operaciones vectoriales y conquistarás el espacio-tiempo! ⚡🧮
+    </p>
+  </div>
+</div>
+
+<!--******************************************************************
+    * 🎯 SECCIÓN 1.2: OBJETIVOS DE APRENDIZAJE OPERACIONALES 🎯       *
+    ******************************************************************-->
+<div class="card" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-left:6px solid #10b981;margin:2em 0;padding:2em;border-radius:20px;box-shadow:0 10px 30px rgba(16,185,129,0.2);">
+  
+  <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;text-align:center;">
+    <i class="fas fa-bullseye" style="color:#10b981;"></i> Objetivos: Tu Arsenal Operacional 🎯⚔️
+  </h3>
+  
+  <!--* Grid de Objetivos Específicos *-->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5em;margin-top:1.5em;">
+    
+    <!-- Objetivo 1: Vectores Unitarios -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">î</div>
+      <div>
+        <h4 style="color:#2563eb;margin-bottom:0.5em;">Vectores Unitarios</h4>
+        <p style="color:#1e40af;font-size:0.95em;">Dominar los vectores fundamentales <strong>î</strong> y <strong>ĵ</strong> que definen las direcciones básicas del plano</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 2: Componentes Rectangulares -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#10b981,#059669);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">📐</div>
+      <div>
+        <h4 style="color:#059669;margin-bottom:0.5em;">Componentes Rectangulares</h4>
+        <p style="color:#047857;font-size:0.95em;">Descomponer cualquier vector en sus componentes horizontal y vertical usando trigonometría</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 3: Suma por Triángulo -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">△</div>
+      <div>
+        <h4 style="color:#7c3aed;margin-bottom:0.5em;">Método del Triángulo</h4>
+        <p style="color:#6d28d9;font-size:0.95em;">Sumar vectores gráficamente conectando la cola de uno con la cabeza del otro</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 4: Suma por Paralelogramo -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#f59e0b,#d97706);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">▱</div>
+      <div>
+        <h4 style="color:#d97706;margin-bottom:0.5em;">Método del Paralelogramo</h4>
+        <p style="color:#92400e;font-size:0.95em;">Formar un paralelogramo con los vectores y encontrar la diagonal resultante</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 5: Suma por Componentes -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#ef4444,#dc2626);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">🧮</div>
+      <div>
+        <h4 style="color:#dc2626;margin-bottom:0.5em;">Suma por Componentes</h4>
+        <p style="color:#991b1b;font-size:0.95em;">Método analítico: sumar las componentes x e y por separado</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 6: Vector Negativo -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#6366f1,#4f46e5);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">⇄</div>
+      <div>
+        <h4 style="color:#4f46e5;margin-bottom:0.5em;">Vector Negativo</h4>
+        <p style="color:#3730a3;font-size:0.95em;">Entender y aplicar el concepto de vector opuesto con la misma magnitud pero sentido contrario</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 7: Resta de Vectores -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#06b6d4,#0891b2);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">➖</div>
+      <div>
+        <h4 style="color:#0891b2;margin-bottom:0.5em;">Resta de Vectores</h4>
+        <p style="color:#0e7490;font-size:0.95em;">Restar vectores gráficamente y por componentes utilizando el vector negativo</p>
+      </div>
+    </div>
+    
+    <!-- Objetivo 8: Aplicaciones Prácticas -->
+    <div style="display:flex;align-items:start;gap:1em;background:white;padding:1.5em;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(135deg,#84cc16,#65a30d);color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;">🔬</div>
+      <div>
+        <h4 style="color:#65a30d;margin-bottom:0.5em;">Aplicaciones Físicas</h4>
+        <p style="color:#4d7c0f;font-size:0.95em;">Resolver problemas reales de fuerzas, velocidades y desplazamientos</p>
+      </div>
+    </div>
+  </div>
+  
+  <!--* Mensaje Motivacional de Cierre *-->
+  <div style="margin-top:2em;background:linear-gradient(135deg,#10b981,#059669);color:white;padding:1.5em;border-radius:15px;text-align:center;">
+    <h4 style="margin-bottom:0.5em;font-size:1.3em;">🚀 ¡La Odisea Operacional Comienza! 🚀</h4>
+    <p style="font-size:1.1em;opacity:0.95;">
+      Al dominar estas operaciones, tendrás el poder de resolver problemas que van desde 
+      la estática de puentes hasta la dinámica de satélites. ¡Prepárate para calcular el futuro! 🌟⚡
+    </p>
+  </div>
+</div>
+
+<!--******************************************************************
+    * 📐 PARTE 2: VECTORES UNITARIOS - LOS GUARDIANES DEL PLANO 🛡️   *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 🔰 SECCIÓN 2.1: INTRODUCCIÓN A LOS VECTORES UNITARIOS          |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 25px; padding: 3em; border: 3px solid #3b82f6; box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); position: relative; overflow: hidden;">
+    
+    <!--* ✨ Efecto Decorativo de Fondo *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%233b82f6\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M20 0v40M0 20h40\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.6;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal *-->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-compass" style="color: #3b82f6; margin-right: 0.5em; animation: logoSpin 4s linear infinite;"></i>
+            <span style="color: #1e293b;">Vectores Unitarios: Los Guardianes del Plano</span>
+            <span style="font-size: 0.6em;">🛡️📐⚖️</span>
+        </h2>
+        
+        <!--* Tarjeta Principal de Definición *-->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #3b82f6; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);">
+            
+            <!--* Icono Central *-->
+            <div style="text-align: center; margin-bottom: 2em;">
+                <div style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4); font-size: 2.5em;">
+                    🛡️
+                </div>
+            </div>
+            
+            <!--* Definición Principal *-->
+            <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 2em; border-radius: 15px; border-left: 6px solid #3b82f6; margin-bottom: 2em;">
+                <h3 style="color: #1e40af; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #2563eb;"></i> ¿Qué son los Vectores Unitarios?
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    Los <strong style="color: #3b82f6;">vectores unitarios</strong> son vectores especiales que tienen 
+                    <strong style="color: #2563eb;">magnitud igual a 1</strong> y señalan las 
+                    <strong style="color: #1e40af;">direcciones fundamentales</strong> del espacio.
+                </p>
+            </div>
+            
+            <!--* Grid de los Vectores Unitarios Principales *-->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-bottom: 2em;">
+                
+                <!-- Vector Unitario î -->
+                <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 2em; border-radius: 15px; border: 3px solid #ef4444; text-align: center;">
+                    <div style="background: #ef4444; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2.5em; font-family: serif; font-weight: bold;">î</div>
+                    <h4 style="color: #dc2626; margin-bottom: 1em; font-size: 1.4em;">Vector Unitario î (i-hat)</h4>
+                    <div style="background: white; padding: 1.5em; border-radius: 10px; margin-bottom: 1em;">
+                        <p style="color: #991b1b; font-weight: 600; margin-bottom: 0.8em;">📍 <strong>Dirección:</strong> Eje X positivo (→)</p>
+                        <p style="color: #991b1b; font-weight: 600; margin-bottom: 0.8em;">📏 <strong>Magnitud:</strong> |î| = 1</p>
+                        <p style="color: #991b1b; font-weight: 600;">📐 <strong>Coordenadas:</strong> î = (1, 0)</p>
+                    </div>
+                    <div style="background: rgba(239, 68, 68, 0.1); padding: 1em; border-radius: 8px;">
+                        <p style="color: #dc2626; font-weight: 600; font-size: 0.95em;">🎯 <strong>Función:</strong> Define la dirección horizontal hacia la derecha</p>
+                    </div>
+                </div>
+                
+                <!-- Vector Unitario ĵ -->
+                <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 2em; border-radius: 15px; border: 3px solid #10b981; text-align: center;">
+                    <div style="background: #10b981; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2.5em; font-family: serif; font-weight: bold;">ĵ</div>
+                    <h4 style="color: #059669; margin-bottom: 1em; font-size: 1.4em;">Vector Unitario ĵ (j-hat)</h4>
+                    <div style="background: white; padding: 1.5em; border-radius: 10px; margin-bottom: 1em;">
+                        <p style="color: #047857; font-weight: 600; margin-bottom: 0.8em;">📍 <strong>Dirección:</strong> Eje Y positivo (↑)</p>
+                        <p style="color: #047857; font-weight: 600; margin-bottom: 0.8em;">📏 <strong>Magnitud:</strong> |ĵ| = 1</p>
+                        <p style="color: #047857; font-weight: 600;">📐 <strong>Coordenadas:</strong> ĵ = (0, 1)</p>
+                    </div>
+                    <div style="background: rgba(16, 185, 129, 0.1); padding: 1em; border-radius: 8px;">
+                        <p style="color: #059669; font-weight: 600; font-size: 0.95em;">🎯 <strong>Función:</strong> Define la dirección vertical hacia arriba</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* Propiedades Matemáticas Importantes *-->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-calculator" style="color: #60a5fa;"></i> Propiedades Matemáticas Fundamentales
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+                    
+                    <div style="background: rgba(59,130,246,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #93c5fd; margin-bottom: 0.8em;">📏 Magnitud Unitaria</h4>
+                        <div style="font-size: 1.3em; color: #dbeafe; margin: 0.5em 0;">|î| = |ĵ| = 1</div>
+                    </div>
+                    
+                    <div style="background: rgba(16,185,129,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #6ee7b7; margin-bottom: 0.8em;">⟂ Perpendiculares</h4>
+                        <div style="font-size: 1.3em; color: #d1fae5; margin: 0.5em 0;">î ⊥ ĵ</div>
+                    </div>
+                    
+                    <div style="background: rgba(245,158,11,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #fcd34d; margin-bottom: 0.8em;">🔄 Producto Punto</h4>
+                        <div style="font-size: 1.3em; color: #fef3c7; margin: 0.5em 0;">î · ĵ = 0</div>
+                    </div>
+                </div>
+                
+                <!--* Fórmula de Representación *-->
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                    <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.3em;">🧮 Representación General de un Vector</h4>
+                    <div style="font-size: 2.2em; color: #fbbf24; margin: 1em 0; font-weight: bold; font-family: serif;">
+                        $\vec{v} = v_x \hat{i} + v_y \hat{j}$
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 1.1em;">
+                        Donde <span style="color: #f87171;">$v_x$</span> y <span style="color: #34d399;">$v_y$</span> 
+                        son las <strong>componentes escalares</strong> del vector
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--******************************************************************
+    * 📊 PARTE 3: COMPONENTES RECTANGULARES DE UN VECTOR 📏           *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 📐 SECCIÓN 3.1: DESCOMPOSICIÓN EN COMPONENTES                   |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 25px; padding: 3em; border: 3px solid #10b981; box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3); position: relative; overflow: hidden;">
+    
+    <!--* Efecto Decorativo de Cuadrícula *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" stroke=\"%2310b981\" stroke-width=\"0.5\" opacity=\"0.1\"%3E%3Cpath d=\"M0 15h30M15 0v30\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.6;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal *-->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-th-large" style="color: #10b981; margin-right: 0.5em; animation: pulse 3s infinite;"></i>
+            <span style="color: #1e293b;">Componentes Rectangulares</span>
+            <span style="font-size: 0.6em;">📊📐⚖️</span>
+        </h2>
+        
+        <!--* Tarjeta Principal *-->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #10b981; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);">
+            
+            <!--* Concepto Principal *-->
+            <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 2em; border-radius: 15px; border-left: 6px solid #10b981; margin-bottom: 2em;">
+                <h3 style="color: #047857; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #059669;"></i> ¿Qué son las Componentes Rectangulares?
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    Las <strong style="color: #10b981;">componentes rectangulares</strong> son las 
+                    <strong style="color: #059669;">"proyecciones"</strong> de un vector sobre los 
+                    <strong style="color: #047857;">ejes coordenados perpendiculares</strong>.
+                </p>
+            </div>
+            
+            <!--* Diagrama y Explicación *-->
+            <div style="display: grid; grid-template-columns: 1fr 400px; gap: 2em; align-items: center; margin-bottom: 2em;">
+                <div>
+                    <h4 style="color: #047857; font-size: 1.4em; margin-bottom: 1em;">
+                        <i class="fas fa-compass" style="color: #10b981;"></i> Descomposición Trigonométrica
+                    </h4>
+                    <p style="color: #065f46; line-height: 1.7; margin-bottom: 1em;">
+                        Dado un vector <strong style="color: #10b981;">$\vec{v}$</strong> con magnitud 
+                        <strong style="color: #059669;">|$\vec{v}$|</strong> y ángulo <strong style="color: #047857;">θ</strong> 
+                        respecto al eje X positivo:
+                    </p>
+                    
+                    <div style="background: #f0fdf4; padding: 1.5em; border-radius: 12px; border-left: 4px solid #10b981;">
+                        <h5 style="color: #059669; margin-bottom: 0.8em; font-size: 1.2em;">🧮 Fórmulas Fundamentales:</h5>
+                        <div style="font-family: monospace; font-size: 1.1em; line-height: 2;">
+                            <p style="color: #047857; margin: 0.5em 0;"><strong>Componente X:</strong> $v_x = |\vec{v}| \cos θ$</p>
+                            <p style="color: #047857; margin: 0.5em 0;"><strong>Componente Y:</strong> $v_y = |\vec{v}| \sin θ$</p>
+                            <p style="color: #047857; margin: 0.5em 0;"><strong>Vector completo:</strong> $\vec{v} = v_x\hat{i} + v_y\hat{j}$</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagrama Visual -->
+                <div style="background: #f8fafc; padding: 2em; border-radius: 15px; border: 2px solid #64748b; text-align: center;">
+                    <h5 style="color: #475569; margin-bottom: 1em;">Descomposición en el Plano XY</h5>
+                    <img src="assets/images/componentes_vector.png" 
+                         alt="Vector descompuesto en componentes rectangulares" 
+                         style="width: 350px; border-radius: 12px; box-shadow: 0 5px 20px rgba(16,185,129,0.3); border: 3px solid #10b981;">
+                    <p style="color: #475569; margin-top: 1em; font-size: 0.9em;">
+                        Vector $\vec{v}$ descompuesto en sus componentes $v_x$ y $v_y$
+                    </p>
+                </div>
+            </div>
+
+<!--* 🧮 Sub-sección: Propiedades Matemáticas de las Componentes *-->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center; margin-bottom: 2em;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-calculator" style="color: #10b981;"></i> Propiedades Matemáticas Clave
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+                    
+                    <!-- Propiedad 1: Teorema de Pitágoras -->
+                    <div style="background: rgba(16,185,129,0.2); padding: 1.5em; border-radius: 12px; border: 1px solid rgba(16,185,129,0.5);">
+                        <h4 style="color: #6ee7b7; margin-bottom: 0.8em;">📐 Magnitud del Vector</h4>
+                        <div style="font-size: 1.2em; color: #d1fae5; margin: 0.5em 0;">$|\vec{v}| = \sqrt{v_x^2 + v_y^2}$</div>
+                        <p style="color: #a7f3d0; font-size: 0.9em;">Teorema de Pitágoras aplicado</p>
+                    </div>
+                    
+                    <!-- Propiedad 2: Ángulo del Vector -->
+                    <div style="background: rgba(59,130,246,0.2); padding: 1.5em; border-radius: 12px; border: 1px solid rgba(59,130,246,0.5);">
+                        <h4 style="color: #93c5fd; margin-bottom: 0.8em;">🧭 Ángulo de Dirección</h4>
+                        <div style="font-size: 1.2em; color: #dbeafe; margin: 0.5em 0;">$θ = \arctan\left(\frac{v_y}{v_x}\right)$</div>
+                        <p style="color: #bfdbfe; font-size: 0.9em;">Función tangente inversa</p>
+                    </div>
+                    
+                    <!-- Propiedad 3: Independencia -->
+                    <div style="background: rgba(245,158,11,0.2); padding: 1.5em; border-radius: 12px; border: 1px solid rgba(245,158,11,0.5);">
+                        <h4 style="color: #fcd34d; margin-bottom: 0.8em;">🔄 Componentes Independientes</h4>
+                        <div style="font-size: 1.2em; color: #fef3c7; margin: 0.5em 0;">$v_x \perp v_y$</div>
+                        <p style="color: #fed7aa; font-size: 0.9em;">Ortogonales entre sí</p>
+                    </div>
+                </div>
+                
+                <!--* Fórmula de Reconstrucción Completa *-->
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                    <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.3em;">🔄 Reconstrucción del Vector Original</h4>
+                    <div style="font-size: 2em; color: #10b981; margin: 1em 0; font-weight: bold; font-family: serif;">
+                        $\vec{v} = v_x\hat{i} + v_y\hat{j} = |\vec{v}|\cos θ\hat{i} + |\vec{v}|\sin θ\hat{j}$
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 1.1em;">
+                        Cualquier vector puede expresarse como la suma de sus componentes perpendiculares
+                    </p>
+                </div>
+            </div>
+            
+            <!--* 🌟 Sub-sección: Ejemplo Práctico Paso a Paso *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #047857; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: #10b981;"></i> Ejemplo Práctico: Fuerza sobre un Bloque
+                </h3>
+                
+                <div style="background: #f8fafc; padding: 2em; border-radius: 15px; border: 2px solid #64748b;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: center;">
+                        <div>
+                            <p style="color: #475569; font-size: 1.2em; line-height: 1.8; margin-bottom: 1.5em;">
+                                Una fuerza de <strong style="color: #10b981;">100 N</strong> se aplica sobre un bloque 
+                                formando un ángulo de <strong style="color: #059669;">37°</strong> con la horizontal:
+                            </p>
+                            
+                            <div style="background: white; padding: 1.5em; border-radius: 12px; border-left: 4px solid #10b981;">
+                                <h4 style="color: #047857; margin-bottom: 1em;">📊 Cálculo de Componentes:</h4>
+                                <div style="font-family: monospace; color: #065f46; line-height: 2; font-size: 1.1em;">
+                                    <p><strong>Datos:</strong></p>
+                                    <p>• |F⃗| = 100 N</p>
+                                    <p>• θ = 37°</p>
+                                    <p><strong>Componentes:</strong></p>
+                                    <p>• F_x = 100 cos(37°) = 100 × 0.8 = <span style="color: #dc2626; font-weight: bold;">80 N</span></p>
+                                    <p>• F_y = 100 sin(37°) = 100 × 0.6 = <span style="color: #059669; font-weight: bold;">60 N</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 2em; border-radius: 15px;">
+                                <div style="font-size: 4em; margin-bottom: 0.5em;">📦</div>
+                                <h4 style="color: #047857; margin-bottom: 1em;">Bloque con Fuerza Aplicada</h4>
+                                <div style="background: white; padding: 1.5em; border-radius: 8px;">
+                                    <p style="color: #065f46; font-size: 1em; line-height: 1.6;">
+                                        <strong>Representación vectorial:</strong><br>
+                                        $\vec{F} = 80\hat{i} + 60\hat{j}$ N<br><br>
+                                        <strong>Verificación:</strong><br>
+                                        $|\vec{F}| = \sqrt{80^2 + 60^2} = \sqrt{6400 + 3600} = \sqrt{10000} = 100$ N ✓
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--******************************************************************
+    * ➕ PARTE 4: SUMA DE VECTORES - MÉTODO DEL TRIÁNGULO ➕          *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 🔺 SECCIÓN 4.1: INTRODUCCIÓN AL MÉTODO DEL TRIÁNGULO            |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-radius: 25px; padding: 3em; border: 3px solid #8b5cf6; box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3); position: relative; overflow: hidden;">
+    
+    <!--* ✨ Efecto Decorativo de Triángulos *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"50\" height=\"50\" viewBox=\"0 0 50 50\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%238b5cf6\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M25 10l15 30H10z\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.4;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal *-->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-play" style="color: #8b5cf6; margin-right: 0.5em; animation: bounce 2s infinite;"></i>
+            <span style="color: #1e293b;">Suma de Vectores: Método del Triángulo</span>
+            <span style="font-size: 0.6em;">🔺➕⚡</span>
+        </h2>
+        
+        <!--* Tarjeta Principal *-->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #8b5cf6; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(139, 92, 246, 0.2);">
+            
+            <!--* Concepto Fundamental *-->
+            <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 2em; border-radius: 15px; border-left: 6px solid #8b5cf6; margin-bottom: 2em;">
+                <h3 style="color: #7c3aed; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #8b5cf6;"></i> El Método del Triángulo
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    El <strong style="color: #8b5cf6;">método del triángulo</strong> es una técnica gráfica para sumar vectores 
+                    donde se conecta la <strong style="color: #7c3aed;">"cola" del segundo vector</strong> 
+                    con la <strong style="color: #6d28d9;">"cabeza" del primero</strong>.
+                </p>
+            </div>
+            
+            <!--* Procedimiento Paso a Paso *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #7c3aed; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-list-ol" style="color: #8b5cf6;"></i> Procedimiento: Cola con Cabeza
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Paso 1 -->
+                    <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 1.8em; border-radius: 15px; border: 2px solid #3b82f6; text-align: center;">
+                        <div style="background: #3b82f6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em; font-weight: bold;">1</div>
+                        <h4 style="color: #1e40af; margin-bottom: 1em; font-size: 1.2em;">Dibujar el Primer Vector</h4>
+                        <p style="color: #1e3a8a; line-height: 1.6; font-size: 0.95em;">
+                            Coloca el vector <strong style="color: #3b82f6;">$\vec{A}$</strong> 
+                            desde cualquier punto de origen. Este será nuestro punto de partida.
+                        </p>
+                        <div style="margin-top: 1em; font-size: 2em;">🎯→</div>
+                    </div>
+                    
+                    <!-- Paso 2 -->
+                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 1.8em; border-radius: 15px; border: 2px solid #10b981; text-align: center;">
+                        <div style="background: #10b981; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em; font-weight: bold;">2</div>
+                        <h4 style="color: #059669; margin-bottom: 1em; font-size: 1.2em;">Conectar el Segundo Vector</h4>
+                        <p style="color: #047857; line-height: 1.6; font-size: 0.95em;">
+                            Coloca la <strong style="color: #10b981;">"cola"</strong> del vector <strong style="color: #10b981;">$\vec{B}$</strong> 
+                            exactamente en la <strong style="color: #10b981;">"cabeza"</strong> del vector $\vec{A}$.
+                        </p>
+                        <div style="margin-top: 1em; font-size: 2em;">🎯→→</div>
+                    </div>
+                    
+                    <!-- Paso 3 -->
+                    <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 1.8em; border-radius: 15px; border: 2px solid #f59e0b; text-align: center;">
+                        <div style="background: #f59e0b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em; font-weight: bold;">3</div>
+                        <h4 style="color: #d97706; margin-bottom: 1em; font-size: 1.2em;">Trazar el Vector Resultante</h4>
+                        <p style="color: #92400e; line-height: 1.6; font-size: 0.95em;">
+                            El vector <strong style="color: #f59e0b;">$\vec{R} = \vec{A} + \vec{B}$</strong> 
+                            va desde el origen hasta la cabeza del último vector.
+                        </p>
+                        <div style="margin-top: 1em; font-size: 2em;">🎯⟶</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* Diagrama Visual Explicativo *-->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-eye" style="color: #8b5cf6;"></i> Visualización del Proceso
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2em; margin-bottom: 2em;">
+                    
+                    <!-- Estado 1: Vector A solo -->
+                    <div style="background: rgba(139,92,246,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #c4b5fd; margin-bottom: 1em;">Paso 1</h4>
+                        <div style="background: white; width: 100px; height: 60px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: #3b82f6; font-weight: bold;">→ A</div>
+                        </div>
+                        <p style="color: #e9d5ff; font-size: 0.9em;">Solo vector A</p>
+                    </div>
+                    
+                    <!-- Estado 2: A + B conectados -->
+                    <div style="background: rgba(16,185,129,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #6ee7b7; margin-bottom: 1em;">Paso 2</h4>
+                        <div style="background: white; width: 100px; height: 60px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: #10b981; font-weight: bold; font-size: 0.8em;">→ A → B</div>
+                        </div>
+                        <p style="color: #d1fae5; font-size: 0.9em;">A y B conectados</p>
+                    </div>
+                    
+                    <!-- Estado 3: Vector resultante -->
+                    <div style="background: rgba(245,158,11,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #fcd34d; margin-bottom: 1em;">Paso 3</h4>
+                        <div style="background: white; width: 100px; height: 60px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: #f59e0b; font-weight: bold;">⟶ R</div>
+                        </div>
+                        <p style="color: #fef3c7; font-size: 0.9em;">Vector resultante</p>
+                    </div>
+                </div>
+                
+                <!--* Fórmula Matemática *-->
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                    <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.3em;">🧮 Expresión Matemática</h4>
+                    <div style="font-size: 2.2em; color: #8b5cf6; margin: 1em 0; font-weight: bold; font-family: serif;">
+                        $\vec{R} = \vec{A} + \vec{B}$
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 1.1em;">
+                        El vector resultante es la <strong style="color: #c4b5fd;">suma vectorial</strong> de los vectores individuales
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--* 🌟 Sub-sección: Ejemplo Práctico del Método del Triángulo *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #7c3aed; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: #8b5cf6;"></i> Ejemplo Práctico: Navegación de un Drone
+                </h3>
+                
+                <div style="background: #f8fafc; padding: 2.5em; border-radius: 15px; border: 2px solid #64748b;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: start;">
+                        
+                        <!-- Lado Izquierdo: Problema y Solución -->
+                        <div>
+                            <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 2em; border-radius: 12px; border-left: 4px solid #8b5cf6; margin-bottom: 1.5em;">
+                                <h4 style="color: #7c3aed; margin-bottom: 1em;">🚁 Problema:</h4>
+                                <p style="color: #6d28d9; line-height: 1.7; margin-bottom: 1em;">
+                                    Un drone se mueve <strong style="color: #8b5cf6;">200 m hacia el este</strong> y luego 
+                                    <strong style="color: #7c3aed;">150 m hacia el norte</strong>. ¿Cuál es su desplazamiento total?
+                                </p>
+                                
+                                <div style="background: white; padding: 1.5em; border-radius: 8px;">
+                                    <h5 style="color: #8b5cf6; margin-bottom: 0.8em;">📊 Datos del problema:</h5>
+                                    <ul style="color: #6d28d9; line-height: 1.8;">
+                                        <li><strong>Vector A:</strong> $\vec{A} = 200\hat{i}$ m (este)</li>
+                                        <li><strong>Vector B:</strong> $\vec{B} = 150\hat{j}$ m (norte)</li>
+                                        <li><strong>Encontrar:</strong> $\vec{R} = \vec{A} + \vec{B}$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Solución Paso a Paso -->
+                            <div style="background: white; padding: 2em; border-radius: 12px; border: 2px solid #8b5cf6;">
+                                <h4 style="color: #7c3aed; margin-bottom: 1em;">🔍 Solución por Método del Triángulo:</h4>
+                                
+                                <div style="margin-bottom: 1.5em;">
+                                    <h5 style="color: #8b5cf6; margin-bottom: 0.8em;">Paso 1: Dibujar vector A</h5>
+                                    <p style="color: #6d28d9; margin-bottom: 0.5em;">📐 Trazar $\vec{A} = 200$ m hacia el este desde el origen</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5em;">
+                                    <h5 style="color: #8b5cf6; margin-bottom: 0.8em;">Paso 2: Conectar vector B</h5>
+                                    <p style="color: #6d28d9; margin-bottom: 0.5em;">📐 Desde la punta de A, trazar $\vec{B} = 150$ m hacia el norte</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5em;">
+                                    <h5 style="color: #8b5cf6; margin-bottom: 0.8em;">Paso 3: Vector resultante</h5>
+                                    <p style="color: #6d28d9; margin-bottom: 1em;">📐 Trazar $\vec{R}$ desde el origen hasta la punta final</p>
+                                    
+                                    <div style="background: #f3e8ff; padding: 1em; border-radius: 8px;">
+                                        <p style="color: #7c3aed; font-weight: 600;">📏 <strong>Magnitud:</strong> $|\vec{R}| = \sqrt{200^2 + 150^2} = \sqrt{40000 + 22500} = \sqrt{62500} = 250$ m</p>
+                                        <p style="color: #7c3aed; font-weight: 600;">🧭 <strong>Dirección:</strong> $θ = \arctan\left(\frac{150}{200}\right) = \arctan(0.75) = 36.87°$ al NE</p>
+                                        <p style="color: #7c3aed; font-weight: 600;">🎯 <strong>Resultado:</strong> $\vec{R} = 200\hat{i} + 150\hat{j}$ m</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lado Derecho: Diagrama Visual -->
+                        <div style="text-align: center;">
+                            <div style="background: linear-gradient(135deg, #ecfeff, #cffafe); padding: 2em; border-radius: 15px; margin-bottom: 1.5em;">
+                                <h4 style="color: #0891b2; margin-bottom: 1em;">📐 Construcción Gráfica</h4>
+                                
+                                <!-- Simulación del diagrama con CSS -->
+                                <div style="position: relative; width: 250px; height: 200px; margin: 0 auto; background: white; border: 2px solid #64748b; border-radius: 8px;">
+                                    
+                                    <!-- Ejes de coordenadas -->
+                                    <div style="position: absolute; bottom: 20px; left: 20px; width: 200px; height: 2px; background: #64748b;"></div>
+                                    <div style="position: absolute; bottom: 20px; left: 20px; width: 2px; height: 150px; background: #64748b;"></div>
+                                    
+                                    <!-- Vector A (horizontal) -->
+                                    <div style="position: absolute; bottom: 18px; left: 22px; width: 120px; height: 4px; background: #ef4444; border-radius: 2px;"></div>
+                                    <div style="position: absolute; bottom: 15px; right: 106px; width: 0; height: 0; border-left: 8px solid #ef4444; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                                    <div style="position: absolute; bottom: 0px; left: 80px; color: #ef4444; font-weight: bold; font-size: 0.8em;">A (200m)</div>
+                                    
+                                    <!-- Vector B (vertical) -->
+                                    <div style="position: absolute; bottom: 22px; left: 140px; width: 4px; height: 90px; background: #10b981; border-radius: 2px;"></div>
+                                    <div style="position: absolute; bottom: 112px; left: 137px; width: 0; height: 0; border-bottom: 8px solid #10b981; border-left: 5px solid transparent; border-right: 5px solid transparent;"></div>
+                                    <div style="position: absolute; bottom: 70px; left: 150px; color: #10b981; font-weight: bold; font-size: 0.8em;">B (150m)</div>
+                                    
+                                    <!-- Vector Resultante R -->
+                                    <div style="position: absolute; bottom: 20px; left: 20px; width: 150px; height: 3px; background: #8b5cf6; transform: rotate(36.87deg); transform-origin: left bottom; border-radius: 2px;"></div>
+                                    <div style="position: absolute; bottom: 60px; left: 80px; color: #8b5cf6; font-weight: bold; font-size: 0.8em;">R (250m)</div>
+                                    
+                                    <!-- Etiquetas de ejes -->
+                                    <div style="position: absolute; bottom: 5px; right: 10px; color: #64748b; font-size: 0.7em;">Este (X)</div>
+                                    <div style="position: absolute; top: 5px; left: 5px; color: #64748b; font-size: 0.7em;">Norte (Y)</div>
+                                    
+                                    <!-- Ángulo -->
+                                    <div style="position: absolute; bottom: 25px; left: 45px; color: #f59e0b; font-size: 0.7em; font-weight: bold;">36.87°</div>
+                                </div>
+                                
+                                <p style="color: #0e7490; margin-top: 1em; font-size: 0.9em;">
+                                    Triángulo rectángulo formado por los vectores A, B y R
+                                </p>
+                            </div>
+                            
+                            <!-- Interpretación Física -->
+                            <div style="background: white; padding: 1.5em; border-radius: 12px; border: 2px solid #10b981;">
+                                <h4 style="color: #059669; margin-bottom: 1em;">🚁 Interpretación:</h4>
+                                <p style="color: #047857; line-height: 1.6; font-size: 0.95em;">
+                                    El drone terminó a <strong style="color: #10b981;">250 metros</strong> de distancia 
+                                    del punto de partida, en una dirección <strong style="color: #10b981;">36.87° al noreste</strong>. 
+                                    Este es su desplazamiento neto.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* 🔄 Sub-sección: Propiedades del Método del Triángulo *-->
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #ffffff; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-cogs" style="color: #fbbf24;"></i> Ventajas del Método del Triángulo
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em;">
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 0.5em;">🎯</div>
+                        <h4 style="color: #ffffff; margin-bottom: 0.8em;">Simplicidad Visual</h4>
+                        <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                            Fácil de entender y aplicar. Ideal para <strong style="color: #fbbf24;">principiantes</strong> 
+                            en álgebra vectorial.
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 0.5em;">📐</div>
+                        <h4 style="color: #ffffff; margin-bottom: 0.8em;">Exactitud Gráfica</h4>
+                        <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                            Permite <strong style="color: #34d399;">verificación visual</strong> del resultado 
+                            y detección de errores.
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 0.5em;">🔗</div>
+                        <h4 style="color: #ffffff; margin-bottom: 0.8em;">Extensibilidad</h4>
+                        <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                            Se puede extender para sumar <strong style="color: #f87171;">múltiples vectores</strong> 
+                            conectándolos en secuencia.
+                        </p>
+                    </div>
+                </div>
+                
+                <!--* Nota Importante *-->
+                <div style="background: rgba(255,255,255,0.2); padding: 2em; border-radius: 15px; margin-top: 2em; backdrop-filter: blur(10px);">
+                    <h4 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.3em;">
+                        <i class="fas fa-lightbulb" style="animation: pulse 2s infinite;"></i> Nota Importante
+                    </h4>
+                    <p style="color: #ffffff; font-size: 1.1em; line-height: 1.7;">
+                        El método del triángulo funciona porque los vectores siguen la 
+                        <strong style="color: #34d399;">ley conmutativa</strong>: $\vec{A} + \vec{B} = \vec{B} + \vec{A}$. 
+                        El orden no afecta el resultado final. 🔄✨
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--******************************************************************
+    * ▱ PARTE 5: SUMA DE VECTORES - MÉTODO DEL PARALELOGRAMO ▱        *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 📐 SECCIÓN 5.1: INTRODUCCIÓN AL MÉTODO DEL PARALELOGRAMO        |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #fef3c7, #fed7aa); border-radius: 25px; padding: 3em; border: 3px solid #f59e0b; box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3); position: relative; overflow: hidden;">
+    
+    <!--* ✨ Efecto Decorativo de Paralelogramos *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"40\" viewBox=\"0 0 60 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23f59e0b\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M10 10h30l10 20H20z\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.4;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal *-->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-vector-square" style="color: #f59e0b; margin-right: 0.5em; animation: logoSpin 6s ease-in-out infinite;"></i>
+            <span style="color: #1e293b;">Suma de Vectores: Método del Paralelogramo</span>
+            <span style="font-size: 0.6em;">▱📐⚡</span>
+        </h2>
+        
+        <!--* Tarjeta Principal *-->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #f59e0b; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);">
+            
+            <!--* Concepto Fundamental *-->
+            <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 2em; border-radius: 15px; border-left: 6px solid #f59e0b; margin-bottom: 2em;">
+                <h3 style="color: #d97706; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #f59e0b;"></i> El Método del Paralelogramo
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    El <strong style="color: #f59e0b;">método del paralelogramo</strong> coloca ambos vectores 
+                    desde el <strong style="color: #d97706;">mismo punto de origen</strong> y forma un paralelogramo. 
+                    La <strong style="color: #92400e;">diagonal</strong> es el vector resultante.
+                </p>
+            </div>
+            
+            <!--* Comparación con el Método del Triángulo *-->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-bottom: 2em;">
+                
+                <!-- Método del Triángulo (Repaso) -->
+                <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); padding: 2em; border-radius: 15px; border: 2px solid #8b5cf6;">
+                    <h4 style="color: #7c3aed; text-align: center; margin-bottom: 1em; font-size: 1.3em;">
+                        🔺 Método del Triángulo
+                    </h4>
+                    <div style="background: white; padding: 1.5em; border-radius: 10px; margin-bottom: 1em; text-align: center;">
+                        <div style="font-size: 1.5em; margin-bottom: 0.8em;">🎯→→⟶</div>
+                        <p style="color: #6d28d9; font-size: 0.95em; line-height: 1.6;">
+                            <strong>Cola con cabeza:</strong><br>
+                            Se conectan los vectores uno después del otro
+                        </p>
+                    </div>
+                    <div style="background: rgba(139,92,246,0.1); padding: 1em; border-radius: 8px; text-align: center;">
+                        <p style="color: #7c3aed; font-weight: 600; font-size: 0.9em;">✅ Fácil de visualizar secuencialmente</p>
+                    </div>
+                </div>
+                
+                <!-- Método del Paralelogramo -->
+                <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 2em; border-radius: 15px; border: 2px solid #f59e0b;">
+                    <h4 style="color: #d97706; text-align: center; margin-bottom: 1em; font-size: 1.3em;">
+                        ▱ Método del Paralelogramo
+                    </h4>
+                    <div style="background: white; padding: 1.5em; border-radius: 10px; margin-bottom: 1em; text-align: center;">
+                        <div style="font-size: 1.5em; margin-bottom: 0.8em;">🎯⟲⟶</div>
+                        <p style="color: #92400e; font-size: 0.95em; line-height: 1.6;">
+                            <strong>Mismo origen:</strong><br>
+                            Ambos vectores parten del mismo punto
+                        </p>
+                    </div>
+                    <div style="background: rgba(245,158,11,0.1); padding: 1em; border-radius: 8px; text-align: center;">
+                        <p style="color: #d97706; font-weight: 600; font-size: 0.9em;">✅ Simétrico y elegante geométricamente</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* Procedimiento del Paralelogramo *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #d97706; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-list-ol" style="color: #f59e0b;"></i> Procedimiento: Construcción del Paralelogramo
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Paso 1 -->
+                    <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 1.8em; border-radius: 15px; border: 2px solid #ef4444; text-align: center;">
+                        <div style="background: #ef4444; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em; font-weight: bold;">1</div>
+                        <h4 style="color: #dc2626; margin-bottom: 1em; font-size: 1.2em;">Mismo Punto de Origen</h4>
+                        <p style="color: #991b1b; line-height: 1.6; font-size: 0.95em;">
+                            Coloca ambos vectores <strong style="color: #ef4444;">$\vec{A}$</strong> y 
+                            <strong style="color: #ef4444;">$\vec{B}$</strong> desde el mismo punto de partida.
+                        </p>
+                        <div style="margin-top: 1em; font-size: 2em;">🎯⟲</div>
+                    </div>
+                    
+                    <!-- Paso 2 -->
+                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 1.8em; border-radius: 15px; border: 2px solid #10b981; text-align: center;">
+                        <div style="background: #10b981; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em; font-weight: bold;">2</div>
+                        <h4 style="color: #059669; margin-bottom: 1em; font-size: 1.2em;">Trazar Líneas Paralelas</h4>
+                        <p style="color: #047857; line-height: 1.6; font-size: 0.95em;">
+                            Desde la punta de <strong style="color: #10b981;">$\vec{A}$</strong>, traza una línea paralela a 
+                            <strong style="color: #10b981;">$\vec{B}$</strong>, y viceversa.
+                        </p>
+                        <div style="margin-top: 1em; font-size: 2em;">▱</div>
+                    </div>
+                    
+                    <!-- Paso 3 -->
+                    <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 1.8em; border-radius: 15px; border: 2px solid #3b82f6; text-align: center;">
+                        <div style="background: #3b82f6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em; font-weight: bold;">3</div>
+                        <h4 style="color: #2563eb; margin-bottom: 1em; font-size: 1.2em;">Completar el Paralelogramo</h4>
+                        <p style="color: #1e40af; line-height: 1.6; font-size: 0.95em;">
+                            Las líneas paralelas se encuentran en un punto, 
+                            <strong style="color: #3b82f6;">completando</strong> la figura del paralelogramo.
+                        </p>
+                        <div style="margin-top: 1em; font-size: 2em;">📐</div>
+                    </div>
+                    
+                    <!-- Paso 4 -->
+                    <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); padding: 1.8em; border-radius: 15px; border: 2px solid #8b5cf6; text-align: center;">
+                        <div style="background: #8b5cf6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em; font-weight: bold;">4</div>
+                        <h4 style="color: #7c3aed; margin-bottom: 1em; font-size: 1.2em;">Trazar la Diagonal</h4>
+                        <p style="color: #6d28d9; line-height: 1.6; font-size: 0.95em;">
+                            La <strong style="color: #8b5cf6;">diagonal</strong> del paralelogramo desde el origen 
+                            es el vector <strong style="color: #8b5cf6;">$\vec{R} = \vec{A} + \vec{B}$</strong>.
+                        </p>
+                        <div style="margin-top: 1em; font-size: 2em;">⟶</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* Demostración Visual del Proceso *-->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-eye" style="color: #f59e0b;"></i> Construcción Paso a Paso
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2em; margin-bottom: 2em;">
+                    
+                    <!-- Paso Visual 1 -->
+                    <div style="background: rgba(245,158,11,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #fcd34d; margin-bottom: 1em;">Paso 1-2</h4>
+                        <div style="background: white; width: 120px; height: 80px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: #ef4444; font-weight: bold; font-size: 0.8em;">A →<br>↓ B</div>
+                        </div>
+                        <p style="color: #fed7aa; font-size: 0.9em;">Vectores desde origen</p>
+                    </div>
+                    
+                    <!-- Paso Visual 2 -->
+                    <div style="background: rgba(16,185,129,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #6ee7b7; margin-bottom: 1em;">Paso 3</h4>
+                        <div style="background: white; width: 120px; height: 80px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: #10b981; font-weight: bold; font-size: 0.8em;">▱<br>Paralelas</div>
+                        </div>
+                        <p style="color: #d1fae5; font-size: 0.9em;">Líneas paralelas</p>
+                    </div>
+                    
+                    <!-- Paso Visual 3 -->
+                    <div style="background: rgba(139,92,246,0.2); padding: 1.5em; border-radius: 12px;">
+                        <h4 style="color: #c4b5fd; margin-bottom: 1em;">Paso 4</h4>
+                        <div style="background: white; width: 120px; height: 80px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: #8b5cf6; font-weight: bold; font-size: 0.8em;">⟶ R<br>Diagonal</div>
+                        </div>
+                        <p style="color: #e9d5ff; font-size: 0.9em;">Vector resultante</p>
+                    </div>
+                </div>
+                
+                <!--* Propiedad Matemática Clave *-->
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                    <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.3em;">🧮 Ley del Paralelogramo</h4>
+                    <div style="font-size: 2.2em; color: #f59e0b; margin: 1em 0; font-weight: bold; font-family: serif;">
+                        $\vec{R} = \vec{A} + \vec{B}$
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 1.1em; margin-bottom: 1em;">
+                        La diagonal del paralelogramo representa la <strong style="color: #fcd34d;">suma vectorial</strong>
+                    </p>
+                    <div style="background: rgba(245,158,11,0.2); padding: 1em; border-radius: 8px;">
+                        <p style="color: #fed7aa; font-size: 1em;">
+                            <strong>💡 Dato curioso:</strong> Este método fue usado por primera vez por 
+                            <strong style="color: #fbbf24;">Pierre-Simon Laplace</strong> en 1799 para estudiar fuerzas mecánicas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--* 🌟 Sub-sección: Ejemplo Práctico del Método del Paralelogramo *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #d97706; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: #f59e0b;"></i> Ejemplo Práctico: Fuerzas en una Grúa
+                </h3>
+                
+                <div style="background: #f8fafc; padding: 2.5em; border-radius: 15px; border: 2px solid #64748b;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: start;">
+                        
+                        <!-- Lado Izquierdo: Problema y Datos -->
+                        <div>
+                            <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 2em; border-radius: 12px; border-left: 4px solid #f59e0b; margin-bottom: 1.5em;">
+                                <h4 style="color: #d97706; margin-bottom: 1em;">🏗️ Problema:</h4>
+                                <p style="color: #92400e; line-height: 1.7; margin-bottom: 1em;">
+                                    En un punto de una grúa actúan dos fuerzas: <strong style="color: #f59e0b;">F₁ = 80 N a 30°</strong> 
+                                    y <strong style="color: #d97706;">F₂ = 60 N a 120°</strong> (medidos desde el eje X positivo). 
+                                    Encuentre la fuerza resultante.
+                                </p>
+                                
+                                <div style="background: white; padding: 1.5em; border-radius: 8px;">
+                                    <h5 style="color: #f59e0b; margin-bottom: 0.8em;">📊 Datos del problema:</h5>
+                                    <ul style="color: #92400e; line-height: 1.8;">
+                                        <li><strong>Fuerza 1:</strong> $\vec{F_1} = 80$ N a 30°</li>
+                                        <li><strong>Fuerza 2:</strong> $\vec{F_2} = 60$ N a 120°</li>
+                                        <li><strong>Encontrar:</strong> $\vec{F_R} = \vec{F_1} + \vec{F_2}$</li>
+                                        <li><strong>Método:</strong> Paralelogramo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Solución Paso a Paso -->
+                            <div style="background: white; padding: 2em; border-radius: 12px; border: 2px solid #f59e0b;">
+                                <h4 style="color: #d97706; margin-bottom: 1em;">🔍 Solución por Paralelogramo:</h4>
+                                
+                                <div style="margin-bottom: 1.5em;">
+                                    <h5 style="color: #f59e0b; margin-bottom: 0.8em;">Paso 1: Componentes de F₁</h5>
+                                    <div style="font-family: monospace; color: #92400e; line-height: 1.8;">
+                                        <p>F₁ₓ = 80 cos(30°) = 80 × 0.866 = 69.3 N</p>
+                                        <p>F₁ᵧ = 80 sin(30°) = 80 × 0.500 = 40.0 N</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5em;">
+                                    <h5 style="color: #f59e0b; margin-bottom: 0.8em;">Paso 2: Componentes de F₂</h5>
+                                    <div style="font-family: monospace; color: #92400e; line-height: 1.8;">
+                                        <p>F₂ₓ = 60 cos(120°) = 60 × (-0.5) = -30.0 N</p>
+                                        <p>F₂ᵧ = 60 sin(120°) = 60 × 0.866 = 52.0 N</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5em;">
+                                    <h5 style="color: #f59e0b; margin-bottom: 0.8em;">Paso 3: Fuerza resultante</h5>
+                                    <div style="font-family: monospace; color: #92400e; line-height: 1.8;">
+                                        <p>Fᵣₓ = F₁ₓ + F₂ₓ = 69.3 + (-30.0) = 39.3 N</p>
+                                        <p>Fᵣᵧ = F₁ᵧ + F₂ᵧ = 40.0 + 52.0 = 92.0 N</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #fef3c7; padding: 1.5em; border-radius: 8px;">
+                                    <h5 style="color: #d97706; margin-bottom: 0.8em;">📏 Resultado Final:</h5>
+                                    <div style="font-family: monospace; color: #92400e; line-height: 1.8; font-weight: 600;">
+                                        <p><strong>Magnitud:</strong> |F⃗ᵣ| = √(39.3² + 92.0²) = √(1544.5 + 8464) = √10008.5 = <span style="color: #dc2626;">100.0 N</span></p>
+                                        <p><strong>Dirección:</strong> θ = arctan(92.0/39.3) = arctan(2.34) = <span style="color: #059669;">66.9°</span></p>
+                                        <p><strong>Vector:</strong> F⃗ᵣ = <span style="color: #8b5cf6;">39.3î + 92.0ĵ</span> N</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lado Derecho: Diagrama del Paralelogramo -->
+                        <div style="text-align: center;">
+                            <div style="background: linear-gradient(135deg, #ecfeff, #cffafe); padding: 2em; border-radius: 15px; margin-bottom: 1.5em;">
+                                <h4 style="color: #0891b2; margin-bottom: 1em;">▱ Construcción del Paralelogramo</h4>
+                                
+                                <!-- Simulación del paralelogramo con CSS -->
+                                <div style="position: relative; width: 280px; height: 220px; margin: 0 auto; background: white; border: 2px solid #64748b; border-radius: 8px;">
+                                    
+                                    <!-- Ejes de coordenadas -->
+                                    <div style="position: absolute; bottom: 40px; left: 40px; width: 200px; height: 2px; background: #64748b;"></div>
+                                    <div style="position: absolute; bottom: 40px; left: 40px; width: 2px; height: 140px; background: #64748b;"></div>
+                                    
+                                    <!-- Vector F1 (desde origen, 30°) -->
+                                    <div style="position: absolute; bottom: 38px; left: 42px; width: 100px; height: 4px; background: #ef4444; transform: rotate(30deg); transform-origin: left bottom; border-radius: 2px;"></div>
+                                    <div style="position: absolute; bottom: 85px; left: 125px; color: #ef4444; font-weight: bold; font-size: 0.8em;">F₁ (80N)</div>
+                                    
+                                    <!-- Vector F2 (desde origen, 120°) -->
+                                    <div style="position: absolute; bottom: 38px; left: 42px; width: 80px; height: 4px; background: #10b981; transform: rotate(120deg); transform-origin: left bottom; border-radius: 2px;"></div>
+                                    <div style="position: absolute; bottom: 120px; left: 15px; color: #10b981; font-weight: bold; font-size: 0.8em;">F₂ (60N)</div>
+                                    
+                                    <!-- Líneas paralelas para completar paralelogramo -->
+                                    <div style="position: absolute; bottom: 108px; left: 12px; width: 100px; height: 2px; background: #94a3b8; transform: rotate(30deg); transform-origin: left bottom; opacity: 0.7;"></div>
+                                    <div style="position: absolute; bottom: 85px; left: 128px; width: 80px; height: 2px; background: #94a3b8; transform: rotate(120deg); transform-origin: left bottom; opacity: 0.7;"></div>
+                                    
+                                    <!-- Vector Resultante (diagonal) -->
+                                    <div style="position: absolute; bottom: 40px; left: 40px; width: 130px; height: 4px; background: #8b5cf6; transform: rotate(66.9deg); transform-origin: left bottom; border-radius: 2px;"></div>
+                                    <div style="position: absolute; bottom: 90px; left: 80px; color: #8b5cf6; font-weight: bold; font-size: 0.8em;">Fᵣ (100N)</div>
+                                    
+                                    <!-- Ángulos -->
+                                    <div style="position: absolute; bottom: 45px; left: 55px; color: #ef4444; font-size: 0.7em;">30°</div>
+                                    <div style="position: absolute; bottom: 55px; left: 25px; color: #10b981; font-size: 0.7em;">120°</div>
+                                    <div style="position: absolute; bottom: 50px; left: 75px; color: #8b5cf6; font-size: 0.7em;">66.9°</div>
+                                    
+                                    <!-- Etiquetas de ejes -->
+                                    <div style="position: absolute; bottom: 25px; right: 30px; color: #64748b; font-size: 0.7em;">X</div>
+                                    <div style="position: absolute; top: 30px; left: 25px; color: #64748b; font-size: 0.7em;">Y</div>
+                                </div>
+                                
+                                <p style="color: #0e7490; margin-top: 1em; font-size: 0.9em;">
+                                    Paralelogramo de fuerzas con diagonal resultante
+                                </p>
+                            </div>
+                            
+                            <!-- Verificación Gráfica -->
+                            <div style="background: white; padding: 1.5em; border-radius: 12px; border: 2px solid #8b5cf6;">
+                                <h4 style="color: #7c3aed; margin-bottom: 1em;">✅ Verificación:</h4>
+                                <p style="color: #6d28d9; line-height: 1.6; font-size: 0.95em;">
+                                    El paralelogramo muestra visualmente que la diagonal (vector morado) 
+                                    representa correctamente la <strong style="color: #8b5cf6;">suma de las dos fuerzas</strong>. 
+                                    La magnitud y dirección calculadas coinciden con la construcción geométrica.
+                                </p>
+                                <div style="margin-top: 1em; padding: 1em; background: #f3e8ff; border-radius: 8px;">
+                                    <p style="color: #7c3aed; font-weight: 600; font-size: 0.9em;">
+                                        🏗️ <strong>Interpretación física:</strong> La grúa experimenta una fuerza neta de 100 N 
+                                        en dirección 66.9° respecto a la horizontal.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* 🔄 Sub-sección: Ventajas y Desventajas del Método *-->
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #ffffff; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-balance-scale" style="color: #fbbf24;"></i> Análisis Comparativo: Paralelogramo vs Triángulo
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-bottom: 2em;">
+                    
+                    <!-- Ventajas del Paralelogramo -->
+                    <div style="background: rgba(16,185,129,0.2); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">✅ Ventajas del Paralelogramo</h4>
+                        <ul style="color: #d1fae5; text-align: left; line-height: 1.8; font-size: 0.95em;">
+                            <li><strong>Simetría visual:</strong> Ambos vectores parten del mismo origen</li>
+                            <li><strong>Verificación doble:</strong> Se pueden medir ambas diagonales</li>
+                            <li><strong>Elegancia geométrica:</strong> Construcción más estética</li>
+                            <li><strong>Intuición física:</strong> Representa mejor fuerzas concurrentes</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Desventajas del Paralelogramo -->
+                    <div style="background: rgba(245,158,11,0.2); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <h4 style="color: #fcd34d; margin-bottom: 1em; font-size: 1.3em;">⚠️ Consideraciones</h4>
+                        <ul style="color: #fed7aa; text-align: left; line-height: 1.8; font-size: 0.95em;">
+                            <li><strong>Más líneas:</strong> Requiere trazar más elementos auxiliares</li>
+                            <li><strong>Espacio:</strong> Necesita más área para la construcción</li>
+                            <li><strong>Complejidad:</strong> Slightly más complejo para principiantes</li>
+                            <li><strong>Precisión:</strong> Requiere mayor cuidado en el trazado</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!--* Recomendación de Uso *-->
+                <div style="background: rgba(255,255,255,0.2); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                    <h4 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.3em;">
+                        <i class="fas fa-lightbulb" style="animation: pulse 2s infinite;"></i> ¿Cuándo Usar Cada Método?
+                    </h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; text-align: left;">
+                        <div style="background: rgba(139,92,246,0.3); padding: 1.5em; border-radius: 10px;">
+                            <h5 style="color: #c4b5fd; margin-bottom: 0.8em;">🔺 Usa Triángulo cuando:</h5>
+                            <ul style="color: #e9d5ff; font-size: 0.9em; line-height: 1.6;">
+                                <li>Sumes múltiples vectores en secuencia</li>
+                                <li>Representes movimientos consecutivos</li>
+                                <li>Enseñes a principiantes</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(245,158,11,0.3); padding: 1.5em; border-radius: 10px;">
+                            <h5 style="color: #fcd34d; margin-bottom: 0.8em;">▱ Usa Paralelogramo cuando:</h5>
+                            <ul style="color: #fed7aa; font-size: 0.9em; line-height: 1.6;">
+                                <li>Analices fuerzas concurrentes</li>
+                                <li>Necesites verificación visual</li>
+                                <li>Busques elegancia geométrica</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--******************************************************************
+    * 🧮 PARTE 6: SUMA DE VECTORES POR COMPONENTES RECTANGULARES 🧮   *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 📊 SECCIÓN 6.1: INTRODUCCIÓN AL MÉTODO ANALÍTICO                |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #fef2f2, #fee2e2); border-radius: 25px; padding: 3em; border: 3px solid #ef4444; box-shadow: 0 20px 40px rgba(239, 68, 68, 0.3); position: relative; overflow: hidden;">
+    
+    <!--* ✨ Efecto Decorativo de Componentes *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ef4444\" fill-opacity=\"0.05\"%3E%3Crect x=\"5\" y=\"5\" width=\"30\" height=\"15\"/%3E%3Crect x=\"5\" y=\"20\" width=\"15\" height=\"15\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.4;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal *-->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-calculator" style="color: #ef4444; margin-right: 0.5em; animation: pulse 3s infinite;"></i>
+            <span style="color: #1e293b;">Suma de Vectores por Componentes</span>
+            <span style="font-size: 0.6em;">🧮📊⚡</span>
+        </h2>
+        
+        <!--* Tarjeta Principal *-->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #ef4444; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(239, 68, 68, 0.2);">
+            
+            <!--* Concepto Fundamental *-->
+            <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 2em; border-radius: 15px; border-left: 6px solid #ef4444; margin-bottom: 2em;">
+                <h3 style="color: #dc2626; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #ef4444;"></i> El Método Analítico más Preciso
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    El <strong style="color: #ef4444;">método por componentes</strong> es la técnica 
+                    <strong style="color: #dc2626;">más precisa y versátil</strong> para sumar vectores. 
+                    Se basa en descomponer cada vector en sus componentes <strong style="color: #991b1b;">X e Y</strong> 
+                    y sumarlas algebraicamente.
+                </p>
+            </div>
+            
+            <!--* Ventajas del Método Analítico *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #dc2626; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-star" style="color: #ef4444;"></i> ¿Por qué es el Método Preferido?
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em;">
+                    
+                    <!-- Ventaja 1: Precisión -->
+                    <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 2em; border-radius: 15px; border: 2px solid #3b82f6; text-align: center;">
+                        <div style="background: #3b82f6; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em;">🎯</div>
+                        <h4 style="color: #2563eb; margin-bottom: 1em; font-size: 1.2em;">Máxima Precisión</h4>
+                        <p style="color: #1e40af; line-height: 1.6; font-size: 0.95em;">
+                            <strong>Sin errores de medición</strong> gráfica. 
+                            Los cálculos trigonométricos proporcionan exactitud matemática.
+                        </p>
+                    </div>
+                    
+                    <!-- Ventaja 2: Múltiples Vectores -->
+                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 2em; border-radius: 15px; border: 2px solid #10b981; text-align: center;">
+                        <div style="background: #10b981; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em;">🔢</div>
+                        <h4 style="color: #059669; margin-bottom: 1em; font-size: 1.2em;">Múltiples Vectores</h4>
+                        <p style="color: #047857; line-height: 1.6; font-size: 0.95em;">
+                            <strong>Fácil escalabilidad</strong> para sumar 
+                            3, 4, 5 o cualquier cantidad de vectores simultáneamente.
+                        </p>
+                    </div>
+                    
+                    <!-- Ventaja 3: Rapidez -->
+                    <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 2em; border-radius: 15px; border: 2px solid #f59e0b; text-align: center;">
+                        <div style="background: #f59e0b; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em;">⚡</div>
+                        <h4 style="color: #d97706; margin-bottom: 1em; font-size: 1.2em;">Rapidez Computacional</h4>
+                        <p style="color: #92400e; line-height: 1.6; font-size: 0.95em;">
+                            <strong>Ideal para computadoras</strong> y calculadoras. 
+                            Los ingenieros lo usan en software especializado.
+                        </p>
+                    </div>
+                    
+                    <!-- Ventaja 4: Universalidad -->
+                    <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); padding: 2em; border-radius: 15px; border: 2px solid #8b5cf6; text-align: center;">
+                        <div style="background: #8b5cf6; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em;">🌍</div>
+                        <h4 style="color: #7c3aed; margin-bottom: 1em; font-size: 1.2em;">Universalidad</h4>
+                        <p style="color: #6d28d9; line-height: 1.6; font-size: 0.95em;">
+                            <strong>Funciona en 2D y 3D</strong>. 
+                            Se extiende fácilmente a espacios de mayor dimensión.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* Procedimiento Fundamental *-->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center; margin-bottom: 2em;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-cogs" style="color: #ef4444;"></i> Procedimiento del Método por Componentes
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+                    
+                    <!-- Paso 1 -->
+                    <div style="background: rgba(239,68,68,0.2); padding: 1.8em; border-radius: 12px; border: 1px solid rgba(239,68,68,0.5);">
+                        <div style="background: #ef4444; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 1.5em; font-weight: bold;">1</div>
+                        <h4 style="color: #fca5a5; margin-bottom: 0.8em;">Descomponer</h4>
+                        <p style="color: #fee2e2; font-size: 0.9em; line-height: 1.6;">
+                            Calcular las componentes X e Y de cada vector usando trigonometría
+                        </p>
+                    </div>
+                    
+                    <!-- Paso 2 -->
+                    <div style="background: rgba(16,185,129,0.2); padding: 1.8em; border-radius: 12px; border: 1px solid rgba(16,185,129,0.5);">
+                        <div style="background: #10b981; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 1.5em; font-weight: bold;">2</div>
+                        <h4 style="color: #6ee7b7; margin-bottom: 0.8em;">Sumar X</h4>
+                        <p style="color: #d1fae5; font-size: 0.9em; line-height: 1.6;">
+                            Sumar algebraicamente todas las componentes X de todos los vectores
+                        </p>
+                    </div>
+                    
+                    <!-- Paso 3 -->
+                    <div style="background: rgba(59,130,246,0.2); padding: 1.8em; border-radius: 12px; border: 1px solid rgba(59,130,246,0.5);">
+                        <div style="background: #3b82f6; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 1.5em; font-weight: bold;">3</div>
+                        <h4 style="color: #93c5fd; margin-bottom: 0.8em;">Sumar Y</h4>
+                        <p style="color: #dbeafe; font-size: 0.9em; line-height: 1.6;">
+                            Sumar algebraicamente todas las componentes Y de todos los vectores
+                        </p>
+                    </div>
+                    
+                    <!-- Paso 4 -->
+                    <div style="background: rgba(245,158,11,0.2); padding: 1.8em; border-radius: 12px; border: 1px solid rgba(245,158,11,0.5);">
+                        <div style="background: #f59e0b; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 1.5em; font-weight: bold;">4</div>
+                        <h4 style="color: #fcd34d; margin-bottom: 0.8em;">Reconstruir</h4>
+                        <p style="color: #fed7aa; font-size: 0.9em; line-height: 1.6;">
+                            Calcular magnitud y dirección del vector resultante usando Pitágoras
+                        </p>
+                    </div>
+                </div>
+                
+                <!--* Fórmulas Fundamentales *-->
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                    <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.3em;">🧮 Fórmulas Fundamentales</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; text-align: left;">
+                        <div>
+                            <h5 style="color: #fca5a5; margin-bottom: 0.8em;">Suma de Componentes:</h5>
+                            <div style="font-size: 1.3em; color: #fee2e2; font-family: monospace; line-height: 1.8;">
+                                <p>$R_x = A_x + B_x + C_x + ...$</p>
+                                <p>$R_y = A_y + B_y + C_y + ...$</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 style="color: #93c5fd; margin-bottom: 0.8em;">Vector Resultante:</h5>
+                            <div style="font-size: 1.3em; color: #dbeafe; font-family: monospace; line-height: 1.8;">
+                                <p>$|\vec{R}| = \sqrt{R_x^2 + R_y^2}$</p>
+                                <p>$θ = \arctan\left(\frac{R_y}{R_x}\right)$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--* 🌟 Sub-sección: Ejemplo Práctico Completo *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #dc2626; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: #ef4444;"></i> Ejemplo Práctico: Sistema de Fuerzas en un Puente
+                </h3>
+                
+                <div style="background: #f8fafc; padding: 2.5em; border-radius: 15px; border: 2px solid #64748b;">
+                    
+                    <!--* Enunciado del Problema *-->
+                    <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 2em; border-radius: 12px; border-left: 4px solid #ef4444; margin-bottom: 2em;">
+                        <h4 style="color: #dc2626; margin-bottom: 1em;">🌉 Problema:</h4>
+                        <p style="color: #991b1b; line-height: 1.7; margin-bottom: 1em;">
+                            En el diseño de un puente, tres fuerzas actúan sobre un nodo crítico:
+                        </p>
+                        <ul style="color: #991b1b; line-height: 1.8; margin-left: 2em;">
+                            <li><strong>Fuerza A:</strong> 150 N a 25° sobre la horizontal</li>
+                            <li><strong>Fuerza B:</strong> 200 N a 135° sobre la horizontal</li>
+                            <li><strong>Fuerza C:</strong> 120 N a 270° (hacia abajo)</li>
+                        </ul>
+                        <p style="color: #991b1b; line-height: 1.7; margin-top: 1em;">
+                            <strong>Encontrar:</strong> La fuerza resultante del sistema usando el método de componentes.
+                        </p>
+                    </div>
+                    
+                    <!--* Tabla de Datos Organizados *-->
+                    <div style="background: white; padding: 2em; border-radius: 12px; border: 2px solid #ef4444; margin-bottom: 2em;">
+                        <h4 style="color: #dc2626; margin-bottom: 1em; text-align: center;">📊 Datos Organizados del Sistema</h4>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: separate; border-spacing: 0; background: #f8fafc; border-radius: 10px; overflow: hidden;">
+                                <thead>
+                                    <tr style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white;">
+                                        <th style="padding: 1em; text-align: center; font-weight: 700;">Vector</th>
+                                        <th style="padding: 1em; text-align: center; font-weight: 700;">Magnitud</th>
+                                        <th style="padding: 1em; text-align: center; font-weight: 700;">Ángulo</th>
+                                        <th style="padding: 1em; text-align: center; font-weight: 700;">cos θ</th>
+                                        <th style="padding: 1em; text-align: center; font-weight: 700;">sin θ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background: white;">
+                                        <td style="padding: 1em; text-align: center; font-weight: 600; color: #dc2626;">Fuerza A</td>
+                                        <td style="padding: 1em; text-align: center;">150 N</td>
+                                        <td style="padding: 1em; text-align: center;">25°</td>
+                                        <td style="padding: 1em; text-align: center; color: #059669;">0.906</td>
+                                        <td style="padding: 1em; text-align: center; color: #2563eb;">0.423</td>
+                                    </tr>
+                                    <tr style="background: #f9fafb;">
+                                        <td style="padding: 1em; text-align: center; font-weight: 600; color: #dc2626;">Fuerza B</td>
+                                        <td style="padding: 1em; text-align: center;">200 N</td>
+                                        <td style="padding: 1em; text-align: center;">135°</td>
+                                        <td style="padding: 1em; text-align: center; color: #059669;">-0.707</td>
+                                        <td style="padding: 1em; text-align: center; color: #2563eb;">0.707</td>
+                                    </tr>
+                                    <tr style="background: white;">
+                                        <td style="padding: 1em; text-align: center; font-weight: 600; color: #dc2626;">Fuerza C</td>
+                                        <td style="padding: 1em; text-align: center;">120 N</td>
+                                        <td style="padding: 1em; text-align: center;">270°</td>
+                                        <td style="padding: 1em; text-align: center; color: #059669;">0.000</td>
+                                        <td style="padding: 1em; text-align: center; color: #2563eb;">-1.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!--* Cálculos Paso a Paso *-->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em;">
+                        
+                        <!-- Lado Izquierdo: Cálculos de Componentes -->
+                        <div>
+                            <h4 style="color: #dc2626; margin-bottom: 1em;">🔍 Paso 1: Calcular Componentes X e Y</h4>
+                            
+                            <!-- Componentes X -->
+                            <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #10b981;">
+                                <h5 style="color: #059669; margin-bottom: 1em;">📐 Componentes X (horizontales):</h5>
+                                <div style="font-family: monospace; color: #047857; line-height: 2; font-size: 0.95em;">
+                                    <p><strong>A_x =</strong> 150 × cos(25°) = 150 × 0.906 = <span style="color: #dc2626; font-weight: bold;">135.9 N</span></p>
+                                    <p><strong>B_x =</strong> 200 × cos(135°) = 200 × (-0.707) = <span style="color: #dc2626; font-weight: bold;">-141.4 N</span></p>
+                                    <p><strong>C_x =</strong> 120 × cos(270°) = 120 × 0.000 = <span style="color: #dc2626; font-weight: bold;">0.0 N</span></p>
+                                    <div style="border-top: 2px solid #10b981; margin-top: 1em; padding-top: 0.5em;">
+                                        <p><strong>ΣF_x = A_x + B_x + C_x = 135.9 + (-141.4) + 0.0 = <span style="background: #dcfce7; padding: 0.2em 0.5em; border-radius: 4px; color: #065f46; font-weight: bold;">-5.5 N</span></strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Componentes Y -->
+                            <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #3b82f6;">
+                                <h5 style="color: #2563eb; margin-bottom: 1em;">📐 Componentes Y (verticales):</h5>
+                                <div style="font-family: monospace; color: #1e40af; line-height: 2; font-size: 0.95em;">
+                                    <p><strong>A_y =</strong> 150 × sin(25°) = 150 × 0.423 = <span style="color: #dc2626; font-weight: bold;">63.5 N</span></p>
+                                    <p><strong>B_y =</strong> 200 × sin(135°) = 200 × 0.707 = <span style="color: #dc2626; font-weight: bold;">141.4 N</span></p>
+                                    <p><strong>C_y =</strong> 120 × sin(270°) = 120 × (-1.000) = <span style="color: #dc2626; font-weight: bold;">-120.0 N</span></p>
+                                    <div style="border-top: 2px solid #3b82f6; margin-top: 1em; padding-top: 0.5em;">
+                                        <p><strong>ΣF_y = A_y + B_y + C_y = 63.5 + 141.4 + (-120.0) = <span style="background: #dbeafe; padding: 0.2em 0.5em; border-radius: 4px; color: #1e3a8a; font-weight: bold;">84.9 N</span></strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Paso 2: Vector Resultante -->
+                            <div style="background: white; padding: 1.5em; border-radius: 10px; border: 2px solid #8b5cf6;">
+                                <h5 style="color: #7c3aed; margin-bottom: 1em;">🎯 Paso 2: Vector Resultante</h5>
+                                <div style="font-family: monospace; color: #6d28d9; line-height: 2; font-size: 0.95em;">
+                                    <p><strong>R⃗ =</strong> ΣF_x î + ΣF_y ĵ</p>
+                                    <p><strong>R⃗ =</strong> <span style="color: #10b981; font-weight: bold;">-5.5î</span> + <span style="color: #3b82f6; font-weight: bold;">84.9ĵ</span> N</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lado Derecho: Resultados Finales y Diagrama -->
+                        <div>
+                            <h4 style="color: #dc2626; margin-bottom: 1em;">📏 Paso 3: Magnitud y Dirección</h4>
+                            
+                            <!-- Cálculo de Magnitud -->
+                            <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #f59e0b;">
+                                <h5 style="color: #d97706; margin-bottom: 1em;">📏 Magnitud del Vector Resultante:</h5>
+                                <div style="font-family: monospace; color: #92400e; line-height: 2; font-size: 0.95em;">
+                                    <p>|R⃗| = √(R_x² + R_y²)</p>
+                                    <p>|R⃗| = √((-5.5)² + (84.9)²)</p>
+                                    <p>|R⃗| = √(30.25 + 7208.01)</p>
+                                    <p>|R⃗| = √7238.26</p>
+                                    <p><strong>|R⃗| = <span style="background: #fed7aa; padding: 0.2em 0.5em; border-radius: 4px; color: #78350f; font-weight: bold;">85.1 N</span></strong></p>
+                                </div>
+                            </div>
+                            
+                            <!-- Cálculo de Dirección -->
+                            <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #8b5cf6;">
+                                <h5 style="color: #7c3aed; margin-bottom: 1em;">🧭 Dirección del Vector Resultante:</h5>
+                                <div style="font-family: monospace; color: #6d28d9; line-height: 2; font-size: 0.95em;">
+                                    <p>θ = arctan(R_y / R_x)</p>
+                                    <p>θ = arctan(84.9 / (-5.5))</p>
+                                    <p>θ = arctan(-15.44)</p>
+                                    <p>θ = -86.3° (en IV cuadrante)</p>
+                                    <p><strong>θ = <span style="background: #e9d5ff; padding: 0.2em 0.5em; border-radius: 4px; color: #581c87; font-weight: bold;">93.7°</span></strong></p>
+                                </div>
+                                <div style="background: rgba(139,92,246,0.1); padding: 1em; border-radius: 8px; margin-top: 1em;">
+                                    <p style="color: #7c3aed; font-size: 0.9em; line-height: 1.6;">
+                                        <strong>💡 Nota:</strong> Como R_x < 0 y R_y > 0, el vector está en el segundo cuadrante.
+                                        Ángulo desde eje X positivo: 180° - 86.3° = 93.7°
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Resultado Final -->
+                            <div style="background: white; padding: 2em; border-radius: 12px; border: 3px solid #ef4444; text-align: center;">
+                                <h4 style="color: #dc2626; margin-bottom: 1em; font-size: 1.4em;">🎉 Resultado Final</h4>
+                                <div style="background: #fef2f2; padding: 1.5em; border-radius: 10px;">
+                                    <p style="color: #991b1b; font-size: 1.3em; font-weight: bold; margin-bottom: 0.8em;">
+                                        <strong>Vector Resultante:</strong>
+                                    </p>
+                                    <p style="color: #dc2626; font-size: 1.1em; margin-bottom: 0.5em;">
+                                        <strong>R⃗ = -5.5î + 84.9ĵ N</strong>
+                                    </p>
+                                    <p style="color: #dc2626; font-size: 1.1em; margin-bottom: 0.5em;">
+                                        <strong>Magnitud: |R⃗| = 85.1 N</strong>
+                                    </p>
+                                    <p style="color: #dc2626; font-size: 1.1em;">
+                                        <strong>Dirección: θ = 93.7°</strong>
+                                    </p>
+                                </div>
+                                
+                                <!-- Interpretación Física -->
+                                <div style="background: linear-gradient(135deg, #ecfeff, #cffafe); padding: 1.5em; border-radius: 10px; margin-top: 1.5em;">
+                                    <h5 style="color: #0891b2; margin-bottom: 0.8em;">🌉 Interpretación:</h5>
+                                    <p style="color: #0e7490; line-height: 1.6; font-size: 0.95em;">
+                                        El nodo del puente experimenta una fuerza neta de <strong>85.1 N</strong> 
+                                        dirigida <strong>93.7° desde la horizontal</strong> (casi vertical hacia arriba). 
+                                        Esta información es crucial para el diseño estructural.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* 🔄 Sub-sección: Ventajas Demostradas del Método *-->
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                <h3 style="color: #ffffff; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-trophy" style="color: #fbbf24;"></i> Ventajas Demostradas en este Ejemplo
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em;">
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 0.5em;">🎯</div>
+                        <h4 style="color: #ffffff; margin-bottom: 0.8em;">Precisión Exacta</h4>
+                        <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                            Resultado: <strong style="color: #fbbf24;">85.1 N a 93.7°</strong><br>
+                            Sin aproximaciones gráficas, solo matemática pura.
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 0.5em;">📊</div>
+                        <h4 style="color: #ffffff; margin-bottom: 0.8em;">Organización Clara</h4>
+                        <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                            Manejo sistemático de <strong style="color: #34d399;">tres vectores</strong> 
+                            simultáneamente con total claridad.
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 0.5em;">⚡</div>
+                        <h4 style="color: #ffffff; margin-bottom: 0.8em;">Eficiencia</h4>
+                        <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                            Solución directa sin necesidad de construcciones gráficas complejas.
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 0.5em;">🔧</div>
+                        <h4 style="color: #ffffff; margin-bottom: 0.8em;">Aplicabilidad</h4>
+                        <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                            Método estándar usado en <strong style="color: #f87171;">ingeniería estructural</strong> 
+                            y software de simulación.
+                        </p>
+                    </div>
+                </div>
+                
+                <!--* Nota de Conclusión *-->
+                <div style="background: rgba(255,255,255,0.2); padding: 2em; border-radius: 15px; margin-top: 2em; backdrop-filter: blur(10px);">
+                    <h4 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.3em;">
+                        <i class="fas fa-lightbulb" style="animation: pulse 2s infinite;"></i> Conclusión Clave
+                    </h4>
+                    <p style="color: #ffffff; font-size: 1.1em; line-height: 1.7;">
+                        El método por componentes es <strong style="color: #34d399;">la herramienta definitiva</strong> 
+                        para sumar vectores en aplicaciones reales. Su precisión, sistematicidad y escalabilidad 
+                        lo convierten en el <strong style="color: #60a5fa;">estándar de la industria</strong>. 
+                        ¡Domínalo y tendrás el poder de resolver cualquier sistema vectorial! 🚀⚡
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--******************************************************************
+    * ⇄ PARTE 7: VECTOR NEGATIVO Y RESTA DE VECTORES ⇄              *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 🔄 SECCIÓN 7.1: CONCEPTO DE VECTOR NEGATIVO                     |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-radius: 25px; padding: 3em; border: 3px solid #6366f1; box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3); position: relative; overflow: hidden;">
+    
+    <!--* ✨ Efecto Decorativo de Flechas Opuestas *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"30\" viewBox=\"0 0 60 30\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M10 15h20M40 15h-20\" stroke=\"%236366f1\" stroke-width=\"2\" marker-end=\"url(%23arrow)\" marker-start=\"url(%23arrow)\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.4;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal *-->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-exchange-alt" style="color: #6366f1; margin-right: 0.5em; animation: bounce 2s infinite;"></i>
+            <span style="color: #1e293b;">Vector Negativo: El Espejo Matemático</span>
+            <span style="font-size: 0.6em;">⇄🔄⚡</span>
+        </h2>
+        
+        <!--* Tarjeta Principal *-->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #6366f1; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);">
+            
+            <!--* Concepto Fundamental *-->
+            <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 2em; border-radius: 15px; border-left: 6px solid #6366f1; margin-bottom: 2em;">
+                <h3 style="color: #4f46e5; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #6366f1;"></i> ¿Qué es un Vector Negativo?
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    El <strong style="color: #6366f1;">vector negativo</strong> de $\vec{A}$, denotado como <strong style="color: #4f46e5;">$-\vec{A}$</strong>, 
+                    es un vector que tiene la <strong style="color: #3730a3;">misma magnitud</strong> que $\vec{A}$ pero 
+                    <strong style="color: #312e81;">sentido exactamente opuesto</strong>.
+                </p>
+            </div>
+            
+            <!--* Propiedades del Vector Negativo *-->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+                
+                <!-- Propiedad 1: Misma Magnitud -->
+                <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 2em; border-radius: 15px; border: 2px solid #3b82f6; text-align: center;">
+                    <div style="background: #3b82f6; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em;">📏</div>
+                    <h4 style="color: #2563eb; margin-bottom: 1em; font-size: 1.2em;">Magnitud Idéntica</h4>
+                    <p style="color: #1e40af; line-height: 1.6; font-size: 0.95em;">
+                        <strong style="color: #3b82f6;">$|\vec{A}| = |-\vec{A}|$</strong><br>
+                        La longitud del vector no cambia, solo su orientación.
+                    </p>
+                </div>
+                
+                <!-- Propiedad 2: Sentido Opuesto -->
+                <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 2em; border-radius: 15px; border: 2px solid #ef4444; text-align: center;">
+                    <div style="background: #ef4444; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em;">↔</div>
+                    <h4 style="color: #dc2626; margin-bottom: 1em; font-size: 1.2em;">Sentido Opuesto</h4>
+                    <p style="color: #991b1b; line-height: 1.6; font-size: 0.95em;">
+                        Si $\vec{A}$ apunta hacia el este, <strong style="color: #ef4444;">$-\vec{A}$</strong> 
+                        apunta hacia el oeste.
+                    </p>
+                </div>
+                
+                <!-- Propiedad 3: Suma es Cero -->
+                <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 2em; border-radius: 15px; border: 2px solid #10b981; text-align: center;">
+                    <div style="background: #10b981; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 2em;">⭕</div>
+                    <h4 style="color: #059669; margin-bottom: 1em; font-size: 1.2em;">Suma es Vector Cero</h4>
+                    <p style="color: #047857; line-height: 1.6; font-size: 0.95em;">
+                        <strong style="color: #10b981;">$\vec{A} + (-\vec{A}) = \vec{0}$</strong><br>
+                        Se cancelan mutuamente, resultando en el vector nulo.
+                    </p>
+                </div>
+            </div>
+            
+            <!--* Representación Visual Lado a Lado *-->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center; margin-bottom: 2em;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-eye" style="color: #6366f1;"></i> Representación Visual: Vector y su Negativo
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2em; margin-bottom: 2em;">
+                    
+                    <!-- Vector Original -->
+                    <div style="background: rgba(59,130,246,0.2); padding: 2em; border-radius: 15px;">
+                        <h4 style="color: #93c5fd; margin-bottom: 1em;">Vector Original $\vec{A}$</h4>
+                        <div style="background: white; width: 150px; height: 80px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <!-- Flecha hacia la derecha -->
+                            <div style="width: 80px; height: 4px; background: #3b82f6; position: relative;">
+                                <div style="position: absolute; right: -8px; top: -6px; width: 0; height: 0; border-left: 12px solid #3b82f6; border-top: 8px solid transparent; border-bottom: 8px solid transparent;"></div>
+                            </div>
+                        </div>
+                        <p style="color: #dbeafe; font-size: 0.9em;">Magnitud: 5 unidades<br>Dirección: Este (→)</p>
+                    </div>
+                    
+                    <!-- Vector Negativo -->
+                    <div style="background: rgba(239,68,68,0.2); padding: 2em; border-radius: 15px;">
+                        <h4 style="color: #fca5a5; margin-bottom: 1em;">Vector Negativo $-\vec{A}$</h4>
+                        <div style="background: white; width: 150px; height: 80px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <!-- Flecha hacia la izquierda -->
+                            <div style="width: 80px; height: 4px; background: #ef4444; position: relative;">
+                                <div style="position: absolute; left: -8px; top: -6px; width: 0; height: 0; border-right: 12px solid #ef4444; border-top: 8px solid transparent; border-bottom: 8px solid transparent;"></div>
+                            </div>
+                        </div>
+                        <p style="color: #fee2e2; font-size: 0.9em;">Magnitud: 5 unidades<br>Dirección: Oeste (←)</p>
+                    </div>
+                    
+                    <!-- Suma de Ambos -->
+                    <div style="background: rgba(16,185,129,0.2); padding: 2em; border-radius: 15px;">
+                        <h4 style="color: #6ee7b7; margin-bottom: 1em;">Suma $\vec{A} + (-\vec{A})$</h4>
+                        <div style="background: white; width: 150px; height: 80px; margin: 0 auto 1em; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <!-- Punto (vector cero) -->
+                            <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
+                        </div>
+                        <p style="color: #d1fae5; font-size: 0.9em;">Magnitud: 0 unidades<br>Vector Nulo $\vec{0}$</p>
+                    </div>
+                </div>
+                
+                <!--* Fórmulas Matemáticas *-->
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                    <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.3em;">🧮 Relaciones Matemáticas Fundamentales</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; text-align: left;">
+                        <div>
+                            <h5 style="color: #c4b5fd; margin-bottom: 0.8em;">Propiedades Básicas:</h5>
+                            <div style="font-size: 1.2em; color: #e9d5ff; font-family: monospace; line-height: 2;">
+                                <p>$|-\vec{A}| = |\vec{A}|$</p>
+                                <p>$\vec{A} + (-\vec{A}) = \vec{0}$</p>
+                                <p>$-(-\vec{A}) = \vec{A}$</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 style="color: #fcd34d; margin-bottom: 0.8em;">En Componentes:</h5>
+                            <div style="font-size: 1.2em; color: #fed7aa; font-family: monospace; line-height: 2;">
+                                <p>Si $\vec{A} = A_x\hat{i} + A_y\hat{j}$</p>
+                                <p>Entonces $-\vec{A} = -A_x\hat{i} - A_y\hat{j}$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================================================================
+     | ➖ SECCIÓN 7.2: RESTA DE VECTORES                               |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #ecfeff, #cffafe); border-radius: 25px; padding: 3em; border: 3px solid #06b6d4; box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3); position: relative; overflow: hidden;">
+    
+    <!--* ✨ Efecto Decorativo de Símbolos de Resta *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%2306b6d4\" fill-opacity=\"0.05\"%3E%3Crect x=\"10\" y=\"18\" width=\"20\" height=\"4\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.4;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal *-->
+        <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1em; text-align: center;">
+            <i class="fas fa-minus" style="color: #06b6d4; margin-right: 0.5em; animation: logoSpin 4s linear infinite;"></i>
+            <span style="color: #1e293b;">Resta de Vectores: Suma Disfrazada</span>
+            <span style="font-size: 0.6em;">➖🎭⚡</span>
+        </h2>
+        
+        <!--* Tarjeta Principal *-->
+        <div style="background: white; padding: 2.5em; border-radius: 20px; border: 2px solid #06b6d4; margin-bottom: 2em; box-shadow: 0 15px 30px rgba(6, 182, 212, 0.2);">
+            
+            <!--* Concepto Clave de la Resta *-->
+            <div style="background: linear-gradient(135deg, #f0fdfa, #ccfbf1); padding: 2em; border-radius: 15px; border-left: 6px solid #06b6d4; margin-bottom: 2em;">
+                <h3 style="color: #0891b2; font-size: 1.6em; margin-bottom: 1em; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: #06b6d4;"></i> El Secreto de la Resta Vectorial
+                </h3>
+                <p style="color: #1e293b; font-size: 1.3em; line-height: 1.8; text-align: center; font-weight: 600;">
+                    <strong>¡No existe una "resta" especial de vectores!</strong> La operación <strong style="color: #06b6d4;">$\vec{A} - \vec{B}$</strong> 
+                    es simplemente <strong style="color: #0891b2;">$\vec{A} + (-\vec{B})$</strong>. 
+                    ¡Es una suma disfrazada! 🎭
+                </p>
+            </div>
+            
+            <!--* Transformación Conceptual *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #0891b2; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-magic" style="color: #06b6d4;"></i> La Transformación Mágica
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 2em; align-items: center;">
+                    
+                    <!-- Resta Original -->
+                    <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 2em; border-radius: 15px; border: 2px solid #ef4444; text-align: center;">
+                        <h4 style="color: #dc2626; margin-bottom: 1em; font-size: 1.3em;">❓ Problema Original</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; color: #ef4444; margin-bottom: 0.5em; font-family: serif;">
+                                $\vec{A} - \vec{B}$
+                            </div>
+                            <p style="color: #991b1b; font-size: 1em;">
+                                "¿Cómo resto vectores?"
+                            </p>
+                        </div>
+                        <div style="background: rgba(239,68,68,0.1); padding: 1em; border-radius: 8px;">
+                            <p style="color: #dc2626; font-weight: 600; font-size: 0.9em;">
+                                🤔 Parece complicado...
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Flecha de Transformación -->
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; color: #06b6d4; animation: bounce 2s infinite;">⟹</div>
+                        <p style="color: #0891b2; font-weight: 600; margin-top: 0.5em;">¡Transformación!</p>
+                    </div>
+                    
+                    <!-- Suma Equivalente -->
+                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 2em; border-radius: 15px; border: 2px solid #10b981; text-align: center;">
+                        <h4 style="color: #059669; margin-bottom: 1em; font-size: 1.3em;">✅ Problema Transformado</h4>
+                        <div style="background: white; padding: 1.5em; border-radius: 10px; margin-bottom: 1em;">
+                            <div style="font-size: 2.5em; color: #10b981; margin-bottom: 0.5em; font-family: serif;">
+                                $\vec{A} + (-\vec{B})$
+                            </div>
+                            <p style="color: #047857; font-size: 1em;">
+                                "¡Ahora es una suma!"
+                            </p>
+                        </div>
+                        <div style="background: rgba(16,185,129,0.1); padding: 1em; border-radius: 8px;">
+                            <p style="color: #059669; font-weight: 600; font-size: 0.9em;">
+                                🎉 ¡Ya sabemos sumar!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--* Métodos de Resta Vectorial *-->
+            <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2.5em; border-radius: 20px; text-align: center; margin-bottom: 2em;">
+                <h3 style="color: #cbd5e1; margin-bottom: 1.5em; font-size: 1.6em;">
+                    <i class="fas fa-cogs" style="color: #06b6d4;"></i> Métodos para Restar Vectores
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+                    
+                    <!-- Método 1: Triángulo -->
+                    <div style="background: rgba(139,92,246,0.2); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <h4 style="color: #c4b5fd; margin-bottom: 1em; font-size: 1.2em;">🔺 Método del Triángulo</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1em; border-radius: 8px; margin-bottom: 1em;">
+                            <p style="color: #e9d5ff; font-size: 0.9em; line-height: 1.6;">
+                                1. Invierte $\vec{B}$ para obtener $-\vec{B}$<br>
+                                2. Conecta cola de $-\vec{B}$ con cabeza de $\vec{A}$<br>
+                                3. El resultado va del origen a la cabeza final
+                            </p>
+                        </div>
+                        <p style="color: #c4b5fd; font-size: 0.9em;">Ideal para visualización gráfica</p>
+                    </div>
+                    
+                    <!-- Método 2: Paralelogramo -->
+                    <div style="background: rgba(245,158,11,0.2); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <h4 style="color: #fcd34d; margin-bottom: 1em; font-size: 1.2em;">▱ Método del Paralelogramo</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1em; border-radius: 8px; margin-bottom: 1em;">
+                            <p style="color: #fed7aa; font-size: 0.9em; line-height: 1.6;">
+                                1. Coloca $\vec{A}$ y $-\vec{B}$ desde el origen<br>
+                                2. Completa el paralelogramo<br>
+                                3. La diagonal es $\vec{A} - \vec{B}$
+                            </p>
+                        </div>
+                        <p style="color: #fcd34d; font-size: 0.9em;">Elegante y simétrico</p>
+                    </div>
+                    
+                    <!-- Método 3: Componentes -->
+                    <div style="background: rgba(239,68,68,0.2); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <h4 style="color: #fca5a5; margin-bottom: 1em; font-size: 1.2em;">🧮 Método por Componentes</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1em; border-radius: 8px; margin-bottom: 1em;">
+                            <p style="color: #fee2e2; font-size: 0.9em; line-height: 1.6;">
+                                1. $(A - B)_x = A_x - B_x$<br>
+                                2. $(A - B)_y = A_y - B_y$<br>
+                                3. Reconstruir el vector resultante
+                            </p>
+                        </div>
+                        <p style="color: #fca5a5; font-size: 0.9em;">Máxima precisión analítica</p>
+                    </div>
+                </div>
+                
+                <!--* Fórmula Unificada *-->
+                <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                    <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.3em;">🎯 Fórmula Unificada de la Resta</h4>
+                    <div style="font-size: 2.2em; color: #06b6d4; margin: 1em 0; font-weight: bold; font-family: serif;">
+                        $\vec{A} - \vec{B} = \vec{A} + (-\vec{B})$
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 1.1em;">
+                        <strong>Recuerda:</strong> La resta vectorial es <strong style="color: #60a5fa;">suma del vector negativo</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--* 🌟 Sub-sección: Ejemplo Práctico Completo de Resta *-->
+            <div style="margin-bottom: 2em;">
+                <h3 style="color: #0891b2; font-size: 1.6em; margin-bottom: 1.5em; text-align: center;">
+                    <i class="fas fa-lightbulb" style="color: #06b6d4;"></i> Ejemplo Práctico: Velocidades Relativas de Barcos
+                </h3>
+                
+                <div style="background: #f8fafc; padding: 2.5em; border-radius: 15px; border: 2px solid #64748b;">
+                    
+                    <!--* Enunciado del Problema *-->
+                    <div style="background: linear-gradient(135deg, #f0fdfa, #ccfbf1); padding: 2em; border-radius: 12px; border-left: 4px solid #06b6d4; margin-bottom: 2em;">
+                        <h4 style="color: #0891b2; margin-bottom: 1em;">🚢 Problema de Navegación:</h4>
+                        <p style="color: #0e7490; line-height: 1.7; margin-bottom: 1em;">
+                            Dos barcos navegan en el océano. El barco A se mueve con velocidad 
+                            <strong style="color: #06b6d4;">$\vec{v_A} = 30$ km/h a 60°</strong> respecto al este. 
+                            El barco B se mueve con velocidad <strong style="color: #0891b2;">$\vec{v_B} = 20$ km/h a 120°</strong> respecto al este.
+                        </p>
+                        <p style="color: #0e7490; line-height: 1.7; margin-bottom: 1em;">
+                            <strong>Encontrar:</strong> La velocidad relativa del barco A respecto al barco B, 
+                            es decir, <strong style="color: #06b6d4;">$\vec{v_{A/B}} = \vec{v_A} - \vec{v_B}$</strong>
+                        </p>
+                        
+                        <div style="background: white; padding: 1.5em; border-radius: 8px;">
+                            <h5 style="color: #06b6d4; margin-bottom: 0.8em;">📊 Datos del problema:</h5>
+                            <ul style="color: #0e7490; line-height: 1.8;">
+                                <li><strong>Barco A:</strong> $\vec{v_A} = 30$ km/h a 60°</li>
+                                <li><strong>Barco B:</strong> $\vec{v_B} = 20$ km/h a 120°</li>
+                                <li><strong>Encontrar:</strong> $\vec{v_{A/B}} = \vec{v_A} - \vec{v_B}$</li>
+                                <li><strong>Método:</strong> Componentes rectangulares</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!--* Solución por los Tres Métodos *-->
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 2em;">
+                        
+                        <!--* Método 1: Por Componentes (Principal) *-->
+                        <div style="background: white; padding: 2em; border-radius: 12px; border: 3px solid #ef4444;">
+                            <h4 style="color: #dc2626; margin-bottom: 1em; text-align: center; font-size: 1.4em;">
+                                🧮 Método 1: Resta por Componentes (Más Preciso)
+                            </h4>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em;">
+                                
+                                <!-- Cálculo de Componentes -->
+                                <div>
+                                    <h5 style="color: #dc2626; margin-bottom: 1em;">📐 Paso 1: Componentes de cada vector</h5>
+                                    
+                                    <!-- Componentes del Barco A -->
+                                    <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #3b82f6;">
+                                        <h6 style="color: #2563eb; margin-bottom: 0.8em;">Barco A ($\vec{v_A}$):</h6>
+                                        <div style="font-family: monospace; color: #1e40af; line-height: 1.8; font-size: 0.95em;">
+                                            <p>v_{Ax} = 30 cos(60°) = 30 × 0.5 = <span style="color: #dc2626; font-weight: bold;">15.0 km/h</span></p>
+                                            <p>v_{Ay} = 30 sin(60°) = 30 × 0.866 = <span style="color: #dc2626; font-weight: bold;">25.98 km/h</span></p>
+                                            <p style="margin-top: 0.5em;"><strong>$\vec{v_A} = 15.0\hat{i} + 25.98\hat{j}$ km/h</strong></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Componentes del Barco B -->
+                                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #10b981;">
+                                        <h6 style="color: #059669; margin-bottom: 0.8em;">Barco B ($\vec{v_B}$):</h6>
+                                        <div style="font-family: monospace; color: #047857; line-height: 1.8; font-size: 0.95em;">
+                                            <p>v_{Bx} = 20 cos(120°) = 20 × (-0.5) = <span style="color: #dc2626; font-weight: bold;">-10.0 km/h</span></p>
+                                            <p>v_{By} = 20 sin(120°) = 20 × 0.866 = <span style="color: #dc2626; font-weight: bold;">17.32 km/h</span></p>
+                                            <p style="margin-top: 0.5em;"><strong>$\vec{v_B} = -10.0\hat{i} + 17.32\hat{j}$ km/h</strong></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Resta de Componentes -->
+                                    <div style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); padding: 1.5em; border-radius: 10px; border-left: 4px solid #8b5cf6;">
+                                        <h6 style="color: #7c3aed; margin-bottom: 0.8em;">Paso 2: Resta $\vec{v_A} - \vec{v_B}$:</h6>
+                                        <div style="font-family: monospace; color: #6d28d9; line-height: 1.8; font-size: 0.95em;">
+                                            <p>v_{A/B,x} = v_{Ax} - v_{Bx} = 15.0 - (-10.0) = <span style="color: #dc2626; font-weight: bold;">25.0 km/h</span></p>
+                                            <p>v_{A/B,y} = v_{Ay} - v_{By} = 25.98 - 17.32 = <span style="color: #dc2626; font-weight: bold;">8.66 km/h</span></p>
+                                            <p style="margin-top: 0.5em;"><strong>$\vec{v_{A/B}} = 25.0\hat{i} + 8.66\hat{j}$ km/h</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Resultado Final -->
+                                <div>
+                                    <h5 style="color: #dc2626; margin-bottom: 1em;">📏 Paso 3: Magnitud y dirección</h5>
+                                    
+                                    <!-- Cálculo de Magnitud -->
+                                    <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #f59e0b;">
+                                        <h6 style="color: #d97706; margin-bottom: 0.8em;">Magnitud:</h6>
+                                        <div style="font-family: monospace; color: #92400e; line-height: 1.8; font-size: 0.95em;">
+                                            <p>|\vec{v_{A/B}}| = √(v_{A/B,x}² + v_{A/B,y}²)</p>
+                                            <p>|\vec{v_{A/B}}| = √(25.0² + 8.66²)</p>
+                                            <p>|\vec{v_{A/B}}| = √(625 + 75)</p>
+                                            <p>|\vec{v_{A/B}}| = √700 = <span style="color: #dc2626; font-weight: bold;">26.46 km/h</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Cálculo de Dirección -->
+                                    <div style="background: linear-gradient(135deg, #ecfeff, #cffafe); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em; border-left: 4px solid #06b6d4;">
+                                        <h6 style="color: #0891b2; margin-bottom: 0.8em;">Dirección:</h6>
+                                        <div style="font-family: monospace; color: #0e7490; line-height: 1.8; font-size: 0.95em;">
+                                            <p>θ = arctan(v_{A/B,y} / v_{A/B,x})</p>
+                                            <p>θ = arctan(8.66 / 25.0)</p>
+                                            <p>θ = arctan(0.346)</p>
+                                            <p>θ = <span style="color: #dc2626; font-weight: bold;">19.1°</span> (I cuadrante)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Resultado Final Destacado -->
+                                    <div style="background: white; padding: 2em; border-radius: 12px; border: 3px solid #dc2626; text-align: center;">
+                                        <h4 style="color: #dc2626; margin-bottom: 1em; font-size: 1.3em;">🎉 Resultado Final</h4>
+                                        <div style="background: #fef2f2; padding: 1.5em; border-radius: 10px;">
+                                            <p style="color: #991b1b; font-size: 1.2em; font-weight: bold; margin-bottom: 0.8em;">
+                                                <strong>Velocidad Relativa:</strong>
+                                            </p>
+                                            <p style="color: #dc2626; font-size: 1.1em; margin-bottom: 0.5em;">
+                                                <strong>$\vec{v_{A/B}} = 25.0\hat{i} + 8.66\hat{j}$ km/h</strong>
+                                            </p>
+                                            <p style="color: #dc2626; font-size: 1.1em; margin-bottom: 0.5em;">
+                                                <strong>Magnitud: 26.46 km/h</strong>
+                                            </p>
+                                            <p style="color: #dc2626; font-size: 1.1em;">
+                                                <strong>Dirección: 19.1° al noreste</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--* Método 2: Verificación Gráfica *-->
+                        <div style="background: white; padding: 2em; border-radius: 12px; border: 2px solid #8b5cf6;">
+                            <h4 style="color: #7c3aed; margin-bottom: 1em; text-align: center; font-size: 1.4em;">
+                                📐 Método 2: Verificación por Triángulo
+                            </h4>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: center;">
+                                
+                                <!-- Explicación del Método -->
+                                <div>
+                                    <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 1.5em; border-radius: 10px; margin-bottom: 1.5em;">
+                                        <h5 style="color: #7c3aed; margin-bottom: 1em;">🔄 Pasos del método gráfico:</h5>
+                                        <ol style="color: #6d28d9; line-height: 1.8; font-size: 0.95em;">
+                                            <li><strong>Dibujar $\vec{v_A}$</strong> desde el origen</li>
+                                            <li><strong>Invertir $\vec{v_B}$</strong> para obtener $-\vec{v_B}$</li>
+                                            <li><strong>Conectar</strong> la cola de $-\vec{v_B}$ con la cabeza de $\vec{v_A}$</li>
+                                            <li><strong>El vector resultante</strong> va del origen a la cabeza final</li>
+                                        </ol>
+                                    </div>
+                                    
+                                    <div style="background: #f3e8ff; padding: 1.5em; border-radius: 10px;">
+                                        <h6 style="color: #7c3aed; margin-bottom: 0.8em;">✅ Verificación:</h6>
+                                        <p style="color: #6d28d9; line-height: 1.6; font-size: 0.95em;">
+                                            El método gráfico debe dar aproximadamente el mismo resultado: 
+                                            <strong>26.5 km/h a 19°</strong>, confirmando nuestro cálculo analítico.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Diagrama Conceptual -->
+                                <div style="text-align: center;">
+                                    <div style="background: linear-gradient(135deg, #ecfeff, #cffafe); padding: 2em; border-radius: 15px;">
+                                        <h5 style="color: #0891b2; margin-bottom: 1em;">🎯 Construcción Gráfica</h5>
+                                        
+                                        <!-- Simulación del diagrama vectorial -->
+                                        <div style="position: relative; width: 200px; height: 160px; margin: 0 auto; background: white; border: 2px solid #64748b; border-radius: 8px;">
+                                            
+                                            <!-- Ejes de coordenadas -->
+                                            <div style="position: absolute; bottom: 30px; left: 30px; width: 140px; height: 2px; background: #64748b;"></div>
+                                            <div style="position: absolute; bottom: 30px; left: 30px; width: 2px; height: 100px; background: #64748b;"></div>
+                                            
+                                            <!-- Vector vA (azul, 60°) -->
+                                            <div style="position: absolute; bottom: 28px; left: 32px; width: 60px; height: 4px; background: #3b82f6; transform: rotate(60deg); transform-origin: left bottom; border-radius: 2px;"></div>
+                                            <div style="position: absolute; bottom: 75px; left: 65px; color: #3b82f6; font-weight: bold; font-size: 0.7em;">vA</div>
+                                            
+                                            <!-- Vector -vB (rojo, desde cabeza de vA, dirección opuesta a vB) -->
+                                            <div style="position: absolute; bottom: 78px; left: 60px; width: 40px; height: 3px; background: #ef4444; transform: rotate(-60deg); transform-origin: left bottom; border-radius: 2px;"></div>
+                                            <div style="position: absolute; bottom: 60px; left: 85px; color: #ef4444; font-weight: bold; font-size: 0.7em;">-vB</div>
+                                            
+                                            <!-- Vector resultante (morado) -->
+                                            <div style="position: absolute; bottom: 30px; left: 30px; width: 80px; height: 4px; background: #8b5cf6; transform: rotate(19deg); transform-origin: left bottom; border-radius: 2px;"></div>
+                                            <div style="position: absolute; bottom: 45px; left: 90px; color: #8b5cf6; font-weight: bold; font-size: 0.7em;">vA/B</div>
+                                            
+                                            <!-- Ángulo -->
+                                            <div style="position: absolute; bottom: 35px; left: 45px; color: #f59e0b; font-size: 0.6em;">19.1°</div>
+                                            
+                                            <!-- Etiquetas de ejes -->
+                                            <div style="position: absolute; bottom: 15px; right: 20px; color: #64748b; font-size: 0.7em;">E</div>
+                                            <div style="position: absolute; top: 20px; left: 15px; color: #64748b; font-size: 0.7em;">N</div>
+                                        </div>
+                                        
+                                        <p style="color: #0e7490; margin-top: 1em; font-size: 0.9em;">
+                                            Construcción: $\vec{v_A} + (-\vec{v_B}) = \vec{v_{A/B}}$
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--* Interpretación Física *-->
+                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2.5em; border-radius: 20px; text-align: center;">
+                            <h4 style="color: #ffffff; margin-bottom: 1em; font-size: 1.4em;">
+                                🌊 Interpretación Física del Resultado
+                            </h4>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+                                
+                                <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                                    <div style="font-size: 2.5em; margin-bottom: 0.5em;">🚢</div>
+                                    <h5 style="color: #ffffff; margin-bottom: 0.8em;">Desde el Barco B</h5>
+                                    <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                                        Un observador en el barco B vería al barco A moverse a 
+                                        <strong style="color: #fbbf24;">26.46 km/h hacia el noreste</strong>.
+                                    </p>
+                                </div>
+                                
+                                <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                                    <div style="font-size: 2.5em; margin-bottom: 0.5em;">📐</div>
+                                    <h5 style="color: #ffffff; margin-bottom: 0.8em;">Velocidad Relativa</h5>
+                                    <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                                        La velocidad relativa indica <strong style="color: #34d399;">qué tan rápido se separan</strong> 
+                                        o se acercan los barcos.
+                                    </p>
+                                </div>
+                                
+                                <div style="background: rgba(255,255,255,0.15); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                                    <div style="font-size: 2.5em; margin-bottom: 0.5em;">⚓</div>
+                                    <h5 style="color: #ffffff; margin-bottom: 0.8em;">Aplicación Práctica</h5>
+                                    <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95em;">
+                                        Crucial para <strong style="color: #f87171;">evitar colisiones</strong> y 
+                                        planificar maniobras de navegación.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!--* Conclusión Destacada *-->
+                            <div style="background: rgba(255,255,255,0.2); padding: 2em; border-radius: 15px; backdrop-filter: blur(10px);">
+                                <h5 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.3em;">
+                                    <i class="fas fa-lightbulb" style="animation: pulse 2s infinite;"></i> Conclusión Clave
+                                </h5>
+                                <p style="color: #ffffff; font-size: 1.1em; line-height: 1.7;">
+                                    La resta vectorial <strong style="color: #34d399;">$\vec{v_A} - \vec{v_B}$</strong> nos da la velocidad del barco A 
+                                    <strong style="color: #60a5fa;">tal como la vería un observador en el barco B</strong>. 
+                                    Esta es la esencia de las <strong style="color: #f87171;">velocidades relativas</strong> 
+                                    en física. ¡Un concepto fundamental para entender el movimiento! 🌊⚡
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--******************************************************************
+    * 🎯 PARTE 8: CIERRE Y CONSOLIDACIÓN DEL APRENDIZAJE 🎯         *
+    ******************************************************************-->
+
+<!-- ==================================================================
+     | 🏆 SECCIÓN 8.1: RESUMEN DE LOGROS Y COMPETENCIAS ADQUIRIDAS    |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #0f172a, #1e293b, #334155); color: white; border-radius: 25px; padding: 3em; border: 3px solid #fbbf24; box-shadow: 0 20px 40px rgba(251, 191, 36, 0.4); position: relative; overflow: hidden;">
+    
+    <!--* ✨ Efecto Decorativo de Estrellas de Logro *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23fbbf24\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M40 20l6 18h19l-15 11 6 18-16-12-16 12 6-18-15-11h19z\"/%3E%3C/g%3E%3C/svg%3E') repeat; opacity: 0.3; animation: particleMove 20s linear infinite;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        
+        <!--* Título Principal de Logros *-->
+        <h2 style="color: #ffffff; font-size: 2.8em; margin-bottom: 1em; text-align: center; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
+            <i class="fas fa-trophy" style="color: #fbbf24; margin-right: 0.5em; animation: bounce 2s infinite;"></i>
+            <span style="color: #ffffff;">¡Misión Vectorial Completada!</span>
+            <span style="font-size: 0.7em;">🏆🎯✨</span>
+        </h2>
+        
+        <p style="font-size: 1.3em; line-height: 1.8; text-align: center; margin-bottom: 2em; color: #e2e8f0; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <strong style="color: #fbbf24;">¡Felicitaciones, vectoronauta!</strong> Has completado una travesía épica por el universo vectorial. 
+            Ahora posees las herramientas matemáticas que usan <strong style="color: #34d399;">ingenieros de la NASA</strong>, 
+            <strong style="color: #60a5fa;">desarrolladores de videojuegos</strong>, y <strong style="color: #f87171;">físicos cuánticos</strong>. 🚀🌌
+        </p>
+        
+        <!--* Grid de Competencias Adquiridas *-->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin-bottom: 3em;">
+            
+            <!-- Competencia 1: Fundamentos -->
+            <div style="background: rgba(59,130,246,0.2); padding: 2em; border-radius: 15px; border: 2px solid rgba(59,130,246,0.5); backdrop-filter: blur(15px); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -10px; right: -10px; background: #3b82f6; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+                <div style="font-size: 3em; margin-bottom: 0.8em; text-align: center;">🧬</div>
+                <h4 style="color: #93c5fd; margin-bottom: 1em; font-size: 1.3em; text-align: center;">Fundamentos Dominados</h4>
+                <ul style="color: #dbeafe; line-height: 1.8; font-size: 0.95em;">
+                    <li>✅ Concepto de vector vs escalar</li>
+                    <li>✅ Magnitud, dirección y sentido</li>
+                    <li>✅ Notación vectorial moderna</li>
+                    <li>✅ Vectores unitarios î, ĵ</li>
+                    <li>✅ Componentes rectangulares</li>
+                </ul>
+            </div>
+            
+            <!-- Competencia 2: Operaciones -->
+            <div style="background: rgba(16,185,129,0.2); padding: 2em; border-radius: 15px; border: 2px solid rgba(16,185,129,0.5); backdrop-filter: blur(15px); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -10px; right: -10px; background: #10b981; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+                <div style="font-size: 3em; margin-bottom: 0.8em; text-align: center;">🧮</div>
+                <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em; text-align: center;">Operaciones Maestras</h4>
+                <ul style="color: #d1fae5; line-height: 1.8; font-size: 0.95em;">
+                    <li>✅ Suma por método del triángulo</li>
+                    <li>✅ Suma por método del paralelogramo</li>
+                    <li>✅ Suma por componentes (analítico)</li>
+                    <li>✅ Vector negativo y resta</li>
+                    <li>✅ Múltiples vectores simultáneos</li>
+                </ul>
+            </div>
+            
+            <!-- Competencia 3: Aplicaciones -->
+            <div style="background: rgba(245,158,11,0.2); padding: 2em; border-radius: 15px; border: 2px solid rgba(245,158,11,0.5); backdrop-filter: blur(15px); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -10px; right: -10px; background: #f59e0b; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+                <div style="font-size: 3em; margin-bottom: 0.8em; text-align: center;">🚀</div>
+                <h4 style="color: #fcd34d; margin-bottom: 1em; font-size: 1.3em; text-align: center;">Aplicaciones Reales</h4>
+                <ul style="color: #fed7aa; line-height: 1.8; font-size: 0.95em;">
+                    <li>✅ Análisis de fuerzas en estructuras</li>
+                    <li>✅ Navegación y GPS</li>
+                    <li>✅ Velocidades relativas</li>
+                    <li>✅ Campos eléctricos y magnéticos</li>
+                    <li>✅ Gráficos 3D y videojuegos</li>
+                </ul>
+            </div>
+            
+            <!-- Competencia 4: Pensamiento -->
+            <div style="background: rgba(139,92,246,0.2); padding: 2em; border-radius: 15px; border: 2px solid rgba(139,92,246,0.5); backdrop-filter: blur(15px); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -10px; right: -10px; background: #8b5cf6; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+                <div style="font-size: 3em; margin-bottom: 0.8em; text-align: center;">🧠</div>
+                <h4 style="color: #c4b5fd; margin-bottom: 1em; font-size: 1.3em; text-align: center;">Pensamiento Vectorial</h4>
+                <ul style="color: #e9d5ff; line-height: 1.8; font-size: 0.95em;">
+                    <li>✅ Visualización espacial</li>
+                    <li>✅ Análisis sistemático</li>
+                    <li>✅ Resolución de problemas complejos</li>
+                    <li>✅ Conexión matemática-física</li>
+                    <li>✅ Preparación para cálculo vectorial</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!--* Estadísticas de Progreso *-->
+        <div style="background: rgba(255,255,255,0.1); padding: 2.5em; border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); text-align: center;">
+            <h3 style="color: #fbbf24; margin-bottom: 1.5em; font-size: 1.6em;">
+                📊 Estadísticas de tu Aventura Vectorial
+            </h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2em; margin-bottom: 2em;">
+                
+                <div style="background: rgba(59,130,246,0.3); padding: 1.5em; border-radius: 12px;">
+                    <div style="font-size: 2.5em; margin-bottom: 0.5em;">8</div>
+                    <h4 style="color: #93c5fd; margin: 0; font-size: 1em;">Secciones Completadas</h4>
+                </div>
+                
+                <div style="background: rgba(16,185,129,0.3); padding: 1.5em; border-radius: 12px;">
+                    <div style="font-size: 2.5em; margin-bottom: 0.5em;">6</div>
+                    <h4 style="color: #6ee7b7; margin: 0; font-size: 1em;">Métodos Dominados</h4>
+                </div>
+                
+                <div style="background: rgba(245,158,11,0.3); padding: 1.5em; border-radius: 12px;">
+                    <div style="font-size: 2.5em; margin-bottom: 0.5em;">12+</div>
+                    <h4 style="color: #fcd34d; margin: 0; font-size: 1em;">Ejemplos Resueltos</h4>
+                </div>
+                
+                <div style="background: rgba(139,92,246,0.3); padding: 1.5em; border-radius: 12px;">
+                    <div style="font-size: 2.5em; margin-bottom: 0.5em;">∞</div>
+                    <h4 style="color: #c4b5fd; margin: 0; font-size: 1em;">Posibilidades Abiertas</h4>
+                </div>
+            </div>
+            
+            <div style="background: rgba(251,191,36,0.2); padding: 2em; border-radius: 15px;">
+                <h4 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.4em;">🎖️ Nivel Desbloqueado</h4>
+                <p style="color: #ffffff; font-size: 1.2em; line-height: 1.7;">
+                    <strong style="color: #34d399;">¡VECTORONAUTA CERTIFICADO!</strong><br>
+                    Estás preparado para <strong style="color: #60a5fa;">cálculo vectorial</strong>, 
+                    <strong style="color: #f87171;">física universitaria</strong>, y 
+                    <strong style="color: #a78bfa;">ingeniería avanzada</strong>. 
+                    ¡El espacio-tiempo es tu nuevo patio de juegos! 🌌⚡
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================================================================
+     | 🔮 SECCIÓN 8.2: PERSPECTIVAS FUTURAS Y PRÓXIMOS PASOS          |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c); background-size: 400% 400%; animation: gradientShift 8s ease infinite; border-radius: 25px; padding: 3em; margin: 2em 0; position: relative; overflow: hidden;">
+    
+    <!--* Efecto de Ondas Futuristas *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"%3E%3Cpath d=\"M0 50c25 0 25-25 50-25s25 25 50 25v50H0V50z\" fill=\"%23ffffff\" fill-opacity=\"0.1\"/%3E%3C/svg%3E') repeat-x; animation: waveMove 10s linear infinite;"></div>
+    
+    <div style="position: relative; z-index: 1; color: white; text-align: center;">
+        
+        <!--* Título Futurista *-->
+        <h2 style="font-size: 2.5em; margin-bottom: 1em; text-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+            <i class="fas fa-rocket" style="animation: bounce 2s infinite;"></i>
+            <span>Tu Viaje Vectorial Apenas Comienza</span>
+            <span style="font-size: 0.7em;">🚀🔮🌌</span>
+        </h2>
+        
+        <p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 2em; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Los vectores que has dominado son las <strong>llaves maestras</strong> que abren las puertas a mundos 
+            fascinantes de conocimiento. <strong>¡Prepárate para la siguiente dimensión del aprendizaje!</strong> 🗝️✨
+        </p>
+        
+        <!--* Roadmap de Próximos Niveles *-->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2em; margin-bottom: 3em;">
+            
+            <!-- Nivel 1: Cálculo Vectorial -->
+            <div style="background: rgba(255,255,255,0.15); padding: 2.5em; border-radius: 20px; backdrop-filter: blur(20px); border: 2px solid rgba(255,255,255,0.3); position: relative;">
+                <div style="position: absolute; top: -15px; left: 20px; background: #34d399; color: #1e293b; padding: 0.5em 1em; border-radius: 15px; font-weight: bold; font-size: 0.9em;">NIVEL 1</div>
+                <div style="font-size: 3.5em; margin: 1em 0 0.5em;">📐</div>
+                <h4 style="font-size: 1.4em; margin-bottom: 1em; color: #ffffff;">Cálculo Vectorial</h4>
+                <ul style="text-align: left; line-height: 1.8; color: #e2e8f0; font-size: 0.95em;">
+                    <li>🔄 <strong>Producto punto y cruz</strong></li>
+                    <li>∇ <strong>Gradiente, divergencia, rotacional</strong></li>
+                    <li>∮ <strong>Integrales de línea y superficie</strong></li>
+                    <li>🌊 <strong>Teoremas de Green, Gauss, Stokes</strong></li>
+                </ul>
+                <div style="background: rgba(52,211,153,0.2); padding: 1em; border-radius: 10px; margin-top: 1.5em;">
+                    <p style="color: #6ee7b7; font-size: 0.9em; font-weight: 600;">
+                        🎯 <strong>Meta:</strong> Dominar el análisis vectorial para física e ingeniería avanzada
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Nivel 2: Física Vectorial -->
+            <div style="background: rgba(255,255,255,0.15); padding: 2.5em; border-radius: 20px; backdrop-filter: blur(20px); border: 2px solid rgba(255,255,255,0.3); position: relative;">
+                <div style="position: absolute; top: -15px; left: 20px; background: #60a5fa; color: #1e293b; padding: 0.5em 1em; border-radius: 15px; font-weight: bold; font-size: 0.9em;">NIVEL 2</div>
+                <div style="font-size: 3.5em; margin: 1em 0 0.5em;">⚛️</div>
+                <h4 style="font-size: 1.4em; margin-bottom: 1em; color: #ffffff;">Física Avanzada</h4>
+                <ul style="text-align: left; line-height: 1.8; color: #e2e8f0; font-size: 0.95em;">
+                    <li>⚡ <strong>Electromagnetismo (Maxwell)</strong></li>
+                    <li>🌀 <strong>Mecánica de fluidos</strong></li>
+                    <li>🔭 <strong>Relatividad especial</strong></li>
+                    <li>🌊 <strong>Mecánica cuántica</strong></li>
+                </ul>
+                <div style="background: rgba(96,165,250,0.2); padding: 1em; border-radius: 10px; margin-top: 1.5em;">
+                    <p style="color: #93c5fd; font-size: 0.9em; font-weight: 600;">
+                        🎯 <strong>Meta:</strong> Aplicar vectores en las teorías más fundamentales del universo
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Nivel 3: Aplicaciones Tecnológicas -->
+            <div style="background: rgba(255,255,255,0.15); padding: 2.5em; border-radius: 20px; backdrop-filter: blur(20px); border: 2px solid rgba(255,255,255,0.3); position: relative;">
+                <div style="position: absolute; top: -15px; left: 20px; background: #f87171; color: #1e293b; padding: 0.5em 1em; border-radius: 15px; font-weight: bold; font-size: 0.9em;">NIVEL 3</div>
+                <div style="font-size: 3.5em; margin: 1em 0 0.5em;">🤖</div>
+                <h4 style="font-size: 1.4em; margin-bottom: 1em; color: #ffffff;">Tecnología Moderna</h4>
+                <ul style="text-align: left; line-height: 1.8; color: #e2e8f0; font-size: 0.95em;">
+                    <li>🎮 <strong>Gráficos 3D y realidad virtual</strong></li>
+                    <li>🤖 <strong>Robótica y control automático</strong></li>
+                    <li>🧠 <strong>Machine Learning (tensores)</strong></li>
+                    <li>🚀 <strong>Navegación espacial</strong></li>
+                </ul>
+                <div style="background: rgba(248,113,113,0.2); padding: 1em; border-radius: 10px; margin-top: 1.5em;">
+                    <p style="color: #fca5a5; font-size: 0.9em; font-weight: 600;">
+                        🎯 <strong>Meta:</strong> Crear tecnologías que cambien el mundo usando vectores
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!--* Mensaje Inspiracional Final *-->
+        <div style="background: rgba(255,255,255,0.2); padding: 3em; border-radius: 25px; backdrop-filter: blur(25px); border: 2px solid rgba(255,255,255,0.4);">
+            <h3 style="font-size: 1.8em; margin-bottom: 1em; color: #ffffff;">
+                🌟 El Universo Vectorial te Espera 🌟
+            </h3>
+            <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 1.5em;">
+                Desde las <strong style="color: #fbbf24;">ecuaciones de Maxwell</strong> que describieron la luz como ondas electromagnéticas, 
+                hasta los <strong style="color: #34d399;">algoritmos vectoriales</strong> que permiten que los autos se conduzcan solos, 
+                hasta los <strong style="color: #60a5fa;">tensores</strong> que Einstein usó para revelar la curvatura del espacio-tiempo...
+            </p>
+            <p style="font-size: 1.3em; line-height: 1.8; font-weight: 700;">
+                <strong style="color: #f87171;">¡Los vectores son el lenguaje con el que el universo escribe sus leyes más profundas!</strong> 
+                Y ahora <strong style="color: #fbbf24;">TÚ hablas ese lenguaje</strong>. 🌌⚡🚀
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================================================================
+     | 💫 SECCIÓN 8.3: AGRADECIMIENTOS Y REFLEXIÓN FINAL              |
+     ================================================================== -->
+<div class="section" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); color: white; border-radius: 25px; padding: 3em; border: 3px solid #fbbf24; margin: 2em 0; position: relative; overflow: hidden;">
+    
+    <!--* Efecto de Estrellas Brillantes *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23fbbf24\" fill-opacity=\"0.2\"%3E%3Cpath d=\"M50 10l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z\"/%3E%3C/g%3E%3C/svg%3E') repeat; animation: twinkle 4s ease-in-out infinite;"></div>
+    
+    <div style="position: relative; z-index: 1; text-align: center;">
+        
+        <!--* Dedicatoria y Agradecimientos *-->
+        <h2 style="font-size: 2.2em; margin-bottom: 1em; color: #fbbf24; text-shadow: 2px 2px 6px rgba(0,0,0,0.5);">
+            <i class="fas fa-heart" style="color: #f87171; animation: pulse 2s infinite;"></i>
+            Dedicado a Todos los Exploradores del Conocimiento
+            <span style="font-size: 0.7em;">💫🎓❤️</span>
+        </h2>
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 2.5em; border-radius: 20px; backdrop-filter: blur(15px); margin-bottom: 2em;">
+            <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 1.5em; color: #e2e8f0;">
+                <strong style="color: #fbbf24;">¡Gracias por acompañarnos en esta aventura!</strong> 
+                Cada vector que has trazado, cada componente que has calculado, cada problema que has resuelto, 
+                te ha convertido en un <strong style="color: #34d399;">ciudadano del universo matemático</strong>. 🌍🔬
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em; margin: 2em 0;">
+                
+                <div style="background: rgba(52,211,153,0.2); padding: 1.5em; border-radius: 12px;">
+                    <div style="font-size: 2em; margin-bottom: 0.5em;">👨‍🏫</div>
+                    <h4 style="color: #6ee7b7; margin-bottom: 0.8em;">Para los Educadores</h4>
+                    <p style="color: #d1fae5; font-size: 0.9em; line-height: 1.6;">
+                        Gracias por <strong>inspirar</strong> a la próxima generación de científicos e ingenieros.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(96,165,250,0.2); padding: 1.5em; border-radius: 12px;">
+                    <div style="font-size: 2em; margin-bottom: 0.5em;">🎓</div>
+                    <h4 style="color: #93c5fd; margin-bottom: 0.8em;">Para los Estudiantes</h4>
+                    <p style="color: #dbeafe; font-size: 0.9em; line-height: 1.6;">
+                        Su <strong>curiosidad</strong> y <strong>perseverancia</strong> son el motor del progreso humano.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(251,191,36,0.2); padding: 1.5em; border-radius: 12px;">
+                    <div style="font-size: 2em; margin-bottom: 0.5em;">🔬</div>
+                    <h4 style="color: #fcd34d; margin-bottom: 0.8em;">Para los Investigadores</h4>
+                    <p style="color: #fed7aa; font-size: 0.9em; line-height: 1.6;">
+                        Continúen <strong>empujando las fronteras</strong> del conocimiento humano.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+      <!--* Reflexión Final Profunda *-->
+        <div style="background: rgba(248,113,113,0.15); padding: 3em; border-radius: 25px; border: 2px solid rgba(248,113,113,0.3);">
+            <h3 style="font-size: 1.6em; margin-bottom: 1.5em; color: #fca5a5;">
+                <i class="fas fa-infinity" style="animation: logoSpin 8s linear infinite;"></i>
+                Reflexión Final: El Legado de los Vectores
+            </h3>
+            
+            <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 1.5em; color: #fee2e2;">
+                Los vectores no son solo herramientas matemáticas. Son una <strong style="color: #fbbf24;">filosofía</strong> 
+                que nos enseña que en este universo, <strong style="color: #60a5fa;">la dirección importa tanto como la magnitud</strong>. 
+                Que cada fuerza, cada movimiento, cada cambio tiene un <strong style="color: #34d399;">sentido y un propósito</strong>.
+            </p>
+            
+            <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 1.5em; color: #ffffff; font-weight: 600;">
+                Al igual que Hamilton grabó su fórmula de cuaterniones en aquel puente de Dublín en 1843, 
+                <strong style="color: #fbbf24;">hoy TÚ has grabado el conocimiento vectorial en tu mente</strong>. 
+                Y ese conocimiento durará para siempre. 🧠💎✨
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px; margin-top: 2em;">
+                <p style="font-size: 1.3em; line-height: 1.8; color: #ffffff; font-style: italic;">
+                    <strong>"En un universo de infinitas posibilidades, los vectores nos muestran que 
+                    siempre hay una dirección hacia adelante. Y esa dirección eres tú."</strong>
+                </p>
+                <p style="font-size: 1em; color: #cbd5e1; margin-top: 1em;">
+                    — Néstor Fabio Montoya Palacios, MSc.<br>
+                    Con admiración y respeto por todos los buscadores del conocimiento 🌟
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================================================================
+     | 🎨 SECCIÓN 8.4: ELEMENTOS CSS ADICIONALES PARA ANIMACIONES      |
+     ================================================================== -->
+<style>
+/* Animaciones personalizadas para el cierre */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes particleMove {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-80px) translateY(-80px); }
+}
+
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100px); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@keyframes logoSpin {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+}
+</style>
+
+<!-- ==================================================================
+     | 🌟 SECCIÓN FINAL: LLAMADA A LA ACCIÓN Y DESPEDIDA               |
+     ================================================================== -->
+<div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 4em 2em; text-align: center; position: relative; overflow: hidden;">
+    
+    <!--* Efecto de Partículas Doradas Flotantes *-->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23fbbf24\" fill-opacity=\"0.15\"%3E%3Ccircle cx=\"25\" cy=\"25\" r=\"2\"/%3E%3Ccircle cx=\"75\" cy=\"25\" r=\"1.5\"/%3E%3Ccircle cx=\"25\" cy=\"75\" r=\"1\"/%3E%3Ccircle cx=\"75\" cy=\"75\" r=\"2.5\"/%3E%3Ccircle cx=\"50\" cy=\"50\" r=\"1.5\"/%3E%3C/g%3E%3C/svg%3E') repeat; animation: particleMove 15s linear infinite;"></div>
+    
+    <div style="position: relative; z-index: 1; max-width: 800px; margin: 0 auto;">
+        
+        <!--* Mensaje Final de Despedida *-->
+        <h2 style="font-size: 2.5em; margin-bottom: 1em; color: #fbbf24; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
+            <i class="fas fa-graduation-cap" style="animation: bounce 2s infinite;"></i>
+            ¡Felicidades, Vectoronauta Graduado!
+            <span style="font-size: 0.7em;">🎓🚀✨</span>
+        </h2>
+        
+        <div style="background: rgba(251,191,36,0.2); padding: 2.5em; border-radius: 20px; border: 2px solid rgba(251,191,36,0.5); backdrop-filter: blur(15px); margin-bottom: 2em;">
+            <p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 1.5em; color: #ffffff;">
+                Has completado exitosamente el <strong style="color: #fbbf24;">Curso Interactivo de Vectores</strong>. 
+                Ahora llevas contigo el poder de <strong style="color: #34d399;">describir matemáticamente</strong> 
+                cualquier fenómeno que tenga dirección en el universo. 🌌⚡
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 2em; border-radius: 15px;">
+                <h3 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.4em;">
+                    🎯 Tu Certificación Mental Incluye:
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; text-align: left;">
+                    <div style="color: #e2e8f0;">✅ Dominio de vectores unitarios</div>
+                    <div style="color: #e2e8f0;">✅ Maestría en componentes rectangulares</div>
+                    <div style="color: #e2e8f0;">✅ Experticia en métodos de suma</div>
+                    <div style="color: #e2e8f0;">✅ Habilidad en resta vectorial</div>
+                    <div style="color: #e2e8f0;">✅ Aplicación en problemas reales</div>
+                    <div style="color: #e2e8f0;">✅ Preparación para cálculo vectorial</div>
+                </div>
+            </div>
+        </div>
+        
+        <!--* Llamada a la Acción Final *-->
+        <div style="background: rgba(59,130,246,0.2); padding: 2.5em; border-radius: 20px; border: 2px solid rgba(59,130,246,0.5); backdrop-filter: blur(15px);">
+            <h3 style="color: #93c5fd; margin-bottom: 1em; font-size: 1.4em;">
+                🚀 ¿Listo para la Siguiente Aventura?
+            </h3>
+            <p style="color: #dbeafe; font-size: 1.1em; line-height: 1.7; margin-bottom: 1.5em;">
+                El conocimiento es un vector que siempre apunta hacia adelante. 
+                Continúa explorando, cuestionando y descubriendo. 
+                <strong style="color: #60a5fa;">¡El universo matemático te espera!</strong>
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 1em; flex-wrap: wrap; margin-top: 1.5em;">
+                <div style="background: rgba(16,185,129,0.3); padding: 1em 1.5em; border-radius: 25px; color: #6ee7b7; font-weight: 600;">
+                    📐 Siguiente: Cálculo Vectorial
+                </div>
+                <div style="background: rgba(139,92,246,0.3); padding: 1em 1.5em; border-radius: 25px; color: #c4b5fd; font-weight: 600;">
+                    ⚛️ Siguiente: Física Avanzada
+                </div>
+                <div style="background: rgba(245,158,11,0.3); padding: 1em 1.5em; border-radius: 25px; color: #fcd34d; font-weight: 600;">
+                    🤖 Siguiente: Aplicaciones Tech
+                </div>
+            </div>
+        </div>
+        
+        <!--* Firma Final del Autor *-->
+        <div style="margin-top: 3em; padding: 2em; border-top: 2px solid rgba(251,191,36,0.3);">
+            <p style="color: #cbd5e1; font-size: 1em; line-height: 1.6;">
+                <strong style="color: #fbbf24;">Curso diseñado con ❤️ por:</strong><br>
+                <span style="font-size: 1.2em; color: #ffffff;">MSc. Néstor Fabio Montoya Palacios</span><br>
+                <em style="color: #94a3b8;">Educador, Investigador y Explorador del Conocimiento</em><br><br>
+                <span style="color: #64748b; font-size: 0.9em;">
+                    "Dedicado a todos los estudiantes valientes que se atreven a explorar 
+                    los misterios del universo matemático" 🌟
+                </span>
+            </p>
+        </div>
+        
+        <!--* Último Mensaje Inspiracional *-->
+        <div style="background: linear-gradient(135deg, rgba(248,113,113,0.2), rgba(251,191,36,0.2)); padding: 2em; border-radius: 20px; margin-top: 2em; border: 1px solid rgba(255,255,255,0.2);">
+            <p style="font-size: 1.4em; line-height: 1.8; color: #ffffff; font-weight: 600; font-style: italic;">
+                "Que los vectores te acompañen... ¡hacia el infinito y más allá!" 
+                <span style="font-size: 1.2em;">🚀🌌⭐</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- =================== 🏁 FIN DEL CURSO INTERACTIVO DE VECTORES 🏁 =================== -->
