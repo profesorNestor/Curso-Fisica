@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Celestial Interactivo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overscroll-behavior: none;
+        }
+        canvas {
+            touch-action: none;
+            cursor: grab;
+        }
+        canvas:active {
+            cursor: grabbing;
+        }
+        #side-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-open {
+            transform: translateX(0) !important;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+             -webkit-appearance: none; appearance: none; width: 20px; height: 20px;
+             background: #facc15; cursor: pointer; border-radius: 50%; border: 2px solid #fff;
+        }
+        input[type="range"]::-moz-range-thumb {
+             width: 20px; height: 20px; background: #facc15; cursor: pointer;
+             border-radius: 50%; border: 2px solid #fff;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white overflow-hidden h-screen flex flex-col">
+
+    <header class="flex items-center justify-between p-4 bg-slate-900/70 backdrop-blur-sm border-b border-slate-700 z-20 flex-shrink-0">
+        <h1 class="text-lg md:text-xl font-bold text-cyan-300">Simulador Celestial</h1>
+        <button id="menu-toggle" class="lg:hidden p-2 rounded-md hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </header>
+
+    <div class="flex-grow flex relative overflow-hidden">
+        
+        <main class="flex-grow relative">
+            <canvas id="simulationCanvas"></canvas>
+        </main>
+
+        <aside id="side-menu" class="absolute top-0 right-0 h-full w-72 md:w-80 bg-slate-800/80 backdrop-blur-lg border-l border-slate-600 p-6 z-30 transform translate-x-full lg:relative lg:transform-none lg:translate-x-0 lg:flex-shrink-0 overflow-y-auto">
+            <div class="flex justify-between items-center lg:hidden mb-6">
+                 <h2 class="text-xl font-semibold text-blue-300">Controles</h2>
+                 <button id="close-menu" class="p-2 rounded-md hover:bg-slate-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                 </button>
+            </div>
+           
+            <div class="info-panel mb-6">
+                <h3 class="text-lg font-semibold text-blue-300 mb-4 border-b border-blue-400/30 pb-2">📊 Datos de Navegación</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="flex justify-between"><span>Latitud:</span><span id="infoLatitude" class="font-bold text-yellow-300">30° N</span></div>
+                    <div class="flex justify-between"><span>Altura de la Polar:</span><span id="infoPolarHeight" class="font-bold text-green-400">30°</span></div>
+                    <div class="flex justify-between"><span>Colatitud:</span><span id="infoColatitude" class="font-bold text-pink-400">60°</span></div>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                 <h3 class="text-lg font-semibold text-blue-300 mb-4 border-b border-blue-400/30 pb-2">🌍 Latitud</h3>
+                 <label for="latitudeSlider" class="block text-center text-lg font-medium mb-2">
+                     <span id="latitudeValue" class="font-bold text-yellow-300 text-2xl">30° N</span>
+                 </label>
+                 <input id="latitudeSlider" type="range" min="0" max="90" value="30" class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <div class="mb-6">
+                 <h3 class="text-lg font-semibold text-blue-300 mb-4 border-b border-blue-400/30 pb-2">🔭 Distancia Estelar</h3>
+                 <label for="distanceSlider" class="block text-center text-lg font-medium mb-2">
+                     <span id="distanceValue" class="font-bold text-cyan-300">Media</span>
+                 </label>
+                 <input id="distanceSlider" type="range" min="800" max="2000" value="1400" class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+
+            <div class="mt-auto">
+                 <h3 class="text-lg font-semibold text-blue-300 mb-4 border-b border-blue-400/30 pb-2">👁️ Vista</h3>
+                 <button id="reset-view" class="w-full text-center bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                     Centrar Vista
+                 </button>
+                 <p class="text-xs text-slate-400 mt-2 text-center">Usa la rueda del ratón o pellizca para hacer zoom. Arrastra para moverte.</p>
+            </div>
+            
+            <footer class="absolute bottom-4 left-0 right-0 w-full text-center p-2">
+                <p class="text-xs text-slate-400">Autor: Msc Néstor Fabio Montoya</p>
+            </footer>
+        </aside>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('simulationCanvas');
+            const ctx = canvas.getContext('2d');
+            const latSlider = document.getElementById('latitudeSlider');
+            const distSlider = document.getElementById('distanceSlider');
+            
+            const latitudeValueDisplay = document.getElementById('latitudeValue');
+            const distanceValueDisplay = document.getElementById('distanceValue');
+            const infoLatitude = document.getElementById('infoLatitude');
+            const infoPolarHeight = document.getElementById('infoPolarHeight');
+            const infoColatitude = document.getElementById('infoColatitude');
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const sideMenu = document.getElementById('side-menu');
+            const resetViewBtn = document.getElementById('reset-view');
+
+            let state = {
+                latitude: 30,
+                constellationDistance: 1400,
+                scale: 1.0, panX: 0, panY: 0,
+                isDragging: false, lastMouseX: 0, lastMouseY: 0
+            };
+
+            const littleDipperRelativeCoords = [
+                { name: 'Polaris', x: 0, y: 0 }, { name: 'Yildun', x: -25, y: -60 },
+                { name: 'ε UMi', x: -30, y: -100 }, { name: 'ζ UMi', x: 10, y: -130 },
+                { name: 'η UMi', x: 50, y: -110 }, { name: 'Kochab', x: 100, y: -140 },
+                { name: 'Pherkad', x: 70, y: -170 }
+            ];
+            const dipperConnections = [
+                ['Polaris', 'Yildun'], ['Yildun', 'ε UMi'], ['ε UMi', 'ζ UMi'],
+                ['ζ UMi', 'η UMi'], ['ζ UMi', 'Pherkad'], ['Pherkad', 'Kochab'],
+                ['Kochab', 'η UMi']
+            ];
+            
+            function drawScene() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+                
+                ctx.fillStyle = '#0f172a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.save();
+                ctx.translate(canvas.width / 2 + state.panX, canvas.height / 2 + state.panY);
+                ctx.scale(state.scale, state.scale);
+
+                const earthRadius = 150; 
+                const earthCenterX = 0;
+                const earthCenterY = 300;
+
+                const latRad = state.latitude * Math.PI / 180;
+                const observerAngle = -latRad;
+                const observerX = earthCenterX + earthRadius * Math.cos(observerAngle);
+                const observerY = earthCenterY + earthRadius * Math.sin(observerAngle);
+                
+                const polarisY = earthCenterY - state.constellationDistance;
+                const polarisX = earthCenterX;
+                const constellationScale = 2.0;
+                
+                // 1. Osa Menor y Estrella Polar
+                const starCoords = {};
+                littleDipperRelativeCoords.forEach(star => {
+                    const x = polarisX + star.x * constellationScale;
+                    const y = polarisY - star.y * constellationScale;
+                    starCoords[star.name] = { x, y };
+                    ctx.beginPath();
+                    ctx.arc(x, y, (star.name === 'Polaris' ? 3.5 : 2) / state.scale, 0, 2 * Math.PI);
+                    ctx.fillStyle = star.name === 'Polaris' ? '#FFFACD' : 'white';
+                    ctx.fill();
+                });
+                ctx.beginPath();
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+                ctx.lineWidth = 1 / state.scale;
+                dipperConnections.forEach(conn => {
+                    ctx.moveTo(starCoords[conn[0]].x, starCoords[conn[0]].y);
+                    ctx.lineTo(starCoords[conn[1]].x, starCoords[conn[1]].y);
+                });
+                ctx.stroke();
+                ctx.font = `${14 / state.scale}px Inter`;
+                ctx.fillStyle = '#a5f3fc';
+                ctx.textAlign = 'left';
+                ctx.fillText('Estrella Polar', polarisX + 10 / state.scale, polarisY + 5 / state.scale);
+
+                // 2. La Tierra
+                const gradient = ctx.createRadialGradient(earthCenterX - earthRadius*0.3, earthCenterY - earthRadius*0.3, earthRadius*0.1, earthCenterX, earthCenterY, earthRadius);
+                gradient.addColorStop(0, '#87CEEB');
+                gradient.addColorStop(1, '#00008B');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(earthCenterX, earthCenterY, earthRadius, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                // 3. Eje Polar (Sobre la tierra)
+                ctx.beginPath();
+                ctx.moveTo(earthCenterX, earthCenterY);
+                ctx.lineTo(polarisX, polarisY);
+                ctx.setLineDash([10 / state.scale, 10 / state.scale]);
+                ctx.strokeStyle = 'rgba(135, 206, 250, 0.6)';
+                ctx.lineWidth = 1.5 / state.scale;
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // 4. Puntos de Polos y Ecuador
+                ctx.fillStyle = 'white';
+                ctx.font = `${12 / state.scale}px Inter`;
+                ctx.textAlign = 'center';
+                
+                ctx.beginPath();
+                ctx.arc(earthCenterX, earthCenterY - earthRadius, 5 / state.scale, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.fillText('Polo Norte', earthCenterX, earthCenterY - earthRadius - 15 / state.scale);
+
+                ctx.beginPath();
+                ctx.arc(earthCenterX, earthCenterY + earthRadius, 5 / state.scale, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.fillText('Polo Sur', earthCenterX, earthCenterY + earthRadius + 20 / state.scale);
+                
+                ctx.beginPath();
+                ctx.setLineDash([8 / state.scale, 8 / state.scale]);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.lineWidth = 1.5 / state.scale;
+                ctx.moveTo(earthCenterX - earthRadius, earthCenterY);
+                ctx.lineTo(earthCenterX + earthRadius, earthCenterY);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#22d3ee';
+                ctx.textAlign = 'right';
+                ctx.fillText('Ecuador', earthCenterX - earthRadius - 10 / state.scale, earthCenterY + 5 / state.scale);
+
+                // 5. Ángulo de latitud
+                ctx.beginPath();
+                ctx.moveTo(observerX, observerY);
+                ctx.lineTo(earthCenterX, earthCenterY);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.setLineDash([6 / state.scale, 8 / state.scale]);
+                ctx.lineWidth = 1 / state.scale;
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                ctx.beginPath();
+                ctx.fillStyle = 'rgba(250, 250, 210, 0.2)';
+                ctx.moveTo(earthCenterX, earthCenterY);
+                ctx.arc(earthCenterX, earthCenterY, earthRadius * 0.5, 0, observerAngle, true);
+                ctx.closePath();
+                ctx.fill();
+                ctx.beginPath();
+                ctx.strokeStyle = '#facc15';
+                ctx.lineWidth = 1 / state.scale;
+                ctx.arc(earthCenterX, earthCenterY, earthRadius * 0.5, 0, observerAngle, true);
+                ctx.stroke();
+                ctx.fillStyle = '#fde68a';
+                ctx.font = `bold ${14 / state.scale}px Inter`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                let angleTextX = earthCenterX + earthRadius * 0.65 * Math.cos(observerAngle / 2);
+                let angleTextY = earthCenterY + earthRadius * 0.65 * Math.sin(observerAngle / 2);
+                ctx.fillText(`${state.latitude}°`, angleTextX, angleTextY);
+                ctx.font = `${12 / state.scale}px Inter`;
+                ctx.fillText('Latitud', angleTextX, angleTextY + 20 / state.scale);
+
+
+                // 6. El observador y su vertical
+                ctx.beginPath();
+                ctx.arc(observerX, observerY, 5 / state.scale, 0, 2 * Math.PI);
+                ctx.fillStyle = '#f97316';
+                ctx.fill();
+                
+                const mastLength = 60;
+                const mastEndX = observerX + mastLength * Math.cos(observerAngle);
+                const mastEndY = observerY + mastLength * Math.sin(observerAngle);
+                ctx.beginPath();
+                ctx.moveTo(observerX, observerY);
+                ctx.lineTo(mastEndX, mastEndY);
+                ctx.setLineDash([8 / state.scale, 8 / state.scale]);
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2 / state.scale;
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // 7. Líneas y ángulos desde el observador
+                if (state.latitude > 0) {
+                    const horizonAngle = observerAngle - Math.PI / 2;
+                    const horizonLength = 800;
+                    
+                    ctx.save();
+                    ctx.translate(observerX, observerY);
+                    ctx.rotate(horizonAngle);
+                    ctx.strokeStyle = '#34d399';
+                    ctx.lineWidth = 1.5 / state.scale;
+                    ctx.setLineDash([10 / state.scale, 10 / state.scale]);
+                    ctx.beginPath();
+                    ctx.moveTo(-horizonLength, 0);
+                    ctx.lineTo(horizonLength, 0);
+                    ctx.stroke();
+                    ctx.restore();
+                    ctx.setLineDash([]);
+                    
+                    ctx.save();
+                    const labelX = observerX + horizonLength * 0.5 * Math.cos(horizonAngle);
+                    const labelY = observerY + horizonLength * 0.5 * Math.sin(horizonAngle);
+                    ctx.translate(labelX, labelY);
+                    ctx.rotate(horizonAngle);
+                    // Prevent text from flipping
+                    if (horizonAngle > Math.PI / 2 || horizonAngle < -Math.PI / 2) {
+                        ctx.rotate(Math.PI);
+                    }
+                    ctx.font = `bold ${14 / state.scale}px Inter`;
+                    ctx.fillStyle = '#34d399';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Horizonte', 0, -10 / state.scale);
+                    ctx.restore();
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(observerX, observerY);
+                    ctx.lineTo(observerX, -canvas.height * 2); 
+                    ctx.setLineDash([10 / state.scale, 10 / state.scale]);
+                    ctx.strokeStyle = 'rgba(135, 206, 250, 0.9)';
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                    const zenithAngle = observerAngle; 
+                    const polarisViewAngle = -Math.PI / 2;
+
+                    // Ángulo de Altura
+                    ctx.beginPath();
+                    ctx.moveTo(observerX, observerY);
+                    ctx.arc(observerX, observerY, 40 / state.scale, horizonAngle, polarisViewAngle, false);
+                    ctx.closePath();
+                    ctx.fillStyle = 'rgba(52, 211, 153, 0.2)';
+                    ctx.fill();
+                    ctx.font = `bold ${14/state.scale}px Inter`;
+                    ctx.fillStyle = '#a7f3d0';
+                    let textAngle = horizonAngle + (polarisViewAngle - horizonAngle) / 2;
+                    let textX = observerX + (55 / state.scale) * Math.cos(textAngle);
+                    let textY = observerY + (55 / state.scale) * Math.sin(textAngle);
+                    ctx.fillText(`${state.latitude}°`, textX, textY);
+                    
+                    // Ángulo de Colatitud
+                    ctx.beginPath();
+                    ctx.moveTo(observerX, observerY);
+                    ctx.arc(observerX, observerY, 60 / state.scale, polarisViewAngle, zenithAngle, false);
+                    ctx.closePath();
+                    ctx.fillStyle = 'rgba(236, 72, 153, 0.3)';
+                    ctx.fill();
+                    ctx.font = `bold ${14/state.scale}px Inter`;
+                    ctx.fillStyle = '#fbcfe8';
+                    textAngle = polarisViewAngle + (zenithAngle - polarisViewAngle) / 2;
+                    textX = observerX + (75 / state.scale) * Math.cos(textAngle);
+                    textY = observerY + (75 / state.scale) * Math.sin(textAngle);
+                    ctx.fillText(`${90 - state.latitude}°`, textX, textY);
+                    ctx.font = `${12 / state.scale}px Inter`;
+                    ctx.fillText('Colatitud', textX, textY + 15 / state.scale);
+                }
+
+                ctx.restore();
+            }
+
+            // --- Event Handlers ---
+            function updateUI() {
+                const direction = 'N';
+                latitudeValueDisplay.textContent = `${state.latitude}° ${direction}`;
+                infoLatitude.textContent = `${state.latitude}° ${direction}`;
+                infoPolarHeight.textContent = `${state.latitude}°`;
+                infoColatitude.textContent = `${90 - state.latitude}°`;
+
+                let distLabel = "Media";
+                if(state.constellationDistance < 1100) distLabel = "Cercana";
+                if(state.constellationDistance > 1700) distLabel = "Lejana";
+                distanceValueDisplay.textContent = distLabel;
+            }
+
+            function handleSliderChange(event) {
+                if (event.target.id === 'latitudeSlider') {
+                    state.latitude = parseInt(event.target.value);
+                } else if (event.target.id === 'distanceSlider') {
+                    state.constellationDistance = parseInt(event.target.value);
+                }
+                updateUI();
+                requestAnimationFrame(drawScene);
+            }
+            
+            function getMousePos(canvas, evt) {
+                const rect = canvas.getBoundingClientRect();
+                return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+            }
+            function handleMouseDown(e) {
+                state.isDragging = true;
+                state.lastMouseX = e.clientX; state.lastMouseY = e.clientY;
+                canvas.style.cursor = 'grabbing';
+            }
+            function handleMouseMove(e) {
+                if (!state.isDragging) return;
+                const dx = e.clientX - state.lastMouseX;
+                const dy = e.clientY - state.lastMouseY;
+                state.panX += dx; state.panY += dy;
+                state.lastMouseX = e.clientX; state.lastMouseY = e.clientY;
+                requestAnimationFrame(drawScene);
+            }
+            function handleMouseUp() {
+                state.isDragging = false; canvas.style.cursor = 'grab';
+            }
+            function handleWheel(e) {
+                e.preventDefault();
+                const scaleAmount = 1.1;
+                const mouse = getMousePos(canvas, e);
+                const worldX = (mouse.x - (canvas.width / 2 + state.panX)) / state.scale;
+                const worldY = (mouse.y - (canvas.height / 2 + state.panY)) / state.scale;
+                
+                if (e.deltaY < 0) state.scale *= scaleAmount;
+                else state.scale /= scaleAmount;
+                state.scale = Math.max(0.2, Math.min(state.scale, 5));
+
+                state.panX = mouse.x - canvas.width / 2 - worldX * state.scale;
+                state.panY = mouse.y - canvas.height / 2 - worldY * state.scale;
+                requestAnimationFrame(drawScene);
+            }
+
+            let lastTouchDistance = null;
+            function handleTouchStart(e) {
+                if (e.touches.length === 1) handleMouseDown(e.touches[0]);
+                else if (e.touches.length === 2) {
+                    state.isDragging = false;
+                    lastTouchDistance = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+                }
+            }
+            function handleTouchMove(e) {
+                e.preventDefault();
+                if (e.touches.length === 1 && state.isDragging) handleMouseMove(e.touches[0]);
+                else if (e.touches.length === 2) {
+                    if (lastTouchDistance === null) return;
+                    const newDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+                    const scaleAmount = newDist / lastTouchDistance;
+                    const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+                    const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+                    const mouse = {x: midX, y: midY};
+
+                    const worldX = (mouse.x - (canvas.width / 2 + state.panX)) / state.scale;
+                    const worldY = (mouse.y - (canvas.height / 2 + state.panY)) / state.scale;
+                    
+                    state.scale *= scaleAmount;
+                    state.scale = Math.max(0.2, Math.min(state.scale, 5));
+                    
+                    state.panX = mouse.x - canvas.width / 2 - worldX * state.scale;
+                    state.panY = mouse.y - canvas.height / 2 - worldY * state.scale;
+                    
+                    lastTouchDistance = newDist;
+                    requestAnimationFrame(drawScene);
+                }
+            }
+            function handleTouchEnd() {
+                state.isDragging = false; lastTouchDistance = null; canvas.style.cursor = 'grab';
+            }
+            
+            function resetView() {
+                state.scale = 0.8; state.panX = 0;
+                state.panY = -canvas.height * 0.2;
+                requestAnimationFrame(drawScene);
+            }
+            
+            // Setup
+            latSlider.addEventListener('input', handleSliderChange);
+            distSlider.addEventListener('input', handleSliderChange);
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            window.addEventListener('mouseup', handleMouseUp);
+            canvas.addEventListener('wheel', handleWheel, { passive: false });
+            canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+            canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+            canvas.addEventListener('touchend', handleTouchEnd);
+            window.addEventListener('resize', () => requestAnimationFrame(drawScene));
+            menuToggle.addEventListener('click', () => sideMenu.classList.add('menu-open'));
+            closeMenu.addEventListener('click', () => sideMenu.classList.remove('menu-open'));
+            resetViewBtn.addEventListener('click', resetView);
+            
+            updateUI();
+            resetView();
+        });
+    </script>
+</body>
+</html>

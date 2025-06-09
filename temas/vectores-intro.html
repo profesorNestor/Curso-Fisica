@@ -79,7 +79,7 @@
   
   <!--* Título de la Sección de Objetivos *-->
   <h3 style="color:#1e293b;font-size:1.8em;margin-bottom:1em;text-align:center;">
-    <i class="fas fa-bullseye" style="color:#8b5cf6;"></i> Objetivos de Aprendizaje: Tu Misión Vectorial �🚀
+    <i class="fas fa-bullseye" style="color:#8b5cf6;"></i> Objetivos de Aprendizaje: Tu Misión Vectorial  🚀
   </h3>
   
   <!--* Contenedor Grid para los Objetivos Individuales *-->
@@ -2264,50 +2264,93 @@
             </div>
         </div>
     </div>
+
+<!---------------------------------------------
     
-    <!--* ✈️ Ejemplo Visual Interactivo: Vuelo de Avión *-->
-    <div style="background:linear-gradient(135deg,#1e293b,#334155);color:white;padding:2em;border-radius:15px;position:relative;overflow:hidden;">
+<!--* ✈️ Ejemplo Visual Interactivo: Vuelo de Avión *-->
+<div style="background:linear-gradient(135deg,#1e293b,#334155);
+            color:white;padding:2em;border-radius:15px;position:relative;overflow:hidden;">
+    
+    <!-- Fondo de "estrellitas" -->          
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;
+                background:url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"15\" cy=\"15\" r=\"1\"/%3E%3C/g%3E%3C/svg%3E') repeat;">
+    </div>
+    
+    <div style="position:relative;z-index:1;">
+        <h4 style="color:#c4b5fd;font-size:1.4em;margin-bottom:1em;text-align:center;">
+            <i class="fas fa-eye"></i> Ejemplo Visual: Vector Velocidad de un Avión ✈️
+        </h4>
         
-        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"15\" cy=\"15\" r=\"1\"/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
-        
-        <div style="position:relative;z-index:1;">
-            <h4 style="color:#c4b5fd;font-size:1.4em;margin-bottom:1em;text-align:center;">
-                <i class="fas fa-eye"></i> Ejemplo Visual: Vector Velocidad de un Avión ✈️
-            </h4>
+        <div style="display:grid;grid-template-columns:1fr 350px;gap:2.5em;align-items:center;">
             
-            <div style="display:grid;grid-template-columns:1fr 300px;gap:2em;align-items:center;">
-                
-                <!-- Descripción del Ejemplo -->
-                <div>
-                    <p style="color:#e2e8f0;font-size:1.1em;line-height:1.8;margin-bottom:1em;">Imagina un avión volando de Bogotá a Madrid:</p>
-                    <ul style="color:#ffffff;line-height:2;font-size:1.05em;list-style:none;padding:0;">
-                        <li style="margin-bottom:0.8em;"><span style="color:#60a5fa;font-weight:700;">📏 MAGNITUD:</span> <strong style="color:#ffffff;">850 km/h</strong> <span style="color:#e2e8f0;">(qué tan rápido va)</span></li>
-                        <li style="margin-bottom:0.8em;"><span style="color:#34d399;font-weight:700;">🧭 DIRECCIÓN:</span> <strong style="color:#ffffff;">Noreste</strong> <span style="color:#e2e8f0;">(la línea desde Colombia hacia España)</span></li>
-                        <li style="margin-bottom:0.8em;"><span style="color:#fbbf24;font-weight:700;">🎯 SENTIDO:</span> <strong style="color:#ffffff;">Hacia España</strong> <span style="color:#e2e8f0;">(no hacia Colombia)</span></li>
-                    </ul>
-                    <div style="background:rgba(139,92,246,0.2);padding:1em;border-radius:10px;margin-top:1.5em;">
-                        <p style="color:#c4b5fd;font-weight:600;font-size:1.1em;">💡 <strong>¡Clave!</strong> Si falta cualquiera de estos tres datos, no puedes describir completamente el movimiento del avión.</p>
-                    </div>
-                </div>
-                
-                <!-- Representación Visual Simplificada del Vuelo -->
-                <div style="background:rgba(255,255,255,0.1);padding:1.5em;border-radius:12px;text-align:center;">
-                    <div style="position:relative;width:200px;height:150px;margin:0 auto;background:linear-gradient(135deg,#1e40af,#3730a3);border-radius:10px;display:flex;align-items:center;justify-content:center;">
-                        <div style="position:relative;">
-                            <div style="position:absolute;width:80px;height:3px;background:#fbbf24;left:-40px;top:50%;transform:translateY(-50%) rotate(-30deg);"></div>
-                            <div style="position:absolute;right:-45px;top:50%;transform:translateY(-50%) rotate(-30deg);width:0;height:0;border-left:12px solid #fbbf24;border-top:8px solid transparent;border-bottom:8px solid transparent;"></div>
-                            <div style="width:8px;height:8px;background:#34d399;border-radius:50%;position:absolute;left:-4px;top:50%;transform:translateY(-50%);"></div>
-                            <div style="position:absolute;right:-35px;top:50%;transform:translateY(-50%) rotate(-30deg);font-size:1.2em;">✈️</div>
-                        </div>
-                        <div style="position:absolute;bottom:10px;left:10px;font-size:0.8em;color:#cbd5e1;">🏙️ Bogotá</div>
-                        <div style="position:absolute;top:10px;right:10px;font-size:0.8em;color:#cbd5e1;">🏰 Madrid</div>
-                    </div>
-                    <p style="color:#a78bfa;margin-top:1em;font-size:0.95em;">Vector velocidad: 850 km/h hacia el noreste</p>
+            <!-- ───────────────────── DESCRIPCIÓN DEL EJEMPLO ───────────────────── -->
+            <div>
+                <p style="color:#e2e8f0;font-size:1.1em;line-height:1.8;margin-bottom:1em;">
+                    Imagina un avión volando de Bogotá a Madrid:
+                </p>
+                <ul style="color:#ffffff;line-height:2;font-size:1.05em;list-style:none;padding:0;">
+                    <li style="margin-bottom:0.8em;">
+                        <span style="color:#60a5fa;font-weight:700;">📏 MAGNITUD:</span>
+                        <strong style="color:#ffffff;">850 km/h</strong>
+                        <span style="color:#e2e8f0;">(qué tan rápido va)</span>
+                    </li>
+                    <li style="margin-bottom:0.8em;">
+                        <span style="color:#34d399;font-weight:700;">🧭 DIRECCIÓN:</span>
+                        <strong style="color:#ffffff;">Noreste</strong>
+                        <span style="color:#e2e8f0;">(la línea desde Colombia hacia España)</span>
+                    </li>
+                    <li style="margin-bottom:0.8em;">
+                        <span style="color:#fbbf24;font-weight:700;">🎯 SENTIDO:</span>
+                        <strong style="color:#ffffff;">Hacia España</strong>
+                        <span style="color:#e2e8f0;">(no hacia Colombia)</span>
+                    </li>
+                </ul>
+                <div style="background:rgba(139,92,246,0.2);
+                            padding:1em;border-radius:10px;margin-top:1.5em;">
+                    <p style="color:#c4b5fd;font-weight:600;font-size:1.1em;">
+                        💡 <strong>¡Clave!</strong> Si falta cualquiera de estos tres datos,
+                        no puedes describir completamente el movimiento del avión.
+                    </p>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            
+            <!-- ────────────── REPRESENTACIÓN VISUAL MEJORADA ────────────── -->
+            <div style="background:rgba(255,255,255,0.1);
+                        padding:2em;border-radius:15px;text-align:center;
+                        backdrop-filter:blur(10px);
+                        border:1px solid rgba(255,255,255,0.2);
+                        box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+                
+                <!-- Imagen del vector Bogotá → Madrid -->
+                <img src="assets/images/ilustracion_vector_Bogota_Madrid.png"
+                     alt="Ilustración del vector velocidad Bogotá → Madrid"
+                     style="width:100%;max-width:320px;height:auto;
+                            border-radius:12px;
+                            border:3px solid #8b5cf6;
+                            box-shadow:0 8px 25px rgba(139,92,246,0.4);
+                            display:block;margin:0 auto;
+                            transition:transform 0.3s ease;"
+                     onmouseover="this.style.transform='scale(1.05)'"
+                     onmouseout="this.style.transform='scale(1)'">
+                
+                <!-- Descripción elegante debajo de la imagen -->
+                <div style="margin-top:1.5em;
+                            background:rgba(255,255,255,0.1);
+                            padding:1em;border-radius:10px;
+                            border:1px solid rgba(255,255,255,0.2);">
+                    <p style="color:#a78bfa;font-size:1em;font-weight:600;margin:0;">
+                        🌍 Vector velocidad: 850 km/h hacia el noreste
+                    </p>
+                    <p style="color:#cbd5e1;font-size:0.9em;margin:0.5em 0 0 0;opacity:0.8;">
+                        Representación gráfica del concepto vectorial
+                    </p>
+                </div>
+            </div>
+            
+        </div><!-- /grid -->
+    </div><!-- /contenido interno -->
+</div><!-- /bloque principal -->
+
 <!-- =================== FIN DEFINICIÓN FUNDAMENTAL =================== -->
 
 <!-- ==================================================================

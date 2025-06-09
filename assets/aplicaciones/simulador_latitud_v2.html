@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de la Estrella Polar - Medición de Latitud</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+        }
+        .canvas-container {
+            flex-grow: 1;
+            position: relative;
+            min-height: 400px;
+        }
+        .controls-container {
+            flex-shrink: 0;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(59, 130, 246, 0.4);
+            min-width: 220px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .info-panel h3 {
+            color: #60a5fa;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+            padding-bottom: 8px;
+        }
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px 12px;
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+        }
+        .info-item.latitude { border-left-color: #fbbf24; }
+        .info-item.polar-height { border-left-color: #10b981; }
+        .info-item.colatitude { border-left-color: #ef4444; }
+        .info-label {
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+        .info-value {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .info-note {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .info-note .text-xs {
+            color: #cbd5e1;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .slider-container {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        input[type="range"] {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            height: 8px;
+            border-radius: 4px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fbbf24;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fbbf24;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white">
+
+    <div class="main-container">
+        <div class="p-4 text-center relative">
+            <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent mb-2">
+                Simulador de Medición de Latitud con la Estrella Polar
+            </h1>
+            <p class="text-gray-300 max-w-2xl mx-auto">
+                Observa cómo la altura de la Estrella Polar sobre el horizonte es igual a tu latitud geográfica. 
+                Mueve el deslizador para explorar diferentes latitudes.
+            </p>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="simulationCanvas"></canvas>
+            
+            <div class="info-panel">
+                <h3>📊 Datos Náuticos</h3>
+                <div class="info-item latitude">
+                    <span class="info-label">Latitud:</span>
+                    <span id="infoLatitude" class="info-value" style="color: #fbbf24;">45° N</span>
+                </div>
+                <div class="info-item polar-height">
+                    <span class="info-label">Altura Polar:</span>
+                    <span id="infoPolarHeight" class="info-value" style="color: #10b981;">45°</span>
+                </div>
+                <div class="info-item colatitude">
+                    <span class="info-label">Colatitud:</span>
+                    <span id="infoColatitude" class="info-value" style="color: #ef4444;">45°</span>
+                </div>
+                <div class="info-note">
+                    <div class="text-xs">
+                        ⭐ La altura de la Estrella Polar = Tu latitud<br>
+                        📐 Colatitud + Latitud = 90°
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-container w-full max-w-2xl mx-auto">
+            <div class="slider-container">
+                <label for="latitudeSlider" class="block text-center text-lg font-medium mb-4">
+                    Latitud: <span id="latitudeValue" class="font-bold text-yellow-300 text-xl">45° N</span>
+                </label>
+                <input id="latitudeSlider" type="range" min="-90" max="90" value="45" 
+                       class="w-full cursor-pointer">
+                <div class="flex justify-between text-xs text-gray-400 mt-2">
+                    <span>90° S</span>
+                    <span>0° (Ecuador)</span>
+                    <span>90° N</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('simulationCanvas');
+            const ctx = canvas.getContext('2d');
+            const slider = document.getElementById('latitudeSlider');
+            const latitudeValueDisplay = document.getElementById('latitudeValue');
+            const infoLatitude = document.getElementById('infoLatitude');
+            const infoPolarHeight = document.getElementById('infoPolarHeight');
+            const infoColatitude = document.getElementById('infoColatitude');
+
+            // Coordenadas mejoradas de la Osa Menor
+            const littleDipperRelativeCoords = [
+                { name: 'Polaris', x: 0, y: 0, size: 5 },
+                { name: 'Yildun', x: -25, y: -60, size: 3 },
+                { name: 'ε UMi', x: -30, y: -100, size: 2.5 },
+                { name: 'ζ UMi', x: 10, y: -130, size: 2.5 },
+                { name: 'η UMi', x: 50, y: -110, size: 2.5 },
+                { name: 'Kochab', x: 100, y: -140, size: 3.5 },
+                { name: 'Pherkad', x: 70, y: -170, size: 3 }
+            ];
+            
+            const dipperConnections = [
+                ['Polaris', 'Yildun'], ['Yildun', 'ε UMi'], ['ε UMi', 'ζ UMi'],
+                ['ζ UMi', 'η UMi'], ['ζ UMi', 'Pherkad'], ['Pherkad', 'Kochab'],
+                ['Kochab', 'η UMi']
+            ];
+
+            let latitude = 45;
+
+            function drawGradientCircle(centerX, centerY, radius, color1, color2) {
+                const gradient = ctx.createRadialGradient(
+                    centerX - radius * 0.3, centerY - radius * 0.3, radius * 0.1,
+                    centerX, centerY, radius
+                );
+                gradient.addColorStop(0, color1);
+                gradient.addColorStop(1, color2);
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            function drawStars() {
+                // Fondo estrellado
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height * 0.6;
+                    const size = Math.random() * 1.5;
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, 2 * Math.PI);
+                    ctx.fill();
+                }
+            }
+
+            function drawScene() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+                
+                // Fondo degradado
+                const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+                bgGradient.addColorStop(0, '#0f172a');
+                bgGradient.addColorStop(0.7, '#1e293b');
+                bgGradient.addColorStop(1, '#334155');
+                ctx.fillStyle = bgGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                drawStars();
+
+                // Parámetros de la simulación
+                const earthRadius = Math.min(canvas.width, canvas.height) * 0.15;
+                const earthCenterX = canvas.width / 2;
+                const earthCenterY = canvas.height * 0.85;
+
+                const latRad = latitude * Math.PI / 180;
+                const observerAngle = -latRad;
+
+                const observerX = earthCenterX + earthRadius * Math.cos(observerAngle);
+                const observerY = earthCenterY + earthRadius * Math.sin(observerAngle);
+                
+                // 1. Eje Polar (línea vertical que representa el eje de rotación terrestre)
+                ctx.beginPath();
+                ctx.setLineDash([8, 12]);
+                ctx.strokeStyle = 'rgba(156, 163, 175, 0.8)';
+                ctx.lineWidth = 2;
+                ctx.moveTo(earthCenterX, 0);
+                ctx.lineTo(earthCenterX, canvas.height);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // 2. Osa Menor y Estrella Polar
+                const polarisY = canvas.height * 0.08;
+                const polarisX = earthCenterX;
+                const constellationScale = 0.7;
+                
+                const starCoords = {};
+                littleDipperRelativeCoords.forEach(star => {
+                    const x = polarisX + star.x * constellationScale;
+                    const y = polarisY - star.y * constellationScale;
+                    starCoords[star.name] = { x, y };
+
+                    // Estrella con efecto de brillo
+                    const starGradient = ctx.createRadialGradient(x, y, 0, x, y, star.size + 2);
+                    starGradient.addColorStop(0, star.name === 'Polaris' ? '#FFFACD' : 'white');
+                    starGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                    ctx.fillStyle = starGradient;
+                    ctx.beginPath();
+                    ctx.arc(x, y, star.size + 2, 0, 2 * Math.PI);
+                    ctx.fill();
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, star.size, 0, 2 * Math.PI);
+                    ctx.fillStyle = star.name === 'Polaris' ? '#FFFACD' : 'white';
+                    ctx.fill();
+                });
+
+                // Conexiones de la constelación
+                ctx.beginPath();
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.lineWidth = 1.5;
+                dipperConnections.forEach(([start, end]) => {
+                    ctx.moveTo(starCoords[start].x, starCoords[start].y);
+                    ctx.lineTo(starCoords[end].x, starCoords[end].y);
+                });
+                ctx.stroke();
+
+                // Etiquetas
+                ctx.font = '16px Inter';
+                ctx.fillStyle = '#fbbf24';
+                ctx.textAlign = 'left';
+                ctx.fillText('★ Estrella Polar (Polaris)', polarisX + 15, polarisY + 5);
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#a5f3fc';
+                ctx.fillText('OSA MENOR', starCoords['Kochab'].x - 15, starCoords['Kochab'].y + 25);
+
+                // 3. La Tierra mejorada
+                drawGradientCircle(earthCenterX, earthCenterY, earthRadius, '#87CEEB', '#1e40af');
+                
+                // Contorno de la Tierra
+                ctx.beginPath();
+                ctx.arc(earthCenterX, earthCenterY, earthRadius, 0, 2 * Math.PI);
+                ctx.strokeStyle = 'rgba(59, 130, 246, 0.8)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // 4. RADIO TERRESTRE Y PROLONGACIÓN DEL RADIO (MÁSTIL)
+                // Radio hacia el centro (línea roja sólida)
+                ctx.beginPath();
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 3;
+                ctx.setLineDash([]);
+                ctx.moveTo(observerX, observerY);
+                ctx.lineTo(earthCenterX, earthCenterY);
+                ctx.stroke();
+                
+                // PROLONGACIÓN DEL RADIO hacia arriba (línea naranja SÓLIDA)
+                const mastLength = earthRadius * 0.7; // Aumentado para que toque el arco
+                // La prolongación va en la MISMA dirección del radio pero hacia ARRIBA desde el observador
+                const mastEndX = observerX + mastLength * Math.cos(observerAngle);
+                const mastEndY = observerY + mastLength * Math.sin(observerAngle);
+                
+                ctx.beginPath();
+                ctx.strokeStyle = '#f97316'; // Naranja
+                ctx.lineWidth = 3;
+                ctx.setLineDash([]); // SÓLIDA, no punteada
+                ctx.moveTo(observerX, observerY);
+                ctx.lineTo(mastEndX, mastEndY);
+                ctx.stroke();
+                
+                // Etiquetas
+                const midRadiusX = (observerX + earthCenterX) / 2;
+                const midRadiusY = (observerY + earthCenterY) / 2;
+                ctx.fillStyle = '#ef4444';
+                ctx.font = '12px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText('Radio', midRadiusX - 20, midRadiusY - 10);
+                
+                // El mástil mantiene su línea naranja pero sin etiqueta de texto
+
+                // 5. ARCO DE LATITUD CORREGIDO (ángulo interno)
+                if (Math.abs(latitude) > 0) {
+                    const arcRadius = earthRadius * 0.6;
+                    
+                    // Arco interno de latitud (desde ecuador hacia observador)
+                    ctx.beginPath();
+                    ctx.strokeStyle = '#fbbf24';
+                    ctx.lineWidth = 2; // Reducido de 3 a 2
+                    // Para latitud positiva: desde 0 (este/ecuador) hasta observerAngle
+                    // Para latitud negativa: desde 0 hasta observerAngle en sentido horario
+                    if (latitude > 0) {
+                        ctx.arc(earthCenterX, earthCenterY, arcRadius, 0, observerAngle, true);
+                    } else {
+                        ctx.arc(earthCenterX, earthCenterY, arcRadius, 0, observerAngle, false);
+                    }
+                    ctx.stroke();
+                    
+                    // Marcador en el extremo del arco
+                    const endArcX = earthCenterX + arcRadius * Math.cos(observerAngle);
+                    const endArcY = earthCenterY + arcRadius * Math.sin(observerAngle);
+                    ctx.beginPath();
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.arc(endArcX, endArcY, 4, 0, 2 * Math.PI);
+                    ctx.fill();
+                    
+                    // Texto del ángulo de latitud (posicionado en el centro del arco)
+                    const angleTextRadius = arcRadius + 25;
+                    let textAngle;
+                    if (latitude > 0) {
+                        textAngle = observerAngle / 2; // Mitad del ángulo para hemisferio norte
+                    } else {
+                        textAngle = observerAngle / 2; // Mitad del ángulo para hemisferio sur
+                    }
+                    const angleTextX = earthCenterX + angleTextRadius * Math.cos(textAngle);
+                    const angleTextY = earthCenterY + angleTextRadius * Math.sin(textAngle);
+                    
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = 'bold 16px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(`${Math.abs(latitude)}°`, angleTextX, angleTextY);
+                    ctx.font = '12px Inter';
+                    ctx.fillText('LATITUD', angleTextX, angleTextY + 18);
+                }
+
+                // 6. Polos y Ecuador
+                // Polo Norte
+                ctx.beginPath();
+                ctx.arc(earthCenterX, earthCenterY - earthRadius, 4, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.strokeStyle = '#3b82f6';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.fillStyle = 'white';
+                ctx.font = '12px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText('PN', earthCenterX, earthCenterY - earthRadius - 12);
+                
+                // Polo Sur
+                ctx.beginPath();
+                ctx.arc(earthCenterX, earthCenterY + earthRadius, 4, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.strokeStyle = '#3b82f6';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.fillText('PS', earthCenterX, earthCenterY + earthRadius + 20);
+                
+                // Ecuador
+                ctx.beginPath();
+                ctx.setLineDash([6, 6]);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.lineWidth = 2;
+                ctx.moveTo(earthCenterX - earthRadius, earthCenterY);
+                ctx.lineTo(earthCenterX + earthRadius, earthCenterY);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.textAlign = 'left';
+                ctx.fillText('Ecuador', earthCenterX + earthRadius + 8, earthCenterY + 5);
+
+                // 7. BARCO representado por un punto sutil
+                // Punto que representa la posición del barco/observador
+                ctx.beginPath();
+                ctx.arc(observerX, observerY, 4, 0, 2 * Math.PI);
+                ctx.fillStyle = '#f8fafc'; // Blanco suave
+                ctx.fill();
+                ctx.strokeStyle = '#64748b';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                // Pequeño punto central para mayor precisión
+                ctx.beginPath();
+                ctx.arc(observerX, observerY, 1.5, 0, 2 * Math.PI);
+                ctx.fillStyle = '#334155';
+                ctx.fill();
+
+                // 8. Horizonte del observador (más delgado)
+                const horizonAngle = observerAngle - Math.PI / 2;
+                const horizonLength = canvas.width * 0.3;
+                ctx.beginPath();
+                ctx.moveTo(observerX - horizonLength * Math.cos(horizonAngle), 
+                           observerY - horizonLength * Math.sin(horizonAngle));
+                ctx.lineTo(observerX + horizonLength * Math.cos(horizonAngle), 
+                           observerY + horizonLength * Math.sin(horizonAngle));
+                ctx.strokeStyle = '#10b981';
+                ctx.lineWidth = 2; // Reducido de 4 a 2
+                ctx.stroke();
+                
+                ctx.fillStyle = '#10b981';
+                ctx.font = '12px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText('HORIZONTE', 
+                    observerX + (horizonLength * 0.7) * Math.cos(horizonAngle), 
+                    observerY + (horizonLength * 0.7) * Math.sin(horizonAngle) - 10);
+
+                // 9. Mediciones desde el MÁSTIL (CORREGIDAS según imagen de referencia)
+                if (latitude >= 0) {
+                    // VERTICAL LOCAL (línea azul hacia arriba)
+                    const verticalLength = earthRadius * 0.5;
+                    const verticalEndX = observerX;
+                    const verticalEndY = observerY - verticalLength;
+                    
+                    ctx.beginPath();
+                    ctx.setLineDash([6, 6]);
+                    ctx.strokeStyle = '#3b82f6'; // Azul como en la imagen
+                    ctx.lineWidth = 2;
+                    ctx.moveTo(observerX, observerY);
+                    ctx.lineTo(verticalEndX, verticalEndY);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    // COLATITUD: Ángulo entre VERTICAL LOCAL y PROLONGACIÓN DEL RADIO (mástil)
+                    if (latitude > 0) {
+                        // Prolongación del radio (mástil) - en la MISMA dirección del radio hacia arriba
+                        const mastLength = earthRadius * 0.4;
+                        const mastEndX = observerX + mastLength * Math.cos(observerAngle);
+                        const mastEndY = observerY + mastLength * Math.sin(observerAngle);
+                        
+                        // Arco de colatitud: desde VERTICAL LOCAL hacia PROLONGACIÓN DEL RADIO
+                        ctx.beginPath();
+                        ctx.strokeStyle = '#fbbf24'; // Amarillo
+                        ctx.lineWidth = 2; // Reducido de 3 a 2
+                        const colatitudeArcRadius = 50;
+                        
+                        // Ángulo de la vertical local (hacia arriba)
+                        const verticalAngle = -Math.PI / 2;
+                        // Ángulo de la prolongación del radio (mástil hacia arriba)
+                        const mastAngle = observerAngle;
+                        
+                        // Dibujar arco desde VERTICAL hacia MÁSTIL
+                        ctx.arc(observerX, observerY, colatitudeArcRadius, verticalAngle, mastAngle, false);
+                        ctx.stroke();
+                        
+                        // Texto de colatitud
+                        const colatitude = 90 - latitude;
+                        // Ángulo medio para el texto
+                        const midAngle = verticalAngle + (mastAngle - verticalAngle) / 2;
+                        const colatTextX = observerX + (colatitudeArcRadius + 25) * Math.cos(midAngle);
+                        const colatTextY = observerY + (colatitudeArcRadius + 25) * Math.sin(midAngle);
+                        
+                        ctx.fillStyle = '#fbbf24';
+                        ctx.font = 'bold 16px Inter';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(`${colatitude}°`, colatTextX, colatTextY);
+                        ctx.font = '11px Inter';
+                        ctx.fillText('COLATITUD', colatTextX, colatTextY + 18);
+                    }
+                    
+                    // Línea hacia Polaris (azul punteada como en la imagen de referencia)
+                    ctx.beginPath();
+                    ctx.setLineDash([8, 8]); // Punteada
+                    ctx.strokeStyle = '#3b82f6';
+                    ctx.lineWidth = 2;
+                    ctx.moveTo(observerX, observerY);
+                    ctx.lineTo(observerX, 0);
+                    ctx.stroke();
+                    ctx.setLineDash([]); // Resetear
+                    
+                    // Altura polar (desde horizonte hacia Polaris) - arco más pequeño
+                    if (latitude > 0) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = '#10b981';
+                        ctx.lineWidth = 2; // Reducido de 3 a 2
+                        const altitudeArcRadius = 30;
+                        ctx.arc(observerX, observerY, altitudeArcRadius, horizonAngle, -Math.PI / 2, false);
+                        ctx.stroke();
+                        
+                        const altAngle = horizonAngle + latRad / 2;
+                        const altTextX = observerX + (altitudeArcRadius + 20) * Math.cos(altAngle);
+                        const altTextY = observerY + (altitudeArcRadius + 20) * Math.sin(altAngle);
+                        
+                        ctx.fillStyle = '#10b981';
+                        ctx.font = 'bold 14px Inter';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(`${latitude}°`, altTextX, altTextY);
+                    }
+                }
+
+                // Actualizar panel de información
+                const direction = latitude >= 0 ? 'N' : 'S';
+                const heightValue = latitude >= 0 ? Math.abs(latitude) : 0;
+                const colatitudeValue = 90 - Math.abs(latitude);
+                infoLatitude.textContent = `${Math.abs(latitude)}° ${direction}`;
+                infoPolarHeight.textContent = `${heightValue}°`;
+                infoColatitude.textContent = `${colatitudeValue}°`;
+            }
+
+            function handleSliderChange(event) {
+                latitude = parseInt(event.target.value);
+                const direction = latitude >= 0 ? 'N' : 'S';
+                latitudeValueDisplay.textContent = `${Math.abs(latitude)}° ${direction}`;
+                requestAnimationFrame(drawScene);
+            }
+            
+            function handleResize() {
+                requestAnimationFrame(drawScene);
+            }
+
+            slider.addEventListener('input', handleSliderChange);
+            window.addEventListener('resize', handleResize);
+
+            // Inicialización
+            handleSliderChange({ target: { value: latitude } });
+        });
+    </script>
+</body>
+</html>
