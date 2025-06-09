@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Referencia y Movimiento | Curso Interactivo de Física</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome para iconos modernos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- MathJax para ecuaciones -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Hoja de estilos global del curso -->
+  <link rel="stylesheet" href="../style.css">
+  
+  <!-- CSS ESPECÍFICO PARA ESTA PÁGINA -->
+  <style>
+    /* ==========================================
+       🎨 CSS PARA SECCIÓN DE CONCEPTOS DE MOVIMIENTO
+       ========================================== */
+
+    /* Animaciones fundamentales */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes particleFlow {
+      0% { 
+        transform: translateX(0) translateY(0); 
+      }
+      100% { 
+        transform: translateX(-60px) translateY(-60px); 
+      }
+    }
+
+    @keyframes logoSpin {
+      0%, 100% { 
+        transform: rotate(0deg) scale(1); 
+      }
+      50% { 
+        transform: rotate(180deg) scale(1.05); 
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 53%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40%, 43% {
+        transform: translateY(-10px);
+      }
+      70% {
+        transform: translateY(-5px);
+      }
+      90% {
+        transform: translateY(-2px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { 
+        transform: scale(1); 
+        opacity: 1; 
+      }
+      50% { 
+        transform: scale(1.1); 
+        opacity: 0.8; 
+      }
+    }
+
+    @keyframes globeSpin {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    /* Estilos base para la sección */
+    .conceptos-movimiento-section {
+      animation: fadeInUp 1s ease-out 1.6s both;
+      contain: layout style paint;
+      will-change: auto;
+    }
+
+    /* Transiciones suaves y optimizadas */
+    .card, 
+    .sistema-ref-card-enhanced, 
+    .objetivos-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform, box-shadow;
+      transform: translateZ(0);
+    }
+
+    .card:hover, 
+    .sistema-ref-card-enhanced:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(245, 158, 11, 0.15);
+    }
+
+    /* Efectos hover para elementos de lista */
+    .card ul li, 
+    .sistema-ref-card-enhanced ul li {
+      transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card ul li:hover, 
+    .sistema-ref-card-enhanced ul li:hover {
+      transform: scale(1.07);
+      box-shadow: 0 4px 22px rgba(251, 191, 36, 0.2);
+    }
+
+    /* Responsive mejorado */
+    @media (max-width: 768px) {
+      .conceptos-movimiento-section .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .conceptos-movimiento-section h2,
+      .conceptos-movimiento-section h3 {
+        font-size: 1.8em !important;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .conceptos-movimiento-section svg {
+        width: 250px !important;
+        height: 250px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ============================================
+       🎯 CABECERA PRINCIPAL
+       ============================================ -->
+  <div class="lesson-header">
+    <h2>
+      <i class="fas fa-compass"></i>
+      Sistema de Referencia y Movimiento
+      <span style="font-size:1.2em;">🧭🌟</span>
+    </h2>
+    <div class="lesson-desc">
+      <p>
+        Explora cómo la física describe el movimiento en el espacio y el tiempo: desde la orientación con estrellas, hasta los sistemas de referencia modernos.<br>
+        <span style="font-weight:bold; color:var(--warning);">¡Aprende a ubicarte en el universo!</span> 🚀✨
+      </p>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       🎯 OBJETIVOS DE APRENDIZAJE
+       ========================================================== -->
+  <div class="card objetivos-card">
+    <h3>
+      <i class="fas fa-bullseye" style="color:var(--warning);"></i> 
+      Objetivos de Aprendizaje <span style="font-size:0.9em;">🎯✨</span>
+    </h3>
+    <ul>
+      <li>🧭 Comprender <strong>qué es un sistema de referencia</strong> y su importancia en física.</li>
+      <li>🚀 Distinguir <strong>entre trayectoria, posición, desplazamiento y velocidad</strong>.</li>
+      <li>🌟 Valorar la historia de la orientación humana mediante <strong>estrellas y constelaciones</strong>.</li>
+      <li>🛑 Reconocer la diferencia entre <strong>reposo y movimiento relativo</strong>.</li>
+      <li>🔬 Identificar las ramas de la mecánica y sus <strong>conceptos básicos</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- ===============================================================
+       🧭 SECCIÓN 1: SISTEMA DE REFERENCIA
+       =============================================================== -->
+  <div class="card sistema-ref-card-enhanced">
+    <div style="padding:2.5em 3em 2em 3em; display:flex; gap:3em; align-items:center; flex-wrap:wrap;">
+      <div style="flex:2; min-width:320px;">
+        <h2 style="color:var(--accent); font-size:2.5em; font-weight:700; margin-bottom:0.8em; display:flex; align-items:center; gap:0.6em;">
+          <i class="fas fa-compass" style="color:var(--primary);"></i> 
+          ¿Qué es un <span style="color:var(--primary-dark);">Sistema de Referencia</span>? <span style="font-size:0.8em;">🧭✨</span>
+        </h2>
+        <p style="font-size:1.18em; color:var(--text-primary); line-height:1.9; margin-bottom:1em;">
+          Imagina que eres un <strong style="color:var(--warning);">explorador espacial</strong> 🧑‍🚀.<br>
+          Si descubres un planeta o ves pasar un cometa, ¿cómo lo describes sin que sea "por allá lejos"?<br>
+          ¡Necesitas tu propio GPS cósmico!
+        </p>
+        <p style="font-size:1.13em; color:var(--text-secondary); line-height:1.7; margin-bottom:1.1em;">
+          En física, ese <b>GPS</b> es el <b style="color:var(--primary);">Sistema de Referencia</b>: tu acuerdo para ubicar posiciones y movimientos usando un <b style="color:var(--warning);">punto de origen</b> y <b style="color:var(--primary-dark);">ejes de dirección</b>.
+        </p>
+        <ul style="list-style:none; margin-left:0; padding:0; display:flex; flex-direction:column; gap:0.45em; font-size:1.13em;">
+          <li style="background:rgba(14,165,233,0.08); border-radius:9px; padding:0.42em 1em; color:var(--accent); display:flex; align-items:center; gap:0.5em;">
+            🟣 <span style="color:var(--text-primary);">Permite <strong>ubicar</strong> cualquier objeto o evento.</span>
+          </li>
+          <li style="background:rgba(245,158,11,0.07); border-radius:9px; padding:0.42em 1em; color:var(--warning); display:flex; align-items:center; gap:0.5em;">
+            🔵 <span style="color:var(--text-primary);">Define un <strong>origen</strong> (punto de partida).</span>
+          </li>
+          <li style="background:rgba(124,58,237,0.07); border-radius:9px; padding:0.42em 1em; color:var(--secondary-dark); display:flex; align-items:center; gap:0.5em;">
+            🟠 <span style="color:var(--text-primary);">Usa <strong>coordenadas</strong> para dar direcciones y distancias.</span>
+          </li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:240px; text-align:center;">
+        <div style="background:linear-gradient(45deg,var(--secondary-dark),var(--warning),var(--primary)); border-radius:50%; width:170px; height:170px; display:flex; align-items:center; justify-content:center; margin:auto; box-shadow:0 0 30px var(--primary-light), inset 0 0 15px #fff5; animation:globeSpin 12s linear infinite;">
+          <img src="../assets/images/sistema-referencia.png" alt="Sistema de referencia" style="max-width:105px; filter:drop-shadow(0 2px 12px var(--warning));">
+        </div>
+        <p style="font-size:1em; color:var(--secondary-dark); font-weight:600; margin-top:1.2em; letter-spacing:0.5px;">
+          <i class="fas fa-lightbulb"></i> ¡Toda medición necesita un sistema de referencia!
+        </p>
+      </div>
+    </div>
+    <div style="background:rgba(14,165,233,0.09); padding:1.8em 2.2em 1.5em 2.2em; border-top:2px solid var(--secondary-dark)33;">
+      <h3 style="color:var(--accent); font-size:1.3em; margin-bottom:1.2em; text-align:center; letter-spacing:0.5px;">
+        <i class="fas fa-rocket"></i> Aplicaciones en el Mundo Real
+      </h3>
+      <ul style="list-style:none; padding:0; display:flex; justify-content:center; flex-wrap:wrap; gap:1.2em; text-align:center;">
+        <li style="background:white; padding:1em 1.5em; border-radius:14px; box-shadow:0 4px 14px var(--accent)15; transition:all 0.3s; display:flex; flex-direction:column; align-items:center; gap:0.4em; min-width:170px;">
+          <i class="fas fa-street-view" style="color:var(--danger); font-size:2em;"></i>
+          <strong style="color:var(--danger);">Vida Cotidiana</strong>
+          <span style="color:var(--text-secondary);">Dar una dirección precisa</span>
+        </li>
+        <li style="background:white; padding:1em 1.5em; border-radius:14px; box-shadow:0 4px 14px var(--secondary-dark)15; transition:all 0.3s; display:flex; flex-direction:column; align-items:center; gap:0.4em; min-width:170px;">
+          <i class="fas fa-satellite-dish" style="color:var(--secondary-dark); font-size:2em;"></i>
+          <strong style="color:var(--secondary-dark);">Tecnología GPS</strong>
+          <span style="color:var(--text-secondary);">Ubicación en el mapa</span>
+        </li>
+        <li style="background:white; padding:1em 1.5em; border-radius:14px; box-shadow:0 4px 14px var(--warning)15; transition:all 0.3s; display:flex; flex-direction:column; align-items:center; gap:0.4em; min-width:170px;">
+          <i class="fas fa-meteor" style="color:var(--warning); font-size:2em;"></i>
+          <strong style="color:var(--warning);">Astronomía</strong>
+          <span style="color:var(--text-secondary);">Rastrear planetas y cometas</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===============================================================
+       ✨💡 SECCIÓN: DEFINICIÓN DESTACADA
+       =============================================================== -->
+  <div class="card" style="margin:3em 0; background:linear-gradient(135deg,#dbeafe 0%,#f3f4f6 100%); border-radius:18px; padding:2.5em 3em; text-align:center; border-left:8px solid var(--primary); box-shadow:0 6px 22px var(--primary)33; position:relative; overflow:hidden;">
+    <h4 style="color:var(--accent); font-size:1.45em; margin-bottom:1.1em; display:flex; align-items:center; justify-content:center; gap:0.7em;">
+      <i class="fas fa-scroll" style="color:var(--secondary-dark);"></i> La Regla de Oro de la Cinemática
+    </h4>
+    <div style="background:rgba(14,165,233,0.10); padding:1.5em 2.5em; border-radius:15px; border:1.5px solid var(--primary)33; display:inline-block;">
+      <p style="font-size:1.17em; font-weight:500; color:var(--text-primary); line-height:1.8;">
+        Un <strong style="color:var(--primary); font-weight:700;">sistema de referencia</strong> es el conjunto de reglas y convenciones que un observador usa para medir la <strong style="color:var(--accent);">posición</strong> y otras magnitudes físicas de un objeto en el <strong style="color:var(--accent);">espacio</strong> y el <strong style="color:var(--accent);">tiempo</strong>.
+      </p>
+    </div>
+  </div>
+
+
+<!-- ============================================
+     🌠 SECCIÓN 2: ESTRELLA POLAR, OSA MAYOR Y OSA MENOR
+     ============================================ -->
+<div class="card estrella-polar-section" style="margin: 3em 0; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); border-radius: 25px; overflow: hidden; border: 3px solid #a78bfa; position: relative;">
+  
+  <!-- ==========================================
+       🌌 HEADER ÉPICO CON CIELO ESTRELLADO
+       ========================================== -->
+  <div style="background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #312e81 100%); padding: 3.5em 2em; position: relative; overflow: hidden;">
+    
+    <!-- Efecto de campo estelar animado -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"120\" height=\"120\" viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M30 25l2 6h6l-5 3 2 6-5-4-5 4 2-6-5-3h6z\"/%3E%3Cpath d=\"M80 40l1.5 4.5h4.5l-3.5 2.5 1.5 4.5-3.5-2.5-3.5 2.5 1.5-4.5-3.5-2.5h4.5z\"/%3E%3Cpath d=\"M50 80l1 3h3l-2.5 1.5 1 3-2.5-1.5-2.5 1.5 1-3-2.5-1.5h3z\"/%3E%3Cpath d=\"M90 70l1.2 3.6h3.6l-3 2 1.2 3.6-3-2-3 2 1.2-3.6-3-2h3.6z\"/%3E%3Cpath d=\"M20 75l0.8 2.4h2.4l-2 1.2 0.8 2.4-2-1.2-2 1.2 0.8-2.4-2-1.2h2.4z\"/%3E%3C/g%3E%3C/svg%3E') repeat; animation: constellation 25s linear infinite;"></div>
+    
+    <!-- Contenido principal del header -->
+    <div style="position: relative; z-index: 2; text-align: center; max-width: 1000px; margin: 0 auto;">
+      
+      <!-- Título principal con efectos -->
+      <h2 style="color: #ffffff; font-size: 3em; margin-bottom: 0.5em; text-shadow: 0 0 25px rgba(167, 139, 250, 0.8), 2px 2px 4px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; gap: 0.5em; flex-wrap: wrap;">
+        <i class="fas fa-star" style="color: #fbbf24; animation: northStar 6s ease-in-out infinite;"></i>
+        <span style="background: linear-gradient(45deg, #a78bfa, #8b5cf6, #7c3aed, #6d28d9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          El Faro Inmóvil del Norte
+        </span>
+        <span style="font-size: 0.6em;">⭐🧭</span>
+      </h2>
+      
+      <!-- Subtítulo dramático -->
+      <div style="background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(15px); padding: 1.5em 2em; border-radius: 15px; border: 2px solid rgba(167, 139, 250, 0.4); margin-bottom: 2em;">
+        <h3 style="color: #a78bfa; font-size: 1.6em; margin-bottom: 0.8em; font-style: italic; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+          🌟 "La Estrella Polar y sus Guardianes Celestiales"
+        </h3>
+        <p style="color: #e2e8f0; font-size: 1.2em; line-height: 1.7; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">
+          Durante milenios, los navegantes del hemisferio norte han dependido de una estrella especial: 
+          <strong style="color: #fbbf24;">Polaris</strong>, que permanece inmóvil mientras todo el cielo gira a su alrededor. 
+          Descubre cómo dos constelaciones en forma de oso fueron la <strong style="color: #8b5cf6;">clave para encontrarla</strong>. 🐻✨
+        </p>
+      </div>
+      
+      <!-- Datos fascinantes -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5em; margin-top: 2em;">
+        
+        <div style="background: rgba(167, 139, 250, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #a78bfa; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">💫</div>
+          <div style="color: #c4b5fd; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">0.7°</div>
+          <div style="color: #e9d5ff; font-size: 0.95em;">Desviación de Polaris del polo celeste</div>
+        </div>
+        
+        <div style="background: rgba(251, 191, 36, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #fbbf24; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">🐻</div>
+          <div style="color: #fde68a; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">2</div>
+          <div style="color: #fed7aa; font-size: 0.95em;">Constelaciones "Oso" guardianes</div>
+        </div>
+        
+        <div style="background: rgba(34, 211, 238, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #22d3ee; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">📏</div>
+          <div style="color: #67e8f9; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">5×</div>
+          <div style="color: #cffafe; font-size: 0.95em;">Distancia para encontrar Polaris</div>
+        </div>
+        
+        <div style="background: rgba(236, 72, 153, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #ec4899; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">⏰</div>
+          <div style="color: #f9a8d4; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">∞</div>
+          <div style="color: #fce7f3; font-size: 0.95em;">Años de uso en navegación</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ==========================================
+       ⭐ LA ESTRELLA QUE NO SE MUEVE
+       ========================================== -->
+  <div style="padding: 3em; background: linear-gradient(135deg, #312e81 0%, #4c1d95 100%); color: white;">
+    
+    <!-- El misterio de Polaris -->
+    <div style="background: linear-gradient(135deg, #581c87 0%, #7c3aed 100%); border-radius: 20px; padding: 2.5em; margin-bottom: 3em; border: 3px solid #a78bfa; position: relative; overflow: hidden;">
+      
+      <!-- Efecto de rotación en el fondo -->
+      <div style="position: absolute; top: 50%; left: 50%; width: 200px; height: 200px; margin: -100px 0 0 -100px; border: 2px dashed rgba(167, 139, 250, 0.3); border-radius: 50%; animation: slowRotate 20s linear infinite;"></div>
+      
+      <div style="position: relative; z-index: 1;">
+        <h3 style="color: #ffffff; font-size: 2.2em; margin-bottom: 2em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+          <i class="fas fa-compass" style="color: #fbbf24; animation: pulse 3s infinite;"></i>
+          Polaris: El Ancla del Cielo Nocturno
+          <span style="font-size: 0.6em;">⚓🌟</span>
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 3em; align-items: center;">
+          
+          <!-- Explicación del fenómeno -->
+          <div>
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 2em; border-radius: 15px; margin-bottom: 2em; border: 2px solid rgba(167, 139, 250, 0.3);">
+              <h4 style="color: #ddd6fe; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+                <i class="fas fa-question-circle" style="color: #fbbf24;"></i>
+                ¿Por Qué No Se Mueve?
+              </h4>
+              <p style="color: #e9d5ff; font-size: 1.1em; line-height: 1.8; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                El secreto de Polaris no es que realmente permanezca inmóvil, sino que 
+                <strong style="color: #fbbf24;">el eje de rotación de la Tierra apunta casi directamente hacia ella</strong>. 
+                Imagina la Tierra como un trompo gigante: Polaris está flotando justo encima de la punta superior.
+              </p>
+            </div>
+            
+            <div style="background: rgba(34, 211, 238, 0.2); padding: 2em; border-radius: 15px; margin-bottom: 2em; border: 2px solid #22d3ee;">
+              <h4 style="color: #67e8f9; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+                <i class="fas fa-sync-alt" style="color: #fbbf24;"></i>
+                La Ilusión del Movimiento
+              </h4>
+              <p style="color: #cffafe; font-size: 1.05em; line-height: 1.7; margin: 0;">
+                Mientras la Tierra rota, todas las demás estrellas parecen moverse en círculos alrededor de Polaris. 
+                Es como si fuéramos el centro de un <strong style="color: #22d3ee;">carrusel cósmico gigante</strong> 
+                con Polaris como el eje central inmutable.
+              </p>
+            </div>
+            
+            <div style="background: rgba(245, 158, 11, 0.2); padding: 2em; border-radius: 15px; border: 2px solid #f59e0b;">
+              <h4 style="color: #fbbf24; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+                <i class="fas fa-map-marker-alt" style="color: #fbbf24;"></i>
+                El Norte Verdadero
+              </h4>
+              <p style="color: #fed7aa; font-size: 1.05em; line-height: 1.7; margin: 0;">
+                Para cualquier observador en el hemisferio norte, Polaris marca 
+                <strong style="color: #f59e0b;">la dirección del norte geográfico</strong> con una precisión sorprendente. 
+                Es el GPS natural más confiable jamás creado.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Visualización del sistema Tierra-Polaris -->
+          <div style="text-align: center;">
+            <div style="position: relative; width: 350px; height: 350px; margin: 0 auto; background: radial-gradient(circle, #0f0f23 0%, #1e1b4b 70%, #312e81 100%); border-radius: 50%; border: 4px solid #a78bfa; box-shadow: 0 0 40px rgba(167, 139, 250, 0.4), inset 0 0 40px rgba(0, 0, 0, 0.6);">
+              
+              <!-- Órbitas de estrellas (círculos concéntricos) -->
+              <div style="position: absolute; top: 50px; left: 50px; width: 250px; height: 250px; border: 1px dashed rgba(167, 139, 250, 0.3); border-radius: 50%; animation: slowRotate 15s linear infinite;"></div>
+              <div style="position: absolute; top: 80px; left: 80px; width: 190px; height: 190px; border: 1px dashed rgba(167, 139, 250, 0.2); border-radius: 50%; animation: slowRotate 12s linear infinite;"></div>
+              
+              <!-- Estrellas que orbitan -->
+              <div style="position: absolute; top: 60px; left: 50%; width: 8px; height: 8px; background: #60a5fa; border-radius: 50%; margin-left: -4px; animation: slowRotate 15s linear infinite; box-shadow: 0 0 10px #60a5fa;"></div>
+              <div style="position: absolute; top: 50%; right: 60px; width: 6px; height: 6px; background: #34d399; border-radius: 50%; margin-top: -3px; animation: slowRotate 15s linear infinite; box-shadow: 0 0 8px #34d399;"></div>
+              <div style="position: absolute; bottom: 60px; left: 50%; width: 10px; height: 10px; background: #f87171; border-radius: 50%; margin-left: -5px; animation: slowRotate 15s linear infinite; box-shadow: 0 0 12px #f87171;"></div>
+              <div style="position: absolute; top: 50%; left: 60px; width: 7px; height: 7px; background: #a78bfa; border-radius: 50%; margin-top: -3px; animation: slowRotate 15s linear infinite; box-shadow: 0 0 10px #a78bfa;"></div>
+              
+              <!-- Polaris en el centro (fija) -->
+              <div style="position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; background: #fbbf24; border-radius: 50%; margin: -12px 0 0 -12px; box-shadow: 0 0 30px #fbbf24, 0 0 60px rgba(251, 191, 36, 0.5); animation: northStar 4s ease-in-out infinite; z-index: 10;"></div>
+              
+              <!-- Eje de rotación -->
+              <div style="position: absolute; top: -20px; left: 50%; width: 2px; height: 390px; background: linear-gradient(180deg, transparent, #a78bfa, transparent); margin-left: -1px; opacity: 0.6;"></div>
+              
+              <!-- Etiqueta de Polaris -->
+              <div style="position: absolute; top: 50%; left: 50%; margin: -80px 0 0 30px; background: rgba(0, 0, 0, 0.8); color: #fbbf24; padding: 0.5em 1em; border-radius: 8px; font-size: 0.9em; font-weight: 600; white-space: nowrap; z-index: 10; border: 1px solid #fbbf24;">
+                ⭐ Polaris (Inmóvil)
+              </div>
+              
+              <!-- Etiquetas de dirección -->
+              <div style="position: absolute; top: -15px; left: 50%; margin-left: -10px; color: #a78bfa; font-weight: bold; font-size: 0.9em;">N</div>
+              <div style="position: absolute; bottom: -15px; left: 50%; margin-left: -8px; color: #94a3b8; font-weight: bold; font-size: 0.9em;">S</div>
+              <div style="position: absolute; top: 50%; left: -15px; margin-top: -8px; color: #94a3b8; font-weight: bold; font-size: 0.9em;">O</div>
+              <div style="position: absolute; top: 50%; right: -15px; margin-top: -8px; color: #94a3b8; font-weight: bold; font-size: 0.9em;">E</div>
+            </div>
+            
+            <p style="color: #94a3b8; font-weight: 600; margin-top: 2em; font-size: 1em;">
+              <i class="fas fa-info-circle" style="color: #6366f1; margin-right: 0.5em;"></i>
+              Vista desde el polo norte: las estrellas giran alrededor de Polaris
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         🐻 LAS CONSTELACIONES GUARDIANAS
+         ========================================== -->
+    <div style="background: linear-gradient(135deg, #422006 0%, #92400e 100%); border-radius: 20px; padding: 3em; margin-bottom: 3em; border: 3px solid #fb923c;">
+      
+      <h3 style="color: #ffffff; font-size: 2.2em; margin-bottom: 2em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+        <i class="fas fa-paw" style="color: #fbbf24; animation: bounce 3s infinite;"></i>
+        Los Guardianes: Osa Mayor y Osa Menor
+        <span style="font-size: 0.6em;">🐻🔍</span>
+      </h3>
+      
+      <!-- El problema de encontrar Polaris -->
+      <div style="background: rgba(239, 68, 68, 0.2); border-radius: 15px; padding: 2em; margin-bottom: 3em; border: 2px solid #ef4444; text-align: center;">
+        <h4 style="color: #fca5a5; font-size: 1.4em; margin-bottom: 1em; display: flex; align-items: center; justify-content: center; gap: 0.5em;">
+          <i class="fas fa-search"></i>
+          El Desafío de la Localización
+        </h4>
+        <p style="color: #fee2e2; font-size: 1.2em; line-height: 1.7; margin: 0;">
+          Encontrar <strong style="color: #ef4444;">UNA estrella específica</strong> entre miles de puntos de luz 
+          en la vastedad del cielo nocturno era como buscar una aguja en un pajar cósmico. 
+          <strong style="color: #fbbf24;">¿La solución?</strong> Usar constelaciones más grandes y brillantes como "señales de tráfico" celestiales.
+        </p>
+      </div>
+      
+      <!-- Comparación Osa Mayor vs Osa Menor -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3em; margin-bottom: 3em;">
+        
+        <!-- Osa Mayor - La Guía -->
+        <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 2.5em; border-radius: 20px; box-shadow: 0 15px 35px rgba(5, 150, 105, 0.3); border: 3px solid #34d399;">
+          <div style="text-align: center; margin-bottom: 2em;">
+            <div style="background: rgba(255, 255, 255, 0.2); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; backdrop-filter: blur(10px);">
+              <i class="fas fa-search-plus" style="font-size: 2em; color: #ffffff;"></i>
+            </div>
+            <h4 style="color: #ffffff; font-size: 1.5em; margin-bottom: 0.5em;">OSA MAYOR</h4>
+            <p style="color: #a7f3d0; font-size: 1em; font-style: italic;">(Ursa Major - El Gran Carro)</p>
+          </div>
+          
+          <div style="background: rgba(255, 255, 255, 0.15); padding: 1.5em; border-radius: 12px; margin-bottom: 1.5em;">
+            <h5 style="color: #d1fae5; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em;">
+              <i class="fas fa-star"></i>
+              La Señal de Tráfico Perfecta
+            </h5>
+            <p style="color: #a7f3d0; line-height: 1.7; font-size: 0.95em; margin: 0;">
+              <strong>Grande, brillante y fácil de reconocer</strong>. Sus siete estrellas principales forman 
+              un "cucharón" o "carro" inconfundible que todos los navegantes podían identificar.
+            </p>
+          </div>
+          
+          <div style="background: rgba(251, 191, 36, 0.2); padding: 1.5em; border-radius: 12px; border: 1px solid #fbbf24;">
+            <h5 style="color: #fde68a; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em;">
+              <i class="fas fa-key"></i>
+              Las Estrellas Puntadoras
+            </h5>
+            <p style="color: #fed7aa; line-height: 1.7; font-size: 0.95em; margin: 0;">
+              <strong>Merak y Dubhe</strong> (las dos estrellas del borde frontal) forman una línea recta 
+              que apunta directamente hacia Polaris. ¡El GPS más antiguo del mundo!
+            </p>
+          </div>
+        </div>
+        
+        <!-- Osa Menor - El Destino -->
+        <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 2.5em; border-radius: 20px; box-shadow: 0 15px 35px rgba(99, 102, 241, 0.3); border: 3px solid #a78bfa;">
+          <div style="text-align: center; margin-bottom: 2em;">
+            <div style="background: rgba(255, 255, 255, 0.2); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; backdrop-filter: blur(10px);">
+              <i class="fas fa-crosshairs" style="font-size: 2em; color: #ffffff;"></i>
+            </div>
+            <h4 style="color: #ffffff; font-size: 1.5em; margin-bottom: 0.5em;">OSA MENOR</h4>
+            <p style="color: #c7d2fe; font-size: 1em; font-style: italic;">(Ursa Minor - El Pequeño Carro)</p>
+          </div>
+          
+          <div style="background: rgba(255, 255, 255, 0.15); padding: 1.5em; border-radius: 12px; margin-bottom: 1.5em;">
+            <h5 style="color: #e0e7ff; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em;">
+              <i class="fas fa-target"></i>
+              Contiene el Tesoro
+            </h5>
+            <p style="color: #c7d2fe; line-height: 1.7; font-size: 0.95em; margin: 0;">
+              Es la constelación que <strong>alberga a Polaris</strong>. La estrella polar es la más brillante 
+              en el extremo del "mango" de este pequeño cucharón celestial.
+            </p>
+          </div>
+          
+          <div style="background: rgba(239, 68, 68, 0.2); padding: 1.5em; border-radius: 12px; border: 1px solid #ef4444;">
+            <h5 style="color: #fca5a5; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em;">
+              <i class="fas fa-exclamation-triangle"></i>
+              El Problema
+            </h5>
+            <p style="color: #fee2e2; line-height: 1.7; font-size: 0.95em; margin: 0;">
+              Mucho más <strong>pequeña y tenue</strong> que la Osa Mayor. Difícil de ver con 
+              contaminación lumínica o condiciones atmosféricas adversas.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ==========================================
+           🧭 INSTRUCCIONES DE NAVEGACIÓN PASO A PASO
+           ========================================== -->
+      <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); border-radius: 20px; padding: 3em; border: 3px solid #64748b;">
+        <h4 style="color: #cbd5e1; font-size: 1.8em; text-align: center; margin-bottom: 2em; display: flex; align-items: center; justify-content: center; gap: 0.5em;">
+          <i class="fas fa-route"></i>
+          Manual de Navegación Estelar: 4 Pasos Simples
+        </h4>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5em; margin-bottom: 2em;">
+          
+          <!-- Paso 1 -->
+          <div style="background: rgba(59, 130, 246, 0.2); padding: 2em; border-radius: 15px; text-align: center; position: relative; border: 2px solid #3b82f6; transition: transform 0.3s ease;">
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #3b82f6; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em;">1</div>
+            <div style="font-size: 2.5em; margin: 1em 0 0.5em; color: #60a5fa;">🔍</div>
+            <h5 style="color: #93c5fd; margin-bottom: 1em; font-size: 1.1em; font-weight: 600;">Localiza la Osa Mayor</h5>
+            <p style="color: #dbeafe; font-size: 0.95em; line-height: 1.6; margin: 0;">
+              Busca el famoso "cucharón" grande y brillante. Es la constelación más fácil de encontrar en el cielo del norte.
+            </p>
+          </div>
+          
+          <!-- Paso 2 -->
+          <div style="background: rgba(16, 185, 129, 0.2); padding: 2em; border-radius: 15px; text-align: center; position: relative; border: 2px solid #10b981; transition: transform 0.3s ease;">
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #10b981; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em;">2</div>
+            <div style="font-size: 2.5em; margin: 1em 0 0.5em; color: #34d399;">🎯</div>
+            <h5 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.1em; font-weight: 600;">Identifica las Puntadoras</h5>
+            <p style="color: #a7f3d0; font-size: 0.95em; line-height: 1.6; margin: 0;">
+              Encuentra las dos estrellas del borde frontal del cucharón: <strong>Merak y Dubhe</strong>.
+            </p>
+          </div>
+          
+          <!-- Paso 3 -->
+          <div style="background: rgba(245, 158, 11, 0.2); padding: 2em; border-radius: 15px; text-align: center; position: relative; border: 2px solid #f59e0b; transition: transform 0.3s ease;">
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #f59e0b; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em;">3</div>
+            <div style="font-size: 2.5em; margin: 1em 0 0.5em; color: #fbbf24;">📏</div>
+            <h5 style="color: #fde68a; margin-bottom: 1em; font-size: 1.1em; font-weight: 600;">Mide la Distancia</h5>
+            <p style="color: #fed7aa; font-size: 0.95em; line-height: 1.6; margin: 0;">
+              Imagina una línea recta entre Merak y Dubhe. Esta será tu "regla cósmica" para medir.
+            </p>
+          </div>
+          
+          <!-- Paso 4 -->
+          <div style="background: rgba(168, 85, 247, 0.2); padding: 2em; border-radius: 15px; text-align: center; position: relative; border: 2px solid #a855f7; transition: transform 0.3s ease;">
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #a855f7; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em;">4</div>
+            <div style="font-size: 2.5em; margin: 1em 0 0.5em; color: #c4b5fd;">⭐</div>
+            <h5 style="color: #ddd6fe; margin-bottom: 1em; font-size: 1.1em; font-weight: 600;">¡Encuentra Polaris!</h5>
+            <p style="color: #e9d5ff; font-size: 0.95em; line-height: 1.6; margin: 0;">
+              Extiende esa línea <strong>cinco veces</strong> la distancia entre las dos estrellas hacia el norte. ¡Ahí está Polaris!
+            </p>
+          </div>
+        </div>
+        
+        <!-- ============================================
+     🌌 DIAGRAMA DE NAVEGACIÓN ESTELAR (IMAGEN)
+     ============================================
+     Este bloque sustituye el diagrama SVG por una imagen personalizada.
+     Puedes cambiar el ancho y alto desde los estilos del contenedor.
+=============================================== -->
+
+<div 
+  style="
+    background: rgba(0, 0, 0, 0.4); 
+    border-radius: 20px; 
+    padding: 2em 1.5em; 
+    text-align: center; 
+    border: 2.5px solid #475569;
+    box-shadow: 0 4px 32px #0ff2;
+    margin-bottom: 2em;
+    max-width: 98vw;
+    margin-left: auto; margin-right: auto;
+  "
+>
+  <!-- 🗺️ Título de la sección con ícono -->
+  <h5 
+    style="
+      color: #cbd5e1; 
+      margin-bottom: 1.5em; 
+      font-size: 1.35em; 
+      display: flex; align-items: center; justify-content: center; gap: 0.5em;
+      letter-spacing: 1px;
+    ">
+    <i class="fas fa-map"></i>
+    Diagrama de Navegación Estelar <span style="font-size:1.1em;">🌟🧭</span>
+  </h5>
+  
+  <!-- Contenedor flexible para la imagen; ajusta max-width y height según tu necesidad -->
+  <div 
+    style="
+      width: 100%; 
+      max-width: 1200px;  /* ⬅️ Cambia aquí el ancho máximo deseado */
+      height: 630px;      /* ⬅️ Cambia aquí la altura máxima deseada */
+      margin: 0 auto;
+      background: radial-gradient(circle, #0f0f23 0%, #1e1b4b 100%);
+      border-radius: 18px; 
+      border: 2px solid #64748b; 
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 48px #134e4a55;
+    "
+  >
+    <!-- Imagen central de la Osa Mayor, Osa Menor y Polaris -->
+    <img 
+      src="assets/images/OsaMenor.png" 
+      alt="Diagrama de Navegación Estelar Osa Menor y Polaris" 
+      style="
+        max-width: 100%; 
+        max-height: 100%; 
+        object-fit: contain; 
+        border-radius: 14px; 
+        box-shadow: 0 0 38px #22d3ee77, 0 0 18px #a5f3fc88;
+        background: #070720;
+      "
+    >
+  </div>
+
+  <!-- 📝 Pie de imagen con tip educativo -->
+  <div style="margin-top:1em; color: #94a3b8; font-size:1em;">
+    <span style="font-size:1.1em;">💡</span>
+    <strong>Tip:</strong> Utiliza este diagrama para aprender a localizar la Estrella Polar
+    a partir de las constelaciones Osa Mayor y Osa Menor.
+  </div>
+</div>
+
+
+        
+        <!-- Regla mnemotécnica -->
+        <div style="background: rgba(251, 191, 36, 0.2); margin-top: 2em; padding: 2em; border-radius: 15px; border: 2px solid #fbbf24; text-align: center;">
+          <h5 style="color: #fbbf24; margin-bottom: 1em; font-size: 1.3em; display: flex; align-items: center; justify-content: center; gap: 0.5em;">
+            <i class="fas fa-brain"></i>
+            Regla Mnemotécnica de los Navegantes
+          </h5>
+          <p style="color: #fed7aa; font-size: 1.3em; font-weight: 600; font-style: italic; line-height: 1.6; margin: 0;">
+            "De Merak a Dubhe, cinco pasos hacia el norte,<br>
+            y encontrarás el faro que nunca se mueve."
+          </p>
+          <p style="color: #fdba74; font-size: 1em; margin-top: 1em; font-style: italic;">
+            — Frase que ha guiado a navegantes durante milenios 🧭
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         🏛️ LEGADO HISTÓRICO Y CULTURAL
+         ========================================== -->
+    <div style="background: linear-gradient(135deg, #065f46 0%, #047857 100%); border-radius: 20px; padding: 3em; border: 3px solid #10b981;">
+      <h3 style="color: #ffffff; font-size: 2.2em; margin-bottom: 2em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+        <i class="fas fa-monument" style="color: #fbbf24; animation: bounce 3s infinite;"></i>
+        El Legado Eterno de las Estrellas Guardianas
+        <span style="font-size: 0.6em;">🏛️🌟</span>
+      </h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2em; margin-bottom: 2em;">
+        
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5em; border-radius: 15px; text-align: center; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px); transition: transform 0.3s ease;">
+          <div style="font-size: 3.5em; margin-bottom: 1em;">🏺</div>
+          <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">Civilizaciones Antiguas</h4>
+          <p style="color: #a7f3d0; font-size: 1em; line-height: 1.6;">
+            Desde los antiguos egipcios hasta los vikingos, todas las grandes civilizaciones del hemisferio norte 
+            usaron <strong style="color: #10b981;">la Osa Mayor para encontrar el norte</strong>.
+          </p>
+        </div>
+        
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5em; border-radius: 15px; text-align: center; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px); transition: transform 0.3s ease;">
+          <div style="font-size: 3.5em; margin-bottom: 1em;">⛵</div>
+          <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">Era de la Exploración</h4>
+          <p style="color: #a7f3d0; font-size: 1em; line-height: 1.6;">
+            Cristóbal Colón, los navegantes portugueses y todos los grandes exploradores dependían de 
+            <strong style="color: #10b981;">Polaris como su brújula celestial</strong> más confiable.
+          </p>
+        </div>
+        
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5em; border-radius: 15px; text-align: center; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px); transition: transform 0.3s ease;">
+          <div style="font-size: 3.5em; margin-bottom: 1em;">🎭</div>
+          <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">Mitología y Cultura</h4>
+          <p style="color: #a7f3d0; font-size: 1em; line-height: 1.6;">
+            Las dos Osas inspiraron innumerables mitos y leyendas. Para los griegos eran 
+            <strong style="color: #10b981;">Calisto y Arcas</strong>, transformados en osos por los dioses.
+          </p>
+        </div>
+        
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5em; border-radius: 15px; text-align: center; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px); transition: transform 0.3s ease;">
+          <div style="font-size: 3.5em; margin-bottom: 1em;">🚀</div>
+          <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">Era Moderna</h4>
+          <p style="color: #a7f3d0; font-size: 1em; line-height: 1.6;">
+            Aunque ahora tenemos GPS, <strong style="color: #10b981;">Polaris sigue siendo crucial</strong> 
+            para astronomía, supervivencia y como referencia para telescopios espaciales.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Dato curioso sobre la precesión -->
+      <div style="background: rgba(236, 72, 153, 0.2); border-radius: 15px; padding: 2.5em; margin-bottom: 2em; border: 2px solid #ec4899; text-align: center;">
+        <h4 style="color: #f9a8d4; font-size: 1.4em; margin-bottom: 1em; display: flex; align-items: center; justify-content: center; gap: 0.5em;">
+          <i class="fas fa-clock"></i>
+          Un Dato Fascinante: El Tiempo Cambia Todo
+        </h4>
+        <p style="color: #fce7f3; font-size: 1.1em; line-height: 1.7; margin: 0;">
+          Debido a la <strong style="color: #ec4899;">precesión del eje terrestre</strong> (como un trompo que se tambalea), 
+          Polaris no siempre ha sido la estrella del norte. Hace 4,000 años era <strong style="color: #fbbf24;">Thuban</strong>, 
+          y en el año 13,727 será <strong style="color: #22d3ee;">Vega</strong>. ¡La Tierra tiene su propio ciclo cósmico de 26,000 años! ⏰✨
+        </p>
+      </div>
+      
+      <!-- Cita final inspiradora -->
+      <div style="background: rgba(0, 0, 0, 0.4); padding: 2.5em; border-radius: 15px; border: 3px solid #fbbf24; text-align: center; backdrop-filter: blur(10px);">
+        <p style="font-size: 1.4em; font-style: italic; color: #fbbf24; margin: 0; font-weight: 600; line-height: 1.8; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+          "Mientras las civilizaciones han nacido y caído, mientras los imperios han surgido y se han desvanecido, 
+          Polaris ha permanecido como el faro inmutable que guía a la humanidad hacia el norte."
+        </p>
+        <p style="color: #94a3b8; font-size: 1em; margin-top: 1em; font-style: italic;">
+          — El testigo silencioso de toda la historia humana
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     🎨 CSS PARA ANIMACIONES ESPECÍFICAS
+     ========================================== -->
+<style>
+@keyframes constellation {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-120px) translateY(-120px); }
+}
+
+@keyframes northStar {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 0 25px #fbbf24, 0 0 50px rgba(251, 191, 36, 0.5); 
+  }
+  50% { 
+    transform: scale(1.2); 
+    box-shadow: 0 0 35px #fbbf24, 0 0 70px rgba(251, 191, 36, 0.8); 
+  }
+}
+
+@keyframes slowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Efectos hover para las cards de pasos */
+.estrella-polar-section .grid-cols-auto > div {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.estrella-polar-section .grid-cols-auto > div:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Efectos hover para las cards de legado */
+.estrella-polar-section .legacy-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.estrella-polar-section .legacy-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .estrella-polar-section .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .estrella-polar-section h2 {
+    font-size: 2.2em !important;
+    flex-direction: column;
+  }
+  
+  .estrella-polar-section h3 {
+    font-size: 1.8em !important;
+    flex-direction: column;
+  }
+  
+  .estrella-polar-section .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .estrella-polar-section .visualization {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .estrella-polar-section {
+    margin: 2em 1em !important;
+  }
+  
+  .estrella-polar-section .grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .estrella-polar-section .visualization {
+    width: 280px !important;
+    height: 280px !important;
+  }
+  
+  .estrella-polar-section h2 {
+    font-size: 1.8em !important;
+  }
+  
+  .estrella-polar-section .navigation-diagram {
+    height: 300px !important;
+  }
+}
+
+/* Animación de entrada para la sección */
+.estrella-polar-section {
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Efecto especial para las estrellas parpadeantes */
+.twinkling-star {
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Efecto de brillo para elementos importantes */
+.glow-effect {
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Transiciones suaves para interacciones */
+.smooth-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-hover:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.1);
+}
+</style>
+
+
+<!-- SIMUALDOR-----------------------------
+
+<!-- ============================================
+     🚀 SIMULADOR INTERACTIVO DE LATITUD (EXTRA ANCHO Y ALTO)
+     ============================================ -->
+<section id="simulador-latitud" style="margin:2.5em 0;">
+  <!-- 🎯 TÍTULO DE SECCIÓN -->
+  <h2 style="color:#2563eb; margin-bottom:0.8em;">
+    <i class="fas fa-globe-americas"></i> Simulador Interactivo de Latitud <span>🌍🧭</span>
+  </h2>
+
+  <!-- 📝 DESCRIPCIÓN BREVE PARA EL ESTUDIANTE -->
+  <div style="background:linear-gradient(90deg,#f0f7fa 70%,#fff 100%); border-radius:18px; padding:1.2em; margin-bottom:1em; box-shadow:0 2px 14px #2563eb22;">
+    <p style="margin:0; font-size:1.07em;">
+      Manipula el simulador para comprender cómo cambia la latitud sobre la superficie terrestre y cómo esto afecta la observación de estrellas y constelaciones. <span style="font-size:1.2em;">🌌🔭</span>
+    </p>
+  </div>
+
+  <div style="
+    max-width: 1800px;     /* Súper ancho para monitores grandes */
+    min-width: 1100px;     /* Mínimo recomendable para que no se vea muy pequeño */
+    width: 98vw;           /* Aprovecha casi todo el ancho visible de la ventana */
+    height: 980px;         /* Contenedor alto, ideal para contenido vertical */
+    margin:auto;
+    background:#fff;
+    border-radius:24px;
+    box-shadow:0 3px 32px #0002;
+    padding:2.7em 2.7em 3em 2.7em;
+    overflow-y: auto;      /* Scroll vertical si el contenido es más alto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+">
+  <iframe 
+    src="assets/aplicaciones/simulador_latitud.html"
+    title="Simulador Interactivo de Latitud"
+    style="
+      width: 100%; 
+      min-height: 920px;   /* Muy alto dentro del contenedor */
+      height: 900px;
+      max-height: 900px;
+      border:none; 
+      border-radius:20px; 
+      background:#0e1a31;
+      display: block;
+    "
+    loading="lazy"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin"
+  ></iframe>
+  <!-- ℹ️ TIP EDUCATIVO -->
+  <p style="font-size:1.1em; color:#2563ebc0; margin-top:1em; text-align: center;">
+    🔎 <strong>Tip:</strong> Explora diferentes valores de latitud y observa cómo se modifica la visión del cielo estrellado desde distintos puntos del planeta.
+  </p>
+</div>
+
+
+
+<!-----------------------------
+  
+<!-- ============================================
+     🌠 SECCIÓN 3: MAGALLANES Y LA CRUZ DEL SUR
+     ============================================ -->
+<div class="card magallanes-cruz-section" style="margin: 3em 0; background: linear-gradient(135deg, #0c1445 0%, #1e293b 50%, #374151 100%); border-radius: 25px; overflow: hidden; border: 3px solid #f59e0b; position: relative;">
+  
+  <!-- ==========================================
+       🌟 HEADER ÉPICO CON EFECTOS ESTELARES
+       ========================================== -->
+  <div style="background: linear-gradient(135deg, #000428 0%, #004e92 50%, #009ffd 100%); padding: 3.5em 2em; position: relative; overflow: hidden;">
+    
+    <!-- Estrellas animadas en el fondo -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.3\"%3E%3Cpath d=\"M25 20l2 6h6l-5 3 2 6-5-4-5 4 2-6-5-3h6z\"/%3E%3Cpath d=\"M75 30l1.5 4.5h4.5l-3.5 2.5 1.5 4.5-3.5-2.5-3.5 2.5 1.5-4.5-3.5-2.5h4.5z\"/%3E%3Cpath d=\"M50 70l1 3h3l-2.5 1.5 1 3-2.5-1.5-2.5 1.5 1-3-2.5-1.5h3z\"/%3E%3C/g%3E%3C/svg%3E') repeat; animation: starfield 20s linear infinite;"></div>
+    
+    <!-- Contenido principal del header -->
+    <div style="position: relative; z-index: 2; text-align: center; max-width: 1000px; margin: 0 auto;">
+      
+      <!-- Título principal con efectos -->
+      <h2 style="color: #ffffff; font-size: 3em; margin-bottom: 0.5em; text-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 2px 2px 4px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; gap: 0.5em; flex-wrap: wrap;">
+        <i class="fas fa-ship" style="color: #f59e0b; animation: sailShip 8s ease-in-out infinite;"></i>
+        <span style="background: linear-gradient(45deg, #fbbf24, #f59e0b, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          Magallanes y la Cruz del Sur
+        </span>
+        <span style="font-size: 0.6em;">⚓🌟</span>
+      </h2>
+      
+      <!-- Subtítulo dramático -->
+      <div style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); padding: 1.5em 2em; border-radius: 15px; border: 2px solid rgba(245, 158, 11, 0.3); margin-bottom: 2em;">
+        <h3 style="color: #fbbf24; font-size: 1.6em; margin-bottom: 0.8em; font-style: italic; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+          🧭 "La Expedición que Cambió la Historia de la Navegación"
+        </h3>
+        <p style="color: #e2e8f0; font-size: 1.2em; line-height: 1.7; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">
+          Cuando Fernando de Magallanes se aventuró hacia mares inexplorados, 
+          <strong style="color: #f59e0b;">una nueva constelación</strong> se convirtió en su guía hacia la inmortalidad. 
+          Descubre cómo <strong style="color: #22d3ee;">cuatro estrellas en forma de cruz</strong> 
+          abrieron el camino a la primera vuelta al mundo. 🌍✨
+        </p>
+      </div>
+      
+      <!-- Estadísticas dramáticas -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5em; margin-top: 2em;">
+        
+        <div style="background: rgba(220, 38, 38, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #dc2626; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">📅</div>
+          <div style="color: #fca5a5; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">1519</div>
+          <div style="color: #fee2e2; font-size: 0.95em;">Inicio de la expedición</div>
+        </div>
+        
+        <div style="background: rgba(34, 211, 238, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #22d3ee; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">🌊</div>
+          <div style="color: #67e8f9; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">5</div>
+          <div style="color: #cffafe; font-size: 0.95em;">Navíos en la flota</div>
+        </div>
+        
+        <div style="background: rgba(16, 185, 129, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #10b981; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">👥</div>
+          <div style="color: #6ee7b7; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">270</div>
+          <div style="color: #a7f3d0; font-size: 0.95em;">Hombres en la tripulación</div>
+        </div>
+        
+        <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #f59e0b; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">🌟</div>
+          <div style="color: #fbbf24; font-size: 2em; font-weight: bold; margin-bottom: 0.3em;">1°</div>
+          <div style="color: #fed7aa; font-size: 0.95em;">Primera vuelta al mundo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ==========================================
+       📜 LA HISTORIA ÉPICA
+       ========================================== -->
+  <div style="padding: 3em; background: linear-gradient(135deg, #1e293b 0%, #374151 100%); color: white;">
+    
+    <!-- El desafío del hemisferio sur -->
+    <div style="background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%); border-radius: 20px; padding: 2.5em; margin-bottom: 3em; border: 3px solid #ef4444; position: relative; overflow: hidden;">
+      
+      <!-- Efecto de olas -->
+      <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 20\"%3E%3Cpath d=\"M0 10c10 0 10-10 20-10s10 10 20 10 10-10 20-10s10 10 20 10 10-10 20-10\" stroke=\"%23ffffff\" stroke-width=\"2\" fill=\"none\" opacity=\"0.2\"/%3E%3C/svg%3E') repeat-x; animation: waveMotion 6s ease-in-out infinite;"></div>
+      
+      <div style="position: relative; z-index: 1;">
+        <h3 style="color: #ffffff; font-size: 2.2em; margin-bottom: 1.5em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+          <i class="fas fa-exclamation-triangle" style="color: #fbbf24; animation: pulse 2s infinite;"></i>
+          El Gran Problema del Sur
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 100px 1fr; gap: 2em; align-items: center; margin-bottom: 2em;">
+          
+          <!-- Hemisferio Norte (conocido) -->
+          <div style="background: rgba(59, 130, 246, 0.3); padding: 2em; border-radius: 15px; border: 2px solid #3b82f6; text-align: center;">
+            <div style="font-size: 3em; margin-bottom: 1em;">🧭</div>
+            <h4 style="color: #93c5fd; margin-bottom: 1em; font-size: 1.3em;">HEMISFERIO NORTE</h4>
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 1.2em; border-radius: 10px;">
+              <p style="color: #dbeafe; font-size: 0.95em; line-height: 1.6; margin: 0;">
+                ✅ <strong>Estrella Polar visible</strong><br>
+                ✅ <strong>Osa Mayor conocida</strong><br>
+                ✅ <strong>Rutas establecidas</strong>
+              </p>
+            </div>
+          </div>
+          
+          <!-- Separador con barco -->
+          <div style="text-align: center;">
+            <i class="fas fa-ship" style="font-size: 2.5em; color: #f59e0b; animation: sailShip 4s ease-in-out infinite;"></i>
+            <div style="width: 2px; height: 40px; background: linear-gradient(180deg, #3b82f6, #ef4444); margin: 1em auto;"></div>
+          </div>
+          
+          <!-- Hemisferio Sur (desconocido) -->
+          <div style="background: rgba(239, 68, 68, 0.3); padding: 2em; border-radius: 15px; border: 2px solid #ef4444; text-align: center;">
+            <div style="font-size: 3em; margin-bottom: 1em;">❓</div>
+            <h4 style="color: #fca5a5; margin-bottom: 1em; font-size: 1.3em;">HEMISFERIO SUR</h4>
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 1.2em; border-radius: 10px;">
+              <p style="color: #fee2e2; font-size: 0.95em; line-height: 1.6; margin: 0;">
+                ❌ <strong>Sin Estrella Polar</strong><br>
+                ❌ <strong>Cielo desconocido</strong><br>
+                ❌ <strong>Navegación imposible</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cita dramática -->
+        <div style="background: rgba(0, 0, 0, 0.5); padding: 2em; border-radius: 15px; border-left: 6px solid #f59e0b; text-align: center; backdrop-filter: blur(10px);">
+          <p style="font-size: 1.3em; font-style: italic; color: #fbbf24; margin: 0; font-weight: 600; line-height: 1.8; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+            "Al cruzar el Ecuador, los navegantes perdían su estrella guía... 
+            hasta que descubrieron una nueva cruz en el cielo austral."
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         ⭐ LA CRUZ DEL SUR - DESCUBRIMIENTO
+         ========================================== -->
+    <div style="background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); border-radius: 20px; padding: 3em; margin-bottom: 3em; border: 3px solid #6366f1; position: relative; overflow: hidden;">
+      
+      <h3 style="color: #ffffff; font-size: 2.2em; margin-bottom: 2em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+        <i class="fas fa-cross" style="color: #fbbf24; animation: pulse 3s infinite;"></i>
+        La Cruz del Sur: El Nuevo Faro Celestial
+        <span style="font-size: 0.6em;">✨🌟</span>
+      </h3>
+      
+      <div style="display: grid; grid-template-columns: 1fr 400px; gap: 3em; align-items: center;">
+        
+        <!-- Explicación del descubrimiento -->
+        <div>
+          <div style="background: rgba(255, 255, 255, 0.1); padding: 2em; border-radius: 15px; margin-bottom: 2em; border: 2px solid rgba(99, 102, 241, 0.3);">
+            <h4 style="color: #c7d2fe; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+              <i class="fas fa-search" style="color: #fbbf24;"></i>
+              El Momento Eureka
+            </h4>
+            <p style="color: #e2e8f0; font-size: 1.1em; line-height: 1.8; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+              Al adentrarse en aguas del hemisferio sur, Magallanes y su tripulación 
+              observaron una nueva constelación: <strong style="color: #fbbf24;">cuatro estrellas brillantes</strong> 
+              formando una cruz perfecta. Esta sería su <strong style="color: #22d3ee;">nueva brújula celestial</strong>.
+            </p>
+          </div>
+          
+          <div style="background: rgba(34, 211, 238, 0.2); padding: 2em; border-radius: 15px; margin-bottom: 2em; border: 2px solid #22d3ee;">
+            <h4 style="color: #67e8f9; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+              <i class="fas fa-compass" style="color: #fbbf24;"></i>
+              Método de Navegación
+            </h4>
+            <p style="color: #cffafe; font-size: 1.05em; line-height: 1.7; margin: 0;">
+              A diferencia del norte, el polo sur celeste carece de una estrella brillante. 
+              Los navegantes aprendieron a usar la Cruz del Sur para <strong style="color: #22d3ee;">calcular</strong> 
+              la posición del polo sur celeste y así orientarse.
+            </p>
+          </div>
+          
+          <div style="background: rgba(245, 158, 11, 0.2); padding: 2em; border-radius: 15px; border: 2px solid #f59e0b;">
+            <h4 style="color: #fbbf24; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+              <i class="fas fa-star" style="color: #fbbf24;"></i>
+              Significado Simbólico
+            </h4>
+            <p style="color: #fed7aa; font-size: 1.05em; line-height: 1.7; margin: 0;">
+              Para los exploradores cristianos, encontrar una <strong style="color: #f59e0b;">cruz en el cielo</strong> 
+              era más que navegación: era una <strong style="color: #fbbf24;">señal divina</strong> 
+              que bendecía su audaz enterprise.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Visualización de la Cruz del Sur -->
+        <div style="text-align: center;">
+          <div style="position: relative; width: 350px; height: 350px; margin: 0 auto; background: radial-gradient(circle, #000428 0%, #004e92 100%); border-radius: 50%; border: 4px solid #fbbf24; box-shadow: 0 0 40px rgba(245, 158, 11, 0.4), inset 0 0 40px rgba(0, 0, 0, 0.5);">
+            
+            <!-- Estrellas de la Cruz del Sur con animación -->
+            <div style="position: absolute; top: 50px; left: 50%; width: 16px; height: 16px; background: #fbbf24; border-radius: 50%; margin-left: -8px; box-shadow: 0 0 20px #fbbf24; animation: starTwinkle 3s infinite;" title="Gacrux (γ Crucis)"></div>
+            <div style="position: absolute; bottom: 50px; left: 50%; width: 18px; height: 18px; background: #22d3ee; border-radius: 50%; margin-left: -9px; box-shadow: 0 0 20px #22d3ee; animation: starTwinkle 2s infinite 0.5s;" title="Acrux (α Crucis)"></div>
+            <div style="position: absolute; top: 50%; right: 80px; width: 14px; height: 14px; background: #a78bfa; border-radius: 50%; margin-top: -7px; box-shadow: 0 0 20px #a78bfa; animation: starTwinkle 2.5s infinite 1s;" title="Becrux (β Crucis)"></div>
+            <div style="position: absolute; top: 50%; left: 80px; width: 12px; height: 12px; background: #34d399; border-radius: 50%; margin-top: -6px; box-shadow: 0 0 20px #34d399; animation: starTwinkle 3.5s infinite 1.5s;" title="Decrux (δ Crucis)"></div>
+            
+            <!-- Líneas de la cruz con efecto brillante -->
+            <div style="position: absolute; top: 50px; left: 50%; width: 3px; height: 250px; background: linear-gradient(180deg, #fbbf24, #22d3ee); margin-left: -1.5px; opacity: 0.7; box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);"></div>
+            <div style="position: absolute; top: 50%; left: 80px; width: 190px; height: 3px; background: linear-gradient(90deg, #34d399, #a78bfa); margin-top: -1.5px; opacity: 0.7; box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);"></div>
+            
+            <!-- Etiquetas de las estrellas -->
+            <div style="position: absolute; top: 20px; left: 50%; margin-left: 15px; background: rgba(0, 0, 0, 0.8); color: #fbbf24; padding: 0.3em 0.8em; border-radius: 6px; font-size: 0.8em; font-weight: 600;">Gacrux</div>
+            <div style="position: absolute; bottom: 20px; left: 50%; margin-left: 15px; background: rgba(0, 0, 0, 0.8); color: #22d3ee; padding: 0.3em 0.8em; border-radius: 6px; font-size: 0.8em; font-weight: 600;">Acrux</div>
+            <div style="position: absolute; top: 50%; right: 40px; margin-top: 15px; background: rgba(0, 0, 0, 0.8); color: #a78bfa; padding: 0.3em 0.8em; border-radius: 6px; font-size: 0.8em; font-weight: 600;">Becrux</div>
+            <div style="position: absolute; top: 50%; left: 40px; margin-top: 15px; background: rgba(0, 0, 0, 0.8); color: #34d399; padding: 0.3em 0.8em; border-radius: 6px; font-size: 0.8em; font-weight: 600;">Decrux</div>
+            
+            <!-- Flecha indicando el sur -->
+            <div style="position: absolute; bottom: -50px; left: 50%; margin-left: -20px; text-align: center;">
+              <i class="fas fa-arrow-down" style="font-size: 2em; color: #22d3ee; animation: bounce 2s infinite;"></i>
+              <p style="color: #67e8f9; font-size: 0.9em; margin-top: 0.5em; font-weight: 600;">Polo Sur Celeste</p>
+            </div>
+          </div>
+          
+          <p style="color: #94a3b8; font-weight: 600; margin-top: 2em; font-size: 1em;">
+            <i class="fas fa-info-circle" style="color: #3b82f6; margin-right: 0.5em;"></i>
+            La constelación más pequeña del cielo, pero la más importante para el hemisferio sur
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         🏆 EL LEGADO HISTÓRICO
+         ========================================== -->
+    <div style="background: linear-gradient(135deg, #065f46 0%, #047857 100%); border-radius: 20px; padding: 3em; border: 3px solid #10b981;">
+      <h3 style="color: #ffffff; font-size: 2.2em; margin-bottom: 2em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+        <i class="fas fa-trophy" style="color: #fbbf24; animation: bounce 3s infinite;"></i>
+        El Legado Imperecedero
+        <span style="font-size: 0.6em;">👑🌍</span>
+      </h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2em; margin-bottom: 2em;">
+        
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5em; border-radius: 15px; text-align: center; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px);">
+          <div style="font-size: 3.5em; margin-bottom: 1em;">🌍</div>
+          <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">Primera Circunnavegación</h4>
+          <p style="color: #a7f3d0; font-size: 1em; line-height: 1.6;">
+            Aunque Magallanes murió en Filipinas, su expedición completó la primera vuelta al mundo, 
+            demostrando que <strong style="color: #10b981;">la Tierra era realmente esférica</strong>.
+          </p>
+        </div>
+        
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5em; border-radius: 15px; text-align: center; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px);">
+          <div style="font-size: 3.5em; margin-bottom: 1em;">🗺️</div>
+          <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">Nuevas Rutas Comerciales</h4>
+          <p style="color: #a7f3d0; font-size: 1em; line-height: 1.6;">
+            Abrió el camino hacia las <strong style="color: #10b981;">Islas de las Especias</strong>, 
+            revolucionando el comercio mundial y conectando continentes.
+          </p>
+        </div>
+        
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5em; border-radius: 15px; text-align: center; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px);">
+          <div style="font-size: 3.5em; margin-bottom: 1em;">⭐</div>
+          <h4 style="color: #6ee7b7; margin-bottom: 1em; font-size: 1.3em;">Astronomía Moderna</h4>
+          <p style="color: #a7f3d0; font-size: 1em; line-height: 1.6;">
+            La Cruz del Sur se convirtió en <strong style="color: #10b981;">símbolo nacional</strong> 
+            de Australia, Brasil, Nueva Zelanda y otros países del hemisferio sur.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Cita final inspiradora -->
+      <div style="background: rgba(0, 0, 0, 0.4); padding: 2.5em; border-radius: 15px; border: 3px solid #fbbf24; text-align: center; backdrop-filter: blur(10px);">
+        <p style="font-size: 1.4em; font-style: italic; color: #fbbf24; margin: 0; font-weight: 600; line-height: 1.8; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+          "Magallanes no solo descubrió una nueva ruta hacia las especias... 
+          descubrió que el universo era mucho más grande de lo que cualquiera había imaginado."
+        </p>
+        <p style="color: #94a3b8; font-size: 1em; margin-top: 1em; font-style: italic;">
+          — El explorador que cambió nuestra percepción del mundo
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     🎨 CSS PARA ANIMACIONES ESPECÍFICAS
+     ========================================== -->
+<style>
+@keyframes starfield {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-100px) translateY(-100px); }
+}
+
+@keyframes sailShip {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes waveMotion {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Efectos hover para las cards de legado */
+.magallanes-cruz-section .grid-cols-auto > div {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.magallanes-cruz-section .grid-cols-auto > div:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(16, 185, 129, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .magallanes-cruz-section .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .magallanes-cruz-section h2 {
+    font-size: 2.2em !important;
+    flex-direction: column;
+  }
+  
+  .magallanes-cruz-section h3 {
+    font-size: 1.8em !important;
+    flex-direction: column;
+  }
+  
+  .magallanes-cruz-section .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .magallanes-cruz-section .cruz-visualization {
+    width: 280px !important;
+    height: 280px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .magallanes-cruz-section {
+    margin: 2em 1em !important;
+  }
+  
+  .magallanes-cruz-section .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .magallanes-cruz-section .cruz-visualization {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  
+  .magallanes-cruz-section h2 {
+    font-size: 1.8em !important;
+  }
+  
+  .magallanes-cruz-section .grid-cols-3 > div:nth-child(2) {
+    order: 3;
+    margin: 1em 0;
+  }
+}
+
+/* Animación de entrada para la sección */
+.magallanes-cruz-section {
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+/* Efecto especial para el título con gradiente */
+.magallanes-cruz-section .gradient-text {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #dc2626, #7c2d12);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Efecto de brillo para las estrellas */
+.star-glow {
+  filter: drop-shadow(0 0 10px currentColor);
+  animation: starPulse 4s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+  0%, 100% { filter: drop-shadow(0 0 10px currentColor) brightness(1); }
+  50% { filter: drop-shadow(0 0 20px currentColor) brightness(1.3); }
+}
+
+/* Efecto de profundidad para las cards */
+.depth-card {
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.depth-card:hover {
+  box-shadow: 
+    0 20px 25px rgba(0, 0, 0, 0.15),
+    0 10px 10px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Animación para el efecto de navegación */
+@keyframes navigate {
+  0% { transform: translateX(-100px) rotate(-5deg); opacity: 0; }
+  50% { transform: translateX(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateX(100px) rotate(5deg); opacity: 0; }
+}
+
+.navigation-effect {
+  animation: navigate 10s ease-in-out infinite;
+}
+
+/* Efecto de destello para elementos importantes */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Modo nocturno para la visualización astronómica */
+.night-mode {
+  background: radial-gradient(circle at center, #000428 0%, #004e92 50%, #000000 100%);
+  border: 3px solid #1e3a8a;
+}
+
+.night-mode .star {
+  box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+/* Efectos de partículas flotantes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(120deg); }
+  66% { transform: translateY(5px) rotate(240deg); }
+}
+
+.floating-particle {
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* Efecto de ondas marinas */
+@keyframes oceanWave {
+  0%, 100% { 
+    transform: translateX(0) scaleY(1); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: translateX(-50px) scaleY(1.1); 
+    opacity: 0.8; 
+  }
+}
+
+.ocean-wave {
+  animation: oceanWave 8s ease-in-out infinite;
+}
+
+/* Transición suave para cambios de contenido */
+.smooth-transition {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-transition:hover {
+  transform: translateZ(0) scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* Efecto de enfoque para elementos interactivos */
+.focus-ring:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.3);
+}
+
+/* Optimización de rendimiento para animaciones */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Efectos especiales para impresión */
+@media print {
+  .magallanes-cruz-section {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .magallanes-cruz-section * {
+    animation: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .magallanes-cruz-section .cruz-visualization {
+    border: 2px solid #000;
+    background: white !important;
+  }
+}
+</style>
+
+
+<!-- ============================================
+     🚶 SECCIÓN 4: TRAYECTORIA, POSICIÓN, REPOSO Y MOVIMIENTO RELATIVO
+     ============================================ -->
+<div class="card movimiento-section" style="margin: 3em 0; background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%); border-radius: 25px; overflow: hidden; border: 3px solid #34d399; position: relative;">
+  
+  <!-- ==========================================
+       🌍 HEADER ÉPICO: EL LENGUAJE DEL MOVIMIENTO
+       ========================================== -->
+  <div style="background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0ea5e9 100%); padding: 3.5em 2em; position: relative; overflow: hidden;">
+    
+    <!-- Partículas en movimiento -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.2\"%3E%3Ccircle cx=\"20\" cy=\"20\" r=\"2\"/%3E%3Ccircle cx=\"60\" cy=\"30\" r=\"1.5\"/%3E%3Ccircle cx=\"40\" cy=\"50\" r=\"2.5\"/%3E%3Ccircle cx=\"70\" cy=\"70\" r=\"1.8\"/%3E%3Ccircle cx=\"30\" cy=\"70\" r=\"2\"/%3E%3C/g%3E%3C/svg%3E') repeat; animation: particleFlow 12s linear infinite;"></div>
+    
+    <!-- Contenido principal del header -->
+    <div style="position: relative; z-index: 2; text-align: center; max-width: 1100px; margin: 0 auto;">
+      
+      <!-- Título principal con efectos dinámicos -->
+      <h2 style="color: #ffffff; font-size: 3.2em; margin-bottom: 0.5em; text-shadow: 0 0 30px rgba(52, 211, 153, 0.8), 2px 2px 4px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; gap: 0.5em; flex-wrap: wrap;">
+        <i class="fas fa-running" style="color: #fbbf24; animation: runner 4s ease-in-out infinite;"></i>
+        <span style="background: linear-gradient(45deg, #34d399, #10b981, #059669, #047857); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: textShine 3s ease-in-out infinite;">
+          El Lenguaje del Movimiento
+        </span>
+        <span style="font-size: 0.6em;">🚶📐🌟</span>
+      </h2>
+      
+      <!-- Subtítulo inspirador -->
+      <div style="background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(15px); padding: 1.8em 2.5em; border-radius: 15px; border: 2px solid rgba(52, 211, 153, 0.4); margin-bottom: 2em;">
+        <h3 style="color: #34d399; font-size: 1.7em; margin-bottom: 0.8em; font-style: italic; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+          🌌 "Desde Galaxias hasta Quarks: Todo Está en Movimiento"
+        </h3>
+        <p style="color: #e2e8f0; font-size: 1.3em; line-height: 1.7; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">
+          ¿Sabías que ahora mismo te mueves a <strong style="color: #fbbf24;">220 km/s</strong> alrededor del centro de la galaxia? 
+          Descubre cómo los conceptos de <strong style="color: #22d3ee;">trayectoria, posición y movimiento relativo</strong> 
+          nos ayudan a describir desde el vuelo de un colibrí hasta las ondas gravitacionales del universo. 🌠⚡
+        </p>
+      </div>
+      
+      <!-- Datos científicos fascinantes -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5em; margin-top: 2em;">
+        
+        <div style="background: rgba(52, 211, 153, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #34d399; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">🌌</div>
+          <div style="color: #6ee7b7; font-size: 1.8em; font-weight: bold; margin-bottom: 0.3em;">2.2×10⁶</div>
+          <div style="color: #a7f3d0; font-size: 0.9em;">m/s - Velocidad de la Vía Láctea</div>
+        </div>
+        
+        <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #f59e0b; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">🐦</div>
+          <div style="color: #fbbf24; font-size: 1.8em; font-weight: bold; margin-bottom: 0.3em;">80</div>
+          <div style="color: #fed7aa; font-size: 0.9em;">aleteos/s del colibrí abeja</div>
+        </div>
+        
+        <div style="background: rgba(168, 85, 247, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #a855f7; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">⚡</div>
+          <div style="color: #c4b5fd; font-size: 1.8em; font-weight: bold; margin-bottom: 0.3em;">3×10⁸</div>
+          <div style="color: #e9d5ff; font-size: 0.9em;">m/s - Velocidad de la luz</div>
+        </div>
+        
+        <div style="background: rgba(239, 68, 68, 0.2); padding: 1.5em; border-radius: 15px; border: 2px solid #ef4444; text-align: center; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5em; margin-bottom: 0.5em;">🔬</div>
+          <div style="color: #fca5a5; font-size: 1.8em; font-weight: bold; margin-bottom: 0.3em;">10⁻³⁵</div>
+          <div style="color: #fee2e2; font-size: 0.9em;">m - Longitud de Planck</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ==========================================
+       📍 POSICIÓN: TU DIRECCIÓN EN EL COSMOS
+       ========================================== -->
+  <div style="padding: 3em; background: linear-gradient(135deg, #047857 0%, #059669 100%); color: white;">
+    
+    <div style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); border-radius: 20px; padding: 2.5em; margin-bottom: 3em; border: 3px solid #60a5fa; position: relative; overflow: hidden;">
+      
+      <!-- Efecto de coordenadas en el fondo -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"50\" height=\"50\" viewBox=\"0 0 50 50\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"0.5\" opacity=\"0.1\"%3E%3Cpath d=\"M0 25h50M25 0v50\"/%3E%3C/g%3E%3C/svg%3E') repeat;"></div>
+      
+      <div style="position: relative; z-index: 1;">
+        <h3 style="color: #ffffff; font-size: 2.4em; margin-bottom: 1.5em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+          <i class="fas fa-map-pin" style="color: #fbbf24; animation: pulse 3s infinite;"></i>
+          Posición: Tu Dirección Cósmica
+          <span style="font-size: 0.6em;">📍🌍</span>
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 450px; gap: 3em; align-items: center;">
+          
+          <!-- Explicación conceptual -->
+          <div>
+            <!-- Definición fundamental -->
+            <div style="background: rgba(255, 255, 255, 0.15); padding: 2em; border-radius: 15px; margin-bottom: 2em; border: 2px solid rgba(255, 255, 255, 0.2);">
+              <h4 style="color: #ffffff; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+                <i class="fas fa-satellite" style="color: #fbbf24;"></i>
+                Del GPS a las Coordenadas Galácticas
+              </h4>
+              <p style="color: #f1f5f9; font-size: 1.1em; line-height: 1.8; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                La <strong style="color: #fbbf24;">posición</strong> es como tu dirección cósmica única. 
+                Mientras tu GPS te ubica en la Tierra, los astrónomos usan coordenadas para localizar 
+                <strong style="color: #22d3ee;">exoplanetas a 4,000 años luz</strong> de distancia. 
+                Todo necesita un sistema de referencia para ser encontrado.
+              </p>
+            </div>
+            
+            <!-- Escalas de posición -->
+            <div style="background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(6, 182, 212, 0.2)); border-left: 6px solid #22d3ee; padding: 2em; border-radius: 0 15px 15px 0; margin-bottom: 2em; border: 2px solid rgba(34, 211, 238, 0.3);">
+              <h4 style="color: #ffffff; margin-bottom: 1.5em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+                <i class="fas fa-expand-arrows-alt" style="color: #fbbf24;"></i>
+                Escalas de Posicionamiento
+              </h4>
+              
+              <div style="display: grid; gap: 1em;">
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 1.2em; border-radius: 10px; display: flex; align-items: center; gap: 1em;">
+                  <div style="background: #3b82f6; color: white; padding: 0.5em; border-radius: 50%; width: 2.5em; height: 2.5em; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-atom" style="font-size: 1.1em;"></i>
+                  </div>
+                  <div>
+                    <div style="color: #67e8f9; font-weight: 600; margin-bottom: 0.3em;">Escala Atómica</div>
+                    <div style="color: #cffafe; font-size: 0.9em;">Posición de electrones en orbitales cuánticos</div>
+                  </div>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 1.2em; border-radius: 10px; display: flex; align-items: center; gap: 1em;">
+                  <div style="background: #10b981; color: white; padding: 0.5em; border-radius: 50%; width: 2.5em; height: 2.5em; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-map-marked-alt" style="font-size: 1.1em;"></i>
+                  </div>
+                  <div>
+                    <div style="color: #6ee7b7; font-weight: 600; margin-bottom: 0.3em;">Escala Humana</div>
+                    <div style="color: #a7f3d0; font-size: 0.9em;">GPS con precisión de centímetros</div>
+                  </div>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 1.2em; border-radius: 10px; display: flex; align-items: center; gap: 1em;">
+                  <div style="background: #a855f7; color: white; padding: 0.5em; border-radius: 50%; width: 2.5em; height: 2.5em; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-globe" style="font-size: 1.1em;"></i>
+                  </div>
+                  <div>
+                    <div style="color: #c4b5fd; font-weight: 600; margin-bottom: 0.3em;">Escala Astronómica</div>
+                    <div style="color: #e9d5ff; font-size: 0.9em;">Coordenadas estelares y exoplanetas</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Ecuación matemática mejorada -->
+            <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(217, 119, 6, 0.2)); border-left: 6px solid #f59e0b; padding: 2em; border-radius: 0 15px 15px 0; border: 2px solid rgba(245, 158, 11, 0.3);">
+              <h4 style="color: #ffffff; margin-bottom: 1em; display: flex; align-items: center; gap: 0.5em; font-size: 1.3em;">
+                <i class="fas fa-calculator" style="color: #fbbf24;"></i>
+                Vector Posición en el Espacio-Tiempo
+              </h4>
+              
+              <div style="background: rgba(0, 0, 0, 0.4); padding: 2em; border-radius: 12px; text-align: center; border: 2px solid rgba(245, 158, 11, 0.4);">
+                <div style="background: rgba(245, 158, 11, 0.1); padding: 1em; border-radius: 8px; margin-bottom: 1.5em;">
+                  <h5 style="color: #fde68a; margin-bottom: 0.8em; font-size: 1.1em;">Posición 4D (Espacio + Tiempo)</h5>
+                </div>
+                
+                <div style="font-size: 1.4em; color: #ffffff; margin-bottom: 1em; font-weight: 600;">
+                  $$\vec{r}(t) = x(t)\hat{i} + y(t)\hat{j} + z(t)\hat{k} + ct\hat{t}$$
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1em; margin-top: 1.5em;">
+                  <div style="background: rgba(59, 130, 246, 0.2); padding: 1em; border-radius: 8px;">
+                    <div style="color: #93c5fd; font-size: 1.1em; margin-bottom: 0.3em;">$$x, y, z$$</div>
+                    <div style="color: #dbeafe; font-size: 0.85em;">Coordenadas espaciales</div>
+                  </div>
+                  <div style="background: rgba(236, 72, 153, 0.2); padding: 1em; border-radius: 8px;">
+                    <div style="color: #f9a8d4; font-size: 1.1em; margin-bottom: 0.3em;">$$ct$$</div>
+                    <div style="color: #fce7f3; font-size: 0.85em;">Coordenada temporal</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Visualización interactiva del sistema solar -->
+          <div style="text-align: center;">
+            <div style="position: relative; width: 400px; height: 400px; margin: 0 auto; background: radial-gradient(circle, #0f172a 0%, #1e293b 100%); border-radius: 20px; border: 3px solid #60a5fa; box-shadow: 0 0 40px rgba(96, 165, 250, 0.4); overflow: hidden;">
+              
+              <!-- Sistema solar simplificado -->
+              <!-- Sol en el centro -->
+              <div style="position: absolute; top: 50%; left: 50%; width: 30px; height: 30px; background: radial-gradient(circle, #fbbf24, #f59e0b); border-radius: 50%; margin: -15px 0 0 -15px; box-shadow: 0 0 40px #fbbf24; animation: solarPulse 4s ease-in-out infinite; z-index: 10;"></div>
+              
+              <!-- Órbitas planetarias -->
+              <div style="position: absolute; top: 50%; left: 50%; width: 120px; height: 120px; border: 1px dashed rgba(96, 165, 250, 0.3); border-radius: 50%; margin: -60px 0 0 -60px; animation: orbit 8s linear infinite;"></div>
+              <div style="position: absolute; top: 50%; left: 50%; width: 180px; height: 180px; border: 1px dashed rgba(34, 211, 238, 0.3); border-radius: 50%; margin: -90px 0 0 -90px; animation: orbit 12s linear infinite;"></div>
+              <div style="position: absolute; top: 50%; left: 50%; width: 240px; height: 240px; border: 1px dashed rgba(16, 185, 129, 0.3); border-radius: 50%; margin: -120px 0 0 -120px; animation: orbit 16s linear infinite;"></div>
+              
+              <!-- Planetas -->
+              <!-- Mercurio -->
+              <div style="position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; background: #94a3b8; border-radius: 50%; margin: -64px 0 0 -4px; animation: orbit 8s linear infinite; box-shadow: 0 0 8px #94a3b8;"></div>
+              
+              <!-- Venus (con etiqueta de posición) -->
+              <div style="position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; background: #fbbf24; border-radius: 50%; margin: -10px 0 0 -95px; animation: orbit 12s linear infinite; box-shadow: 0 0 12px #fbbf24;"></div>
+              
+              <!-- Tierra (destacada) -->
+              <div style="position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; background: #22d3ee; border-radius: 50%; margin: -125px 0 0 -6px; animation: orbit 16s linear infinite; box-shadow: 0 0 15px #22d3ee; z-index: 5;"></div>
+              
+              <!-- Etiqueta de la Tierra -->
+              <div style="position: absolute; top: 50%; left: 50%; margin: -140px 0 0 15px; background: rgba(0, 0, 0, 0.8); color: #22d3ee; padding: 0.3em 0.8em; border-radius: 6px; font-size: 0.8em; font-weight: 600; animation: orbit 16s linear infinite; z-index: 6;">🌍 Tierra</div>
+              
+              <!-- Coordenadas dinámicas -->
+              <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(0, 0, 0, 0.8); color: #60a5fa; padding: 0.8em; border-radius: 8px; font-size: 0.8em; border: 1px solid #60a5fa;">
+                <div style="margin-bottom: 0.3em;"><strong>Posición Tierra:</strong></div>
+                <div style="font-family: monospace;">RA: 12h 30m 45s</div>
+                <div style="font-family: monospace;">Dec: +23° 27' 30"</div>
+              </div>
+              
+              <!-- Indicador de escala -->
+              <div style="position: absolute; top: 20px; right: 20px; background: rgba(0, 0, 0, 0.8); color: #34d399; padding: 0.8em; border-radius: 8px; font-size: 0.8em; border: 1px solid #34d399;">
+                <div><strong>Escala:</strong></div>
+                <div>1 AU = 150M km</div>
+              </div>
+            </div>
+            
+            <p style="color: #94a3b8; font-weight: 600; margin-top: 1.5em; font-size: 1em;">
+              <i class="fas fa-info-circle" style="color: #60a5fa; margin-right: 0.5em;"></i>
+              Posiciones planetarias en coordenadas heliocéntricas
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ==========================================
+         🛤️ TRAYECTORIA: EL CAMINO DE LA EVOLUCIÓN
+         ========================================== -->
+    <div style="background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%); border-radius: 20px; padding: 2.5em; margin-bottom: 3em; border: 3px solid #fb923c; position: relative; overflow: hidden;">
+      
+      <div style="position: relative; z-index: 1;">
+        <h3 style="color: #ffffff; font-size: 2.4em; margin-bottom: 1.5em; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+          <i class="fas fa-route" style="color: #fbbf24; animation: pathTrace 6s ease-in-out infinite;"></i>
+          Trayectoria: Los Caminos de la Naturaleza
+          <span style="font-size: 0.6em;">🛤️🌈</span>
+        </h3>
+        
+        <!-- Introducción inspiradora -->
+        <div style="background: rgba(255, 255, 255, 0.15); padding: 2em; border-radius: 15px; margin-bottom: 2.5em; text-align: center; border: 2px solid rgba(255, 255, 255, 0.2);">
+          <p style="color: #ffffff; font-size: 1.3em; line-height: 1.8; margin-bottom: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">
+            Desde la <strong style="color: #fbbf24;">espiral dorada</strong> de una galaxia hasta el <strong style="color: #22d3ee;">vuelo en ocho</strong> de una abeja, 
+            la naturaleza dibuja patrones fascinantes en el espacio. Cada trayectoria cuenta una historia de fuerzas, energía y evolución.
+          </p>
+          <p style="color: #fed7aa; font-size: 1.1em; line-height: 1.6; font-style: italic; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+            "La línea más hermosa es la que traza la vida moviéndose a través del cosmos" ✨
+          </p>
+        </div>
+        
+        <!-- Grid de trayectorias fascinantes -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2em;">
+          
+          <!-- Trayectoria Helicoidal -->
+          <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); padding: 2.5em; border-radius: 18px; border: 3px solid #6366f1; text-align: center; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2); transition: transform 0.3s ease; position: relative; overflow: hidden;">
+            
+            <!-- Efecto de partículas helicoidales -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M30 10 Q45 30 30 50 Q15 30 30 10\" stroke=\"%236366f1\" stroke-width=\"1\" fill=\"none\" opacity=\"0.1\"/%3E%3C/svg%3E') repeat; animation: helixFlow 8s linear infinite;"></div>
+            
+            <div style="position: relative; z-index: 1;">
+              <div style="margin-bottom: 1.5em;">
+                <div style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);">
+                  <i class="fas fa-dna" style="color: white; font-size: 2em;"></i>
+                </div>
+              </div>
+              
+              <h4 style="color: #1e40af; margin-bottom: 1em; font-size: 1.5em; font-weight: 700;">HELICOIDAL</h4>
+              
+              <div style="background: rgba(99, 102, 241, 0.1); padding: 1.5em; border-radius: 12px; margin-bottom: 1.5em; border-left: 4px solid #6366f1;">
+                <p style="color: #374151; font-size: 1.05em; line-height: 1.6; margin: 0;">
+                  Como una <strong style="color: #1e40af;">escalera de caracol cósmica</strong>. 
+                  El ADN, los resortes y hasta el sistema solar siguiendo la Vía Láctea.
+                </p>
+              </div>
+              
+              <div style="background: #f1f5f9; padding: 1.2em; border-radius: 10px; border: 1px solid #e2e8f0;">
+                <p style="color: #64748b; font-size: 0.95em; margin: 0;">
+                  <strong style="color: #374151;">Ejemplos fascinantes:</strong><br>
+                  🧬 Doble hélice del ADN<br>
+                  🌀 Galaxias espirales<br>
+                  🐚 Concha del nautilus
+                </p>
+              </div>
+            </div>
+          </div>
+          
+
+  <!-- ============================================
+       🌌 SECCIÓN 5: Historia - Orientación con la Estrella Polar y la Osa Mayor
+       ============================================ -->
+
+
+  <!-- ============================================
+       📍 SECCIÓN 6: Posición en 1, 2 y 3 dimensiones (con diagramas)
+       ============================================ -->
+
+  <!-- ============================================
+       📊 SECCIÓN 7: Coordenadas y vector de posición
+       ============================================ -->
+
+  <!-- ============================================
+       🔄 SECCIÓN 8: Desplazamiento, velocidad, rapidez y aceleración (con fórmulas y ejemplos)
+       ============================================ -->
+
+  <!-- ============================================
+       ⚙️ SECCIÓN 9: Mecánica, ramas y conceptos (cinemática, dinámica, estática)
+       ============================================ -->
+
+  <!-- ============================================
+       🚀 SECCIÓN 10: Recursos interactivos y actividades
+       ============================================ -->
+
+  <!-- ============================================
+       🎓 SECCIÓN 11: Resumen, curiosidades y cierre
+       ============================================ -->
+
+</body>
+</html>
